@@ -1,0 +1,7 @@
+name: Tech Blog
+markdown: rdiscount
+pygments: true
+paginate: 5
+relative_permalinks: true
+# baseurl: /~espdallo/tech/
+permalinks: /:year/:month/:day/:title.html
