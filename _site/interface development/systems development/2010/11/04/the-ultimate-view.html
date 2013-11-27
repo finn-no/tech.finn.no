@@ -1,0 +1,624 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - the ultimate view</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>the ultimate view</h1>
+<p class="meta">04 Nov 2010 by  in </p>
+
+<div class="post">
+<blockquote><p><strong>This article has been rewritten for Tiles-3.</strong><br/>
+Redirecting to <a href="http://tech.finn.no/the-ultimate-view-tiles-3/">tech.finn.no/the-ultimate-view-tiles-3/</a> ...</p></blockquote>
+
+<pre><code>A story of getting the View layer up and running quickly in Spring, using Tiles with wildcards, fallbacks, and definition includes, to use the Composite pattern and Convention over Configuration providing a minimal ongoing xml changes.
+</code></pre>
+
+<h2>Summary</h2>
+
+<pre><code>From the architect's perspective you see Apache Tiles as rare exotic Italian marble sheets laid out exquisitely, while the same architect will see SiteMesh as the steel wiring stuck inside the concrete slab. The beauty of the tiles is always admired and a key component in creating an eye-catching surrounding.
+
+![](/wp-content/uploads/2011/01/1351-222x300.jpg)
+</code></pre>
+
+<ul>
+<li><p><a href="/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Summary">Summary</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Background">Background</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/2/">Step 0: Spring to Tiles Integration</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/3/">Step 1: Wildcards</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/4/">Step 2: The fallback pattern</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/5/">Step 3: Definition includes</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/6/">When the Composite pattern is superior</a></p></li>
+<li><p><a href="/2010/11/04/the-ultimate-view/6#theultimateview-part1-Conclusion">Conclusion</a></p></li>
+</ul>
+
+
+<h2>Background</h2>
+
+<pre><code>At FINN.no we were redesigning our control and view layers. We, being the architectural team of six, had already decided on Spring-Web as a framework for the control layer due to its flexibility and a design for us providing better, simpler, migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why for practical purposes sitemesh gives the front end developer more flexibility and less xml editing. But we knew sitemesh has some serious shortcomings...
+
+![](/wp-content/uploads/2011/01/images.jpe)
+
+**SiteMesh shortcomings:**
+</code></pre>
+
+<ul>
+<li><p>from a design perspective the Decorator pattern doesn't combine with MVC as elegantly as the Composite pattern does</p></li>
+<li><p>requires to hold all possible html for a request in buffer requiring large amounts of memory</p></li>
+<li><p>unable to flush the response before the response is complete</p></li>
+<li><p>requires more overall processing due to the processing of all the potentially included fragments</p></li>
+<li><p>does not guaranteed thread safety</p></li>
+<li><p>does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward</p>
+
+<p>One of the alternatives we looked at was <a href="http://tiles.apache.org/">Apache Tiles.</a> It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a <a href="http://tiles.apache.org/tutorial/advanced/preparer.html">ViewPreparer</a>. This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the ball onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.</p>
+
+<p>Yet the most valuable benefit Tiles was going to offer wasn't realised until we <a href="/2010/11/04/the-ultimate-view/2/">started experimenting a little more...</a></p></li>
+</ul>
+
+
+<h2>Step 0: Spring to Tiles Integration</h2>
+
+<pre><code>The first step was integrating [Tiles and Spring](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles) together. There exists tutorials on this already, it boils down to registering both a ViewResolver and a TilesConfigurer in your spring-web configuration.
+
+
+
+
+    &lt;bean id="viewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver"&gt;
+        &lt;property name="order" value="1"/&gt;
+        &lt;property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/&gt;
+    &lt;/bean&gt;
+    &lt;bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"&gt;
+        &lt;property name="tilesInitializer"&gt;
+            &lt;bean class="no.finntech.control.servlet.tiles.FinnTilesInitialiser"/&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+
+
+
+The TilesConfigurer hooks into the "tilesInitializer" class that you must supply yourself. This is the new way in Tiles-2 of providing the [configuration](http://tiles.apache.org/config-reference.html). Our FinnTilesInitialiser looks like
+
+
+
+
+    public class FinnTilesInitialiser extends AbstractTilesInitializer {
+        public FinnTilesInitialiser() {}
+
+        @Override
+        protected AbstractTilesContainerFactory createContainerFactory(TilesApplicationContext context) {
+            return new FinnTilesContainerFactory();
+        }
+    }
+</code></pre>
+
+<h2>Step 1: Wildcards</h2>
+
+<pre><code>![create these files and folders](/wp-content/uploads/2010/12/Screenshot1-149x300.png)
+Here we hit Tiles' most obvious downfall: every single jsp included must be declared in a definition in the tiles.xml file. Anyone that ever tried Tiles-1 knows this bad smell.
+
+Tiles-2 though provides a way to avoid it by using [wildcards](http://tiles.apache.org/framework/tutorial/advanced/wildcard.html), and when i hear people talking about tiles it's clear this Tiles-2 "dynamic composite" paradigm hasn't really caught on.
+
+Let's declare a definition and template like (and create some files and folders as shown to the right):
+
+
+//--tiles.xml
+    &lt;definition name="REGEXP:(.+)" template="/WEB-INF/tiles/template.jsp"&gt;
+        &lt;put-attribute name="meta" value="/WEB-INF/tiles/{1}/meta.jsp"/&gt;
+        &lt;put-attribute name="header" value="/WEB-INF/tiles/{1}/header.jsp"/&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/{1}/body.jsp"/&gt;
+        &lt;put-attribute name="footer" value="/WEB-INF/tiles/{1}/footer.jsp"/&gt;
+    &lt;/definition&gt;
+
+
+
+
+
+
+ //--template.jsp
+    &lt;!DOCTYPE html&gt; 
+    &lt;%@ prefix="tiles" taglib uri="http://tiles.apache.org/tags-tiles" %&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    &lt;tiles:insertAttribute name="meta"/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;div id="header"&gt;&lt;tiles:insertAttribute name="header"/&gt;&lt;/div&gt;
+    &lt;div id="body"&gt;&lt;tiles:insertAttribute name="body"/&gt;&lt;/div&gt;
+    &lt;div id="footer"&gt;&lt;tiles:insertAttribute name="footer"/&gt;&lt;/div&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+
+
+
+Now our Spring controller can return definitions that match the names of the folder containing meta, header, body, and footer.
+
+Now we that we have three ready to go definitions "cat", "dog", and "cow". Spring controllers can now use them like this
+
+
+
+
+    @Controller
+    public class MyWebsite{
+        @RequestMapping("/cat")
+        public ModelAndView viewCat(){
+            Map modelMap = new HashMap();
+            //...
+            return new ModelAndView("cat", modelMap);
+        }
+        @RequestMapping("/dog")
+        public ModelAndView viewDog(){
+            Map modelMap = new HashMap();
+            //...
+            return new ModelAndView("dog", modelMap);
+        }
+        @RequestMapping("/cow")
+        public ModelAndView viewCow(){
+            Map modelMap = new HashMap();
+            //...
+            return new ModelAndView("cow", modelMap);
+        }
+    }
+
+
+
+
+What's brilliant here is that we can keep adding new definitions and matching jsps in new folders without ever having to edit the xml.
+</code></pre>
+
+<h2>Step 2: The fallback pattern</h2>
+
+<pre><code>![create these files and folders](/wp-content/uploads/2011/01/Screenshot-146x300.png)
+Not having to edit tiles.xml anymore is nice, but as the number of definitions grows the number of duplicated jsps with also grow. For example maybe footer and header are identical in nearly every definition.
+
+Here we looked into writing a custom [AttributeRenderer](http://tiles.apache.org/framework/tutorial/advanced/attribute-rendering.html) to give us such a "fallback pattern".
+
+In the xml the fallbacks are represented within square braces [] where each fallback option follows a pipe character "|". And they are ordered in preference.
+
+Now we introduce a "common" folder for jsps, and our example would turn into
+
+
+
+//--tiles.xml
+    &lt;definition name="REGEXP:(.+)" template="/WEB-INF/tiles/template.jsp"&gt;
+        &lt;put-attribute name="meta" value="/WEB-INF/tiles/[{1}|common]/meta.jsp"/&gt;
+        &lt;put-attribute name="header" value="/WEB-INF/tiles/[{1}|common]/header.jsp"/&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/[{1}|common]/body.jsp"/&gt;
+        &lt;put-attribute name="footer" value="/WEB-INF/tiles/[{1}|common]/footer.jsp"/&gt;
+    &lt;/definition&gt;
+
+
+
+
+The AttributeRenderer, at least a simplified version of it, looks like
+
+
+public class TemplateAttributeRenderer extends org.apache.tiles.renderer.impl.TemplateAttributeRenderer {
+
+        private static final Pattern OPTIONAL_PATTERN 
+                    = Pattern.compile(Pattern.quote("[") + ".+" + Pattern.quote("]"));
+
+        private static final String OPTION_SEPARATOR = Pattern.quote("|");
+
+        @Override
+        public void write(Object obj, Attribute attribute, TilesRequestContext request) throws IOException {
+
+            Matcher matcher = null != obj &amp;&amp; obj instanceof String
+                    ? OPTIONAL_PATTERN.matcher((String) obj)
+                    : null;
+
+            if (null != matcher &amp;&amp; matcher.find()) {
+                PrintWriter writer = request.getPrintWriter();
+                String match = matcher.group();
+                String[] choices = match.substring(1, match.length() - 1).split(OPTION_SEPARATOR);
+                for (int i = 0; i &lt; choices.length &amp;&amp; !done; ++i) {
+                    String template = ((String) obj).replaceFirst(Pattern.quote(match), choices[i]);
+                        try {
+                            if (null != applicationContext.getResource(template)) {
+                                super.write(template, attribute, request);
+                            }
+                        } catch (FileNotFoundException ex) {
+                            if(ex.getMessage().contains(template)){
+                                LOG.trace(ex.getMessage()); // expected outcome. continue loop.
+
+                            }else{
+                              throw ex; // comes from an inner templateAttribute.render(..) so throw on
+                            }
+                        }
+                }
+            } else {
+                super.write(obj, attribute, request);
+            }
+        }
+    }
+
+
+
+To plug this AttributeRenderer make sure your TilesContainerFactory returns it
+
+
+
+    public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
+        ...
+        @Override
+        protected AttributeRenderer createTemplateAttributeRenderer(
+                BasicRendererFactory rendererFactory,
+                TilesApplicationContext applicationContext,
+                TilesRequestContextFactory contextFactory,
+                TilesContainer container,
+                AttributeEvaluatorFactory attributeEvaluatorFactory) {
+
+            TemplateAttributeRenderer templateRenderer = new TemplateAttributeRenderer();
+            templateRenderer.setApplicationContext(applicationContext);
+            templateRenderer.setRequestContextFactory(contextFactory);
+            templateRenderer.setAttributeEvaluatorFactory(attributeEvaluatorFactory);
+            return templateRenderer;
+        }
+        ....
+    }
+
+
+
+As the system developers write new spring controllers creating brand new definitions the front end developers, with this new "Convention over Configuration" Tiles setup, only need to create the  new folder and jsps for fragments they wish to customise. No more xml editing and no duplicate JSPs.
+
+![](/wp-content/uploads/2010/11/information.gif) For a large company this could help enforce UI standards because they have control over the common/ folder - and they can keep an eye that the overrides, the customisations, never become too outlandish, or too out of line, with the standard look of the website. In turn the front end developers can also look back at the common/ folder to see what the expected default should look like.
+</code></pre>
+
+<h2>Step 3: Definition includes</h2>
+
+<pre><code>For a large website these fragments: meta, header, body, and footer; won't be enough. A real website can quickly be using scores of fragments for columns within the body, banners and advertisements, analytics, seo meta data, css and javascript meta includes, etc, etc.
+
+And adding another touch of reality is knowing that these different pages: cat, dog, and cow; for any real website would likely have different "actions". For example view a dog, edit a dog, and search for a dog. Again there'll be a lot of duplicate jsps.
+
+By being able to dynamically inject one tiles definitions into another, a la "definition injection", this was all elegantly handed. Here we're stepping into the Decorator pattern's paradigm, needing to decorate our definitions by extending Tiles' DefinitionFactory. It would also make sense here to take advantage of Tiles' ViewPreparer, but we weren't so clear on the ViewPreparer implementation required, and overriding the DefintionFactory is one accepted way to configure Tiles now.
+
+First of all we change the existing definition names into the form "action.category" making the controller(s) now look like
+
+
+
+
+    @Controller
+    @RequestMapping("/cat")
+    public class CatController{
+        @RequestMapping("/cat/view")
+        public ModelAndView viewCat(){ //...
+            return new ModelAndView("view.cat", modelMap);
+        }
+        @RequestMapping("/cat/edit")
+        public ModelAndView editCat(){ //...
+            return new ModelAndView("edit.cat", modelMap);
+        }
+        @RequestMapping("/cat/search")
+        public ModelAndView searchCat(){ //...
+            return new ModelAndView("search.cat", modelMap);
+        }
+    }
+    @Controller
+    @RequestMapping("/dog")
+    public class DogController{
+        @RequestMapping("/dog/view")
+        public ModelAndView viewDog(){/ /...
+            return new ModelAndView("view.dog", modelMap);
+        }
+        @RequestMapping("/dog/edit")
+        public ModelAndView editDog(){ //...
+            return new ModelAndView("edit.dog", modelMap);
+        }
+        @RequestMapping("/dog/search")
+        public ModelAndView searchDog(){ //...
+            return new ModelAndView("search.dog", modelMap);
+        }
+    }
+    @Controller
+    @RequestMapping("/cow")
+    public class CowController{
+        @RequestMapping("/cow/view")
+        public ModelAndView viewCow(){ //...
+            return new ModelAndView("view.cow", modelMap);
+        }
+        @RequestMapping("/cow/edit")
+        public ModelAndView editCow(){ //...
+            return new ModelAndView("edit.cow", modelMap);
+        }
+        @RequestMapping("/cow/search")
+        public ModelAndView searchCow(){ //...
+            return new ModelAndView("search.cow", modelMap);
+        }
+    }
+
+
+
+
+then change the tiles.xml to introduce the definition includes
+
+
+
+
+    //-- tiles.xml
+    &lt;definition name="REGEXP:([^.]+)\.([^.]+)" template="/WEB-INF/tiles/template.jsp"&gt;
+        &lt;put-attribute name="meta" value="/WEB-INF/tiles/[{2}|{1}|common]/meta.jsp"/&gt;
+        &lt;put-attribute name="header" value="/WEB-INF/tiles/[{2}|{1}|common]/header.jsp"/&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/[{2}|{1}|common]/body.jsp"/&gt;
+        &lt;put-attribute name="footer" value="/WEB-INF/tiles/[{2}|{1}|common]/footer.jsp"/&gt;
+
+        &lt;!-- definition injection performed by DefinitionInjectingContainerFactory.instantiateDefinitionFactory(..) --&gt;
+        &lt;put-list-attribute name="definition-injection"&gt;
+            &lt;add-attribute value=".category.{2}" type="string"/&gt;
+            &lt;add-attribute value=".action.{1}.{2}" type="string"/&gt;
+        &lt;/put-list-attribute&gt;
+    &lt;/definition&gt;
+
+    //-- tiles-core.xml
+    &lt;definition name="REGEXP:\.action\.view\.([^.]+)"&gt;
+        &lt;!-- override attributes --&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/[{2}|{1}|view]/view_body.jsp"/&gt;
+        &lt;!-- search attributes --&gt;
+        &lt;put-attribute name="view.content" value="/WEB-INF/tiles/[{2}|{1}|view]/view_content.jsp"/&gt;
+        &lt;put-attribute name="view.statistics" value="/WEB-INF/tiles/[{2}|{1}|view]/view_statistics.jsp"/&gt;
+    &lt;/definition&gt;
+    &lt;definition name="REGEXP:\.action\.edit\.([^.]+)"&gt;
+        &lt;!-- override attributes --&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/[{2}|{1}|edit]/edit_body.jsp"/&gt;
+        &lt;!-- edit attributes --&gt;
+        &lt;put-attribute name="edit.form" value="/WEB-INF/tiles/[{2}|{1}|view]/edit_form.jsp"/&gt;
+        &lt;put-attribute name="edit.status" value="/WEB-INF/tiles/[{2}|{1}|view]/edit_status.jsp"/&gt;
+    &lt;/definition&gt;
+    &lt;definition name="REGEXP:\.action\.search\.([^.]+)"&gt;
+        &lt;!-- override attributes --&gt;
+        &lt;put-attribute name="body" value="/WEB-INF/tiles/[{2}|{1}|search]/search_body.jsp"/&gt;
+        &lt;!-- search attributes --&gt;
+        &lt;put-attribute name="search.form" value="/WEB-INF/tiles/[{2}|{1}|search]/search_form.jsp"/&gt;
+        &lt;put-attribute name="search.results" value="/WEB-INF/tiles/[{2}|{1}|search]/search_results.jsp"/&gt;
+    &lt;/definition&gt;
+    //-- tiles-cat.xml
+    &lt;definition name="REGEXP:\.category\.cat"&gt;
+        &lt;!-- cat attributes --&gt;
+        &lt;put-attribute name="cat.extra_information" value="/WEB-INF/tiles/[{2}|{1}|cat]/cat_extra_information.jsp"/&gt;
+        &lt;put-attribute name="cat.feline_attributes" value="/WEB-INF/tiles/[{2}|{1}|cat/cat_feline_attributes.jsp"/&gt;
+    &lt;/definition&gt;
+    //-- tiles-dog.xml
+    &lt;definition name="REGEXP:\.category\.dog"&gt;
+        &lt;!-- cat attributes --&gt;
+        &lt;put-attribute name="dog.extra_information" value="/WEB-INF/tiles/[{2}|{1}|dog]/dog_extra_information.jsp"/&gt;
+        &lt;put-attribute name="dog.k9_attributes" value="/WEB-INF/tiles/[{2}|{1}|dog/dog_k9_attributes.jsp"/&gt;
+    &lt;/definition&gt;
+    //-- tiles-cow.xml
+    &lt;definition name="REGEXP:\.category\.cow"&gt;
+        &lt;!-- cat attributes --&gt;
+        &lt;put-attribute name="cow.extra_information" value="/WEB-INF/tiles/[{2}|{1}|cow]/cow_extra_information.jsp"/&gt;
+        &lt;put-attribute name="cow.farm" value="/WEB-INF/tiles/[{2}|{1}|cow/cow_farm.jsp"/&gt;
+    &lt;/definition&gt;
+
+
+
+
+There's a lot of configuration here now, but the idea isn't to avoid configuration altogether but to avoid having to edit the configuration everytime a new jsp or page is created.
+
+Take note there's a clear separation now between each category definition and each action definition. For example such separation helps various development roles work in parallel: front end developers can concentrate on categorical designs while system developers often work initially with actions jsps to get them functionally working before passing them off to the front end developers. But of course such separation of concerns will show benefits in many more ways that just this example.
+
+The following DefinitionsFactory makes this all come together
+
+
+
+
+    public class FinnUnresolvingLocaleDefinitionsFactoryImpl extends UnresolvingLocaleDefinitionsFactory {
+
+        private static final String DEF_INJECTION = "definition-injection";
+
+        public FinnUnresolvingLocaleDefinitionsFactoryImpl() {}
+
+        // this method can return null
+        // injected definitions are expected to have "." prefix
+        @Override
+        public Definition getDefinition(String name, TilesRequestContext tilesContext) {
+            Definition def = null;
+            // WEB-INF is a pretty clear indicator it is not a definition
+            if(!name.startsWith("/WEB-INF/")){
+                def = super.getDefinition(name, tilesContext);
+                if(null != def){
+                    // use a safe copy
+                    def = new Definition(def);
+                    // explicit injected definitions
+                    Attribute defList = def.getLocalAttribute(DEF_INJECTION);
+                    if(null != defList &amp;&amp; defList instanceof ListAttribute){
+                        List list = (List) defList.getValue();
+                        for(Attribute inject : list){
+                            injectDefinition((String) inject.getValue(), def, tilesContext);
+                        }
+                    }
+                }
+            }
+            return def;
+        }
+
+        private void injectDefinition(String fromName, Definition to, TilesRequestContext cxt) {
+            assert null != fromName : "Definition not found " + fromName;
+            assert fromName.startsWith(".") : "Injected definitions must have \".\" prefix: " + fromName;
+            Definition from = getDefinition(fromName, cxt);
+            if (null != from) {
+                if (null != from.getLocalAttributeNames()) {
+                    for (String attrName : from.getLocalAttributeNames()) {
+                        to.putAttribute(attrName, from.getLocalAttribute(attrName), true);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+To plug this DefinitionsFactory in again make sure to return it from your TilesContainerFactory
+
+
+
+
+    public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
+        ...
+        @Override
+        protected UnresolvingLocaleDefinitionsFactory instantiateDefinitionsFactory(
+                final TilesApplicationContext applicationContext,
+                final TilesRequestContextFactory contextFactory,
+                final LocaleResolver resolver) {
+
+            return new FinnUnresolvingLocaleDefinitionsFactoryImpl();
+        }
+        ...
+    }
+</code></pre>
+
+<h2>When the Composite pattern is superior</h2>
+
+<pre><code>It's nonsense to think that any one pattern is _better_. Both the Composite pattern and the Decorator pattern have their strengths and weaknesses, even after we have progressed the Composite on to being highly dynamic and automated. They do, and achieve, quite different things and hence each should be used where applicable...
+
+![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern) allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
+
+![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern) presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
+
+
+
+When you use jsp includes whether you like it or not you have a page heirarchy. If your jsps typically have a template with fragments you are already working within the composite pattern's paradigm: the template being the "composite" and the fragments being the components. Each fragment, each JSP, has a context that holds the model map, or variables, in various scopes, and within this context they are self-sufficient. The only operation required upon them by others is inclusion. Applying the composite pattern here means treating each fragment as a self-sufficient object, the only thing that can happen to it is it will be included.
+
+This shows how we can design to reduce complexity and encourage there to be only one unified context.
+
+It also shows how we can maintain a top-down control of the page's heirarchy, something necessary in a MVC design where the control layer wants to hand off a finished model map, ie a fixed context, that the view layer is free to build itself off. In contrast when we choose the Decorator pattern we can run foul of letting code run in parallel to the MVC pattern.     
+
+
+![](/wp-content/uploads/2010/11/patterns-flow.gif)
+</code></pre>
+
+<h2>Conclusion</h2>
+
+<pre><code>Front end developers, the system developers, and the architects need to work together. With the front end today often centered around loose coupling design: javascript's lack of type safety, ajax's separation from the server, and jQuery's liberation of the dom; it is all too easy to rebel against any form of structure or organisation for fear of being tied into the formalities of the strict-typed java world.
+
+Neither should the fear of giving up control of one's craftsmanship mean keeping logic and control in the View layer, this stuff belongs in the Control layer: and this means the system developers need to work harder to get the front end developers collaborating in the control layer. What's too easily forgotten is that everything has entropy, and the larger the organisation, the larger the codebase, the less you fight the entropy, the quicker you end up with just a pile of spaghetti in your lap.
+
+The four steps gone through in this article show you how Tiles-2 and the Composite pattern can be ramped up on steroids to give front end and systems developers what they want hopefully in a way that encourages them to work together.
+
+
+
+
+**References**
+</code></pre>
+
+<ol>
+<li><p> <a href="http://tiles.apache.org">Tiles-2</a></p></li>
+<li><p> <a href="http://en.wikipedia.org/wiki/Composite_pattern">Composite pattern</a></p></li>
+<li><p> <a href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a></p></li>
+<li><p> <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/spring-web.html">Spring Web</a></p></li>
+<li><p> Integrating <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles">Tiles and Spring</a></p></li>
+<li><p> Initial discussion regarding Tiles <a href="http://old.nabble.com/howto-delegate-to-other-definitions---td27516586.html">definition delegation</a></p></li>
+<li><p> Spring >3.0.1 required to work with Tiles-2.2+ :: <a href="http://jira.springframework.org/browse/SPR-6097">TilesConfigurer does not ...</a></p>
+
+<p><a href="http://jira.springframework.org/browse/SPR-6097"> </a></p></li>
+</ol>
+
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - Putting a mustache on Tiles-3</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>Putting a mustache on Tiles-3</h1>
+<p class="meta">15 May 2012 by  in </p>
+
+<div class="post">
+<p>We're proud to see a contribution from one of our developers end up in the Tiles-3 release!</p>
+
+<p>The front-end architecture of FINN.no is evolving to be a lot more advanced and a lot more work is being done by client-side scripts. In order to maintain first time rendering speeds and to prevent duplicating template-code we needed something which allowed us to reuse templates both client- and server-side. This is where <a href="http://mustache.github.com/">mustache templates</a> have come into play. We could've gone ahead and done a large template framework review, like others have done, but we instead opted to just solve the problem with the technology we already had.</p>
+
+<p>Morten Lied Johansen's <a href="http://tiles.apache.org/tiles-request/xref/org/apache/tiles/request/mustache/MustacheRenderer.html">contribution</a> allows Tiles-3 to render mustache templates. Existing jsp templates can be rewritten into mustache without having to touch surrounding templates or code!</p>
+
+<h2>The code please</h2>
+
+<p>To get Tiles-3 to do this include the tiles-request-mustache library and configure your TilesContainerFactory like</p>
+
+<pre><code>    protected void registerAttributeRenderers(...) {
+        MustacheRenderer mustacheRenderer = new MustacheRenderer();
+        mustacheRenderer.setAcceptPattern(Pattern.compile(".*.mustache"));
+        rendererFactory.registerRenderer("mustache", mustacheRenderer);
+        ...
+    }
+    protected Renderer createTemplateAttributeRenderer(...) {
+        final ChainedDelegateRenderer chainedRenderer = new ChainedDelegateRenderer();
+        chainedRenderer.addAttributeRenderer(rendererFactory.getRenderer("mustache"));
+        ...
+    }
+</code></pre>
+
+<p>then you're free to replace existing tiles attributes like</p>
+
+<pre><code>&lt;put-attribute name="my_template" value="/WEB-INF/my_template.jsp"&gt;&lt;/put-attribute&gt;
+</code></pre>
+
+<p>with stuff like</p>
+
+<pre><code>&lt;put-attribute name="my_template" value="/my_template.mustache"&gt;&lt;/put-attribute&gt;
+</code></pre>
+
+<p>Good stuff FINN!</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

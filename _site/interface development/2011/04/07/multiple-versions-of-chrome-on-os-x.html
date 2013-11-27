@@ -1,0 +1,135 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - Multiple versions of Chrome on OS X</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>Multiple versions of Chrome on OS X</h1>
+<p class="meta">07 Apr 2011 by  in </p>
+
+<div class="post">
+<p>As a professional web developer you should use the bleeding version of Google Chrome, so you're prepared what your users will see a few weeks ahead. But the dev version tends to be a bit more buggy (naturally), and you have to test that your page works with both the beta and the stable version. Google Chrome has a command-line parameter to specify another profile, but it's a bit tricky to add command-line parameters to a Mac application. Yesterday I found a <a href="http://blog.duoconsulting.com/2011/03/13/multiple-profiles-in-google-chrome-for-os-x/">blog-post by Duo Consulting</a>. They have made a nice little script that will generate an app with the profile you specify. I modified it a bit to allow running different versions of Google Chrome as well as a profile for each of them.</p>
+
+<p>To make the install process even easier for others I've zipped the generated applications (they just contain a script).
+<img src="http://tech.finn.no/wp-content/uploads/2011/04/Screen-shot-2011-04-07-at-14.35.27-300x92.png" alt="" /></p>
+
+<p><em>Disclaimer: Each version will have it's own profile, so you have to set up each one from scratch with bookmarks, plugins and everything else. As Scott mentions in the comments, you can use the sync feature in Chrome to keep the installations in sync.</em></p>
+
+<ol>
+<li><p> First <a href="http://www.chromium.org/getting-involved/dev-channel">download each version</a> and rename the original Google Chrome apps to "Google Chrome Stable", "Google Chrome Beta" and "Google Chrome Dev" and put them in Applications <strong>under your user folder</strong>.
+I.e.: /Users/gregers/Applications/</p></li>
+<li><p> Unzip <a href="http://tech.finn.no/wp-content/uploads/2011/04/Chrome-Trio.zip">Chrome-Trio.zip</a> and put the apps in /Applications</p></li>
+<li><p> Don't select any of them as default browser, since that will use the default profile instead of the custom. Instead start Safari -> Preferences -> General -> Default web browser -> Select... -> Go to /Applications and choose the version of Chrome you want as default :)</p></li>
+</ol>
+
+
+<p>If you're interested in the script I used to make the wrapper-apps. You can find it here: <a href="http://pastebin.com/gPSdNi40">http://pastebin.com/gPSdNi40</a></p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

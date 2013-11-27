@@ -1,0 +1,495 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - developers at FINN blogging about technology</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          
+  <h1><a href="behind%20the%20scenes/systems%20development/2012/09/04/leaving-the-tower-of-babel.html">Leaving the Tower of Babel</a></h1>
+  url=/behind%20the%20scenes/systems%20development/2012/09/04/leaving-the-tower-of-babel.html
+  <p class="author">
+    <span class="date">2012-09-04 09:48:05 UTC</span>
+  </p>
+  <div class="content">
+    <p>Here at FINN we use mostly Java for our day-to-day work, but we do have some applications and modules written in other languages. We currently have code in Java, Ruby, JavaScript, Objective-C and Scala, supporting things as diverse as testing frameworks and iOS-apps.</p>
+
+<p>Recently there has been some discussion with regards to what we should be using for new projects, as each team of developers start suggesting that they should use something they think would be easier and more effective. The arguments against are based on how easy it would be to recruit new developers who know these new technologies, how well it would perform under our kinds of loads, and wheter the assumption that we can be more effective is actually true.</p>
+
+<p>Our strategy is firm on this point, that experiments can be done, but for major applications serving the public, we should be using Java for the time being. We are however considering if it's time to take a second look at our chosen languages, and see if we should expand our portfolio. This strategy is founded on a wish to reduce the size of our technology portfolio, so that we don't have to spend time and effort to bring developers up to speed when they switch teams. There's also a higher chance that new hires will be familiar with Java, while other technologies would often require a period of training when they first start.</p>
+
+<p>During these discussions, we created a quick poll and sent it out on our internal discussionboard. The poll asked questions like "How long have you worked as a developer?", "Which language do you use for your day-to-day work?", "If you were free to chose, which language would you use for your next project?" and "Which programming languages do you know?". Our definition of "know" was very open in this poll, lowering the bar to allow people who had maybe written a single example program, and understands a bit of code could check the box.</p>
+
+<p>Out of the nearly 100 people that work with development, 56 answered. We can assume that the people who did answer, were the people who were interested in the topic, and might not be a representative selection, but the results are interesting none the less.</p>
+
+<p>So.. what did we learn?</p>
+
+<h3>Experience</h3>
+
+<p>Being a poll made in the midst of a discussion, mostly for fun, this part of the poll wasn't framed in a way that gives us much useful information. We can say that the average developer who answered has worked for around seven or eight years, but with what looks like a reasonably fair spread across all groups. Almost as many with a couple years experience, as there are people with 10 to 15 years.</p>
+
+<h3>Primary language in day-to-day work</h3>
+
+<p>Being a predominatly Java shop, most of the respondents were using Java for their daily work. 35 out of 56 were Java-developers. 11 respondents worked with JavaScript daily, while four worked with Scala, three with Ruby, two with Objective-C, and finally one database-developer who worked mostly in T-SQL (The SQL-variant used in Sybase).</p>
+
+<h3>Most popular choice if allowed to chose freely</h3>
+
+<p>The most interesting part of the poll, with many interesting insights. This is also the most loaded part, as the results could easily short-circuit any discussion about future choice in language.</p>
+
+<p>The bad news (or good, depending on your point of view), is that there was no clear answer from this section. Keep in mind that around 40 people didn't answer this poll, and could be assumed to be content with the current status-quo.</p>
+
+<p>The biggest group was Java, not surprisingly. The surprising part is that it was only 16 people who would chose Java if they could chose freely. This is much lower than expected, but still make up the largest group. Of these, 13 people are already using Java today. 20 Java developers would like to use something else.</p>
+
+<p>So, if Java was the largest group, at 16 people, what does that mean for the remainder of the results? Well, 10 people would have chosen Scala, while JavaScript, Ruby, Clojure and Groovy clock in at about four or five respondents wanting to use them. At the bottom of the pack we have Python and Objective-C with three and two respondents chosing them.</p>
+
+<p>Six people were interested enough to answer the poll, but chose the non-commitant "I don't care, as long as I'm making good stuff for our users" option.</p>
+
+<p>The number of possible answers here was a rather large selection of popular and not-so-popular-but-quite-well-known languages, so the fact that the list only includes eight languages is a sign that it's not a completely random selection. Still, quite a lot of discussion is needed before any one of those languages gets center stage.</p>
+
+<p>A couple curious details found in this part of the poll includes the fact that the only people who would chose JavaScript are people who are already working in JavaScript every day. Groovy, Clojure, Objective-C and Scala have all managed to be chosen by a person who doesn't actually know the langauge. There's only three people who would switch <em>to</em> Java, if allowed to chose.</p>
+
+<h3>Which languages do we "know"?</h3>
+
+<p>As mentioned earlier, the bar for "knowing" a language was set quite low in this poll, to get more diversity in answers. This resulted in some interesting numbers.</p>
+
+<p>Being primarily a Java-shop, it might not surprise anyone that a full 100% knows Java. A little over three fourths know JavaScript, while Ruby and T-SQL was known to about half. These are the main languages most of us have some sort of dealings with in our daily work, so that they score high is not surprising.</p>
+
+<p>Next on the list is PHP and Python, with around 40% knowing them.</p>
+
+<p>We run primarily Sybase for our databases, with a small number of MySQL and PostgreSQL servers for smaller applications and modules. We are trying to standardise on PostgreSQL, but this isn't reflected in knowledge, with 37.5% knowing how to code MySQL-procedures, 35.7% knowing how to code for Oracle, and only 25% knowing their way around a PostgreSQL codebase.</p>
+
+<p>Our operations-department have had a "vendetta" against Perl for several years, but there are still more people who knows Perl than there are people who knows Scala, with the score 18 to 15. Groovy has quite a following too, with 13 respondents knowing Groovy.</p>
+
+<p>We have a small Apps team working with iOS-development, but Objective-C has a reach far outside that team, with 10 respondents knowing Objective-C.</p>
+
+<p>Common Lisp is known to five respondents, while Clojure suprisingly was only known to seven respondents. As you can read elsewhere in this blog, we had a Clojure workshop at our Technology Day earlier this summer, and these results might be telling us something about the language or our teachers when it didn't have a better ability to "stick" than this.</p>
+
+<p>We also have people who know some Erlang, Smalltalk, Lua, Haskell, Scheme, Eiffel and ML/SML.</p>
+
+<h3>How many languages do we "know"?</h3>
+
+<p>On average, we know 6.8 languages each. The most knowledgeable person knows 16 languages, while the least knowledgeable knows only one. The high experience respondents, 16 years or more, have a higher average than the rest of us, with 9.4, while the rest of the "experience brackets" know somewhere between six and seven languages.</p>
+
+<p>Several programmer-gurus seem to think you should stribe to teach yourself one new language every year, and it would seem atleast one of our respondents have been able to follow this advice. For those of us with less extra time, a less ambitious strategy might be more compatible, but that we should stribe to learn something new every once in a while seems to be good advice.</p>
+
+<h3>Now what?</h3>
+
+<p>As mentioned previously, this poll was not a serious attemt at gaining actionable insights. The results should be taken with a large helping of salt, and at most used as a basis for discussions. On the other hand, I know we will be discussing this topic going forward, because the fact that only 16 of 56 wanted to use Java is telling us it's time to start the discussion. There are possibly 40 developers who would prefer Java, who didn't respond, so it's too early to draw conclusions, but we have a place to start.</p>
+
+<p>There are other questions falling out of this too:</p>
+
+<ul>
+<li><p>There are two developers who wants to work with Objective-C, and eight Java-developers who wants to work with Scala, so why do we have so few internal applicants when we have openings on the teams working with these languages?</p></li>
+<li><p>What is it that makes developers want to work with languages they don't even know?</p></li>
+<li><p>Of the respondents, more than half the Java-developers wants to use something else. Why is that?</p></li>
+</ul>
+
+
+  </div>
+  <p>2012-09-04 09:48:05 UTC by mortenlj in behind the scenessystems development</p>
+  <hr>
+
+  <h1><a href="systems%20development/2012/08/06/foraging-in-the-landscape-of-big-data.html">Foraging in the landscape of Big Data</a></h1>
+  url=/systems%20development/2012/08/06/foraging-in-the-landscape-of-big-data.html
+  <p class="author">
+    <span class="date">2012-08-06 09:26:27 UTC</span>
+  </p>
+  <div class="content">
+    <p><img src="/wp-content/uploads/2012/08/salamander.gif" alt="" /> 
+This is the first article describing FINN.no's coming of age with Big Data. It'll cover the challenges arising the need for it, the challenges in accomplishing new goals with new tools, and the challenges that remain ahead.</p>
+
+<p>Big Data is for many just another vague and hyped up trend getting more than its far share of attention. The general definition, from <a href="http://en.wikipedia.org/wiki/Big_data">Wikipedia</a>, is big data covers the scenario where existing tools fail to process the increasing amount or dimensions of data. This can mean anything from:</p>
+
+<p><strong>α</strong> – the existing tools being poor <em>(while large companies pour $$$ into scaling existing solutions up)</em> or
+<strong>β</strong> – the status quo requiring more data to be used, to
+<strong>γ</strong> – a requirement for faster and more connected processing and analysis on existing data.</p>
+
+<p><a href="http://navajonationparks.org"><img src="/wp-content/uploads/2012/08/21603273182394671_O5rG91sY_f-e1344176794222.jpg" alt="http://navajonationparks.org" /></a>The latter two are also described as big data's <a href="http://www.greenbookblog.org/2012/03/21/big-data-opportunity-or-threat-for-market-research/">three V</a>'s: Volume, Variety, Velocity. If the theoretical definition isn't convincing you put it into context against some of today's big data crunching use-cases...<em>
+• online advertising combining content analysis with behavioural targeting,
+• biomedical's DNA sequence tagging,
+• pharmaceutics's metabolic network modelling,
+• health services detecting disease/virus spread via internet activity &amp; patient records,
+• the financial industry ranging from credit scores at retail level to quant trading,
+• insurance companies crunching actuarial data,
+• US defence programs for offline (ADAMS) and online (CINDER) threat detection,
+• environmental research into climate change and atmospheric modelling, and
+• neuroscience research into mapping the human brain's neural pathways.</em></p>
+
+<p>On the other hand big data is definitely no silver bullet. It cannot give you answers to questions you haven't yet formulated (pattern recognition aside), and so it doesn't give one excuses to store overwhelming amounts of data where the potential value in it is still <a href="http://seekingalpha.com/article/441171-beware-the-hype-over-big-data-analytics">undefined</a>. And it certainly won't make analysis of existing data sets initially any easier. In this regard it's less to do with the difficulty of achieving such tasks and more to do with the potential to solve what was previously impossible.</p>
+
+<p>Often companies can choose their direction and the services they will provide, but in any competitive market where one fails to match the competitor's offerings it can result in the fall of that company. Here Big Data earns its hype with many a CEO concerned into paying attention. And it probably gives many CEOs a headache as the possibilities it opens, albeit tempting or necessary, create significant challenges in and of themselves. The multiple vague dimensions of big data also allows the critics plenty of room to manoeuvre.</p>
+
+<p>One can argue that to <a href="http://www.youtube.com/watch?v=zAbFRiyT3LU">scale up</a>: to buy more powerful machines or to buy more expensive software solves the problem (α). If all you have is this problem then sure it's a satisfactory solution. But ask yourself are you successfully solving today's problem while forgetting your future?</p>
+
+<blockquote><p>“If we look at the path, we do not see the sky.” – Native American saying</p></blockquote>
+
+<p>One can also argue away the need for such vasts amounts of data (β). Through various strategies: more aggressive normalisation of the data, storing data for shorter periods, or persisting data in more ways in different places; the size of each individual data set can be significantly reduced. Excessively normalising data has its benefits and is what one may do in the Lean development approach for any new feature or product. Indeed a simpler datamodel trickles through into a simpler application design, in turn leaving more content, more productive, pragmatic developers. Nothing to be scoffed at in the slightest. But in this context the Lean methodology isn't about any one state or snapshot in time illustrating the simple and the minimalistic, rather it's about evolution, the processes involved and their direction. Much like the KISS saying: it's not about doing it simple stupid but about <em>keeping</em> it simple stupid. Here it questions to how does overly normalised data evolve as its product becomes successful and something more complicated over time. Anyone who has had to deal awkwardly with numerous and superfluous tables, joins, and indexes in a legacy application because it failed over time to continually improve its datamodel due to needs of compatibility knows what we're talking about. There is another problem from such legacy applications that follow a datamodel centric design: the datamodel itself becomes a public API and the many consumers of it create this need of compatibility and the resulting inflexible datamodel. But this isn't an underlying but rather overlapping problem as one loses oversight of the datamodel in its completeness and in a way represented optimally.</p>
+
+<p><img src="/wp-content/uploads/2012/08/big-data-300x225.jpg" alt="" /></p>
+
+<p>It also difficult to deny the amount of data we're drowning in today.
+“90% of the data that exists today was created in the last two years.. the sheer volume of social media and mobile data streaming in daily, businesses expect to use big data to aggregate all of this data, extract information from it, and identify value to clients and consumers.. Data is no longer from our normalised datasets sitting in our traditional databases. We're accessing broader, possibly external, sources of data like social media or learning to analyse new types of data like image, video, and audio..” – <a href="http://www.greenbookblog.org/2012/03/21/big-data-opportunity-or-threat-for-market-research/">greenbookblog.org</a>.</p>
+
+<p>And one may also argue that existing business intelligence solutions (can) provide the analysis required from all already existing datasets (γ). It ignores a future of possibilities: take for example the research going into behavioural targeting giving glimpses into the challenges of modern marketing as events and trends spark, shift, and evolve through online social media with ever faster frequencies – just the tip of the iceberg when one thinks forward to being able to connect face and voice recognition to emotional pattern matching analysis. But it also defaults to the conservative opinion that business intelligence need be but a post-mortem analysis of events and trends so to provide the insights intended and required only for internal review. This notion that this large scale analysis is of sole benefit to company strategy must become the tell tale of companies failing to see how users and the likes of social media change dramatically what is possible in product development today.</p>
+
+<p>The methodologies of innovation therefore change. Real time analysis of user behaviour plays a forefront role in decisive actions on what product features and interfaces will become successful. This is the potential to cut down the risk of product development's internal guesswork for a product's popularity at any given point in time. In turn this cuts down time-to-market bringing the products release date closer to its <em>maximum popularity potential moment</em>. Startup companies know that a success doesn't come only from a clever designed product, there is a significant factor of luck involved in releasing the right product at the right time. Large, and very costly, marketing campaigns can only extend, or synthetically create, this potential moment by so much.</p>
+
+<p>This latter point around the extents and performance of big data analysis and the differentiation it creates between business analysis versus richer, more spontaneous, product development and innovation creates for FINN an important and consequential factor to our forage into big data. Here at FINN a product owner recently said: "FINN is already developing its product largely built around the customer feedback and therefore achieving <a href="http://en.wikipedia.org/wiki/Lean_Startup">continuous innovation</a>?". Of course what he meant to say was "from numbers we choose to collect, we generate the statistics and reports we think are interesting, and from these statistics we freely interpret them to support the hypothesis we need for further product development..." We couldn't be further from continuous innovation if it hitched a lift to the other side of Distortionville<a href="http://www.mariettatimes.com/page/content.detail/id/533694/Assessment-couldn-t-be-further-from-the-truth.html?nav=5007">¹</a>.</p>
+
+<blockquote><p>“It is a capital mistake to theorize before one has data. Insensibly one begins to twist facts to suit theories, instead of theories to suit facts” – Arthur Conan Doyle</p></blockquote>
+
+<p>FINN isn't alone here, I'd say most established companies while trying to brand themselves as innovative are still struggling to break out of their existing models of product development based upon internal business analysis. No one said continuous innovation was easy, and there's a lot of opinions out on this, but along with shorter deployment cycles i reckon there's two keywords: truth and transparency. Tell your users the truth and watch how they respond. For example give them the statistics that show them their ads stop getting visits after a week, and then observe how they behave, to which solution do they flock to regain traffic to their ads. Don't try and solve all their problems for them, rather try to enable them. You'll probably make more money out of them, and by telling them the truth you've removed a vulnerability, or to what some fancy refers to as "a business secret".</p>
+
+<p>There's also a potential problem with organisational silos. Large companies having invested properly in business intelligence and data warehousing will have assigned these roles of data collection, aggregation, and analysis, to a separate team or group of experts typically trained database administrators, statisticians, and traffic analysts. They are rarely the programmers, the programmers are on the front lines building the product. Such a split can parallel the sql vs <a href="http://www.slideshare.net/emileifrem/nosql-overviewneo4jintrotriforkgeeknighttoslideshare">nosql</a> camps. This split against the programmers whom you rely on to make continuous innovation a reality can run the risk of stifling any adoption of big data. With the tools enabling big data the programmers can generate reports and numbers previously only capable from the business intelligence and data warehousing departments, and can serve them to your users at web response times – integrating such insights and intelligence into your product. Such new capabilities <a href="http://radar.oreilly.com/2011/01/data-warehouse-big-data.html">doesn't supersede</a> these traditional departments, rather it needs everyone accepting the new: working together to face new challenges with old wisdom. The programmers working on big data, even if tools and data become shared between these two organisational silos, cannot replace the needs of business intelligence any more than business intelligence can undertake big data's potential. As data and data sources continue to increase year after year the job of asking the right questions, even knowing how to formulate the questions correctly, needs all hands on deck. Expecting your programmers to do it all might well swamped them into oblivion, but it isn't just the enormity of new challenges involved, it's that these challenges have an integral nature to them that programmers aren't typically <a href="http://management.fortune.cnn.com/2012/03/19/big-data-wont-solve-your-companys-problems/">trained to tackle</a>. Big Data can be used as an opportunity not only to introduce exciting new tools, paradigms, and potential into the company but as a way to help remove existing organisational silos.</p>
+
+<p>The need for big data at FINN came from a combination of (α) and (γ). <img src="/wp-content/uploads/2012/08/salamander.gif" alt="" />  The statistics we show users for their ads had traditional been accumulated and stored in a sybase table. These statistics included everything from page views, "tip a friend" emails sent, clicks on promoted advertisement placements, ads marked as favourite, and whatever else you can imagine.</p>
+
+<p>(α) FINN is a busy site, the busiest in Norway, and we display ~50 million ad pages each day. Like a lot of web applications we had a modern scalable presentation and logic <a href="http://en.wikipedia.org/wiki/Multitier_architecture">tier</a> based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The sybase procedure responsible for writing to the statistics table ended up being our biggest thorn. It used 50% of the database's write execution time, 20% of total procedure execution time, and the overall load it created on the database accounted for 30% of ad page performance. It was a problem we had lived with long enough that Operations knew quickly to turn off the procedure if the database showed any signs of trouble. Over one period of troublesome months Operations wrote a cronjob to turn off the procedure automatically during peak traffic hours – when ads were receiving the most traffic we had to stop counting altogether, embarrassing to say the least!</p>
+
+<p>(γ) On top of this product owners in FINN had for years been requesting that we provide statistics on a day basis. The existing table had tinkered with this idea for some of the numbers that didn't accumulate so high, eg "tip a friend emails", but for page viewings this was completely out of the question – not even the accumulated totals were working properly.</p>
+
+<p>At the time we were in the process of modularising the FINN web application. The time was right to turn statistics into something modern and modular. We wanted an asynchronous, fault-tolerance, linearly scaling, and durable solution. The new design uses the Command-Query Separation pattern by using two separate modules: one for counting and one for displaying statistics. The counting achieves asynchronousity, scalability, and durability by using Scribe. The backend persistence and statistics module achieves all goals by using Cassandra and Thrift. As an extension of the <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">push-on-change</a> model: the counting stores denormalised data and it is later normalised to the views the statistics module requires; we use MapReduce jobs within a Hadoop cluster.</p>
+
+<p><img src="/wp-content/uploads/2012/08/2892558385_69bb7f4465.jpg" alt="http://www.flickr.com/photos/ciordia/2892558385/sizes/m/in/photostream/" /> </p>
+
+<p>The resulting project is kick-ass, let me say. Especially Cassandra, it is a truly amazing modern database: linear scalability, decentralised, elastic, fault-tolerant, durable; with a rich datamodel that provides often <a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">superior</a> approaches to joins, grouping, and ordering than traditional sql. But we'll spend more time describing the project in technical details in a later article.</p>
+
+<p>A challenge we face now is broader adoption of the project and the technologies involved. Various departments: from developers to tech support; want to read the data, regardless if it is traditional or 'big data', and the habit was always to read it directly from production's Sybase. And it's a habit that's important in fostering a data-driven culture within the company, without having to encourage datamodel centric designs. With our Big Data solution this hasn't been so easy. Without this transparency to the data, developers, tech support, and product owners alike seem to be failing to initiate further involvement - to solve this, since our big data is stored in Cassandra, we'd love to see a read only web-based gui interface based off <a href="http://caqel.deadcafe.org/">caqel</a>.</p>
+
+<p><strong><em>…to be continued…</em></strong></p>
+
+<hr />
+
+<p>References:
+• <a href="http://www.fastcoexist.com/1679847/an-operating-system-for-dna">DNA sequencing is ultimately a big data problem.</a>
+• <a href="http://www.whitehouse.gov/sites/default/files/microsites/ostp/big_data_fact_sheet.pdf">Obama's 2012 Big Data initiatives</a>
+• <a href="http://seekingalpha.com/article/441171-beware-the-hype-over-big-data-analytics">Beware The Hype Over Big Data Analytics</a>
+• <a href="http://management.fortune.cnn.com/2012/03/19/big-data-wont-solve-your-companys-problems/">Big Data won't solve your company's problems</a>
+• <a href="http://www.greenbookblog.org/2012/03/21/big-data-opportunity-or-threat-for-market-research/">Big Data: Opportunity or Threat for Market Research?</a>
+• <a href="http://www.youtube.com/watch?v=zAbFRiyT3LU">O'Reilly MySQL CE 2010: Mark Atwood, "Guide to NoSQL, redux" </a>
+• <a href="http://en.wikipedia.org/wiki/Lean_Startup">Lean Startup</a>
+• <a href="http://tech.finn.no/2011/05/09/putting-a-face-on-quality/">FINN moving toward continuous innovation</a>
+• <a href="http://radar.oreilly.com/2011/01/data-warehouse-big-data.html">Will data warehousing survive the advent of big data?</a>
+• <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">Why are Facebook, Digg, and Twitter so hard to scale?</a>
+• <a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">Do You Really Need SQL to Do It All in Cassandra?</a></p>
+
+  </div>
+  <p>2012-08-06 09:26:27 UTC by mick in systems development</p>
+  <hr>
+
+  <h1><a href="interface%20development/systems%20development/2012/07/25/the-ultimate-view-tiles-3.html">the ultimate view — Tiles-3</a></h1>
+  url=/interface%20development/systems%20development/2012/07/25/the-ultimate-view-tiles-3.html
+  <p class="author">
+    <span class="date">2012-07-25 13:48:52 UTC</span>
+  </p>
+  <div class="content">
+    
+
+  </div>
+  <p>2012-07-25 13:48:52 UTC by mick in interface developmentsystems development</p>
+  <hr>
+
+  <h1><a href="interface%20development/2012/06/23/going-all-out-with-the-strap-on-project.html">Going all out with the Strap-on Project</a></h1>
+  url=/interface%20development/2012/06/23/going-all-out-with-the-strap-on-project.html
+  <p class="author">
+    <span class="date">2012-06-23 18:32:28 UTC</span>
+  </p>
+  <div class="content">
+    <p>In January we started on an ambitious project called "the Strap-on project". The infantile name aside this project is about rewriting our entire front-end tier using <a href="http://oocss.org/">Object Oriented CSS (OOCSS)</a>, written by <a href="http://www.stubbornella.org/">Nicole Sulivan</a>, as the secret sauce to achieving the desired results.</p>
+
+<h2>Why OOCSS?</h2>
+
+<p><img src="http://www.sonaa.co.uk/assets/images/articles/oocss-lrg.jpg" alt="" /></p>
+
+<p>At FINN we have teams grouped by business units and all of them have developers who contribute with code on our site. This is provided us with a head ache with CSS, because there are no clear idioms for how to best write CSS. In our case this had cause teams to create their own "islands" of CSS by using # trails, train wreck selector classes and !important-wars. Teams had duplicate CSS for the same layout and we had a hard time keeping the user experience consistent across different parts of our service.</p>
+
+<p>We had way too much CSS code in total and we sent loads of CSS on each page request with just a small percentage actually being used. This made page load slow and rendering slow. Page rendering speed is equal to money, so we had to change something.</p>
+
+<h2>OOCSS - making CSS coding a thing of the past</h2>
+
+<p>OOCSS is a framework on which to build your own. It provides with a base set of modules and concepts which is essentials to building stuff in HTML with CSS. Grids, modules, lines, etc. These base modules provides an abstraction on top of CSS which makes authoring of CSS a thing of the past. In order to layout basic pages all we do is to use the building blocks and put together what ever you want. Basic boring stuff such as clearing and the box-model is no longer anything you need to worry about, it's taken care of. This enables developers to focus upon fulfilling business requirements instead of battling CSS differences in browser time and time again.</p>
+
+<h2>Why not LESS, Compass or stuff like that?</h2>
+
+<p>The CSS language abstractions that exist out there are all very cool projects and make a whole lot of sense to use for a lot of projects. However, in our case choosing one of these tools right now would not provide us with some of the benefits we are looking for.</p>
+
+<p>At FINN we have a problem that we are duplicating CSS across our development teams. This makes creating a consistent user experience and making global changes harder than it should be. Using an abstraction would help us hide some these problems, but would not solve the underlying issue which is that we create too much code. OOCSS and its rigorous set of rules helps reduce the amount of code drastically and provides rigid rules which prevents duplication across teams. What we are looking for are:</p>
+
+<ul>
+<li><p>Improve rendering speed</p></li>
+<li><p>Improve development speed</p></li>
+<li><p>Easier to provide a consistent user experience</p></li>
+</ul>
+
+
+<h2>A touch of Bootstrap too</h2>
+
+<p>The engineers over at Twitter has created an amazing framework, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, which is hugely popular all over the world. We have indeed paid close attention to how they have done and we are very much inspired by their work. However, going all out and just adopting Bootstrap was not an option. We feel it is too bloated and it does not provide the speed and performance benefits OOCSS gives.
+Having said that, a lot of our setup with forms and form elements is influenced by how Bootstrap does things.</p>
+
+<h2>Half way, how does it look?</h2>
+
+<p>In short,iIt looks pretty darn impressive! We have removed more than twenty CSS files and reduced the amount of CSS code lines with more than thirty thousand (this does say quite a bit of the mess we where in, I know). We have migrated the motorized vehicles, jobs, real estate sections and the front page.</p>
+
+<p>Before
+After</p>
+
+<p>Number of CSS files</p>
+
+<p>130</p>
+
+<p>38</p>
+
+<p>Lines of CSS code</p>
+
+<p>32 789</p>
+
+<p>2 927</p>
+
+<p>Lines of section specific CSS</p>
+
+<p>727</p>
+
+<p>89</p>
+
+<p>These are pretty impressive results and very much in line with what Nicole is talking about in her presentations about OOCSS and performance.</p>
+
+<h2>is it all singing, all dancing?</h2>
+
+<p>Of course not! The responsive bit is something we are looking at reworking. Team Oppdrag has created one way of solving this and Team Reise another. For the Strap-on project we will probably end up with something in between. There are some things you need to take into consideration when choosing an approach:
+How much control do you have over the markup being written? Or to put it in another way, how many people are working with the same code? The more people, the harder it is to apply very strict rules as people will be "tourists" in the code base and might have a hard time getting it.</p>
+
+<p>Another big challenge is to provide enough support and training to help everyone utilize the OOCSS framework so we can continue to reap benefits from what we have done, but that is probably some other blog post</p>
+
+  </div>
+  <p>2012-06-23 18:32:28 UTC by espen in interface development</p>
+  <hr>
+
+  <h1><a href="interface%20development/2012/06/23/profiling-and-debugging-view-templates.html">Profiling and debugging view templates</a></h1>
+  url=/interface%20development/2012/06/23/profiling-and-debugging-view-templates.html
+  <p class="author">
+    <span class="date">2012-06-23 10:31:21 UTC</span>
+  </p>
+  <div class="content">
+    <p>Ever needed to profile the tree of JSPs rendered server-side?
+Most companies do and I've seen elaborate and rather convoluted ways to do so.</p>
+
+<p>With Tiles-3 you can use the <code>PublisherRenderer</code> to profile and debug not just the tree of JSPs but the full tree of all and any view templates rendered whether they be JSP, velocity, freemarker, or mustache.</p>
+
+<p>At FINN all web pages print such a tree at the bottom of the page. This helps us see what templates were involved in the rendering of that page, and which templates are slow to render.</p>
+
+<p><a href="http://tech.finn.no/2012/06/23/profiling-and-debugging-view-templates/screenshot-tiles-publisherrenderer-tree/"><img src="http://tech.finn.no/wp-content/uploads/2012/06/Screenshot-tiles-publisherrenderer-tree.png" alt="" /></a>
+We also embed into the html source wrapping comments like</p>
+
+<pre><code>...template output...
+</code></pre>
+
+<h2>The code please</h2>
+
+<p>To do this register and then attach your own listener to the <code>PublisherRenderer</code>. For example in your <code>TilesContainerFactory</code> (the class you extend to setup and configure Tiles) add to the methd createTemplateAttributeRenderer something like:</p>
+
+<pre><code>    @Override
+    protected Renderer createTemplateAttributeRenderer(BasicRendererFactory rendererFactory, ApplicationContext applicationContext, TilesContainer container, AttributeEvaluatorFactory attributeEvaluatorFactory) {
+
+        Renderer renderer = super.createTemplateAttributeRenderer(rendererFactory, applicationContext, container, attributeEvaluatorFactory);
+        PublisherRenderer publisherRenderer = new PublisherRenderer(renderer);
+        publisherRenderer.addListener(new MyListener());
+        return publisherRenderer;
+    }
+</code></pre>
+
+<p>Then implement your own listener, this implementation does just the wrapping comments with profiling information...</p>
+
+<pre><code>class MyListener implements PublisherRenderer.RendererListener {
+
+    @Override
+    public void start(String template, Request request) throws IOException {
+        boolean first = null == request.getContext("request").get("started");
+        if (!first) {
+            // first check avoids writing before a template's doctype tag
+            request.getPrintWriter().println("\n");
+            startStopWatch(request);
+        } else {
+            request.getContext("request").put("started", Boolean.TRUE);
+        }
+    }
+
+    @Override
+    public void end(String template, Request request) throws IOException {
+        Long time = stopStopWatch(request);
+        if(null != time){
+            request.getPrintWriter().println("\n");
+        }
+    }
+
+    private void startStopWatch(Request request){
+        Deque&lt;stopwatch&gt; stack = request.getContext("request").get("stack");
+        if (null == stack) {
+            stack = new ArrayDeque&lt;stopwatch&gt;();
+            request.getContext("request").put("stack", stack);
+        }
+        StopWatch watch = new StopWatch();
+        stack.push(watch);
+        watch.start();
+    }
+
+    private Long stopStopWatch(Request request){
+        Deque&lt;stopwatch&gt; stack = request.getContext("request").get("stack");
+        return 0 &lt; stack.size() ? stack.pop().getTime() : null;
+    }
+</code></pre>
+
+<p>It's quick to see the possibilities for simple and complex profiling open up here as well as being agnostic to the language of each particular template used. Learn more about <a href="http://tiles.apache.org/">Tiles-3 here</a>.</p>
+
+  </div>
+  <p>2012-06-23 10:31:21 UTC by mick in interface development</p>
+  <hr>
+
+
+
+<div class="phl">
+  
+    <a href="/index.html">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/index.html">1</a>
+    
+  
+    
+      <em>2</em>
+    
+  
+    
+      <a href="/page3">3</a>
+    
+  
+    
+      <a href="/page4">4</a>
+    
+  
+    
+      <a href="/page5">5</a>
+    
+  
+    
+      <a href="/page6">6</a>
+    
+  
+    
+      <a href="/page7">7</a>
+    
+  
+
+  
+    <a href="/page3">Next &raquo;</a>
+  
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

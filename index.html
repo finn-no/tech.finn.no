@@ -3,6 +3,7 @@ layout: default
 title: developers at FINN blogging about technology
 ---
 
+
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url | remove_first:'/' }}">{{ post.title }}</a></h1>
   url={{ post.url }}

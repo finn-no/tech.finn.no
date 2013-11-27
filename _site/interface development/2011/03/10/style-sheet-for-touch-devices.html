@@ -1,0 +1,138 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - Style sheet for touch devices</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>Style sheet for touch devices</h1>
+<p class="meta">10 Mar 2011 by  in </p>
+
+<div class="post">
+<p>It's easy to include a style sheet for small-screen mobile devices, but what if you specifically want to target touch devices. Then you also need to include devices with larger screens. The iPad has a resolution of 1024x768, but many desktop users also have this resolution, so you can't just increase the max-device-width in your CSS media query. I've tried to <a href="http://stackoverflow.com/questions/2607248/optimize-website-for-touch-devices">find a better solution to the problem</a>, but none seems to exist yet.</p>
+
+<p><img src="http://tech.finn.no/wp-content/uploads/2011/03/touch2.jpg" alt="" />So the best solution I've found is to use JavaScript to detect if the browser has touch events. It's a bit dangerous because Firefox and Chrome have support for touch, so you can't be sure they don't expose the touch events to devices without a touch screen. Fortunately this has <a href="http://code.google.com/p/chromium/issues/detail?id=36415">already happened</a> in Google Chrome. The team decided to disable the touch events so the detection developers already used would continue to work.</p>
+
+<p><a href="http://twitter.com/#!/paul_irish">Paul Irish</a> has researched a bit for <a href="http://modernizr.com">Modernizr</a> to find out <a href="http://modernizr.github.com/Modernizr/touch.html">what detection methods work best</a>. You can of course use Modernizr, but if all you need is this test it's not necessary to include the whole library. All you really need is this:</p>
+
+<pre><code>'ontouchstart' in window
+</code></pre>
+
+<p>At first I did the test in the initialization code on document.ready, but then the style sheet will load too late. I definitely don't like document.write in external scripts because then you can't load them asynchronously in an easy manner. However, now it's actually useful, since we want the style sheet to be written out and loaded before the page is visible.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+    if("ontouchstart" in window) {
+        document.write('&lt;link rel="stylesheet" type="text/css" media="only screen" href="/css/touch.css"&gt;');
+    }
+&lt;/script&gt;
+</code></pre>
+
+<p>Anyone have a better way?</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

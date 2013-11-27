@@ -1,0 +1,143 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - Dark Launching and Feature Toggles</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>Dark Launching and Feature Toggles</h1>
+<p class="meta">20 Jun 2013 by  in </p>
+
+<div class="post">
+<p><a href="http://be-toru.deviantart.com/art/Dark-Side-of-The-Moon-129409258"><img src="http://th02.deviantart.net/fs47/200H/f/2009/194/3/1/Dark_Side_of_The_Moon_by_Be_Toru.png" alt="" /></a></p>
+
+<p>Make sure to distinguish between these two.</p>
+
+<p>They are not the same thing,
+and it's a lot quicker to just <em>Dark Launch</em>.</p>
+
+<p>In addition Dark Launching promotes incremental development, continuous delivery, and modular design. Feature Toggles need not, and can possibly be counter-productive.</p>
+
+<p>Dark Launching is an operation to silently and freely deploy something. Giving you time to ensure everything operates as expected in production and the freedom to switch back and forth while bugfixing. A Dark Launch's goal is often about being completely invisible to the end-user. It also isolates the context of the deployment to the component itself.</p>
+
+<p>Feature Toggling, in contrast, is often the ability to A/B test new products in production. Feature Toggling is typically accompanied with measurements and analytics, eg NetInsight/Google-Analytics. Feature Toggles may also extend to situations when the activation switch of a dark launch can only happen in a consumer codebase, or when only some percentage of executions will use the dark launched code.</p>
+
+<p>Given that one constraint of any decent enterprise platform is that all components must fail gracefully Dark Launching is the easiest solution, and a golden opportunity to ensure your new code fails gracefully. Turn the new module on, and it's dark launched and in use, any problems turn it off again. You also shouldn't have to worry about only running some percentage of executions against the new code, let it all go to the new component, if the load is too much the excessive load should also fail-gracefully and fall back to the old system.</p>
+
+<p>Dark Launching is the simple approach as it requires no feature toggling framework, or custom key-value store of options. It is a DevOps goal that remains best isolated to the context of DevOps – in a sense the 'toggling' happens through operations and not through code. When everything is finished it is also the easier approach to clean up. Dealing with and cleaning up old code takes up a lot of our time and is a significant hindrance to our ability to continually innovate. In contrast any feature toggling framework can risk encouraging a mess of outdated, arcane, and unused properties and code paths. KISS: always try and bypass a feature toggle framework by owning the 'toggle' in your own component, rather than forcing it out into consumer code.</p>
+
+<p>Where components have <a href="http://en.wikipedia.org/wiki/Command-query_separation">CQS</a> it gets even better. First the command component is dark launched, whereby it runs in parallel, and data can be test between the old and new system (blue-green deployments). Later on the query component is dark launched. While the command components can run and be used in parallel for each and every request the query components cannot. When the dark launch of the query component is final the old system is completely turned off.</p>
+
+<p>Now the intention of this post isn't to say we don't need feature toggling, but to give terminology to, and distinguish, between two different practices instead of lumping everything under the term "feature toggling". And to discourage using a feature toggling framework for everything because we fail to understand the simpler alternative.</p>
+
+<p>In the context of front-end changes, it's typical that for a new front-end feature to come into play there's been some new backend components required. These will typically have been dark launched. Once that is done, the front-end will introduce a feature toggle rather than dark launch because it's either introducing something new to the user or wanting to introduce something new to a limited set of users. So even here dark launching can be seen not as a "cool" alternative, but as the prerequisite practice.</p>
+
+<p>Reference: "<a href="http://bit.ly/16IgCit">DevOps for Developers</a>" By Michael Hüttermann</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

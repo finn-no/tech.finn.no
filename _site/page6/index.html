@@ -1,0 +1,335 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - developers at FINN blogging about technology</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          
+  <h1><a href="interface%20development/2011/04/07/multiple-versions-of-chrome-on-os-x.html">Multiple versions of Chrome on OS X</a></h1>
+  url=/interface%20development/2011/04/07/multiple-versions-of-chrome-on-os-x.html
+  <p class="author">
+    <span class="date">2011-04-07 13:37:45 UTC</span>
+  </p>
+  <div class="content">
+    <p>As a professional web developer you should use the bleeding version of Google Chrome, so you're prepared what your users will see a few weeks ahead. But the dev version tends to be a bit more buggy (naturally), and you have to test that your page works with both the beta and the stable version. Google Chrome has a command-line parameter to specify another profile, but it's a bit tricky to add command-line parameters to a Mac application. Yesterday I found a <a href="http://blog.duoconsulting.com/2011/03/13/multiple-profiles-in-google-chrome-for-os-x/">blog-post by Duo Consulting</a>. They have made a nice little script that will generate an app with the profile you specify. I modified it a bit to allow running different versions of Google Chrome as well as a profile for each of them.</p>
+
+<p>To make the install process even easier for others I've zipped the generated applications (they just contain a script).
+<img src="http://tech.finn.no/wp-content/uploads/2011/04/Screen-shot-2011-04-07-at-14.35.27-300x92.png" alt="" /></p>
+
+<p><em>Disclaimer: Each version will have it's own profile, so you have to set up each one from scratch with bookmarks, plugins and everything else. As Scott mentions in the comments, you can use the sync feature in Chrome to keep the installations in sync.</em></p>
+
+<ol>
+<li><p> First <a href="http://www.chromium.org/getting-involved/dev-channel">download each version</a> and rename the original Google Chrome apps to "Google Chrome Stable", "Google Chrome Beta" and "Google Chrome Dev" and put them in Applications <strong>under your user folder</strong>.
+I.e.: /Users/gregers/Applications/</p></li>
+<li><p> Unzip <a href="http://tech.finn.no/wp-content/uploads/2011/04/Chrome-Trio.zip">Chrome-Trio.zip</a> and put the apps in /Applications</p></li>
+<li><p> Don't select any of them as default browser, since that will use the default profile instead of the custom. Instead start Safari -> Preferences -> General -> Default web browser -> Select... -> Go to /Applications and choose the version of Chrome you want as default :)</p></li>
+</ol>
+
+
+<p>If you're interested in the script I used to make the wrapper-apps. You can find it here: <a href="http://pastebin.com/gPSdNi40">http://pastebin.com/gPSdNi40</a></p>
+
+  </div>
+  <p>2011-04-07 13:37:45 UTC by gregers in interface development</p>
+  <hr>
+
+  <h1><a href="interface%20development/2011/04/01/the-great-leap-getting-serious-with-javascript-at-finn-no.html">The Great Leap - getting serious with JavaScript at FINN.no</a></h1>
+  url=/interface%20development/2011/04/01/the-great-leap-getting-serious-with-javascript-at-finn-no.html
+  <p class="author">
+    <span class="date">2011-04-01 11:45:39 UTC</span>
+  </p>
+  <div class="content">
+    <p><img src="http://tech.finn.no/wp-content/uploads/2011/03/krafttak-cjno-600x379.png" alt="Krafttak for JavaScript" /></p>
+
+<p>FINN.no are blessed to be based in the same country as one of the brightest young stars when it comes to testing in JavaScript and applying Test Driven Development: <a href="http://www.cjohansen.no/">Christian Johansen</a> (the poster above was used to promote the event).
+He works as a developer at <a href="http://gitorious.com/">Gitorious</a> during the day time, but he also cranks out frameworks like <a href="http://sinonjs.org">SinonJS</a> and he has even published a <a href="http://www.amazon.com/dp/0321683919/">book on how to do Test Driven Development in JavaScript</a>.</p>
+
+<h2>Driving your design with tests</h2>
+
+<p>We first had an amazing live coding session which he <a href="http://front-trends.com/speakers/christian-johansen">had previously done at FrontTrends</a>. The task was to create a type-ahead widget which sent requests to a server if the delay was more than 50 millies. Driving the design of an HTML widget with tests is just as awesome as doing the same thing with JUint on the back-end.  You get a nice set of really simple objects which provide you with a set of tools to create the functionality you want. This is very different from the one-object-with-everything kind of code you see a lot of when you do not focus upon design before you code. You can accomplish good clean code without</p>
+
+<h2>Refactor some legacy code with tests</h2>
+
+<p>We have just recently ported parts of our platform related to <a href="http://www.finn.no/finn/car/used/advanced">advanced search</a> to a new Java framework, but we did not port much of the JavaScript code. Only thing we have done is to prevent it from flooding the global scope and extract the JS code into a separate file. Christian gave us the challenge of trying to test this code. This was by no means an easy task.
+The code was not written with testing in mind. It has some weird coding errors which for some reason does not produce errors in the user interface. Stuff like a function which one would expect to return a boolean, but when we tried to <em>assertTrue</em> on the result of a validation it failed and we couldn't see why.</p>
+
+<pre><code>function validateForm() {
+    var valid = true;
+    $("input.number").each(function(){
+        valid &amp;= validateInput($(this));
+    });
+    return valid;
+    }
+...
+    if (validateForm()) { ....}
+</code></pre>
+
+<p>That was until we noticed the  bitwise and operator used to indicate valid, which returns 0 or 1. Not true or false which you might expect since the valid variable is initialized with true.</p>
+
+<h2>Two wrongs make a right?</h2>
+
+<p>To proceed with testing this advanced search field we had to assert whether the red border was on or not. This was the only thing visible from outside of the object. We hit a bit of a snag when it came to the css-function in jQuery, which it turns out does not return a color if you pass in just <em>border</em>. However if you pass in <em>border-color-left</em> you get the result <em>rgb(204, 0, 0)</em>.</p>
+
+<pre><code>function validateInput(element) {
+    if (val.length &gt; 0 &amp;&amp; val.search(/^\d+$/)) {
+        element.css({border:"1px solid #CC0000"});
+        element.focus(function() {
+            element.css({border:"1px solid #BBBBCC"});
+        });
+        return false;
+    }
+    return true;
+}
+</code></pre>
+
+<p>These are just a few of the thing we needed to figure out in order to add a test harness to some of our legacy code. It is very very hard work and you really need some <a href="http://en.wikipedia.org/wiki/Cojones">cojones</a> to start doing it.  It was truly inspiring to have Christian over and we just have no excuse anymore for not writing tests for our JavaScript code. This is a huge leap forward in terms of getting serious with our JavaScript code.</p>
+
+  </div>
+  <p>2011-04-01 11:45:39 UTC by espen in interface development</p>
+  <hr>
+
+  <h1><a href="interface%20development/2011/03/10/style-sheet-for-touch-devices.html">Style sheet for touch devices</a></h1>
+  url=/interface%20development/2011/03/10/style-sheet-for-touch-devices.html
+  <p class="author">
+    <span class="date">2011-03-10 13:05:53 UTC</span>
+  </p>
+  <div class="content">
+    <p>It's easy to include a style sheet for small-screen mobile devices, but what if you specifically want to target touch devices. Then you also need to include devices with larger screens. The iPad has a resolution of 1024x768, but many desktop users also have this resolution, so you can't just increase the max-device-width in your CSS media query. I've tried to <a href="http://stackoverflow.com/questions/2607248/optimize-website-for-touch-devices">find a better solution to the problem</a>, but none seems to exist yet.</p>
+
+<p><img src="http://tech.finn.no/wp-content/uploads/2011/03/touch2.jpg" alt="" />So the best solution I've found is to use JavaScript to detect if the browser has touch events. It's a bit dangerous because Firefox and Chrome have support for touch, so you can't be sure they don't expose the touch events to devices without a touch screen. Fortunately this has <a href="http://code.google.com/p/chromium/issues/detail?id=36415">already happened</a> in Google Chrome. The team decided to disable the touch events so the detection developers already used would continue to work.</p>
+
+<p><a href="http://twitter.com/#!/paul_irish">Paul Irish</a> has researched a bit for <a href="http://modernizr.com">Modernizr</a> to find out <a href="http://modernizr.github.com/Modernizr/touch.html">what detection methods work best</a>. You can of course use Modernizr, but if all you need is this test it's not necessary to include the whole library. All you really need is this:</p>
+
+<pre><code>'ontouchstart' in window
+</code></pre>
+
+<p>At first I did the test in the initialization code on document.ready, but then the style sheet will load too late. I definitely don't like document.write in external scripts because then you can't load them asynchronously in an easy manner. However, now it's actually useful, since we want the style sheet to be written out and loaded before the page is visible.</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+    if("ontouchstart" in window) {
+        document.write('&lt;link rel="stylesheet" type="text/css" media="only screen" href="/css/touch.css"&gt;');
+    }
+&lt;/script&gt;
+</code></pre>
+
+<p>Anyone have a better way?</p>
+
+  </div>
+  <p>2011-03-10 13:05:53 UTC by gregers in interface development</p>
+  <hr>
+
+  <h1><a href="behind%20the%20scenes/2011/03/03/geting-geeky-in-hc3b8nefoss.html">Getting Geeky in Hønefoss</a></h1>
+  url=/behind%20the%20scenes/2011/03/03/geting-geeky-in-hc3b8nefoss.html
+  <p class="author">
+    <span class="date">2011-03-03 09:35:37 UTC</span>
+  </p>
+  <div class="content">
+    <p>FINN recently created a position called Technical Leader which is going to be our champions of technical excellence. One of the objects for this two-day field trip was to get everyone in the same room and share ideas and challenges from a technological point of view.
+<img src="http://tech.finn.no/wp-content/uploads/2011/03/sundvollen.png" alt="" /></p>
+
+<h2>Quality does not cost ... it pays</h2>
+
+<p>Most companies talk about how they work hard to "produce quality", but most companies also fail to follow through and make quality a focus for the entire organization. Our first session was about defining what quality means for different stakeholders such as: end users, our CEO, operations and product owners. These discussions lead us to a first draft of a checklist which will be used before each new release.</p>
+
+<ul>
+<li><p>No known bugs</p></li>
+<li><p>Tested in every environment</p></li>
+<li><p>Customer support is informed of important changes</p></li>
+</ul>
+
+
+<h2>Walk'n talk for good mental health</h2>
+
+<p>The term <a href="http://en.wikipedia.org/wiki/Walk_and_talk">walk and talk</a> is both a technique for making movies, but it is also <a href="http://www.walkandtalk.com/">a therapeutical technique</a>. At FINN we practice this by randomly pairing two people who both have prepared a challenge they have in their daily work and then they walk and talk for about an hour. This was the first time this group did this exercise and it was a huge success. It was great to get out and talk about stuff to someone you do not get to talk to very often during the work day. As a team building exercise I think this is a great tool which is highly recommended!</p>
+
+<h2>The challenge of  company Open Space sessions</h2>
+
+<p><img src="http://tech.finn.no/wp-content/uploads/2011/03/IMG_0625-300x224.jpg" alt="" />During day two we had three <a href="http://en.wikipedia.org/wiki/Open-space_meeting">open space sessions</a> which was buzzing with excitement. Doing open spaces at conferences it is really inspiring and you learn stuff which you can bring back to your organization. Having open space sessions for just company employees has a different dynamic and can really be something to get your spirits down. When you do this inside a company you build up excitement during the sessions and along with the excitement comes expectations that "somebody needs to make this happen". There is nothing in "open space theory" about how you can easily get more out of these session than just a lot of nice thoughts. This would resemble putting up a suggestions box and then do nothing with any of the suggestions. What we did was to get some people together after the session to see what actions needed to be taken after the sessions. Kind of like a retrospective where we looked at what came out of the open spaces. It would be interesting to hear what others do with their internal open space sessions.</p>
+
+  </div>
+  <p>2011-03-03 09:35:37 UTC by espen in behind the scenes</p>
+  <hr>
+
+  <h1><a href="interface%20development/2011/02/01/developing-for-mobile-is-punk-rock.html">Developing for mobile is punk rock!</a></h1>
+  url=/interface%20development/2011/02/01/developing-for-mobile-is-punk-rock.html
+  <p class="author">
+    <span class="date">2011-02-01 19:08:24 UTC</span>
+  </p>
+  <div class="content">
+    <p><a href="http://tech.finn.no/wp-content/uploads/2011/02/finnfronten_thumb.png"><img src="http://tech.finn.no/wp-content/uploads/2011/02/finnfronten_thumb.png" alt="" /></a></p>
+
+<p>The title of this post is of course a blatant lie. Mobile development is nothing but pain from here until eternity (no, not really). But, luckily the brave developers at FINN.no aren't scared of a little pain and therefor we decided to do a mobile development trippel header gig to showcase some of the different approaches to mobile developement.Due to some kids falling ille we had to reduce the show to be a double header. It did not end up to make a difference as the guys doing the talks totally kicked ass!</p>
+
+<p>Oh and the picture on the left is a flyer we put up everywhere to market the event at the FINN.no headquarters. Finnfrontend is a name for one of our communities of practice dedicated to front-end development. Unfortunately it was reduced to a double header and we missed out on getting the low down on iOS development of native apps.</p>
+
+<h2>Mobile web on m.finn.no</h2>
+
+<p>Frank and Sven Inge from <a href="http://labs.finn.no/wp-content/uploads/2011/01/Teambilde-med-Kjetil.png">Team Mobile</a> at FINN.no presented the <a href="http://beta.m.finn.no">beta for m.finn.no</a>. As <a href="http://labs.finn.no/prov-utkast-til-ny-mobilweb-beta-m-finn-no/"> announced previously on labs.finn.no</a> the beta for our mobile web service is now available for testing and feedback. We are very excited about this application and we feel that it takes mobile web to a new level here in Norway.</p>
+
+<p>Frank presented some of the plans going forward with the beta (which I am not going to tell here). He also shared some of the experiences and pains with developing for mobile devices. Naturally there are quite a few challenges with compatibility and providing a consistent look and feel across multiple platforms. This has been the bread and butter for web developers for years and it is no surprise that it is hard on mobile devices.</p>
+
+<p>The Team also talked about some of the design decisions they have made and why they ended up solving a challenge a certain way. Choosing to display all information and letting the user scroll as opposed to applying the show/hide-style functionality we are used to from the desktop web seems like a really good choice.</p>
+
+<p>The mobile web solution looks awesome and we can not wait to see the final version! I can only say that it definitely will ship before the 17th of May!</p>
+
+<h2>App development with HTML+CSS and Phonegap</h2>
+
+<p><a href="http://twitter.com/audungk">Audun Kjelstrup</a> from <a href="http://nordaaker.no/">Nordaker</a> shared his experiences with mobile app development using HTML+CSS+JavaScript for multiple platforms using <a href="http://www.phonegap.com/">Phonegap</a>. Drawing on his past experiences with developing <a href="http://www.dolly.no/shop/nyheter/dollys_pizzabygger_naa_ogsaa_som_iphone_app">the Dolly Dimple pizza configurator</a> for iPhone and the NHO Conference app for iOS, Android and Symbian he covered some of the challenges with this kind of development.</p>
+
+<p>Audun recommended going for a web based app if you wanted a user experience which differed a lot form what comes out of the iOS UIKit. This was mainly due to the cost of development and the work required to create custom experiences such as <a href="http://www.dolly.no/shop/nyheter/dollys_pizzabygger_naa_ogsaa_som_iphone_app">the Dolly Dimple pizza configurator</a>. He also pointed out that web based apps will always struggle to have the exact same snappyness and scroll smoothness as a native application. Creating a web based app for multiple platforms is hard work (no real surprise there) and having to deal with older Symbian based phones was a lot of pain (no real surprise there either), so you should consider what platform you target carefully.
+The slides from this presentations can be <a href="http://www.meetup.com/CocoaHeads-Oslo/files/">downloaded from the Cocoa Heads Oslo Meetup</a> where it was held some days ago.</p>
+
+<p>This was an awesome session with two great talks which highlighted some of the challenges with creating applications for mobile devices across multiple platforms. Thanks to Audun and <a href="http://labs.finn.no/wp-content/uploads/2011/01/Teambilde-med-Kjetil.png">Team Mobile</a>!</p>
+
+  </div>
+  <p>2011-02-01 19:08:24 UTC by espen in interface development</p>
+  <hr>
+
+
+
+<div class="phl">
+  
+    <a href="/page5">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/index.html">1</a>
+    
+  
+    
+      <a href="/page2">2</a>
+    
+  
+    
+      <a href="/page3">3</a>
+    
+  
+    
+      <a href="/page4">4</a>
+    
+  
+    
+      <a href="/page5">5</a>
+    
+  
+    
+      <em>6</em>
+    
+  
+    
+      <a href="/page7">7</a>
+    
+  
+
+  
+    <a href="/page7">Next &raquo;</a>
+  
+</div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

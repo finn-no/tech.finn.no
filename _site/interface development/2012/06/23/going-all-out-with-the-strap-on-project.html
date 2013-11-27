@@ -1,0 +1,184 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - Going all out with the Strap-on Project</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>Going all out with the Strap-on Project</h1>
+<p class="meta">23 Jun 2012 by  in </p>
+
+<div class="post">
+<p>In January we started on an ambitious project called "the Strap-on project". The infantile name aside this project is about rewriting our entire front-end tier using <a href="http://oocss.org/">Object Oriented CSS (OOCSS)</a>, written by <a href="http://www.stubbornella.org/">Nicole Sulivan</a>, as the secret sauce to achieving the desired results.</p>
+
+<h2>Why OOCSS?</h2>
+
+<p><img src="http://www.sonaa.co.uk/assets/images/articles/oocss-lrg.jpg" alt="" /></p>
+
+<p>At FINN we have teams grouped by business units and all of them have developers who contribute with code on our site. This is provided us with a head ache with CSS, because there are no clear idioms for how to best write CSS. In our case this had cause teams to create their own "islands" of CSS by using # trails, train wreck selector classes and !important-wars. Teams had duplicate CSS for the same layout and we had a hard time keeping the user experience consistent across different parts of our service.</p>
+
+<p>We had way too much CSS code in total and we sent loads of CSS on each page request with just a small percentage actually being used. This made page load slow and rendering slow. Page rendering speed is equal to money, so we had to change something.</p>
+
+<h2>OOCSS - making CSS coding a thing of the past</h2>
+
+<p>OOCSS is a framework on which to build your own. It provides with a base set of modules and concepts which is essentials to building stuff in HTML with CSS. Grids, modules, lines, etc. These base modules provides an abstraction on top of CSS which makes authoring of CSS a thing of the past. In order to layout basic pages all we do is to use the building blocks and put together what ever you want. Basic boring stuff such as clearing and the box-model is no longer anything you need to worry about, it's taken care of. This enables developers to focus upon fulfilling business requirements instead of battling CSS differences in browser time and time again.</p>
+
+<h2>Why not LESS, Compass or stuff like that?</h2>
+
+<p>The CSS language abstractions that exist out there are all very cool projects and make a whole lot of sense to use for a lot of projects. However, in our case choosing one of these tools right now would not provide us with some of the benefits we are looking for.</p>
+
+<p>At FINN we have a problem that we are duplicating CSS across our development teams. This makes creating a consistent user experience and making global changes harder than it should be. Using an abstraction would help us hide some these problems, but would not solve the underlying issue which is that we create too much code. OOCSS and its rigorous set of rules helps reduce the amount of code drastically and provides rigid rules which prevents duplication across teams. What we are looking for are:</p>
+
+<ul>
+<li><p>Improve rendering speed</p></li>
+<li><p>Improve development speed</p></li>
+<li><p>Easier to provide a consistent user experience</p></li>
+</ul>
+
+
+<h2>A touch of Bootstrap too</h2>
+
+<p>The engineers over at Twitter has created an amazing framework, <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>, which is hugely popular all over the world. We have indeed paid close attention to how they have done and we are very much inspired by their work. However, going all out and just adopting Bootstrap was not an option. We feel it is too bloated and it does not provide the speed and performance benefits OOCSS gives.
+Having said that, a lot of our setup with forms and form elements is influenced by how Bootstrap does things.</p>
+
+<h2>Half way, how does it look?</h2>
+
+<p>In short,iIt looks pretty darn impressive! We have removed more than twenty CSS files and reduced the amount of CSS code lines with more than thirty thousand (this does say quite a bit of the mess we where in, I know). We have migrated the motorized vehicles, jobs, real estate sections and the front page.</p>
+
+<p>Before
+After</p>
+
+<p>Number of CSS files</p>
+
+<p>130</p>
+
+<p>38</p>
+
+<p>Lines of CSS code</p>
+
+<p>32 789</p>
+
+<p>2 927</p>
+
+<p>Lines of section specific CSS</p>
+
+<p>727</p>
+
+<p>89</p>
+
+<p>These are pretty impressive results and very much in line with what Nicole is talking about in her presentations about OOCSS and performance.</p>
+
+<h2>is it all singing, all dancing?</h2>
+
+<p>Of course not! The responsive bit is something we are looking at reworking. Team Oppdrag has created one way of solving this and Team Reise another. For the Strap-on project we will probably end up with something in between. There are some things you need to take into consideration when choosing an approach:
+How much control do you have over the markup being written? Or to put it in another way, how many people are working with the same code? The more people, the harder it is to apply very strict rules as people will be "tourists" in the code base and might have a hard time getting it.</p>
+
+<p>Another big challenge is to provide enough support and training to help everyone utilize the OOCSS framework so we can continue to reap benefits from what we have done, but that is probably some other blog post</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

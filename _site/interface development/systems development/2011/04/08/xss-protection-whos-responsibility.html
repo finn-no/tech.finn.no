@@ -1,0 +1,232 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - XSS protection: who's responsibility?</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>XSS protection: who's responsibility?</h1>
+<p class="meta">08 Apr 2011 by  in </p>
+
+<div class="post">
+<p>In a multi-tier application who can be responsible for XSS protection?
+Must security belong to a dedicated team...or can it be a shared responsibility?
+Today <strong><a href="http://en.wikipedia.org/wiki/Cross-site_scripting">XSS protection</a></strong> is typically tackled by front end developers.
+Let's challenge the status quo.</p>
+
+<h2>New Applications vs Legacy Applications</h2>
+
+<p>For protection against <em>Stored XSS</em> many applications have the luxury of ensuring any text input from the user, or from a CMS system, is made clean and safe before being written to database. Given a clean database the only XSS protection required is around request values, for example values from url parameters, cookies, and form data.</p>
+
+<p><img src="/wp-content/uploads/2011/04/rack.jpg" alt="Image by The Planet via Flickr -- http://www.flickr.com/photos/26388913@N05/4879419700" /></p>
+
+<p>But some applications, especially legacy applications, are in a different boat. Databases typically have lots of existing data in many different formats and tables so it's often no longer feasible to focus on protecting data on its way into the system. In this situation it is the front end developers that pay the price for the poor quality of backend data and are are left to protect everything. This often results in a napalm-the-whole-forest style of xss protection where every single variable written out in the front end templates goes through some equivalent of</p>
+
+<pre><code>            &lt;c:out value="${someText}"/&gt; 
+</code></pre>
+
+<p>This makes sense but...   if you don't have control is your only option to be so paranoid?</p>
+
+<h2>A Messed up World</h2>
+
+<p>To illustrate the problem let's create a simple example by defining the following service</p>
+
+<pre><code>  interface AdvertisementService{
+    Advertisement getAdvertisement(long id);
+  }
+
+  interface Advertisement{
+    /** returns plain text title */
+    String getTitle();
+    /** return description, which may contain html if isHtmlEnabled() returns true */
+    String getDescription();
+    /** indicates the description is html */
+    boolean isDescriptionHtml();
+  }
+</code></pre>
+
+<p>The web application, having already fetched an advertisement in the control tier, somewhere would have a view template looking something like</p>
+
+<pre><code>    &lt;div&gt;
+        &lt;h1&gt;&lt;c:out value="${advertisement.title}"/&gt;&lt;/h1&gt;
+        &lt;p&gt;
+            &lt;c:out value="${advertisement.description}" 
+                      escapeXml="${!advertisement.descriptionHtml}"/&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p><img src="/wp-content/uploads/2010/11/information.gif" alt="" /></p>
+
+<p>Here we add another dimension: simple escaping with c:out won't work if you actually want to write html (and what is the safety and quality of such html data).</p>
+
+<p>When this service is used by different applications each with their own view templates, and maybe also exposed through web services, you end up no doubt protecting it over many times, system developers in the web services, and front end developers in each of the presentation layers... likely there will be confusion over the safety and quality of data coming from this service, and of course everyone will be doing it differently so nothing will be consistent.</p>
+
+<ul>
+<li><p>Is there a better way?</p></li>
+<li><p>Can we achieve a consistent XSS protection in such an environment?</p></li>
+<li><p>How many developers need to know about XSS and about the origin of the data being served?</p></li>
+</ul>
+
+
+<p>In the above code if we can guarantee that the service <em>always</em> returns safe data then we can simplify it by removing the isDecriptionHtml() method. The same code and view template would become</p>
+
+<pre><code>  interface AdvertisementService{
+    Advertisement getAdvertisement(long id);
+  }
+
+  /** All fields xss protected */
+  interface Advertisement{
+    /** returns plain text title */
+    String getTitle();
+    /** return description, which may contain safe html */
+    String getDescription();
+  }
+
+
+
+
+
+
+    &lt;div&gt;
+        &lt;h1&gt;${advertisement.title}&lt;/h1&gt;
+        &lt;p&gt;${advertisement.description}&lt;/p&gt;
+    &lt;/div&gt;
+</code></pre>
+
+<p>By introducing one constraint: that <strong>all data is xss protected in the services tier</strong>; we have provided a simpler and more solid service API, and allowed all applications to have simpler, more concise, more readable, view templates.</p>
+
+<h2>Solutions</h2>
+
+<p><em>Having a clean database</em> all non-html data can be escaped as it comes in. Take advantage of Apache's StringEscapeUtils.escapeHtml(..) from <a href="http://commons.apache.org/lang/">commons-lang</a> library. For incoming html one can take advantage of a rich html manipulation tool, eg like JSoap, to clean, normalise, and standardise it.</p>
+
+<p><em>With legacy or foreign data</em>, especially those applications with exposed service architecture and/or multiple front ends, a different approach is best: ensure nothing unsafe ever comes out of the services tier. For the html data the services will often be filtering many snippets of html over and over again, so this needs to be fast and a heavy html manipulation library like JSoap isn't appropriate any more.
+A suitable library is <a href="http://finn-no.github.com/xss-html-filter">xss-html-filter</a>, a port from libfilter. It is fast and has an easy API</p>
+
+<pre><code>String safeHtml = new HTMLInputFilter().filter( "some html" );
+</code></pre>
+
+<p>If we do this it means
+<img src="/wp-content/uploads/2010/11/lightbulb_on.gif" alt="" /> xss protection is not duplicated, but rather made clear who is responsible for what,
+<img src="/wp-content/uploads/2010/11/lightbulb_on.gif" alt="" /> c:out becomes just junk in verbosity and performance* ,
+<img src="/wp-content/uploads/2010/11/lightbulb_on.gif" alt="" /> service APIs become simpler,
+<img src="/wp-content/uploads/2010/11/lightbulb_on.gif" alt="" /> view templates look the same for both new and legacy applications,
+<img src="/wp-content/uploads/2010/11/lightbulb_on.gif" alt="" /> system developers become responsible for protection of database data and this creates a natural incentive for them to clean up existing data and ensure new data comes in safe,</p>
+
+<ul>
+<li>No matter what an inescapable fact is all front ends developers must have a concrete understanding that any value fresh from the request is prone to <em>Reflected XSS</em> and there's nobody but them that can be responsible for protecting these values.</li>
+</ul>
+
+
+<p><strong>XSS protection has become a basic knowledge requirement for all developers</strong>.
+<em>Like much to do about security ... it's always only as strong as its weakest link</em>.</p>
+
+<p>At FINN.no because we take security seriously, and because we know we are only human and we need some room for the occasional mistake, for each release we run security audits. These include using <a href="http://www.watchcom.no/">WatchCom</a> reports, tools like <a href="http://www.acunetix.com/">Acunetix</a>, and custom tests using <a href="http://cukes.info/">Cucumber</a>.</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+
+<!doctype HTML>
+<html>
+<head>
+<title>Tech Blog - The Great Leap - getting serious with JavaScript at FINN.no</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
+<!--[if IE 9 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
+<![endif]-->
+<!--[if IE 8 ]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
+<![endif]-->
+<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
+<style>
+body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+body > .media {
+  margin-top: 0;
+}
+.xxl {
+  padding-top: 70px;
+}
+.deco {
+  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
+  height: 57px;
+  top: -24px;
+  width: 840px;
+  left: 94px;
+  position: absolute;
+}
+.nerddeco {
+  border-top: 2px solid black;
+  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
+  height: 200px;
+}
+</style>
+</head>
+<body>
+
+ <div class="media">
+      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
+      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
+ </div>
+ <div class="relative hidelt768">
+  <div class="deco"></div>
+ </div>
+<div class="line pal" >
+  <div class="unit r-size2of3">
+    <div class="mod shadow">
+      <div class="inner">
+        <div class="bd">
+
+          <h1>The Great Leap - getting serious with JavaScript at FINN.no</h1>
+<p class="meta">01 Apr 2011 by  in </p>
+
+<div class="post">
+<p><img src="http://tech.finn.no/wp-content/uploads/2011/03/krafttak-cjno-600x379.png" alt="Krafttak for JavaScript" /></p>
+
+<p>FINN.no are blessed to be based in the same country as one of the brightest young stars when it comes to testing in JavaScript and applying Test Driven Development: <a href="http://www.cjohansen.no/">Christian Johansen</a> (the poster above was used to promote the event).
+He works as a developer at <a href="http://gitorious.com/">Gitorious</a> during the day time, but he also cranks out frameworks like <a href="http://sinonjs.org">SinonJS</a> and he has even published a <a href="http://www.amazon.com/dp/0321683919/">book on how to do Test Driven Development in JavaScript</a>.</p>
+
+<h2>Driving your design with tests</h2>
+
+<p>We first had an amazing live coding session which he <a href="http://front-trends.com/speakers/christian-johansen">had previously done at FrontTrends</a>. The task was to create a type-ahead widget which sent requests to a server if the delay was more than 50 millies. Driving the design of an HTML widget with tests is just as awesome as doing the same thing with JUint on the back-end.  You get a nice set of really simple objects which provide you with a set of tools to create the functionality you want. This is very different from the one-object-with-everything kind of code you see a lot of when you do not focus upon design before you code. You can accomplish good clean code without</p>
+
+<h2>Refactor some legacy code with tests</h2>
+
+<p>We have just recently ported parts of our platform related to <a href="http://www.finn.no/finn/car/used/advanced">advanced search</a> to a new Java framework, but we did not port much of the JavaScript code. Only thing we have done is to prevent it from flooding the global scope and extract the JS code into a separate file. Christian gave us the challenge of trying to test this code. This was by no means an easy task.
+The code was not written with testing in mind. It has some weird coding errors which for some reason does not produce errors in the user interface. Stuff like a function which one would expect to return a boolean, but when we tried to <em>assertTrue</em> on the result of a validation it failed and we couldn't see why.</p>
+
+<pre><code>function validateForm() {
+    var valid = true;
+    $("input.number").each(function(){
+        valid &amp;= validateInput($(this));
+    });
+    return valid;
+    }
+...
+    if (validateForm()) { ....}
+</code></pre>
+
+<p>That was until we noticed the  bitwise and operator used to indicate valid, which returns 0 or 1. Not true or false which you might expect since the valid variable is initialized with true.</p>
+
+<h2>Two wrongs make a right?</h2>
+
+<p>To proceed with testing this advanced search field we had to assert whether the red border was on or not. This was the only thing visible from outside of the object. We hit a bit of a snag when it came to the css-function in jQuery, which it turns out does not return a color if you pass in just <em>border</em>. However if you pass in <em>border-color-left</em> you get the result <em>rgb(204, 0, 0)</em>.</p>
+
+<pre><code>function validateInput(element) {
+    if (val.length &gt; 0 &amp;&amp; val.search(/^\d+$/)) {
+        element.css({border:"1px solid #CC0000"});
+        element.focus(function() {
+            element.css({border:"1px solid #BBBBCC"});
+        });
+        return false;
+    }
+    return true;
+}
+</code></pre>
+
+<p>These are just a few of the thing we needed to figure out in order to add a test harness to some of our legacy code. It is very very hard work and you really need some <a href="http://en.wikipedia.org/wiki/Cojones">cojones</a> to start doing it.  It was truly inspiring to have Christian over and we just have no excuse anymore for not writing tests for our JavaScript code. This is a huge leap forward in terms of getting serious with our JavaScript code.</p>
+
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="unit r-size1of3">
+    <div class="mod shadow mbn">
+      <div class="inner">
+        <div class="bd">
+
+          <h2>What’s this?</h2>
+          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
+          </p>
+
+          <h2>Categories</h2>
+          <ul class="bullets phl">
+            
+              <li><a href="/categories/interface development.html">interface development</a></li>
+            
+              <li><a href="/categories/systems development.html">systems development</a></li>
+            
+              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
+            
+              <li><a href="/categories/methodology.html">methodology</a></li>
+            
+          </ul>
+
+          <h2>Blogroll</h2>
+          <ul>
+            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
+            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
+            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
+          </ul>
+          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
+
+        </div>
+      </div>
+    </div>
+    <div class="mod nerddeco"></div>
+  </div>
+</div>
+<div class="footer pal bg-contrast contrast">
+  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
+  <a href="http://tech.finn.no">Our developer blog</a> |
+  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
+  <a href="http://finn.no">FINN.no</a>
+</div>
+</div>
+</body>
+</html>
