@@ -1,6 +1,6 @@
 tech.finn.no
 ============
-
+GH-pages URL: http://finn-no.github.io/tech.finn.no/
 ## Work flow
 
 All changes are made in source and generated site lives in master branch.
