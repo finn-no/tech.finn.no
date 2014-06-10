@@ -1,9 +1,19 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
 <p class="meta">{{ page.date | date_to_string }} by {{ post.author }} in {{ post.categories }}</p>
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">{% include article.html %}</article>
 
-<div class="post">
-{{ content }}
-</div>
+<div id="page-navigation"> 
+        <div class="previous"> 
+        {% if page.previous.url %} 
+                <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
+        {% endif %} 
+        </div>
+
+        <div class="next"> 
+        {% if page.next.url %} 
+               <a href="{{page.next.url}}" title="next Post: {{page.next.title}}">{{page.next.title}} &raquo; </a> 
+        {% endif %} 
+        </div>
+</div> 
