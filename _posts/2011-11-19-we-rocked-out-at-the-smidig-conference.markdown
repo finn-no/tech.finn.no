@@ -1,18 +1,17 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2011-11-19 12:31:11+00:00
 layout: post
 slug: we-rocked-out-at-the-smidig-conference
 title: We rocked out at the Smidig conference!
 wordpress_id: 1085
-categories:
-- Methodology
 ---
 
-The annual [Smidig conference](http://smidig2011.no/) in Oslo, Norway was held last week and as usual people from FINN.no made a big contribution to the conference. We hade three lightening talks during the two day conference and there were about ten attendants in total. This community event brings together newbies and veterans of agile software development for two days of lightning talks and open space sessions. We all had a great time at the conference and are very much looking forward to next years conference. 
+The annual [Smidig conference](http://smidig2011.no/) in Oslo, Norway was held last week and as usual people from FINN.no made a big contribution to the conference. We hade three lightening talks during the two day conference and there were about ten attendants in total. This community event brings together newbies and veterans of agile software development for two days of lightning talks and open space sessions. We all had a great time at the conference and are very much looking forward to next years conference.
 
-Our three lightning talks spanned from a Norwegian version of over to a talk showing how we transformed our customer service team and the last one about how you need to measure in order to achieve the full effect of agile processes. You can check out the videos below, but be warned they are all in Norwegian. 
+Our three lightning talks spanned from a Norwegian version of over to a talk showing how we transformed our customer service team and the last one about how you need to measure in order to achieve the full effect of agile processes. You can check out the videos below, but be warned they are all in Norwegian.
 
 
 
@@ -35,7 +34,7 @@ Arve Søreide talked about three things you need to do in order to achieve the d
 ## An end to negativity - Norwegian style
 
 
-This talk was originally held by [Chris William](http://twitter.com/#!/voodootikigod) at [JSConf EU 2011](http://jsconf.eu/2011/) and you should check out [the original version of An End To Negativity](http://jsconf.eu/2011/an_end_to_negativity.html). 
+This talk was originally held by [Chris William](http://twitter.com/#!/voodootikigod) at [JSConf EU 2011](http://jsconf.eu/2011/) and you should check out [the original version of An End To Negativity](http://jsconf.eu/2011/an_end_to_negativity.html).
 
 
 

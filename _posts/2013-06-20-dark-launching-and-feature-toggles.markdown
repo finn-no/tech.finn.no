@@ -1,16 +1,15 @@
 ---
-author: mick
+authors:
+- mick
 comments: true
 date: 2013-06-20 11:56:20+00:00
 layout: post
 slug: dark-launching-and-feature-toggles
 title: Dark Launching and Feature Toggles
 wordpress_id: 1941
-categories:
-- Systems development
 ---
 
-  
+
 
 
 
@@ -19,7 +18,7 @@ categories:
 
 Make sure to distinguish between these two.
 
-They are not the same thing, 
+They are not the same thing,
 and it's a lot quicker to just _Dark Launch_.
 
 In addition Dark Launching promotes incremental development, continuous delivery, and modular design. Feature Toggles need not, and can possibly be counter-productive.

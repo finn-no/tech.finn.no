@@ -1,13 +1,12 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2011-01-07 14:16:09+00:00
 layout: post
 slug: graded-browser-support-at-finn-no
 title: Graded browser support at FINN.no
 wordpress_id: 109
-categories:
-- Interface development
 tags:
 - browsers
 - browsersupport
@@ -39,13 +38,13 @@ Our levels of support are slightly more simple than those of Yahoo! and we only 
 
 
 
-	
+
   * A-support: no visual or functional errors, all errors are reported and all features should be tested for each release.
 
-	
+
   * B-support: no functional errors, core features should be tested for each release, visual errors are only reported with a low priority
 
-	
+
   * C-support: no functional errors in core features, all other errors are not reported.
 
 

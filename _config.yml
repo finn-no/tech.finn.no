@@ -1,7 +1,23 @@
-name: Tech Blog
-markdown: rdiscount
-pygments: true
-paginate: 5
+# Permalinks
+permalink:        pretty
 relative_permalinks: true
-# baseurl: /~espdallo/tech/
-permalinks: /:year/:month/:day/:title.html
+
+# Setup
+title:            Tech Blog
+tagline:          Finn.no developer tech blog
+url:              http://finn-no.github.io/tech.finn.no/
+paginate:         1
+paginate_path:    "page/:num"
+baseurl:          "/"
+author:
+  name:           Finn Technology
+  url:            https://finn.no/
+  twitter:        FINN_tech
+  email:          tech@finn.no
+
+# Custom vars
+version:          0.0.1
+github:
+  repo:           https://github.com/finn-no/tech.finn.no
+gems:
+  - jekyll-redirect-from

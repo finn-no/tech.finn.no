@@ -1,106 +1,32 @@
-<!doctype HTML>
-<html lang="en">
-<head>
-<title>{{ site.name }} - {{ page.title }}</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
-<!--[if IE 9 ]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
-<![endif]-->
-<!--[if IE 8 ]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
-<![endif]-->
-<!--[if lte IE 8]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
-<![endif]-->
-<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
-<style>
-body {
-     height: 100%;
-     margin: 0;
-     padding: 0;
-}
-body > .media {
-  margin-top: 0;
-}
-.xxl {
-  padding-top: 70px;
-}
-.deco {
-  background: url("https://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
-  height: 57px;
-  top: -24px;
-  width: 840px;
-  left: 94px;
-  position: absolute;
-}
-.nerddeco {
-  border-top: 2px solid black;
-  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
-  height: 200px;
-}
-</style>
-</head>
+<!DOCTYPE html>
+<html lang="no">
+
+{% include head.html %}
+
 <body>
 
- <div class="media">
-      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
-      <p class=" bd h1 xxl"><a href="{{ site.baseurl }}">{{ site.name }}</a></p>
- </div>
- <div class="relative hidelt768">
-  <div class="deco"></div>
- </div>
-<div class="line pal" >
-  <div class="unit r-size2of3">
-    <div class="mod shadow">
-      <div class="inner">
-        <div class="bd">
-
-          {{ content }}
-
-
+    <header class="masthead">
+        <div class="container">
+            <h1 class="masthead-title">
+                <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
+                <small>{{ site.tagline }}</small>
+            </h1>
         </div>
-      </div>
+    </header>
+
+    <div class="container content">
+
+        <main>
+            {{ content }}
+        </main>
+
+        {% include footer.html %}
+        {% include scripts.html %}
+
+        {% if site.github.environment %}
+        {% include analytics.html %}
+        {% endif %}
     </div>
-  </div>
-  <div class="unit r-size1of3">
-    <div class="mod shadow mbn">
-      <div class="inner">
-        <div class="bd">
 
-          <h2>What’s this?</h2>
-          <p>This is a blog run by the people creating <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
-          </p>
-
-          <h2>Categories</h2>
-          <ul class="bullets phl">
-            {% for category in site.categories %}
-              <li><a href="{{ site.baseurl }}categories/{{ category[0] }}.html">{{ category[0] }}</a></li>
-            {% endfor %}
-          </ul>
-
-          <h2>Blogroll</h2>
-          <ul>
-            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
-            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
-            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
-          </ul>
-          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
-
-        </div>
-      </div>
-    </div>
-    <div class="mod nerddeco"></div>
-  </div>
-</div>
-<div class="footer pal bg-contrast contrast">
-  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
-  <a href="http://tech.finn.no">Our developer blog</a> |
-  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
-  <a href="http://finn.no">FINN.no</a>
-</div>
-</div>
 </body>
 </html>

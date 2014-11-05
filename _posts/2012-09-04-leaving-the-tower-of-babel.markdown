@@ -1,14 +1,12 @@
 ---
-author: mortenlj
+authors:
+- mortenlj
 comments: true
 date: 2012-09-04 09:48:05+00:00
 layout: post
 slug: leaving-the-tower-of-babel
 title: Leaving the Tower of Babel
 wordpress_id: 1720
-categories:
-- Behind the scenes
-- Systems development
 tags:
 - developers
 - java
@@ -96,13 +94,13 @@ There are other questions falling out of this too:
 
 
 
-	
+
   * There are two developers who wants to work with Objective-C, and eight Java-developers who wants to work with Scala, so why do we have so few internal applicants when we have openings on the teams working with these languages?
 
-	
+
   * What is it that makes developers want to work with languages they don't even know?
 
-	
+
   * Of the respondents, more than half the Java-developers wants to use something else. Why is that?
 
 

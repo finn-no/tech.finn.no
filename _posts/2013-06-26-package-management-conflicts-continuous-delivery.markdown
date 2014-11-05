@@ -1,16 +1,15 @@
 ---
-author: mick
+authors:
+- mick
 comments: true
 date: 2013-06-26 20:42:28+00:00
 layout: post
 slug: package-management-conflicts-continuous-delivery
 title: Package Management conflicts Continuous Delivery
 wordpress_id: 1970
-categories:
-- Systems development
 ---
 
-  
+
 
 
 ![](http://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/yum%20package_0.png)
@@ -36,7 +35,7 @@ despite fixed and minimised interfaces between runtime services, each runtime se
 
 ### Push code out from behind the shackles of package management
 
-take advantage of continuous delivery! Bearing in mind a healthy modular systems design comes from making sure you got the api design right – so the amount one can utilise CD is ultimately limited, unless you want to throw out modularity. In general we let components low in the stack "be safe" by focusing on api design over delivery time, and the opposite for components high in the stack. 
+take advantage of continuous delivery! Bearing in mind a healthy modular systems design comes from making sure you got the api design right – so the amount one can utilise CD is ultimately limited, unless you want to throw out modularity. In general we let components low in the stack "be safe" by focusing on api design over delivery time, and the opposite for components high in the stack.
 
 
 
@@ -55,26 +54,26 @@ Code at the top of the stack is that free of package management and completely f
 
   * don't put configuration into libraries.
       _because this creates version-churn and leads to more package management_  
-  
+
 
 
 
   * don't put services into libraries.
       _same reason as above._  
-  
+
 
 
 
   * don't confuse deploying with version releases.
       _don't release every artifact as part of a deployment pipeline.
       separate concerns of continuous delivery and package management._  
-  
+
 
 
 
   * try to use a runtime service instead of a compile-time library.
       _this minimises API, in turn minimising package management,_  
-  
+
 
 
 

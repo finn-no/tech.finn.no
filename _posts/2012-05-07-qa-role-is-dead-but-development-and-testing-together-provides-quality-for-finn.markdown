@@ -1,5 +1,6 @@
 ---
-author: vivek
+authors:
+- vivek
 comments: true
 date: 2012-05-07 07:29:20+00:00
 layout: post

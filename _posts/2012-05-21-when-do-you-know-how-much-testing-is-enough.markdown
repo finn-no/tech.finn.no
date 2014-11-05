@@ -1,5 +1,6 @@
 ---
-author: vivek
+authors:
+- vivek
 comments: true
 date: 2012-05-21 11:56:43+00:00
 layout: post
@@ -17,34 +18,34 @@ It’s important to evaluate the possibility of finding more defects based on re
 
 
 
-	
+
   * If you have just found a defect, this is a signal to keep testing. It may seem counter-intuitive but in general the more defects you find the more likely it is that there are additional defects.
 
-	
+
   * If you have only exercised a small portion of the overall functionality and have found defects, then this is a signal to continue testing.
 
-	
+
   * If you have been testing a particular piece of functionality for a while and are not finding any new defects, then this is a signal for you to stop testing. How much of the system's functionality have you tested?
 
-	
+
   * If there are significant features that are mostly or entirely not tested, then you will likely not be prepared to recommend it is good to go.
 
-	
+
   * False confidence is a very real danger. This is especially true for developers. I have seen or heard of many who have an unrealistically high level of confidence that their code works, in some cases without any testing whatsoever. As a specific example, I have heard developers state that if their code compiles, it is good enough to be promoted to acceptance testing.
 
 
 Testing by definition is comparing an expected result to an observed result. So it should be easy to answer the question how much testing is enough? But the answer could be based on number of factors such as:
 
-	
+
   * Identifying risks early in your project on technical and business aspect.
 
-	
+
   * The project constraints such as time or budget. If a team decides to enlarge the scope of a project the time will become larger as well along with the cost. If the time constraint is tighter the scope may be reduced but the cost will remain high. If the team decides to tighten the budget, the scope will become smaller but the time will increase. The time constraint deals with the time necessary to finish a project. To successfully complete a project, the time constraint should be comprised of a schedule. You should have a specific schedule related to the time that it will take you to finish the project.
 
-	
+
   * Measure the complexity and risk of new features and how much of the product they impact.
 
-	
+
   * Measure bugs found during the release and bugs found after the release and in what areas of the product.
 
 
@@ -56,10 +57,10 @@ Testing should provide information to the stakeholders of the system, so that th
 
 So going back to my question, testing is done when its objectives have been achieved and more specifically, you are done testing when:
 
-	
+
   * You are unlikely to find additional defects.
 
-	
+
   * You have a sufficiently high level of confidence that the software is ready to be released.
 
 

@@ -1,13 +1,12 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2012-06-12 08:43:19+00:00
 layout: post
 slug: technology-day-2012
 title: Technology Day 2012
 wordpress_id: 1183
-categories:
-- Behind the scenes
 tags:
 - clojure
 - lean
@@ -37,31 +36,31 @@ Lightning talks are 10 minutes long and tightly timed. We hold them after lunch,
 
 
 
-	
+
   * About love (... and ask yourself "why do we work 8 hours a day")
 
-	
+
   * Fragmentation of the Android and why it is not a problem for us
 
-	
+
   * Testcomplete database code before check - is it possible?
 
-	
+
   * Elastic Search
 
-	
+
   * Geolocation with MongoDB
 
-	
+
   * Traditional version control systems vs distributed version control systems (VCS -> DVCS).
 
-	
+
   * Eat your own dogfood
 
-	
+
   * Semantic web
 
-	
+
   * Large IT projects should fail!
 
 

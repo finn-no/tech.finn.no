@@ -1,13 +1,12 @@
 ---
-author: gregers
+authors:
+- gregers
 comments: true
 date: 2011-03-10 13:05:53+00:00
 layout: post
 slug: style-sheet-for-touch-devices
 title: Style sheet for touch devices
 wordpress_id: 443
-categories:
-- Interface development
 tags:
 - CSS
 - interface development
@@ -21,21 +20,21 @@ It's easy to include a style sheet for small-screen mobile devices, but what if 
 
 [Paul Irish](http://twitter.com/#!/paul_irish) has researched a bit for [Modernizr](http://modernizr.com) to find out [what detection methods work best](http://modernizr.github.com/Modernizr/touch.html). You can of course use Modernizr, but if all you need is this test it's not necessary to include the whole library. All you really need is this:
 
-    
+
     'ontouchstart' in window
 
 
 
 At first I did the test in the initialization code on document.ready, but then the style sheet will load too late. I definitely don't like document.write in external scripts because then you can't load them asynchronously in an easy manner. However, now it's actually useful, since we want the style sheet to be written out and loaded before the page is visible.
 
-    
-    
+
+
     <script type="text/javascript">
         if("ontouchstart" in window) {
             document.write('<link rel="stylesheet" type="text/css" media="only screen" href="/css/touch.css">');
         }
     </script>
-    
+
 
 
 

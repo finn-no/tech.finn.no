@@ -1,14 +1,12 @@
 ---
-author: mick
+authors:
+- mick
 comments: true
 date: 2010-11-04 18:11:57+00:00
 layout: post
 slug: the-ultimate-view
 title: the ultimate view
 wordpress_id: 22
-categories:
-- Interface development
-- Systems development
 tags:
 - Composite Pattern
 - Decorator Pattern
@@ -19,7 +17,7 @@ tags:
 - Tiles
 ---
 
-  
+
 
 
 > **This article has been rewritten for Tiles-3.**  
@@ -29,7 +27,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
 
     A story of getting the View layer up and running quickly in Spring, using Tiles with wildcards, fallbacks, and definition includes, to use the Composite pattern and Convention over Configuration providing a minimal ongoing xml changes.
-    
+
 
 ## Summary
 
@@ -38,41 +36,41 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     ![](/wp-content/uploads/2011/01/1351-222x300.jpg)
 
-    
 
 
-    
 
 
-	    
+
+
+
   * [Summary](/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Summary)
 
-	    
+
   * [Background](/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Background)
 
-	    
+
   * [Step 0: Spring to Tiles Integration](/2010/11/04/the-ultimate-view/2/)
 
-	    
+
   * [Step 1: Wildcards](/2010/11/04/the-ultimate-view/3/)
 
-	    
+
   * [Step 2: The fallback pattern](/2010/11/04/the-ultimate-view/4/)
 
-	    
+
   * [Step 3: Definition includes](/2010/11/04/the-ultimate-view/5/)
 
-	    
+
   * [When the Composite pattern is superior](/2010/11/04/the-ultimate-view/6/)
 
-	    
+
   * [Conclusion](/2010/11/04/the-ultimate-view/6#theultimateview-part1-Conclusion)
 
-    
-    
 
 
-    
+
+
+
 
 ## Background
 
@@ -82,43 +80,43 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     ![](/wp-content/uploads/2011/01/images.jpe)
 
     **SiteMesh shortcomings:**
-    
 
 
-	    
+
+
   * from a design perspective the Decorator pattern doesn't combine with MVC as elegantly as the Composite pattern does
 
-	    
+
   * requires to hold all possible html for a request in buffer requiring large amounts of memory
 
-	    
+
   * unable to flush the response before the response is complete
 
-	    
+
   * requires more overall processing due to the processing of all the potentially included fragments
 
-	    
+
   * does not guaranteed thread safety
 
-	    
+
   * does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward
 
-    
+
     One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org/) It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a [ViewPreparer](http://tiles.apache.org/tutorial/advanced/preparer.html). This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the ball onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
 
     Yet the most valuable benefit Tiles was going to offer wasn't realised until we [started experimenting a little more...](/2010/11/04/the-ultimate-view/2/)
 
-    
-    
+
+
 
 ## Step 0: Spring to Tiles Integration
 
 
     The first step was integrating [Tiles and Spring](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles) together. There exists tutorials on this already, it boils down to registering both a ViewResolver and a TilesConfigurer in your spring-web configuration.
 
-    
-    
-    
+
+
+
         <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
     	    <property name="order" value="1"/>
     	    <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
@@ -128,29 +126,29 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     		    <bean class="no.finntech.control.servlet.tiles.FinnTilesInitialiser"/>
     	    </property>
         </bean>
-        
+
 
 
 
     The TilesConfigurer hooks into the "tilesInitializer" class that you must supply yourself. This is the new way in Tiles-2 of providing the [configuration](http://tiles.apache.org/config-reference.html). Our FinnTilesInitialiser looks like
 
-    
-    
-    
+
+
+
         public class FinnTilesInitialiser extends AbstractTilesInitializer {
             public FinnTilesInitialiser() {}
-    
+
             @Override
             protected AbstractTilesContainerFactory createContainerFactory(TilesApplicationContext context) {
                 return new FinnTilesContainerFactory();
             }
         }
-        
 
 
 
-    
-    
+
+
+
 
 ## Step 1: Wildcards
 
@@ -161,8 +159,8 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     Tiles-2 though provides a way to avoid it by using [wildcards](http://tiles.apache.org/framework/tutorial/advanced/wildcard.html), and when i hear people talking about tiles it's clear this Tiles-2 "dynamic composite" paradigm hasn't really caught on.
 
     Let's declare a definition and template like (and create some files and folders as shown to the right):
-    
-    
+
+
     //--tiles.xml
         <definition name="REGEXP:(.+)" template="/WEB-INF/tiles/template.jsp">
     	    <put-attribute name="meta" value="/WEB-INF/tiles/{1}/meta.jsp"/>
@@ -170,14 +168,14 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     	    <put-attribute name="body" value="/WEB-INF/tiles/{1}/body.jsp"/>
     	    <put-attribute name="footer" value="/WEB-INF/tiles/{1}/footer.jsp"/>
         </definition>
-        
 
 
 
-    
-    
+
+
+
      //--template.jsp
-        <!DOCTYPE html> 
+        <!DOCTYPE html>
         <%@ prefix="tiles" taglib uri="http://tiles.apache.org/tags-tiles" %>
         <html>
         <head>
@@ -189,7 +187,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
         <div id="footer"><tiles:insertAttribute name="footer"/></div>
         </body>
         </html>
-        
+
 
 
 
@@ -197,9 +195,9 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     Now we that we have three ready to go definitions "cat", "dog", and "cow". Spring controllers can now use them like this
 
-    
-    
-    
+
+
+
         @Controller
         public class MyWebsite{
             @RequestMapping("/cat")
@@ -221,14 +219,14 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                 return new ModelAndView("cow", modelMap);
             }
         }
-        
+
 
 
 
     What's brilliant here is that we can keep adding new definitions and matching jsps in new folders without ever having to edit the xml.
 
-    
-    
+
+
 
 ## Step 2: The fallback pattern
 
@@ -242,8 +240,8 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     Now we introduce a "common" folder for jsps, and our example would turn into
 
-    
-    
+
+
     //--tiles.xml
         <definition name="REGEXP:(.+)" template="/WEB-INF/tiles/template.jsp">
     	    <put-attribute name="meta" value="/WEB-INF/tiles/[{1}|common]/meta.jsp"/>
@@ -251,27 +249,27 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     	    <put-attribute name="body" value="/WEB-INF/tiles/[{1}|common]/body.jsp"/>
     	    <put-attribute name="footer" value="/WEB-INF/tiles/[{1}|common]/footer.jsp"/>
         </definition>
-        
+
 
 
 
     The AttributeRenderer, at least a simplified version of it, looks like
-    
-    
+
+
     public class TemplateAttributeRenderer extends org.apache.tiles.renderer.impl.TemplateAttributeRenderer {
-    
-            private static final Pattern OPTIONAL_PATTERN 
+
+            private static final Pattern OPTIONAL_PATTERN
                         = Pattern.compile(Pattern.quote("[") + ".+" + Pattern.quote("]"));
-    
+
             private static final String OPTION_SEPARATOR = Pattern.quote("|");
-    
+
             @Override
             public void write(Object obj, Attribute attribute, TilesRequestContext request) throws IOException {
-    
+
                 Matcher matcher = null != obj && obj instanceof String
                         ? OPTIONAL_PATTERN.matcher((String) obj)
                         : null;
-    
+
                 if (null != matcher && matcher.find()) {
                     PrintWriter writer = request.getPrintWriter();
                     String match = matcher.group();
@@ -285,7 +283,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                             } catch (FileNotFoundException ex) {
                                 if(ex.getMessage().contains(template)){
                                     LOG.trace(ex.getMessage()); // expected outcome. continue loop.
-    
+
                                 }else{
                                   throw ex; // comes from an inner templateAttribute.render(..) so throw on
                                 }
@@ -300,9 +298,9 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
 
     To plug this AttributeRenderer make sure your TilesContainerFactory returns it
-    
-    
-    
+
+
+
         public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
             ...
             @Override
@@ -312,7 +310,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                     TilesRequestContextFactory contextFactory,
                     TilesContainer container,
                     AttributeEvaluatorFactory attributeEvaluatorFactory) {
-    
+
                 TemplateAttributeRenderer templateRenderer = new TemplateAttributeRenderer();
                 templateRenderer.setApplicationContext(applicationContext);
                 templateRenderer.setRequestContextFactory(contextFactory);
@@ -328,8 +326,8 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     ![](/wp-content/uploads/2010/11/information.gif) For a large company this could help enforce UI standards because they have control over the common/ folder - and they can keep an eye that the overrides, the customisations, never become too outlandish, or too out of line, with the standard look of the website. In turn the front end developers can also look back at the common/ folder to see what the expected default should look like.
 
-    
-    
+
+
 
 ## Step 3: Definition includes
 
@@ -342,9 +340,9 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     First of all we change the existing definition names into the form "action.category" making the controller(s) now look like
 
-    
-    
-    
+
+
+
         @Controller
         @RequestMapping("/cat")
         public class CatController{
@@ -393,29 +391,29 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                 return new ModelAndView("search.cow", modelMap);
             }
         }
-        
+
 
 
 
     then change the tiles.xml to introduce the definition includes
 
-    
-    
-    
+
+
+
         //-- tiles.xml
         <definition name="REGEXP:([^.]+)\.([^.]+)" template="/WEB-INF/tiles/template.jsp">
             <put-attribute name="meta" value="/WEB-INF/tiles/[{2}|{1}|common]/meta.jsp"/>
             <put-attribute name="header" value="/WEB-INF/tiles/[{2}|{1}|common]/header.jsp"/>
             <put-attribute name="body" value="/WEB-INF/tiles/[{2}|{1}|common]/body.jsp"/>
             <put-attribute name="footer" value="/WEB-INF/tiles/[{2}|{1}|common]/footer.jsp"/>
-    
+
             <!-- definition injection performed by DefinitionInjectingContainerFactory.instantiateDefinitionFactory(..) -->
             <put-list-attribute name="definition-injection">
                 <add-attribute value=".category.{2}" type="string"/>
                 <add-attribute value=".action.{1}.{2}" type="string"/>
             </put-list-attribute>
         </definition>
-    
+
         //-- tiles-core.xml
         <definition name="REGEXP:\.action\.view\.([^.]+)">
             <!-- override attributes -->
@@ -456,7 +454,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
             <put-attribute name="cow.extra_information" value="/WEB-INF/tiles/[{2}|{1}|cow]/cow_extra_information.jsp"/>
             <put-attribute name="cow.farm" value="/WEB-INF/tiles/[{2}|{1}|cow/cow_farm.jsp"/>
         </definition>
-        
+
 
 
 
@@ -466,15 +464,15 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     The following DefinitionsFactory makes this all come together
 
-    
-    
-    
+
+
+
         public class FinnUnresolvingLocaleDefinitionsFactoryImpl extends UnresolvingLocaleDefinitionsFactory {
-    
+
             private static final String DEF_INJECTION = "definition-injection";
-    
+
             public FinnUnresolvingLocaleDefinitionsFactoryImpl() {}
-    
+
             // this method can return null
             // injected definitions are expected to have "." prefix
             @Override
@@ -498,7 +496,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                 }
                 return def;
             }
-    
+
             private void injectDefinition(String fromName, Definition to, TilesRequestContext cxt) {
                 assert null != fromName : "Definition not found " + fromName;
                 assert fromName.startsWith(".") : "Injected definitions must have \".\" prefix: " + fromName;
@@ -512,15 +510,15 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                 }
             }
         }
-        
+
 
 
 
     To plug this DefinitionsFactory in again make sure to return it from your TilesContainerFactory
 
-    
-    
-    
+
+
+
         public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
             ...
             @Override
@@ -528,17 +526,17 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
                     final TilesApplicationContext applicationContext,
                     final TilesRequestContextFactory contextFactory,
                     final LocaleResolver resolver) {
-    
+
                 return new FinnUnresolvingLocaleDefinitionsFactoryImpl();
             }
             ...
         }
-        
 
 
 
-    
-    
+
+
+
 
 ## When the Composite pattern is superior
 
@@ -548,20 +546,20 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     ![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern) allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
 
     ![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern) presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
-      
+
 
 
     When you use jsp includes whether you like it or not you have a page heirarchy. If your jsps typically have a template with fragments you are already working within the composite pattern's paradigm: the template being the "composite" and the fragments being the components. Each fragment, each JSP, has a context that holds the model map, or variables, in various scopes, and within this context they are self-sufficient. The only operation required upon them by others is inclusion. Applying the composite pattern here means treating each fragment as a self-sufficient object, the only thing that can happen to it is it will be included.
 
     This shows how we can design to reduce complexity and encourage there to be only one unified context.
 
-    It also shows how we can maintain a top-down control of the page's heirarchy, something necessary in a MVC design where the control layer wants to hand off a finished model map, ie a fixed context, that the view layer is free to build itself off. In contrast when we choose the Decorator pattern we can run foul of letting code run in parallel to the MVC pattern.     
-  
+    It also shows how we can maintain a top-down control of the page's heirarchy, something necessary in a MVC design where the control layer wants to hand off a finished model map, ie a fixed context, that the view layer is free to build itself off. In contrast when we choose the Decorator pattern we can run foul of letting code run in parallel to the MVC pattern.
+
 
     ![](/wp-content/uploads/2010/11/patterns-flow.gif)
-      
 
-    
+
+
 
 ## Conclusion
 
@@ -572,35 +570,35 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
     The four steps gone through in this article show you how Tiles-2 and the Composite pattern can be ramped up on steroids to give front end and systems developers what they want hopefully in a way that encourages them to work together.
 
-      
-  
+
+
 
     **References**
-    
 
 
-	    
+
+
   1. [Tiles-2](http://tiles.apache.org)
 
-	    
+
   2. [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern)
 
-	    
+
   3. [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern)
 
-	    
+
   4. [Spring Web](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/spring-web.html)
 
-	    
+
   5. Integrating [Tiles and Spring](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles)
 
-	    
+
   6. Initial discussion regarding Tiles [definition delegation](http://old.nabble.com/howto-delegate-to-other-definitions---td27516586.html)
 
-	    
+
   7. Spring >3.0.1 required to work with Tiles-2.2+ :: [TilesConfigurer does not ...](http://jira.springframework.org/browse/SPR-6097)
 
     [ ](http://jira.springframework.org/browse/SPR-6097)  
-  
-  
+
+
 

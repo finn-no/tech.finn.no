@@ -1,5 +1,6 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2011-11-21 19:02:40+00:00
 layout: post
@@ -12,16 +13,16 @@ tags:
 - opensource
 ---
 
-We have finally made an effort to put some of our repos out on GitHub under the [finn-no organization](https://github.com/organizations/finn-no). It is not exactly filled with stuff right now, but we aim to put a lot more of our libraries and tools out here. 
+We have finally made an effort to put some of our repos out on GitHub under the [finn-no organization](https://github.com/organizations/finn-no). It is not exactly filled with stuff right now, but we aim to put a lot more of our libraries and tools out here.
 
 Currently there are a few repositories out there:
 
 
 
-	
+
   * [eventHub](https://github.com/finn-no/eventhub)
 
-	
+
   * [Awesome Board](https://github.com/finn-no/awesomeboard)
 
 

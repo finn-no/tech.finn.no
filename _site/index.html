@@ -1,549 +1,296 @@
+<!DOCTYPE html>
+<html lang="no">
 
-<!doctype HTML>
-<html>
 <head>
-<title>Tech Blog - developers at FINN blogging about technology</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" media="all" href="http://finncdn.no/bb/latest/css/so/so.css">
-<!--[if IE 9 ]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie9.css" />
-<![endif]-->
-<!--[if IE 8 ]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld" href="http://finncdn.no/bb/latest/css/so/styles/so/ie8.css" />
-<![endif]-->
-<!--[if lte IE 8]>
-<link rel="stylesheet" type="text/css" media="screen,projection,handheld,print" href="http://finncdn.no/bb/latest/css/so/styles/so/ie.css" />
-<![endif]-->
-<link media="print" href="http://finncdn.no/bb/latest/css/so/styles/so/print.css">
-<style>
-body {
-     height: 100%;
-     margin: 0;
-     padding: 0;
-}
-body > .media {
-  margin-top: 0;
-}
-.xxl {
-  padding-top: 70px;
-}
-.deco {
-  background: url("http://cache.finn.no/img/decoration/decoration_frontpage.png") no-repeat center top;
-  height: 57px;
-  top: -24px;
-  width: 840px;
-  left: 94px;
-  position: absolute;
-}
-.nerddeco {
-  border-top: 2px solid black;
-  background: url("http://hjemmehos.finn.no/no/webfolk_+_entusiaster/filestore/dev/GFX/menu_gadgets.png") no-repeat;
-  height: 200px;
-}
-</style>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Developers at FINN blogging about tech &middot; Tech Blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/c3/0.3.0/c3.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Tech Blog" href="/atom.xml">
 </head>
+
+
 <body>
 
- <div class="media">
-      <img class="img" src="http://finn-no.github.io/img/tech_logo.png">
-      <p class=" bd h1 xxl"><a href="/">Tech Blog</a></p>
- </div>
- <div class="relative hidelt768">
-  <div class="deco"></div>
- </div>
-<div class="line pal" >
-  <div class="unit r-size2of3">
-    <div class="mod shadow">
-      <div class="inner">
-        <div class="bd">
+    <header class="masthead">
+        <div class="container">
+            <h1 class="masthead-title">
+                <a href="/" title="Home">Tech Blog</a>
+                <small>Finn.no developer tech blog</small>
+            </h1>
+        </div>
+    </header>
 
-          
-  <h1><a href="systems%20development/2013/06/26/package-management-conflicts-continuous-delivery.html">Package Management conflicts Continuous Delivery</a></h1>
-  url=/systems%20development/2013/06/26/package-management-conflicts-continuous-delivery.html
-  <p class="author">
-    <span class="date">2013-06-26 20:42:28 UTC</span>
-  </p>
-  <div class="content">
-    <p><img src="http://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/yum%20package_0.png" alt="" /></p>
+    <div class="container content">
 
-<p>The idea of package management is to correctly operate and bundle together various components in any system. The practice of package management is a consequence from the design and evolution of each component's API.</p>
+        <main>
+            <div class="posts">
+    
+    <article class="post">
+        <h1 class="post-title">
+            <a href="/2013/06/26/package-management-conflicts-continuous-delivery/">
+                Package Management conflicts Continuous Delivery
+            </a>
+        </h1>
 
-<h3>Package management is tedious</h3>
+        <div class="post-byline">
+            <time datetime="2013-06-26T22:42:28+02:00">26 Jun 2013</time>
+by
 
-<p>but necessary. It can also help to address the 'fear of change'.</p>
+  
+  <a href="mailto:">mick</a>
 
-<p>We can minimise package management by minimising API. But we can't minimise API if we don't have experience with where it comes from. You can't define for yourself what the API of your code is. It is well beyond that of your public method signatures. Anything that with change can break a consumer is API.</p>
+        </div>
 
-<h3>Continuous Delivery isn't void of API</h3>
+        <p><img src="http://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/yum%20package_0.png" alt="" /></p>
 
-<p>despite fixed and minimised interfaces between runtime services, each runtime service also contains an API in how it behaves. The big difference though is you own the release change, a la the deployment event, and if things don't go well you can roll back. Releasing artifacts in the context of package management can not be undone. Once you have released the artifact you must presume someone has already downloaded it and you can't get it back. The best you can do it release a new version and hope everyone upgrades to it quickly.</p>
+<p>The idea of package management is to correctly operate and bundle together various components in any system. The practice of package management is a consequence from the design and evolution of each component’s API.</p>
 
-<h3>Push code out from behind the shackles of package management</h3>
+<h3 id="package_management_is_tedious">Package management is tedious</h3>
 
-<p>take advantage of continuous delivery! Bearing in mind a healthy modular systems design comes from making sure you got the api design right – so the amount one can utilise CD is ultimately limited, unless you want to throw out modularity. In general we let components low in the stack "be safe" by focusing on api design over delivery time, and the opposite for components high in the stack.</p>
+<p>but necessary. It can also help to address the ‘fear of change’.</p>
 
-<h3>High in the stack doesn't refer to front-end code</h3>
+<p>We can minimise package management by minimising API. But we can’t minimise API if we don’t have experience with where it comes from. You can’t define for yourself what the API of your code is. It is well beyond that of your public method signatures. Anything that with change can break a consumer is API.</p>
+
+<h3 id="continuous_delivery_isnt_void_of_api">Continuous Delivery isn’t void of API</h3>
+
+<p>despite fixed and minimised interfaces between runtime services, each runtime service also contains an API in how it behaves. The big difference though is you own the release change, a la the deployment event, and if things don’t go well you can roll back. Releasing artifacts in the context of package management can not be undone. Once you have released the artifact you must presume someone has already downloaded it and you can’t get it back. The best you can do it release a new version and hope everyone upgrades to it quickly.</p>
+
+<h3 id="push_code_out_from_behind_the_shackles_of_package_management">Push code out from behind the shackles of package management</h3>
+
+<p>take advantage of continuous delivery! Bearing in mind a healthy modular systems design comes from making sure you got the api design right – so the amount one can utilise CD is ultimately limited, unless you want to throw out modularity. In general we let components low in the stack “be safe” by focusing on api design over delivery time, and the opposite for components high in the stack.</p>
+
+<h3 id="high_in_the_stack_doesnt_refer_to_frontend_code">High in the stack doesn’t refer to front-end code</h3>
 
 <p>Code at the top of the stack is that free of package management and completely free for continuous deployment. Components with direct consumers no longer sit at the top of the stack. As components consumers multiple, and they become transitive dependencies, they move further down the stack. Typically entropy of the component corresponds to position in the stack. Other components forced into package management can be those where parallel versions need be deployed.</p>
 
-<h3>Some simple rules to abide by…</h3>
+<h3 id="some_simple_rules_to_abide_by">Some simple rules to abide by…</h3>
 
 <ul>
-<li><p>don't put configuration into libraries.
-  <em>because this creates version-churn and leads to more package management</em></p></li>
-<li><p>don't put services into libraries.
-  <em>same reason as above.</em></p></li>
-<li><p>don't confuse deploying with version releases.
-  <em>don't release every artifact as part of a deployment pipeline.
-  separate concerns of continuous delivery and package management.</em></p></li>
-<li><p>try to use a runtime service instead of a compile-time library.
-  <em>this minimises API, in turn minimising package management,</em></p></li>
-<li><p>try to re-use standard APIs (REST, message-buses, etc).
-  <em>the less API you own the less package management.
-  but don't cheat! data formats are APIs, and anything exposed that breaks stuff when changed is API.</em></p></li>
+<li>
+<p>don’t put configuration into libraries. <em>because this creates version-churn and leads to more package management</em></p>
+</li>
+
+<li>
+<p>don’t put services into libraries. <em>same reason as above.</em></p>
+</li>
+
+<li>
+<p>don’t confuse deploying with version releases. <em>don’t release every artifact as part of a deployment pipeline. separate concerns of continuous delivery and package management.</em></p>
+</li>
+
+<li>
+<p>try to use a runtime service instead of a compile-time library. <em>this minimises API, in turn minimising package management,</em></p>
+</li>
+
+<li>
+<p>try to re-use standard APIs (REST, message-buses, etc). <em>the less API you own the less package management. but don’t cheat! data formats are APIs, and anything exposed that breaks stuff when changed is API.</em></p>
+</li>
 </ul>
-
-
-  </div>
-  <p>2013-06-26 20:42:28 UTC by mick in systems development</p>
-  <hr>
-
-  <h1><a href="systems%20development/2013/06/20/dark-launching-and-feature-toggles.html">Dark Launching and Feature Toggles</a></h1>
-  url=/systems%20development/2013/06/20/dark-launching-and-feature-toggles.html
-  <p class="author">
-    <span class="date">2013-06-20 11:56:20 UTC</span>
-  </p>
-  <div class="content">
-    <p><a href="http://be-toru.deviantart.com/art/Dark-Side-of-The-Moon-129409258"><img src="http://th02.deviantart.net/fs47/200H/f/2009/194/3/1/Dark_Side_of_The_Moon_by_Be_Toru.png" alt="" /></a></p>
-
-<p>Make sure to distinguish between these two.</p>
-
-<p>They are not the same thing,
-and it's a lot quicker to just <em>Dark Launch</em>.</p>
-
-<p>In addition Dark Launching promotes incremental development, continuous delivery, and modular design. Feature Toggles need not, and can possibly be counter-productive.</p>
-
-<p>Dark Launching is an operation to silently and freely deploy something. Giving you time to ensure everything operates as expected in production and the freedom to switch back and forth while bugfixing. A Dark Launch's goal is often about being completely invisible to the end-user. It also isolates the context of the deployment to the component itself.</p>
-
-<p>Feature Toggling, in contrast, is often the ability to A/B test new products in production. Feature Toggling is typically accompanied with measurements and analytics, eg NetInsight/Google-Analytics. Feature Toggles may also extend to situations when the activation switch of a dark launch can only happen in a consumer codebase, or when only some percentage of executions will use the dark launched code.</p>
-
-<p>Given that one constraint of any decent enterprise platform is that all components must fail gracefully Dark Launching is the easiest solution, and a golden opportunity to ensure your new code fails gracefully. Turn the new module on, and it's dark launched and in use, any problems turn it off again. You also shouldn't have to worry about only running some percentage of executions against the new code, let it all go to the new component, if the load is too much the excessive load should also fail-gracefully and fall back to the old system.</p>
-
-<p>Dark Launching is the simple approach as it requires no feature toggling framework, or custom key-value store of options. It is a DevOps goal that remains best isolated to the context of DevOps – in a sense the 'toggling' happens through operations and not through code. When everything is finished it is also the easier approach to clean up. Dealing with and cleaning up old code takes up a lot of our time and is a significant hindrance to our ability to continually innovate. In contrast any feature toggling framework can risk encouraging a mess of outdated, arcane, and unused properties and code paths. KISS: always try and bypass a feature toggle framework by owning the 'toggle' in your own component, rather than forcing it out into consumer code.</p>
-
-<p>Where components have <a href="http://en.wikipedia.org/wiki/Command-query_separation">CQS</a> it gets even better. First the command component is dark launched, whereby it runs in parallel, and data can be test between the old and new system (blue-green deployments). Later on the query component is dark launched. While the command components can run and be used in parallel for each and every request the query components cannot. When the dark launch of the query component is final the old system is completely turned off.</p>
-
-<p>Now the intention of this post isn't to say we don't need feature toggling, but to give terminology to, and distinguish, between two different practices instead of lumping everything under the term "feature toggling". And to discourage using a feature toggling framework for everything because we fail to understand the simpler alternative.</p>
-
-<p>In the context of front-end changes, it's typical that for a new front-end feature to come into play there's been some new backend components required. These will typically have been dark launched. Once that is done, the front-end will introduce a feature toggle rather than dark launch because it's either introducing something new to the user or wanting to introduce something new to a limited set of users. So even here dark launching can be seen not as a "cool" alternative, but as the prerequisite practice.</p>
-
-<p>Reference: "<a href="http://bit.ly/16IgCit">DevOps for Developers</a>" By Michael Hüttermann</p>
-
-  </div>
-  <p>2013-06-20 11:56:20 UTC by mick in systems development</p>
-  <hr>
-
-  <h1><a href="behind%20the%20scenes/methodology/2013/03/20/given-the-git.html">given the git</a></h1>
-  url=/behind%20the%20scenes/methodology/2013/03/20/given-the-git.html
-  <p class="author">
-    <span class="date">2013-03-20 11:14:08 UTC</span>
-  </p>
-  <div class="content">
-    <p><img src="http://t2.gstatic.com/images?q=tbn:ANd9GcT06Df3cXPHx1qzMy6AV2ibmUOXlKFstSObwkgmQvdUpIC16Uz_" alt="" /></p>
-
-<blockquote><p>"There is no way to do CVS right." - Linus</p></blockquote>
-
-<p><strong>FINN is migrating from subversion to the ever trendy git.</strong>
-We've waited years for it to happen,
-here we'll try to highlight why and how we are doing it.</p>
-
-<h3>Working together</h3>
-
-<p>There's no doubt that git gives us a cleaner way of working on top of each other. Wherever you promote peer review you need a way of working with changesets from one computer to the next without having to commit to and via the trunk where everyone is affected. Creating custom branches comes with too much (real or perceived) overhead, so the approach at best falls to throwing patches around. Coming away from a pair-programming session it's better when developers go back to their own desk with such a patch so they can work on it a bit more and finish it properly with tests, docs, and a healthy dose of clean coding. It properly entitles them as the author rather than appearing as if someone else took over and committed their work. Git's decentralisation of repositories provides the cleaner way by replacing these patches with private repositories and its easy to use branches.</p>
-
-<h3>Individual productivity</h3>
-
-<p>Git improves the individual's productivity with benefits of <a href="http://git-scm.com/book/en/Git-Tools-Stashing">stashing</a>, <a href="http://git-scm.com/book/en/Git-Tools-Rewriting-History">squashing</a>, <a href="http://git-scm.com/book/en/Git-Basics-Undoing-Things">reseting</a>, and <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebasing</a>. A number of programmers for a number of years were already on the bandwagon using git-svn against our subversion repositories. This was real proof of the benefits, given the headaches of git-svn (can't <a href="http://stackoverflow.com/questions/5652521/does-git-svn-handle-moved-files">move</a> files and <a href="http://stackoverflow.com/questions/3011625/git-mv-and-only-change-case-of-directory">renaming</a> files gives corrupted repositories)</p>
-
-<p>With Git, work is encouraged to be done on feature branches and merged in to master as complete (squashed/rebased) changesets with clean and summarised commit messages.</p>
-
-<ol>
-<li><p> This improves efforts towards continuous deployment due to a more stable HEAD.</p></li>
-<li><p> Rolling back any individual feature regardless of its age is a far more manageable task.</p></li>
-<li><p> By squashing all those checkpoint commits we typically make we get more meaningful, contextual, and accurate <a href="http://thomashw.github.com/blog/2012/12/02/commit-messages/">commit messages</a>.</p></li>
-</ol>
-
-
-<p>Reading isolated and complete changesets provides clear oversight, to the point reading code history becomes enjoyable, rather than a chore. Equally important is that such documentation that resides so close to, if not with, the code comes with a real permanence. There is no documentation more accurate over all of time than the code itself and the commit messages to it. Lastly writing and rewriting good commit message will alleviate any culture of jira issues with vague, or completely inadequate, descriptions as teams hurry themselves through scrum methodologies where little attention is given to what is written down.</p>
-
-<h3>Maintaining forks</h3>
-
-<p>Git makes maintaining forks of upstream projects easy.</p>
-
-<p><strong>With Git</strong>
- fork the upstream repository,
-branch,  fix and commit,
-create the upstream pull request,
- while you wait for the pull request to be accepted/rejected use your  custom inhouse artifact.</p>
-
-<p><strong>With Subversion</strong>
-file an upstream issue,
-checkout the code,
-fix and store in a patch attached to the issue,
-while you wait use the inhouse custom artifact from the patched but uncommited codebase.</p>
-
-<p>Both processes are largely the same but it's safer and so much easier using a forked git repository over a bunch of patch files.</p>
-
-<h3>Has Git-Flow any advantage?</h3>
-
-<p>We're putting some thoughts into how we were to organise our repositories, branches, and workflows. The best introductory article we've so far come across is from <a href="http://sandofsky.com/blog/git-workflow.html">sandofsky</a> and should be considered mandatory reading. Beyond this one <a href="http://nvie.com/posts/a-successful-git-branching-model/">popular</a> approach is organising branches using <a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">Git Flow</a>. This seemed elegant but upon closer inspection comes with more disadvantages than benefits...</p>
-
-<ul>
-<li><p>the majority needs to 'checkout develop' after cloning (there are more developers than ops),</p></li>
-<li><p>master is but a sequence of "tags" and therefore develop becomes but a superfluous branch, a floating "stable" tag instead is a better solution over any branch that simply marks states,</p></li>
-<li><p>it was popular but didn't form any standard,</p></li>
-<li><p>requires a script not available in all GUIs/IDEs, otherwise it is but a convention,</p></li>
-<li><p>prevents you from getting your hands dirty with the real Git, how else are you going to learn?,</p></li>
-<li><p>it goes against having focus and gravity towards continuous integration that promotes an always stable HEAD. That is we desire less stabilisation and qa branches, and more individual feature and fix branches.</p></li>
-</ul>
-
-
-<p><a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a> gives a healthy critique of Git-Flow and it helped identify our style better. GitHub Flow focus' on continuous integration, "deploy to production every day" rather than releasing, and relying on git basics rather than adding another plugin to our development environment.</p>
-
-<h3>Our workflows</h3>
-
-<p>So we devised two basic and flexible workflows: one for applications and one for services and libraries. Applications are end-user products and stuff that has no defined API like batch jobs. Services are our runtime services that builds up our platform, each come with a defined API and client-server separation in artifacts. Applications are deployed to environments, but because no other codebase depends on them their artifacts are never released. Services, with their APIs and client-side libraries, are released using <a href="http://semver.org/">semantic versions</a>, and the server-side code to them is deployed to environments in the same manner as Applications. The differences between Applications and Services/Libraries warrant two different workflow styles.</p>
-
-<p>Both workflow styles use master as the stable branch. Feature branches come off master. An optional “integration” (or “develop”) branch  may exist between master and feature branches, for example CI build tools might automatically merge integration changes back to master, but take care not to fall into the anti-pattern of using merges to mark state.</p>
-
-<p>The workflow for Applications may use an optional stable branch where deployments are made from, this is used by projects that have not perfected continuous deployment. Here bug fix branches are taken from the stable branch, and forward ported to master. For applications practising continuous deployment a more GitHub approach may be taken where deployments from finished feature branches occur and after successfully running in production such feature branches are then merged to master.</p>
-
-<p>The workflow for Services is based upon each release creating a new semantic version and the git tagging of it. Continuous deployment off master is encouraged but is limited to how compatible API and the client libraries are against the HEAD code in the master branch – code that is released and deployed must work together. Instead of the optional stable branch, optional versioned branches may exist. These are created lazy from the release tag when the need for a bug fix on any previous release arises, or when master code no longer provides compatibility to the released artifacts currently in use. The latter case highlights the change when deployments start to occur off the versioned branch instead of off master. Bug fix branches are taken from the versioned branch, and forward ported to master.</p>
-
-<p>Similar to Services are Libraries. These are artifacts that have no server-side code. They are standalone code artifacts serving as compile-time dependencies to the platform. A Library is released, but never itself deployed to any environment. Libraries are void of any efforts towards continuous deployments but otherwise follow very similar workflow as Services – typically they give longer support to older versions and therefore have multiple release branches active.</p>
-
-<p>How any team operates their workflow is up to them, free to experiment to see what is effective. At the end of the day as long as you understand the differences between <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">merge</a> and <a href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebase</a> then evolving from one workflow to another over time shouldn't be a problem.</p>
-
-<h3>Infrastructure: Atlassian Stash</h3>
-
-<p>The introduction of Git was stalled for a year from our Ops team as there was no repository management software they were happy enough with to support (integration with existing services was important, particularly Crowd). Initially they were waiting on either Gitolite or Gitorius. Eventually someone suggested Stash from Atlassian and after a quick trial this was to be it. We're using a number of Atlassian products already: Jira, Fisheye, Crucible, and Confluence; so the integration factor was good and so we've paid for a product that was at the time incredibly overpriced with next to nothing on its feature list. One feature the otherwise very naked Stash comes with is <em>Projects</em>, which provides a basic grouping of repositories. We've used this grouping to organise our repositories based on our  architectural layers: "applications", "services", "libraries", and "operations". The idea is not to build fortresses with projects based on teams but to best please the outsider who is looking for some yet unknown codebase and only knows what <em>type</em> of codebase it is. We're hoping that Atlassian adds <a href="https://jira.atlassian.com/browse/STASH-3217">labels</a> and <a href="https://jira.atlassian.com/browse/STASH-3216">descriptions</a> to repositories to further help organisation. Permissions is easy, full read and write access to everyone, we'll learn quickest when we're all free to make mistakes, it's all under version control at the end of the day.</p>
-
-<p><a href="http://www.atlassian.com/software/stash/"><img src="http://www.atlassian.com/software/stash/overview/feature-overview/featureItems/00/imageBinary/stashtour_highlight_builtforenterprise.png" alt="Atlassian Stash" /></a></p>
-
-<h3>We're still a cathedral</h3>
-
-<p>Git decentralises everything, but we're not a real bazaar: our private code is our cathedral with typical enterprise trends like scrum and kanban in play; and so we have still the need to centralise a lot.
-Our list of users and roles we still want centralised, when people push to the master repository are all commits logged against known users or are we going to end up with multiple aliases for every developer? Or worse junk users like "localhost"?
-To tackle this we wrote a pre-push hook that authenticates usernames for all commits against <a href="http://www.atlassian.com/software/crowd/overview">Crowd</a>. If a commit from an unknown user is encountered the push fails and the pusher needs to fix their history using this <a href="https://gist.github.com/carlosmcevilly/2221249">recipe</a> before pushing again.</p>
-
-<p>Releases can be made off any clone and obviously not be something we want. Released artifacts need to be permanent and unique, and deployed to our central maven repository. Maven's release plugin fortunately tackles this for us as when you run <code>mvn release:prepare</code> or <code>mvn release:branch</code> it automatically pushes resulting changes upstream for you, as dictated by the scm details in the pom.xml</p>
-
-<h3>Migrating repositories</h3>
-
-<p>Our practice with subversion was to have everything in one large subversion repository, like how Apache does <a href="http://svn.apache.org/repos/asf/">it</a>. This approach worked best for us allowing projects and the code across projects to be freely moved around. With Git it makes more sense for each project to have its own repository, as moving files along with their history between repositories is easy.</p>
-
-<p>Initial attempts of conversion were using svn2git as described <a href="http://veys.com/2010/07/24/migrating-multi-project-subversion-repositories-to-git/">here</a> along with <a href="http://furius.ca/pubcode/pub/conf/bin/svndumpfilter3.html">svndumpfilter3</a>.</p>
-
-<p>But a plugin in Stash came along called <a href="http://subgit.com/stash/">SubGit</a>. It rocks! Converting individual projects from such a large subversion repository one at a time is easy. Remember to moderate the .gitattributes file afterwards, we found in most usecases it could be deleted.</p>
-
-<h3>Hurdles</h3>
-
-<p><strong>Integration with our existing tools</strong> (bamboo, fisheye, jira) was easier when everything was in one subversion repository. Now with scores of git repositories it is rather cumbersome. Every new git repository has to be added manually into every other tool. We're hoping that Atlassian comes to the rescue and provides some sort of <a href="https://jira.atlassian.com/browse/STASH-2589">automatic recognition</a> of new and renamed repositories.</p>
-
-<p><strong>Renaming</strong> repositories in Stash is very easy, and should be encouraged in an agile world, but it breaks the integration with other tools. Every repository rename means going through other tools and manually updating them. Again we hope Atlassian comes to the rescue.</p>
-
-<p><strong>Binary files</strong> we were worried about as our largest codebase had many and was already slow on subversion due to it. Subversion also stores all xml files by default as binary and in a large spring based application with a long history this might have been a problem. We were ready to investigate solutions like <a href="http://git-annex.branchable.com/">git-annex</a>. All test migrations though showed that it was not a problem, git clones of this large codebase were super fast, and considerably smaller (subversion 4.1G -> git 1.1G).</p>
-
-<h3>Adaptation</h3>
-
-<p>Towards the end of February we were lucky enough to have <a href="http://twitter.com/tlberglund">Tim Berglund</a>, <a href="http://twitter.com/brntbeer">Brent Beer</a>, and <a href="http://twitter.com/davidgraham">David Graham</a>, from GitHub come and <a href="http://teach.github.com/presentations/git-foundations.html#/">teach</a> us Git. The first two days was a set course with 75 participants and covered</p>
-
-<ul>
-<li>Git Fundamentals (staging, moving, copying, history, branching, merging, resetting, reverting),</li>
-<li>Collaboration using GitHub (Push, pull, and fetch, Pull Requests Project Sites, Gists, Post-receive hooks), and</li>
-<li>Advanced Git (Filter-Branch, Bisect, Rebase-onto, External merge/diff tools, Event Hooks, Refspec, .gitattributes).</li>
-</ul>
-
-
-<p>The third day with the three GitHubbers was more of an open space with under twenty participants where we discussed various <a href="https://gist.github.com/jarib/184945f80373474943a8">specifics</a> to FINN's adoption to Git, from continuous deployment (which GitHub excels at) to branching workflows.</p>
-
-<p> No doubt about it this was one of the best, if not very best, courses held for FINN developers, and left everyone with a resounding drive to immediately switch all codebases over to Git.</p>
-
-<p>Other documentation that's encouraged for everyone to read/watch is</p>
-
-<ul>
-<li><a href="http://git-scm.com/book">The entire Pro Git book</a>,</li>
-<li><a href="http://vimeo.com/49444883">Advanced Git</a> video from Tim Berglund,</li>
-<li><a href="http://www.youtube.com/watch?v=AJ-CpGsCpM0">The Flow Of Change</a> video from Google (covers engineering principles of branching codebases).</li>
-</ul>
-
-
-<p><img src="/wp-content/uploads/2013/03/timberglund.jpg" alt="" /></p>
-
-<h3>Tips and tricks for beginners…</h3>
-
-<p>To wrap it up here's some of the tips and tricks we've documented for ourselves…</p>
-
-<p><strong>Cant push because HEAD is newer</strong>
-So you pull first… Then you go ahead and push which adds two commits into history: the original and a duplicate merge from you.
-You need to learn to do <code>git rebase</code> in such situations, better yet to do <code>git --rebase pull</code>.
-You can make the latter permanent behaviour with <code>
-    git config --global branch.master.rebase true
-    git config --global branch.autosetuprebase always</code></p>
-
-<p><strong>Colour please!</strong>
-<code>git config --global color.ui auto</code></p>
-
-<p><strong>Did you really want to push commits on all your branches?</strong>
-This can trap people, they often expect push to be restricted to the current branch your on. It can be enforced to be this way with <code>git config --global push.default tracking</code></p>
-
-<p><strong>Pretty log display</strong>
-Alias <code>git lol</code> to your preferred log format…
-Simple oneline log formatting:
-<code>git config --global alias.lol "log --abbrev-commit --graph --decorate --all --pretty=oneline"</code></p>
-
-<p>Oneline log formatting including committer's name and relative times for each commit:
-<code>git config --global alias.lol "log --abbrev-commit --graph --all
---pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset'"</code></p>
-
-<p>Compact log formatting with full commit messages, iso timestamps, file history over renames, and mailmap usernames:
-<code>git config --global alias.lol "log --follow --find-copies-harder --graph  --abbrev=4
---pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen%ai %n %C(bold blue)%aN%Creset  %B'"</code></p>
-
-<p><strong>Cherry-picking referencing the original commit</strong>
-When recording a cherry-pick commit, using the "-x" option appends the line <em>"(cherry picked from commit ...)"</em> to the original commit message so to indicate which commit this change was cherry-picked from. For example <code>git cherry-pick -x 3523dfc</code></p>
-
-<p><strong>Quick log to see what i've done in the last 24 hours?</strong>
-<code>git config --global alias.standup "log --all --since yesterday --author</code>git config --global user.email<code>"</code></p>
-
-<p><strong>What files is this project got but ignoring?</strong>
-<code>git config --global alias.ignored "ls-files --others --i --exclude-standard"</code></p>
-
-<p><strong>Wipe all uncommitted changes</strong>
-<code>git config --global alias.wipe "reset --hard HEAD"</code></p>
-
-<p><strong>Edit and squash commits before pushing them</strong>
-<code>git config --global alias.ready "rebase -i @{u}"</code></p>
-
-  </div>
-  <p>2013-03-20 11:14:08 UTC by mick in behind the scenesmethodology</p>
-  <hr>
-
-  <h1><a href="behind%20the%20scenes/systems%20development/2013/01/31/i-wish-i-knew-my-consumers-maven-reverse-dependency.html">I wish I knew my consumers - Maven Reverse Dependency</a></h1>
-  url=/behind%20the%20scenes/systems%20development/2013/01/31/i-wish-i-knew-my-consumers-maven-reverse-dependency.html
-  <p class="author">
-    <span class="date">2013-01-31 12:49:05 UTC</span>
-  </p>
-  <div class="content">
-    <p>At FINN.no being a developer fixing bugs in a library is a breeze. Getting every user of your library to use the fix, however, is a different story. How to know who to notify? I mean, I know my library's dependencies, but who "out there" has dependency to the component where I just fixed a bug? I wish. Enter maven-dependency-graph.</p>
-
-<p>The idea was born on the plane back home from a Copenhagen hosted conference. Graph database. Download neo4j and start dabbling at a maven plugin. Flying time Copenhagen - Oslo was too short, all of a sudden.</p>
-
-<p>From there, the idea slept for a couple of years. Until the need arose somewhere among the developers. With 100+ different applications running with common core services and libraries, everybody suddenly needed to know who depended on their code which had recently been bugfixed. So the old idea was dusted off and once more saw the light of day. We needed to upgrade the server installation and the API to neo4j - which took some time to grasp; but after some playing around, it became obvious and easy.</p>
-
-<p>The idea was to have every project report its dependencies to a graph database, building the tree of dependencies on each commit. This constitutes one half of the plugin. Over time, all projects will have reported their dependencies, and from there on part two of the plugin comes into use. It will examine the reverse dependencies to the <em>current</em> maven project, and report all incoming dependencies to it in the maven log. Hey, presto! We now know who out there uses us! And even which version they are using, thanks to two different keys into the built-in lucene index engine.</p>
-
-<p>The plugin is published on github @ <a href="https://github.com/finn-no/maven-dependency-mapper">Finn Technology's account</a>. Feel free!
-<a href="http://twitter.com/gardleopard">@gardleopard</a> and <a href="http://twitter.com/roarjoh">@roarjoh</a></p>
-
-<h2>Usage examples</h2>
-
-<p>Dependencies to current maven project:
-<code>
-mvn no.finntech:dependency-mapper-maven-plugin:read
-[INFO] Scanning for projects...
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building greenpages thrift-client 3.4.5-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
-[INFO]
-[INFO] --- dependency-mapper-maven-plugin:1.0-SNAPSHOT:read (default-cli) @ commons-thrift-client ---
-[INFO] Resolving reverse dependencies
-[INFO] no.finntech.travel.supplier:supplier-client:1.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.1.1
-[INFO] no.finntech.cop:client:1.1-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.1.1
-[INFO] no.finntech.oppdrag-services:iad-model:2013.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.4.3
-[INFO] no.finntech:minfinn:2013.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.4.3
-[INFO] no.finntech:service-user:2013.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.4.3
-[INFO] no.finntech:service-oppdrag:2013.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.4.3
-[INFO] no.finntech:kernel:2013.2-SNAPSHOT -&gt; no.finntech:commons-thrift-client:3.4.3
-</code>
-(umpteen lines skipped...)
-<code>
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 1.957s
-[INFO] Finished at: Thu Jan 31 09:50:19 CET 2013
-[INFO] Final Memory: 9M/211M
-[INFO] ------------------------------------------------------------------------
-</code></p>
-
-<p>Usage of third party framework (using neo4j's included admin interface):
-<img src="http://tech.finn.no/wp-content/uploads/2013/01/neo4jshot.png" alt="" /></p>
-
-  </div>
-  <p>2013-01-31 12:49:05 UTC by roar in behind the scenessystems development</p>
-  <hr>
-
-  <h1><a href="2012/11/09/strataconf-hadoop-world-2012.html">StrataConf & Hadoop World 2012…</a></h1>
-  url=/2012/11/09/strataconf-hadoop-world-2012.html
-  <p class="author">
-    <span class="date">2012-11-09 13:23:06 UTC</span>
-  </p>
-  <div class="content">
-    <p>A summary of this year's Strataconf &amp; Hadoop World.
-A fascinating and inspiring conference with use-cases on both sides of an ethical divide – proof that the technologies coming are game-changers in both our industry and in society. Along with some intimidating use-cases i've never seen such recruitment <a href="http://twitter.com/SQLDiva/status/261523933243789312">efforts</a> at any conference before, from multi-nationals to the <a href="https://twitter.com/comsysto/status/261174163455225857">CIA</a>. The need for developers and data scientists in Big Data is burning – the market for Apache Hadoop Market is <a href="https://twitter.com/TheASF/status/263823598731530240">expected</a> to reach $14 billion by 2017.</p>
-
-<p>Plenty of honesty towards the hype and the challenges involved too. A barcamp <em>Big Data Controversies</em> labelled it all as Big Noise and looked at ways through the hype. It presented balancing perspectives from a insurance company's statistician who has dealt successfully with the problem of too much data for a decade and a hadoop techie who could provide much desired answers to previously impossible questions. Highlights from this barcamp were…</p>
-
-<ul>
-<li><p>One should always use intelligent samples before ever committing to big data.</p></li>
-<li><p>Unix tools can be used but they are not very fault tolerant.</p></li>
-<li><p>You know when you're storing too much denormalised data when you're also getting high compression rates on it.</p></li>
-<li><p>MapReduce isn't everything as it can be replaced with indexing.</p></li>
-<li><p>If you try to throw automated algorithms at problems without any human intervention you're bound to bullshit.</p></li>
-<li><p>Ops hate hadoop and this needs to change.</p></li>
-<li><p>Respecting user privacy is important and requires a culture of honesty and common-sense within the company. But everyone needs to understand what's illegal and why.</p></li>
-</ul>
-
-
-<p><strong>Noteworthy (10 minute) keynotes…</strong></p>
-
-<ul>
-<li><p><em><a href="http://bit.ly/SJGrHf">The End of the Data Warehouse</a></em>. They are monuments to the old way of doing things: pretty packaging but failing to deliver the business value. But Hadoop too is still flawed…  Also a <a href="http://bit.ly/RijQBv">blog</a> available.</p></li>
-<li><p><em><a href="http://bit.ly/R6bkFS">Moneyball for New York City</a></em>. How NYC council started combining datasets from different departments with surprising results.</p></li>
-<li><p><em><a href="http://bit.ly/Pwgj4y">The Composite Database</a></em>, a focus on using big data for product development. To an application programmer the concept of a database is moving from one entity into a componential architecture.</p></li>
-<li><p><em><a href="http://t.co/pmpdJw3h">Bringing the 'So What' to Big Data</a></em>, a different keynote with a sell towards going to work for the CIA. Big data isn't about data but changing and improving lives.</p></li>
-<li><p><em><a href="http://bit.ly/PPVB15">Cloud, Mobile and Big Data</a></em>. Paul Kent, a witty speaker, talks about analytics in a new world. "At the end of the day, we are closer to the beginning than we are at end of this big data revolution… One radical change hadoop and m/r brings is now we push the work to the data, instead of pulling the data out."</p></li>
-</ul>
-
-
-<p><strong>Noteworthy (30 minute) presentations…</strong></p>
-
-<ul>
-<li><p><em><a href="http://slidesha.re/PAXdu2">The Future – Hadoop-2</a></em>. Hadoop YARN makes all functional programming algorithms possible, reducing the existing map reduce framework to just one of many user-land libraries. Many existing limitations are removed. Fault-tolerance is improved (namenode). 2x performance improvement on small jobs.</p></li>
-<li><p><em><a href="http://tech.finn.no/?attachment_id=1758">Designing Hadoop for the Enterprise Data Center</a></em>. A joint talk from Cisco and Cloudera on hardware tuning to meet Hadoop's serious demands. 10G networks help. dual-attached 1G networks is an alternative. More jobs in parallel will average out network bursts. Data-locality misses hurt network, consider above a 80% data-locality hitrate good.</p></li>
-<li><p><em><a href="http://slidesha.re/YraGqG">How to Win Friends and Influence People</a></em>. LinkedIn presents four of their big data products
-∘ Year in Review. Most successful email ever – 20% response rate.
-∘ Network Updates.
-∘ Skills and Endorsements. A combination of propensity to know someone and the propensity to have the skill.
-∘ People You May Know. Listing is easy, but ranking required combining many datasets. 
-All these products were written in PIG. Moving data around is the key problem. Kafka is used instead of scribe.</p></li>
-<li><p><em><a href="http://bit.ly/UaxOdm">Designing for data-driven organisation</a></em>. Many companies who think they are data-driven are in fact metrics-driven. It's not the same thing. Metrics-driven companies often want interfaces with less data. Data-driven companies have data rich interfaces presenting holistic visualisations.</p></li>
-<li><p><em><a href="http://slidesha.re/RzPWuk">Visualizing Networks</a></em>. The art of using the correct visualisation and layout. Be careful of our natural human trait to see visual implications from familiarity and proximity – we don't always look at the legend. A lot of examples using the d3 javascript library.</p></li>
-</ul>
-
-
-<p>The two training sessions I attended were Testing Hadoop, and Hadoop using Hive.
-<em><a href="http://bit.ly/XbVbDK">Testing Hadoop.</a></em>
-Presented by an old accomplice from the NetBeans Governance board, Tom Wheeler. He presented an interesting perspective on testing calling it another form of computer security: "a computer is secure if you can depend on it and its software to behave as you expect". Otherwise i took home a number of key technologies to fill in the gaps between and around our current unit and single-node integration tests on our CountStatistics project: Apache MRUnit for m/r units, MiniMRCluster and MiniDFSCluster for multi-jvm integration cluster, and BigTop for ecosystem testing (pig, hive, etc). We also went through various ways to benchmark hadoop jobs using TeraSort, MRBench, NNBench, TestDFSIO, GridMix3, and SWIM. Lastly we went through a demo of the free product "Cloudera Manager" – a diagnostics UI similar to Cassandra's OpsCenter.</p>
-
-<p><em><a href="http://bit.ly/RCHMzT">Hadoop using Hive.</a></em>
-Hive provides an SQL interface to Hadoop. It works out-of-the-box if you're using HBase but with Cassandra as our underlying database we haven't gotten around to installing it yet. The tutorial went through many live queries on a AWS EC2 cluster, exploring the specifics to STRUCTs in schemas, JOINs, UDFs, and serdes. This is a crucial interface to make it easier for others, particularly BI and FINN økosystem, to explore freely through our data. Pig isn't the easiest way in for outsiders, but everyone knows enough SQL to get started. Fingers crossed we get Hive or Impala installed some time soon…</p>
-
-<p>A number of meet-ups occurred during the evenings, one hosted at AppNexus, a company providing 10 billion real-time ads per day (with a stunning office). AppNexus does all their hadoop work using python, but they also putting focus on RESTful Open APIs like we do. The other meetup represented Cassandra by <a href="http://www.datastax.com/">DataStax</a> with plenty of free Cassandra beer. Latest <a href="http://bit.ly/Ut7ZzB">benchmarks</a> prove it to be the fastest distributed database around. I was hoping to see more Cassandra at strataconf – when someone mentions big data i think of Cassandra before Hadoop.</p>
-
-<p>Otherwise this US election was on the news as the <em><a href="http://bit.ly/RCFWim">big data election</a></em></p>
-
-<p><img src="/wp-content/uploads/2012/11/hadoop1.jpg" alt="" /></p>
-
-  </div>
-  <p>2012-11-09 13:23:06 UTC by mick in </p>
-  <hr>
-
-
-
-<div class="phl">
-  
-    <span>&laquo; Prev</span>
-  
-
-  
+    </article>
     
-      <em>1</em>
-    
-  
-    
-      <a href="/page2">2</a>
-    
-  
-    
-      <a href="/page3">3</a>
-    
-  
-    
-      <a href="/page4">4</a>
-    
-  
-    
-      <a href="/page5">5</a>
-    
-  
-    
-      <a href="/page6">6</a>
-    
-  
-    
-      <a href="/page7">7</a>
-    
-  
-
-  
-    <a href="/page2">Next &raquo;</a>
-  
 </div>
 
+<section class="postarchive">
 
+  <h2>Archive</h2>
 
-
-        </div>
-      </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2013-06-20T13:56:20+02:00">2013-06-20 13:56:20 +0200</time></small>
+      <a href="/2013/06/20/dark-launching-and-feature-toggles/">Dark Launching and Feature Toggles</a>
     </div>
-  </div>
-  <div class="unit r-size1of3">
-    <div class="mod shadow mbn">
-      <div class="inner">
-        <div class="bd">
-
-          <h2>What’s this?</h2>
-          <p>This is a blog run by the people creating the service <a href="http://www.finn.no">FINN.no</a>. Our purpose with this blog is to provide an insight into how we build things and to share our experiences with anyone who is interested in learning.
-          </p>
-
-          <h2>Categories</h2>
-          <ul class="bullets phl">
-            
-              <li><a href="/categories/interface development.html">interface development</a></li>
-            
-              <li><a href="/categories/systems development.html">systems development</a></li>
-            
-              <li><a href="/categories/behind the scenes.html">behind the scenes</a></li>
-            
-              <li><a href="/categories/methodology.html">methodology</a></li>
-            
-          </ul>
-
-          <h2>Blogroll</h2>
-          <ul>
-            <li><a href="http://labs.finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://labs.finn.no']);">FINN Labs</a></li>
-            <li><a href="http://finn.no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://finn.no']);">FINN.no</a></li>
-            <li><a href="http://github.com/finn-no" target="" onclick="javascript:_gaq.push(['_trackEvent','outbound-blogroll','http://github.com/finn-no']);">Our GitHub projects</a></li>
-          </ul>
-          <a class="phl" href="https://developer.mozilla.org/en/JavaScript" title="MDN JavaScript Home"><img src="http://static.jsconf.us/promotejsh.gif" height="150" width="180" alt="MDN JavaScript Home"></a>
-
-        </div>
-      </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2013-03-20T12:14:08+01:00">2013-03-20 12:14:08 +0100</time></small>
+      <a href="/2013/03/20/given-the-git/">given the git</a>
     </div>
-    <div class="mod nerddeco"></div>
-  </div>
-</div>
-<div class="footer pal bg-contrast contrast">
-  <a href="http://twitter.com/finn_tech">Finn Technology on Twitter</a> |
-  <a href="http://tech.finn.no">Our developer blog</a> |
-  <a href="http://hjemmehos.finn.no/no/jobbe_her+/">Come work with us!</a> |
-  <a href="http://finn.no">FINN.no</a>
-</div>
-</div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2013-01-31T13:49:05+01:00">2013-01-31 13:49:05 +0100</time></small>
+      <a href="/2013/01/31/i-wish-i-knew-my-consumers-maven-reverse-dependency/">I wish I knew my consumers - Maven Reverse Dependency</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-11-09T14:23:06+01:00">2012-11-09 14:23:06 +0100</time></small>
+      <a href="/2012/11/09/strataconf-hadoop-world-2012/">StrataConf & Hadoop World 2012…</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-09-04T11:48:05+02:00">2012-09-04 11:48:05 +0200</time></small>
+      <a href="/2012/09/04/leaving-the-tower-of-babel/">Leaving the Tower of Babel</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-07-25T15:48:52+02:00">2012-07-25 15:48:52 +0200</time></small>
+      <a href="/2012/07/25/the-ultimate-view-tiles-3/">the ultimate view — Tiles-3</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-06-23T20:32:28+02:00">2012-06-23 20:32:28 +0200</time></small>
+      <a href="/2012/06/23/going-all-out-with-the-strap-on-project/">Going all out with the Strap-on Project</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-06-23T12:31:21+02:00">2012-06-23 12:31:21 +0200</time></small>
+      <a href="/2012/06/23/profiling-and-debugging-view-templates/">Profiling and debugging view templates</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-06-12T10:43:19+02:00">2012-06-12 10:43:19 +0200</time></small>
+      <a href="/2012/06/12/technology-day-2012/">Technology Day 2012</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-05-21T13:56:43+02:00">2012-05-21 13:56:43 +0200</time></small>
+      <a href="/2012/05/21/when-do-you-know-how-much-testing-is-enough/"> When do you know, how much testing is enough?</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-05-15T20:58:12+02:00">2012-05-15 20:58:12 +0200</time></small>
+      <a href="/2012/05/15/putting-a-mustache-on-tiles-3/">Putting a mustache on Tiles-3</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2012-05-07T09:29:20+02:00">2012-05-07 09:29:20 +0200</time></small>
+      <a href="/2012/05/07/qa-role-is-dead-but-development-and-testing-together-provides-quality-for-finn/">QA role is dead but development and testing together provides quality for FINN.no</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-11-21T20:02:40+01:00">2011-11-21 20:02:40 +0100</time></small>
+      <a href="/2011/11/21/spreading-love-and-good-vibrations-on-github/">Spreading love and good vibrations on GitHub</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-11-19T13:31:11+01:00">2011-11-19 13:31:11 +0100</time></small>
+      <a href="/2011/11/19/we-rocked-out-at-the-smidig-conference/">We rocked out at the Smidig conference!</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-10-14T10:21:02+02:00">2011-10-14 10:21:02 +0200</time></small>
+      <a href="/interface%20development/2011/10/14/make-real-estate-brokers-happy-with-hard-boiled-business-cards/">Make real estate brokers happy with hard boiled business cards</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-09-02T10:08:46+02:00">2011-09-02 10:08:46 +0200</time></small>
+      <a href="/2011/09/02/how-to-get-a-job-at-finn-no/">How to get a job at FINN.no</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-08-26T08:50:51+02:00">2011-08-26 08:50:51 +0200</time></small>
+      <a href="/2011/08/26/it-has-never-been-about-the-standers-while-it-has-always-been-about-the-standards/">It has never been about the standers, while it has always been about the standards</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-07-04T08:50:39+02:00">2011-07-04 08:50:39 +0200</time></small>
+      <a href="/2011/07/04/putting-numbers-that-goes-with-the-face-we-put-on-quality/">Putting numbers that goes with the face we put on quality</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-06-27T15:41:23+02:00">2011-06-27 15:41:23 +0200</time></small>
+      <a href="/2011/06/27/graded-browser-support-version-1-1/">Graded browser support version 1.1</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-06-24T09:09:41+02:00">2011-06-24 09:09:41 +0200</time></small>
+      <a href="/2011/06/24/hosting-our-first-ever-hackaton/">Hosting our first ever hackaton</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-05-13T01:01:00+02:00">2011-05-13 01:01:00 +0200</time></small>
+      <a href="/2011/05/13/dependency-injection-with-constructors/">Dependency Injection with constructors?</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-05-09T14:44:05+02:00">2011-05-09 14:44:05 +0200</time></small>
+      <a href="/2011/05/09/putting-a-face-on-quality/">Putting a face on quality</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-04-08T09:09:39+02:00">2011-04-08 09:09:39 +0200</time></small>
+      <a href="/2011/04/08/xss-protection-whos-responsibility/">XSS protection: who's responsibility?</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-04-07T15:37:45+02:00">2011-04-07 15:37:45 +0200</time></small>
+      <a href="/2011/04/07/multiple-versions-of-chrome-on-os-x/">Multiple versions of Chrome on OS X</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-04-01T13:45:39+02:00">2011-04-01 13:45:39 +0200</time></small>
+      <a href="/2011/04/01/the-great-leap-getting-serious-with-javascript-at-finn-no/">The Great Leap - getting serious with JavaScript at FINN.no</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-03-10T14:05:53+01:00">2011-03-10 14:05:53 +0100</time></small>
+      <a href="/2011/03/10/style-sheet-for-touch-devices/">Style sheet for touch devices</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-03-03T10:35:37+01:00">2011-03-03 10:35:37 +0100</time></small>
+      <a href="/2011/03/03/geting-geeky-in-hc3b8nefoss/">Getting Geeky in Hønefoss</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-02-01T20:08:24+01:00">2011-02-01 20:08:24 +0100</time></small>
+      <a href="/2011/02/01/developing-for-mobile-is-punk-rock/">Developing for mobile is punk rock!</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-01-19T19:07:02+01:00">2011-01-19 19:07:02 +0100</time></small>
+      <a href="/2011/01/19/using-the-constretto-configuration-factory/">Using the Constretto Configuration Factory</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2011-01-07T15:16:09+01:00">2011-01-07 15:16:09 +0100</time></small>
+      <a href="/2011/01/07/graded-browser-support-at-finn-no/">Graded browser support at FINN.no</a>
+    </div>
+  
+    <div class="postarchive-post">
+      <small><time datetime="2010-11-04T19:11:57+01:00">2010-11-04 19:11:57 +0100</time></small>
+      <a href="/2010/11/04/the-ultimate-view/">the ultimate view</a>
+    </div>
+  
+</section>
+        </main>
+
+        <footer class="site-footer">
+    <h5>Finn tech</h5>
+    <div>
+      <a href="https://finn.no/" alt="Finn tech">tech.finn.no</a> ·
+      <a href="https://twitter.com/FINN_tech/" alt="Tech Blog on Twitter">@FINN_tech</a>
+    </div>
+</footer>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment-with-locales.min.js"></script>
+<script>
+ var times = document.getElementsByTagName('time');
+ for (var i = 0; i < times.length; ++i) {
+   var el = times[i];
+   el.childNodes[0].data = moment(el.getAttribute('datetime')).format('LL');
+ }
+</script>
+
+
+        
+    </div>
+
 </body>
 </html>

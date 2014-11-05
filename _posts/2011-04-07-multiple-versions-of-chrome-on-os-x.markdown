@@ -1,13 +1,12 @@
 ---
-author: gregers
+authors:
+- gregers
 comments: true
 date: 2011-04-07 13:37:45+00:00
 layout: post
 slug: multiple-versions-of-chrome-on-os-x
 title: Multiple versions of Chrome on OS X
 wordpress_id: 559
-categories:
-- Interface development
 tags:
 - browsers
 - chrome
@@ -25,14 +24,14 @@ _Disclaimer: Each version will have it's own profile, so you have to set up each
 
 
 
-	
+
   1. First [download each version](http://www.chromium.org/getting-involved/dev-channel) and rename the original Google Chrome apps to "Google Chrome Stable", "Google Chrome Beta" and "Google Chrome Dev" and put them in Applications **under your user folder**.
 I.e.: /Users/gregers/Applications/
 
-	
+
   2. Unzip [Chrome-Trio.zip](http://tech.finn.no/wp-content/uploads/2011/04/Chrome-Trio.zip) and put the apps in /Applications
 
-	
+
   3. Don't select any of them as default browser, since that will use the default profile instead of the custom. Instead start Safari -> Preferences -> General -> Default web browser -> Select... -> Go to /Applications and choose the version of Chrome you want as default :)
 
 

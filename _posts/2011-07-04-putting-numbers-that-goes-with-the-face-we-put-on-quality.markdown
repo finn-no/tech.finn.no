@@ -1,13 +1,12 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2011-07-04 06:50:39+00:00
 layout: post
 slug: putting-numbers-that-goes-with-the-face-we-put-on-quality
 title: Putting numbers that goes with the face we put on quality
 wordpress_id: 924
-categories:
-- Behind the scenes
 tags:
 - customerservice
 - lean
@@ -17,7 +16,7 @@ tags:
 
 In the post [Putting a face on quality](http://tech.finn.no/2011/05/09/putting-a-face-on-quality/) we talked about how we wanted to bring our end users closer to our developers by visualizing tweets about our service. This was only one of many tasks we performed in order to get a better feel on how our work effects our users. In this post we'll show you what we did in order to put numbers on end user quality by working with out customer service team.
 
-Up until now our customer service team had a hard time visualizing the effect our code had on end users. They where publishing numbers on number of incoming requests, but these numbers where on a weekly basis at best. 
+Up until now our customer service team had a hard time visualizing the effect our code had on end users. They where publishing numbers on number of incoming requests, but these numbers where on a weekly basis at best.
 
 
 
@@ -28,7 +27,7 @@ Up until now our customer service team had a hard time visualizing the effect ou
 
 
 Therefor we set out with the goal of making all support requests visible in real time for the entire organization. Out hypothesis was that this would provide everyone on our teams from developers, product owners and sales staff with a clear view on what kind of quality they deliver.[![](http://tech.finn.no/wp-content/uploads/2011/07/desk02-300x224.png)](http://tech.finn.no/wp-content/uploads/2011/07/desk02.png)
-In order to figure out what our application should look like we set out to see what the reality was and sat with our customer service team to see how they worked. But they had no system in place for logging requests and what area of our service it was about. All we had was the statistics from our support ticket system and call center. These systems did not provide enough detailed information, therefor our Lean task force team encouraged them to start logging requests on paper then put it all into a set of Excel spread sheets. Needless to say this required quite a bit of effort from the people one the customer service team and it was not a solution for the long term. 
+In order to figure out what our application should look like we set out to see what the reality was and sat with our customer service team to see how they worked. But they had no system in place for logging requests and what area of our service it was about. All we had was the statistics from our support ticket system and call center. These systems did not provide enough detailed information, therefor our Lean task force team encouraged them to start logging requests on paper then put it all into a set of Excel spread sheets. Needless to say this required quite a bit of effort from the people one the customer service team and it was not a solution for the long term.
 [![](http://tech.finn.no/wp-content/uploads/2011/07/desk01-300x224.png)](http://tech.finn.no/wp-content/uploads/2011/07/desk01.png)
 When deciding how to approach creating a application for logging requests we looked at how the analog logging process was performed. Realizing that a request could be for more than one problem area and effect multiple teams we realized that the paper layout was in fact ideal. We created a quick prototype in HTML and had the users test it. This prototype had no persistence and did only show how the process of logging a request would look and feel. We didn't create anything else as this would've been waste if we where not to proceed with the application. By not building anything besides what was absolutely necessary we where able do deliver quickly (3-4 days) and we had no inventory which would become waste if our prototype didn't match what our end users required.
 For simultaneous testing of the prototype we compared against an off the shelf product which used a wizard style approach to logging requests. Both prototypes was tested by the customer service team and the results where clear: the flexibility of the paper layout performed way better as it was quick and non-intrusive.
@@ -44,7 +43,7 @@ For simultaneous testing of the prototype we compared against an off the shelf p
 
 
 
-With the success of the prototype we were now expected to deliver a solution which actually persisted the data and had a set of reports which would help visualize the requests coming in from our customers. 
+With the success of the prototype we were now expected to deliver a solution which actually persisted the data and had a set of reports which would help visualize the requests coming in from our customers.
 
 
 
@@ -59,7 +58,7 @@ On the client side we opted to do a one page application written in JavaScript w
 
 
 
-The only requirement from the customer was that it had to be effortless to log entries into our system. "There should be no reason not to log entries into the system". We adopted what we call a "angstfri brukeropplevelse", which translates into something like an anguish-free user experience. 
+The only requirement from the customer was that it had to be effortless to log entries into our system. "There should be no reason not to log entries into the system". We adopted what we call a "angstfri brukeropplevelse", which translates into something like an anguish-free user experience.
 Everything else was pretty much up to us to decide. The grid based layout inherited from the analog log was a success. Therefor all we added was keyboard navigation and a cross hair behavior which provided the user with an easier way of seeing which column they where in to help avoid invalid log entries. We specifically avoided any kind of validation or other kinds of business rules as this would only make the threshold for logging a bit higher and this was not acceptable.
 
 

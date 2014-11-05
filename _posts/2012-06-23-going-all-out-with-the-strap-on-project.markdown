@@ -1,13 +1,12 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2012-06-23 18:32:28+00:00
 layout: post
 slug: going-all-out-with-the-strap-on-project
 title: Going all out with the Strap-on Project
 wordpress_id: 1353
-categories:
-- Interface development
 tags:
 - CSS
 - frontend
@@ -42,7 +41,7 @@ We had way too much CSS code in total and we sent loads of CSS on each page requ
 
 
 
-OOCSS is a framework on which to build your own. It provides with a base set of modules and concepts which is essentials to building stuff in HTML with CSS. Grids, modules, lines, etc. These base modules provides an abstraction on top of CSS which makes authoring of CSS a thing of the past. In order to layout basic pages all we do is to use the building blocks and put together what ever you want. Basic boring stuff such as clearing and the box-model is no longer anything you need to worry about, it's taken care of. This enables developers to focus upon fulfilling business requirements instead of battling CSS differences in browser time and time again. 
+OOCSS is a framework on which to build your own. It provides with a base set of modules and concepts which is essentials to building stuff in HTML with CSS. Grids, modules, lines, etc. These base modules provides an abstraction on top of CSS which makes authoring of CSS a thing of the past. In order to layout basic pages all we do is to use the building blocks and put together what ever you want. Basic boring stuff such as clearing and the box-model is no longer anything you need to worry about, it's taken care of. This enables developers to focus upon fulfilling business requirements instead of battling CSS differences in browser time and time again.
 
 
 
@@ -83,7 +82,7 @@ At FINN we have a problem that we are duplicating CSS across our development tea
 
 
 
-The engineers over at Twitter has created an amazing framework, [Bootstrap](http://twitter.github.com/bootstrap/), which is hugely popular all over the world. We have indeed paid close attention to how they have done and we are very much inspired by their work. However, going all out and just adopting Bootstrap was not an option. We feel it is too bloated and it does not provide the speed and performance benefits OOCSS gives. 
+The engineers over at Twitter has created an amazing framework, [Bootstrap](http://twitter.github.com/bootstrap/), which is hugely popular all over the world. We have indeed paid close attention to how they have done and we are very much inspired by their work. However, going all out and just adopting Bootstrap was not an option. We feel it is too bloated and it does not provide the speed and performance benefits OOCSS gives.
 Having said that, a lot of our setup with forms and form elements is influenced by how Bootstrap does things.
 
 
@@ -147,11 +146,11 @@ Lines of section specific CSS
 
 89
 
-  
 
 
 
-These are pretty impressive results and very much in line with what Nicole is talking about in her presentations about OOCSS and performance. 
+
+These are pretty impressive results and very much in line with what Nicole is talking about in her presentations about OOCSS and performance.
 
 
 
@@ -162,7 +161,7 @@ These are pretty impressive results and very much in line with what Nicole is ta
 
 
 Of course not! The responsive bit is something we are looking at reworking. Team Oppdrag has created one way of solving this and Team Reise another. For the Strap-on project we will probably end up with something in between. There are some things you need to take into consideration when choosing an approach:
-How much control do you have over the markup being written? Or to put it in another way, how many people are working with the same code? The more people, the harder it is to apply very strict rules as people will be "tourists" in the code base and might have a hard time getting it. 
+How much control do you have over the markup being written? Or to put it in another way, how many people are working with the same code? The more people, the harder it is to apply very strict rules as people will be "tourists" in the code base and might have a hard time getting it.
 
 
 

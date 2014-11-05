@@ -1,13 +1,12 @@
 ---
-author: espen
+authors:
+- espen
 comments: true
 date: 2011-06-27 13:41:23+00:00
 layout: post
 slug: graded-browser-support-version-1-1
 title: Graded browser support version 1.1
 wordpress_id: 915
-categories:
-- Interface development
 tags:
 - browsers
 - browsersupport

@@ -1,19 +1,27 @@
 ---
 layout: default
 ---
-<p class="meta">{{ page.date | date_to_string }} by {{ post.author }} in {{ post.categories }}</p>
-<article class="post" itemscope itemtype="https://schema.org/BlogPosting">{% include article.html %}</article>
 
-<div id="page-navigation"> 
-        <div class="previous"> 
-        {% if page.previous.url %} 
-                <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
-        {% endif %} 
-        </div>
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
 
-        <div class="next"> 
-        {% if page.next.url %} 
-               <a href="{{page.next.url}}" title="next Post: {{page.next.title}}">{{page.next.title}} &raquo; </a> 
-        {% endif %} 
-        </div>
-</div> 
+  <div class="post-byline">
+    {% include byline.html date=page.date authors=page.authors %}
+  </div>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+</article>
+
+<section class="postarchive">
+  <h2>{{ site.data.ui.related_posts }}</h2>
+  {% for post in site.related_posts limit:3 %}
+
+    <div class="postarchive-post">
+      <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date }}</time></small>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+
+  {% endfor %}
+</section>

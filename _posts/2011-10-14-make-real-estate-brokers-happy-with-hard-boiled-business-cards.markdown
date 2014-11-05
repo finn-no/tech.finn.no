@@ -1,5 +1,6 @@
 ---
-author: tom
+authors:
+- tom
 comments: true
 date: 2011-10-14 08:21:02+00:00
 layout: post
@@ -53,8 +54,8 @@ By the time of release we had 13 different customized business cards on our pros
 
 HTML code for a business card looks like this:
 
-    
-    
+
+
     <address id="flip_0" class="vcard flip  backgroundimage">
       <a href="(url)" class="orglogo" target="_blank"><img src="(url)" alt="Utleiemegleren Sinsen" border="0" class="logo"></a>
       <span class="fn n brokerName">Karianne Johannessen</span>
@@ -87,12 +88,12 @@ HTML code for a business card looks like this:
       </span>
       <div class="clearall"></div>
     </address>
-    
+
 
 
 This is the basic css for contact information:
 
-    
+
     .contact {overflow: hidden; width: 330px;}
     .contact .cardWrapper {position: relative; width: 700px;}
     .contact address {-moz-transition: left 0.7s ease-in-out;-webkit-transition: left 0.7s ease-in-out; -o-transition: left 0.7s ease-in-out; -ms-transition: left 0.7s ease-in-out; transition: left 0.7s ease-in-out;
@@ -119,7 +120,7 @@ This is the basic css for contact information:
 
 This is the second layer of css which forms a basic business card:
 
-    
+
     #flip_0{z-index:1; top:0; left:0;}
     #flip_1{z-index:0; top:20px; left:15px;}
     .contact .flip.backCard {cursor:pointer; background:#f3f3f3; display:block; transform: rotate(3deg);-o-transform: rotate(3deg);
@@ -148,7 +149,7 @@ This is the second layer of css which forms a basic business card:
 
 This third layer of css forms the broker's  customized business card:
 
-    
+
     .contact * {color:#46464a; font-size:11px;}
     .contact .orglogo {display:none;}
     .contact .brokerPhoto {margin:11px 20px 0 11px !important;}

@@ -1,5 +1,6 @@
 ---
-author: mick
+authors: 
+- mick
 comments: true
 date: 2012-11-09 13:23:06+00:00
 layout: post
@@ -48,16 +49,16 @@ Plenty of honesty towards the hype and the challenges involved too. A barcamp _B
 **Noteworthy (10 minute) keynotes…**
 
 
-  * 
- _[The End of the Data Warehouse](http://bit.ly/SJGrHf )_. They are monuments to the old way of doing things: pretty packaging but failing to deliver the business value. But Hadoop too is still flawed…  Also a [blog](http://bit.ly/RijQBv) available. 
+  *
+ _[The End of the Data Warehouse](http://bit.ly/SJGrHf )_. They are monuments to the old way of doing things: pretty packaging but failing to deliver the business value. But Hadoop too is still flawed…  Also a [blog](http://bit.ly/RijQBv) available.
 
 
 
-  * _[Moneyball for New York City](http://bit.ly/R6bkFS)_. How NYC council started combining datasets from different departments with surprising results. 
+  * _[Moneyball for New York City](http://bit.ly/R6bkFS)_. How NYC council started combining datasets from different departments with surprising results.
 
 
 
-  * _[The Composite Database](http://bit.ly/Pwgj4y)_, a focus on using big data for product development. To an application programmer the concept of a database is moving from one entity into a componential architecture. 
+  * _[The Composite Database](http://bit.ly/Pwgj4y)_, a focus on using big data for product development. To an application programmer the concept of a database is moving from one entity into a componential architecture.
 
 
 
@@ -75,7 +76,7 @@ Plenty of honesty towards the hype and the challenges involved too. A barcamp _B
 **Noteworthy (30 minute) presentations…**
 
 
-  * 
+  *
  _[The Future – Hadoop-2](http://slidesha.re/PAXdu2)_. Hadoop YARN makes all functional programming algorithms possible, reducing the existing map reduce framework to just one of many user-land libraries. Many existing limitations are removed. Fault-tolerance is improved (namenode). 2x performance improvement on small jobs.
 
 
@@ -97,7 +98,7 @@ All these products were written in PIG. Moving data around is the key problem. K
 
 
 
-  * _[Visualizing Networks](http://slidesha.re/RzPWuk)_. The art of using the correct visualisation and layout. Be careful of our natural human trait to see visual implications from familiarity and proximity – we don't always look at the legend. A lot of examples using the d3 javascript library. 
+  * _[Visualizing Networks](http://slidesha.re/RzPWuk)_. The art of using the correct visualisation and layout. Be careful of our natural human trait to see visual implications from familiarity and proximity – we don't always look at the legend. A lot of examples using the d3 javascript library.
 
 
 

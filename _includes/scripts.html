@@ -1,0 +1,8 @@
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.3/moment-with-locales.min.js"></script>
+<script>
+ var times = document.getElementsByTagName('time');
+ for (var i = 0; i < times.length; ++i) {
+   var el = times[i];
+   el.childNodes[0].data = moment(el.getAttribute('datetime')).format('LL');
+ }
+</script>
