@@ -1,3 +1,13 @@
+---
+authors:
+- mick
+comments: true
+date: 2010-11-04 18:11:57+00:00
+layout: post
+slug: finding-gold-in-big-data
+title: Finding Gold in Big Data
+tags:
+---
 In the <a href="/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
 
 <h6>rehashing the previous article…</h6>
