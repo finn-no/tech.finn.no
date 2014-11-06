@@ -8,7 +8,7 @@ tagline:          Finn.no developer tech blog
 url:              http://finn-no.github.io/tech.finn.no/
 paginate:         1
 paginate_path:    "page/:num"
-baseurl:          "tech.finn.no/"
+baseurl:          "/tech.finn.no/"
 author:
   name:           Finn Technology
   url:            https://finn.no/
