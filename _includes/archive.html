@@ -5,7 +5,7 @@
   {% for post in site.posts offset:include.offset %}
     <div class="postarchive-post">
       <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date }}</time></small>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </div>
   {% endfor %}
 </section>
