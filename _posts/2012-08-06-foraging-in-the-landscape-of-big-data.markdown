@@ -14,20 +14,20 @@ This is the first article describing FINN.no's coming of age with Big Data. It'l
 
 Big Data is for many just another vague and hyped up trend getting more than its far share of attention. The general definition, from <a href="http://en.wikipedia.org/wiki/Big_data">Wikipedia</a>, is big data covers the scenario where existing tools fail to process the increasing amount or dimensions of data. This can mean anything from:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>α</strong> – the existing tools being poor <em style="font-size: 80%;">(while large companies pour $$$ into scaling existing solutions up)</em> or
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>β</strong> – the status quo requiring more data to be used, to
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>γ</strong> – a requirement for faster and more connected processing and analysis on existing data.
+<strong>α</strong> – the existing tools being poor <em style="font-size: 80%;">(while large companies pour $$$ into scaling existing solutions up)</em> or  
+<strong>β</strong> – the status quo requiring more data to be used, to  
+<strong>γ</strong> – a requirement for faster and more connected processing and analysis on existing data.
 
 <br/><span class="image-wrap" style="float: left;"><a href="http://navajonationparks.org"><img style="margin-right: 10px; border: 0px solid black;" title="http://navajonationparks.org" src="/images/2012-08-06-foraging-in-the-landscape-of-big-data/21603273182394671_O5rG91sY_f-e1344176794222.jpg" alt="http://navajonationparks.org" /></a></span>The latter two are also described as big data's <a href="http://www.greenbookblog.org/2012/03/21/big-data-opportunity-or-threat-for-market-research/">three V</a>'s: Volume, Variety, Velocity. If the theoretical definition isn't convincing you put it into context against some of today's big data crunching use-cases...
-&nbsp;&nbsp;&nbsp;&nbsp;• online advertising combining content analysis with behavioural targeting,
-&nbsp;&nbsp;&nbsp;&nbsp;• biomedical's DNA sequence tagging,
-&nbsp;&nbsp;&nbsp;&nbsp;• pharmaceutics's metabolic network modelling,
-&nbsp;&nbsp;&nbsp;&nbsp;• health services detecting disease/virus spread via internet activity &amp; patient records,
-&nbsp;&nbsp;&nbsp;&nbsp;• the financial industry ranging from credit scores at retail level to quant trading,
-&nbsp;&nbsp;&nbsp;&nbsp;• insurance companies crunching actuarial data,
-&nbsp;&nbsp;&nbsp;&nbsp;• US defence programs for offline (ADAMS) and online (CINDER) threat detection,
-&nbsp;&nbsp;&nbsp;&nbsp;• environmental research into climate change and atmospheric modelling, and
-&nbsp;&nbsp;&nbsp;&nbsp;• neuroscience research into mapping the human brain's neural pathways.
+- online advertising combining content analysis with behavioural targeting,  
+- biomedical's DNA sequence tagging,  
+- pharmaceutics's metabolic network modelling,  
+- health services detecting disease/virus spread via internet activity & patient records,  
+- the financial industry ranging from credit scores at retail level to quant trading,  
+- insurance companies crunching actuarial data,
+- US defence programs for offline (ADAMS) and online (CINDER) threat detection,  
+- environmental research into climate change and atmospheric modelling, and  
+- neuroscience research into mapping the human brain's neural pathways.
 
 <br/>On the other hand big data is definitely no silver bullet. It cannot give you answers to questions you haven't yet formulated (pattern recognition aside), and so it doesn't give one excuses to store overwhelming amounts of data where the potential value in it is still <a href="http://seekingalpha.com/article/441171-beware-the-hype-over-big-data-analytics">undefined</a>. And it certainly won't make analysis of existing data sets initially any easier. In this regard it's less to do with the difficulty of achieving such tasks and more to do with the potential to solve what was previously impossible.
 

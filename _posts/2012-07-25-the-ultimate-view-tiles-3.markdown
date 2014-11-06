@@ -9,31 +9,30 @@ title: the ultimate view — Tiles-3
 wordpress_id: 893
 ---
 A story of getting the View layer up and running quickly in Spring...
-<blockquote>Since the <a href="">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote><br/>
+<blockquote>Since the <a href="">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote>
 
-<div style="background-color: WhiteSmoke;">Based upon the <strong>Composite pattern</strong> and <strong>Convention over Configuration</strong> we'll pump steroids into
-&nbsp;&nbsp;&nbsp;a web application's view layer
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with four simple steps using <strong>Spring</strong> and <strong>Tiles-3</strong>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to make organising large complex websites elegant with minimal of xml editing.</div><br/>
-    <span class="image-wrap" style="float: right"><img style="border: 0px solid black" src="/images/2012-07-25-the-ultimate-view-tiles-3/1351-222x300.jpg" alt="" width="165" />&nbsp;</span>
-    <div>
-    <ul>
-	    <li><a href="#theultimateview-part1-Background">Background</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/2/">Step 0: Spring to Tiles Integration</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/3/">Step 1: Wildcards</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/4/">Step 2: The fallback pattern</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/5/">Step 3: Definition includes</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/6/">When the Composite pattern is superior</a></li>
-	    <li><a href="/the-ultimate-view-tiles-3/6#theultimateview-part1-Conclusion">Conclusion</a></li>
-    </ul>
-    </div><br/><br/><br/>
-    <h4><a name="theultimateview-part1-Background"></a>Background</h4>
-    At FINN.no we were redesigning our control and view layers. The architectural team had decided on Spring-Web as a framework for the control layer due to its flexibility and for providing us a simpler migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why – for practical purposes sitemesh gives the front end developer more flexibility and definitely less xml editing.
+
+<div style="background-color: WhiteSmoke;">Based upon the <strong>Composite pattern</strong> and <strong>Convention over Configuration</strong> we'll pump steroids into  
+    a web application's view layer  
+        with four simple steps using <strong>Spring</strong> and <strong>Tiles-3</strong>  
+            to make organising large complex websites elegant with minimal of xml editing.</div>
+
+<img src="/images/2012-07-25-the-ultimate-view-tiles-3/1351-222x300.jpg" alt="" />
+- <a href="#theultimateview-part1-Background">Background</a>
+- <a href="/the-ultimate-view-tiles-3/2/">Step 0: Spring to Tiles Integration</a>
+- <a href="/the-ultimate-view-tiles-3/3/">Step 1: Wildcards</a>
+- <a href="/the-ultimate-view-tiles-3/4/">Step 2: The fallback pattern</a>
+- <a href="/the-ultimate-view-tiles-3/5/">Step 3: Definition includes</a>
+- <a href="/the-ultimate-view-tiles-3/6/">When the Composite pattern is superior</a>
+- <a href="/the-ultimate-view-tiles-3/6#theultimateview-part1-Conclusion">Conclusion</a>
+
+<a name="theultimateview-part1-Background"><h4>Background</h4></a>
+At FINN.no we were redesigning our control and view layers. The architectural team had decided on Spring-Web as a framework for the control layer due to its flexibility and for providing us a simpler migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why – for practical purposes sitemesh gives the front end developer more flexibility and definitely less xml editing.
 But sitemesh has some serious shortcomings...
 
-    <span class="image-wrap" style="float: right"><img style="border: 0px solid black" src="/images/2012-07-25-the-ultimate-view-tiles-3/images.jpg" alt="" width="145" /></span>
+<span class="image-wrap" style="float: right"><img style="border: 0px solid black" src="/images/2012-07-25-the-ultimate-view-tiles-3/images.jpg" alt="" width="145" /></span>
 
-    <div style="font-size:80%;"><strong>SiteMesh shortcomings:</strong><ul><li>from a design perspective the Decorator pattern can undermine the seperation MVC intends,</li>
+<div style="font-size:80%;"><strong>SiteMesh shortcomings:</strong><ul><li>from a design perspective the Decorator pattern can undermine the seperation MVC intends,</li>
 	    <li>requires all possible html for a request in buffer requiring large amounts of memory</li>
 	    <li>unable to flush the response before the response is complete,</li>
 	    <li>requires more overall processing due to all the potentially included fragments,</li>
@@ -41,20 +40,24 @@ But sitemesh has some serious shortcomings...
 	    <li>does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward.</li>
     </ul></div>
     One of the alternatives we looked at was <a class="external-link" rel="nofollow" href="http://tiles.apache.org/">Apache Tiles.</a> It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a <a class="external-link" rel="nofollow" href="http://tiles.apache.org/framework/tutorial/advanced/preparer.html">ViewPreparer</a>. This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the model onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
-<div style="margin: 30px;"><em>“Tiles has been indeed the most undervalued project in past decade. It was the most useful part of struts, but when the focus shifted away from struts, tiles was forgotten. Since then struts as been outpaced by spring and JSF, however tiles is still the easiest and most elegant way to organize a complex web site, and it works not only with struts, but with every current MVC technology.” – Nicolas Le Bas</em></div>Yet the best Tiles was going to give wasn't realised until we <a href="/the-ultimate-view-tiles-3/2/">started experimenting a little more...</a><br/><br/>
+<div style="margin: 30px;"><em>“Tiles has been indeed the most undervalued project in past decade. It was the most useful part of struts, but when the focus shifted away from struts, tiles was forgotten. Since then struts as been outpaced by spring and JSF, however tiles is still the easiest and most elegant way to organize a complex web site, and it works not only with struts, but with every current MVC technology.” – Nicolas Le Bas</em></div>Yet the best Tiles was going to give wasn't realised until we started experimenting a little more...
 
-    <!--nextpage--><br/>
-    <h4><a name="theultimateview-part1-Step0:SpringtoTilesIntegration"></a>Step 0: Spring to Tiles Integration</h4>
-    The first step is integrating Tiles and Spring together. For Tiles-3 it boils down to registering a ViewResolver and a TilesConfigurer in your spring-web configuration.
 
-    <pre line="0" lang="xml" escaped="true">
-&lt;bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/&gt;
-&lt;bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"&gt;
- &lt;property name="tilesInitializer"&gt;
-  &lt;bean class="no.finntech.control.servlet.tiles.FinnTilesInitialiser"/&gt;
- &lt;/property&gt;
-&lt;/bean&gt;
-    </pre>
+<!--nextpage-->
+<h4><a name="theultimateview-part1-Step0:SpringtoTilesIntegration"></a>Step 0: Spring to Tiles Integration</h4>
+The first step is integrating Tiles and Spring together. For Tiles-3 it boils down to registering a ViewResolver and a TilesConfigurer in your spring-web configuration.
+
+<code>
+<pre line="0" lang="xml" escaped="true">
+
+    &lt;bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/&gt;
+    &lt;bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"&gt;
+    &lt;property name="tilesInitializer"&gt;
+    &lt;bean class="no.finntech.control.servlet.tiles.FinnTilesInitialiser"/&gt;
+    &lt;/property&gt;
+    &lt;/bean&gt;
+</pre>
+</code>
 
 You need Spring-3.2 to get this to work, specifically "spring-webmvc". If you're using an older version of Spring then you can <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.jar">download</a> the required classes separately and add them to your classpath. (There's a <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.pom">pom</a> file also available.)
 
