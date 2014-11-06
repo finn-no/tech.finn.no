@@ -5,17 +5,17 @@ GH-pages URL: http://finn-no.github.io/tech.finn.no/
 ## Usage
 
 ```sh
-$ jekyll serve
+$ jekyll serve --baseurl ''
 ```
 
 ```sh
-$ jekyll serve --watch
+$ jekyll serve --watch --baseurl ''
 ```
 
 ```sh
 $ gem install bundler # only needed once
 $ bundle install
-$ bundle exec jekyll serve -w
+$ bundle exec jekyll serve -w --baseurl ''
 ```
 
 Open <http://localhost:4000> in your browser, and voilà.
