@@ -10,11 +10,11 @@ layout: default
 <h3> {{ tag }} </h3>
 
 <ul>
-  {% for post in site.tags[tag] %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date }}</time></small>
-  </li>
-  {% endfor %}
+    {% for post in site.tags[tag] %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date }}</time></small>
+    </li>
+    {% endfor %}
 </ul>
 {% endfor %}

@@ -1,6 +1,6 @@
 <time datetime="{{ include.date | date_to_xmlschema }}">{{ include.date | date_to_string }}</time>
 by
 {% for name in include.authors %}
-  {% assign author = site.data.authors[name] %}
-  {% if author %}<a href="mailto:{{ author.email }}">{{ name }}</a>{% else %}{{ name }}{% endif %}{% if forloop.rindex > 2 %}, {% elsif forloop.rindex == 2 %} og {% endif %}
+{% assign author = site.data.authors[name] %}
+{% if author %}<a href="mailto:{{ author.email }}">{{ name }}</a>{% else %}{{ name }}{% endif %}{% if forloop.rindex > 2 %}, {% elsif forloop.rindex == 2 %} og {% endif %}
 {% endfor %}
