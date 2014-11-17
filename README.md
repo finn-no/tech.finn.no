@@ -15,6 +15,5 @@ Open <http://localhost:4000> in your browser, and voilà.
 If you want to preview drafts run with the '--drafts' flag
 
 ## Comments
-We are using 
-
-https://finntech.disqus.com/admin/
+We are using [Disqus](https://disqus.com/) ([#1](https://github.com/finn-no/tech.finn.no/issues/1)).  
+If you want access to the moderation tools [sign up](https://disqus.com/profile/signup/) for a Disqus account and contact @Andersos.  
