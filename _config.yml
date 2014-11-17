@@ -12,7 +12,7 @@ baseurl:          /
 author:
   name:           Finn Technology
   url:            https://finn.no/
-  twitter:        @FINN_tech
+  twitter:        FINN_tech
   email:          tech@finn.no
 
 # Custom vars
