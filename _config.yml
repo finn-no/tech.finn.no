@@ -4,7 +4,7 @@ relative_permalinks: true
 
 # Setup
 title:            Tech Blog
-tagline:          Finn.no developer tech blog
+tagline:          FINN.no developer tech blog
 url:              http://tech.finn.no
 paginate:         1
 paginate_path:    "page/:num"
