@@ -13,3 +13,8 @@ $ bundle exec jekyll serve -w
 Open <http://localhost:4000> in your browser, and voilà.
 
 If you want to preview drafts run with the '--drafts' flag
+
+## Comments
+We are using 
+
+https://finntech.disqus.com/admin/
