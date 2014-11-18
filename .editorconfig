@@ -11,3 +11,6 @@ trim_trailing_whitespace = true
 
 [*.markdown]
 trim_trailing_whitespace = false
+
+[*.md]
+trim_trailing_whitespace = false
