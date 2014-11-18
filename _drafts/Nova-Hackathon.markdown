@@ -14,3 +14,4 @@ Nova Hackathon
 Yammer Post
 http://goo.gl/8iKUPA
 Msg Gro about post
+Let Siw know when the post is out
