@@ -18,6 +18,6 @@ author:
 # Custom vars
 version:          0.0.1
 github:
-  repo:           https://github.com/finn-no/tech.finn.no
+  repo:           https://github.com/finn-no/tech.finn.no/
 gems:
   - jekyll-redirect-from
