@@ -6,7 +6,7 @@ date: 2012-07-25 13:48:52+00:00
 layout: post
 slug: the-ultimate-view-tiles-3
 title: the ultimate view — Tiles-3
-redirect_from: /:title/
+redirect_from: /the-ultimate-view-tiles-3/
 ---
 A story of getting the View layer up and running quickly in Spring...
 <blockquote>Since the <a href="">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote>
