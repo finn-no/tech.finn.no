@@ -6,7 +6,7 @@ date: 2013-03-20 11:14:08+00:00
 layout: post
 slug: given-the-git
 title: given the git
-wordpress_id: 1222
+redirect_from: /given-the-git/
 tags:
 - git
 ---

@@ -6,7 +6,7 @@ date: 2013-11-29 09:03:00+00:00
 layout: post
 slug: low-fi-coffe-surveilence
 title: Low-fi Coffe Surveilence
-wordpress_id: 2058
+redirect_from: /low-fi-coffe-surveilence/
 ---
 There is a Norwegian start-up called <a href="http://appear.in">AppearIn</a> which enables anyone to do online video conferencing with only a web browser. They utilize <a href="http://webrtc.org">WebRTC</a> to empower users to create rooms where they can hang out, do meetings, etc. We had the pleasure of having Ingrid form Appear In over for a visit and she suggested we'd contribute to their blog about use cases for appear in. That's how we became <a href="http://blog.appear.in/post/68370877054/use-case-7-for-appear-in-monitor-your-coffee-maker">use case #7</a> on their blog. Naturally this should've been an arduino powered thing with lot's of sophisticated technology, but we decided we'd just get something simple working first and then make it better later on.
 

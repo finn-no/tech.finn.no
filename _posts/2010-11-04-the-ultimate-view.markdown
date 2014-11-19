@@ -6,6 +6,7 @@ date: 2010-11-04 18:11:57+00:00
 layout: post
 slug: the-ultimate-view
 title: the ultimate view
+redirect_from: /the-ultimate-view/
 tags:
 - Composite Pattern
 - Decorator Pattern

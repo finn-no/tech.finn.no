@@ -6,7 +6,7 @@ date: 2011-09-02 08:08:46+00:00
 layout: post
 slug: how-to-get-a-job-at-finn-no
 title: How to get a job at FINN.no
-wordpress_id: 958
+redirect_from: /how-to-get-a-job-at-finn-no/
 tags:
 - internship
 - ipad

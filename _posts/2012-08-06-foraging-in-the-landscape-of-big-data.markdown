@@ -6,7 +6,7 @@ date: 2012-08-06 10:26:00+00:00
 layout: post
 slug: foraging-in-the-landscape-of-big-data
 title: Foraging in the landscape of Big Data
-wordpress_id: 1508
+redirect_from: /foraging-in-the-landscape-of-big-data/
 ---
 
 <span class="image-wrap" style="float: right;"><img style="margin: 5px; border: 0px solid black;" src="/images/2012-08-06-foraging-in-the-landscape-of-big-data/salamander.gif" alt="Salamander" /> </span>

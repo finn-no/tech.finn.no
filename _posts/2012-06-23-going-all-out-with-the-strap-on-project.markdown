@@ -6,7 +6,7 @@ date: 2012-06-23 18:32:28+00:00
 layout: post
 slug: going-all-out-with-the-strap-on-project
 title: Going all out with the Strap-on Project
-wordpress_id: 1353
+redirect_from: /going-all-out-with-the-strap-on-project/
 tags:
 - CSS
 - frontend

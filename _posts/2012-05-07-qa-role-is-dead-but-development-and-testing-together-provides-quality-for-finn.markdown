@@ -6,7 +6,7 @@ date: 2012-05-07 07:29:20+00:00
 layout: post
 slug: qa-role-is-dead-but-development-and-testing-together-provides-quality-for-finn
 title: QA role is dead but development and testing together provides quality for FINN.no
-wordpress_id: 1128
+redirect_from: /qa-role-is-dead-but-development-and-testing-together-provides-quality-for-finn/
 tags:
 - quality
 - testing

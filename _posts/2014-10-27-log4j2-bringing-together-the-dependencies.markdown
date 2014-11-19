@@ -6,7 +6,7 @@ date: 2014-10-27 11:50:00+00:00
 layout: post
 slug: log4j2-bringing-together-the-dependencies
 title: Log4j2 - dependencies
-wordpress_id: 2150
+redirect_from: /log4j2-bringing-together-the-dependencies/
 ---
 To make it easy for all our codebases, to automatically have all logging abstractions pointing towards log4j2 along with logstash configured, we have bundled together the dependencies via one library.
 These dependencies look like:

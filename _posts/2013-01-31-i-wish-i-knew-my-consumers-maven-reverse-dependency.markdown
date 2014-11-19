@@ -6,7 +6,7 @@ date: 2013-01-31 12:49:05+00:00
 layout: post
 slug: i-wish-i-knew-my-consumers-maven-reverse-dependency
 title: I wish I knew my consumers - Maven Reverse Dependency
-wordpress_id: 1817
+redirect_from: /i-wish-i-knew-my-consumers-maven-reverse-dependency/
 ---
 
 At FINN.no being a developer fixing bugs in a library is a breeze. Getting every user of your library to use the fix, however, is a different story. How to know who to notify? I mean, I know my library's dependencies, but who "out there" has dependency to the component where I just fixed a bug? I wish. Enter maven-dependency-graph.

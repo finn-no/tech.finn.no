@@ -6,7 +6,7 @@ date: 2012-05-21 11:56:43+00:00
 layout: post
 slug: when-do-you-know-how-much-testing-is-enough
 title: ' When do you know, how much testing is enough?'
-wordpress_id: 1167
+redirect_from: /when-do-you-know-how-much-testing-is-enough/
 tags:
 - quality
 - testing

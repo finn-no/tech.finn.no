@@ -6,7 +6,7 @@ date: 2011-03-03 09:35:37+00:00
 layout: post
 slug: geting-geeky-in-h%c3%b8nefoss
 title: Getting Geeky in Hønefoss
-wordpress_id: 397
+redirect_from: /geting-geeky-in-h%c3%b8nefoss/
 ---
 
 FINN recently created a position called Technical Leader which is going to be our champions of technical excellence. One of the objects for this two-day field trip was to get everyone in the same room and share ideas and challenges from a technological point of view.

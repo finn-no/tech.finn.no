@@ -6,7 +6,7 @@ date: 2011-02-01 19:08:24+00:00
 layout: post
 slug: developing-for-mobile-is-punk-rock
 title: Developing for mobile is punk rock!
-wordpress_id: 314
+redirect_from: /developing-for-mobile-is-punk-rock/
 tags:
 - Android
 - apps

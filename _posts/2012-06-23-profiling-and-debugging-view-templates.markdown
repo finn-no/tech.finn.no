@@ -6,7 +6,7 @@ date: 2012-06-23 10:31:21+00:00
 layout: post
 slug: profiling-and-debugging-view-templates
 title: Profiling and debugging view templates
-wordpress_id: 1233
+redirect_from: /profiling-and-debugging-view-templates/
 tags:
 - front-end
 - Tiles

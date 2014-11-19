@@ -6,7 +6,7 @@ date: 2011-04-01 11:45:39+00:00
 layout: post
 slug: the-great-leap-getting-serious-with-javascript-at-finn-no
 title: The Great Leap - getting serious with JavaScript at FINN.no
-wordpress_id: 369
+redirect_from: /the-great-leap-getting-serious-with-javascript-at-finn-no/
 tags:
 - front-end
 - javascript

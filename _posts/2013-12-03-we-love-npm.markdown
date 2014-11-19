@@ -6,6 +6,7 @@ date: 2013-12-03 10:38:00+00:00
 layout: post
 slug: we-love-npm
 title: We love npm
+redirect_from: /we-love-npm/
 ---
 <img src="https://scalenpm.org/img/npm.png" alt="npm Logo" />
 What? Why is FINN.no donating to scale NPM? I thought you guys were a pure Java shop? It is true, we used to be a pure Java-shop. However over the past three years we have adopted new technologies to solve specific problems. We have used <a href="https://www.ruby-lang.org/en/">Ruby</a> and <a href="http://cukes.info/">Cucumber</a> for some time to make a platform for continuos delivery and it has worked out beautifully! Our front-end developers have been forced to deal with out dated and not suitable tools for doing their job. This is largely due to the fact that all innovation when it comes to front-end development does not happen in the Java community. Most of the exciting tools are written in Node and this has become a frustration and a challenge for us.

@@ -6,7 +6,7 @@ date: 2011-01-07 14:16:09+00:00
 layout: post
 slug: graded-browser-support-at-finn-no
 title: Graded browser support at FINN.no
-wordpress_id: 109
+redirect_from: /graded-browser-support-at-finn-no/
 tags:
 - browsers
 - browsersupport

@@ -6,7 +6,7 @@ date: 2011-03-10 13:05:53+00:00
 layout: post
 slug: style-sheet-for-touch-devices
 title: Style sheet for touch devices
-wordpress_id: 443
+redirect_from: /style-sheet-for-touch-devices/
 tags:
 - CSS
 - interface development

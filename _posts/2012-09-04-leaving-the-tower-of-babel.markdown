@@ -6,7 +6,7 @@ date: 2012-09-04 09:48:05+00:00
 layout: post
 slug: leaving-the-tower-of-babel
 title: Leaving the Tower of Babel
-wordpress_id: 1720
+redirect_from: /leaving-the-tower-of-babel/
 tags:
 - developers
 - java

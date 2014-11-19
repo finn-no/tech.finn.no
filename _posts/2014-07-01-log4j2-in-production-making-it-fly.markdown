@@ -6,7 +6,7 @@ date: 2014-07-01 22:17:00+00:00
 layout: post
 slug: log4j2-in-production-making-it-fly
 title: Log4j2 in production – making it fly
-wordpress_id: 2095
+redirect_from: /log4j2-in-production-making-it-fly/
 ---
 
 <br/>

@@ -1,12 +1,12 @@
 ---
-authors: 
+authors:
 - mick
 comments: true
 date: 2011-01-19 18:07:02+00:00
 layout: post
 slug: using-the-constretto-configuration-factory
 title: Using the Constretto Configuration Factory
-wordpress_id: 242
+redirect_from: /using-the-constretto-configuration-factory/
 tags:
 - constretto
 - Inversion of Control

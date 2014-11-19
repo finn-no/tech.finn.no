@@ -6,7 +6,7 @@ date: 2011-05-12 23:01:00+00:00
 layout: post
 slug: dependency-injection-with-constructors
 title: Dependency Injection with constructors?
-wordpress_id: 691
+redirect_from: /dependency-injection-with-constructors/
 tags:
 - API Design
 - constretto
@@ -17,7 +17,7 @@ tags:
 - Systems
 ---
 
-![Pic of Neo/The Matrix](/wp-content/uploads/2011/05/neo-300x300.jpg)
+![Pic of Neo/The Matrix](/images/2011-05-12-dependency-injection-with-constructors/neo-300x300.jpg)
 
 
 

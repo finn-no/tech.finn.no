@@ -6,7 +6,7 @@ date: 2013-06-06 07:36:00+00:00
 layout: post
 slug: conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse
 title: Conquering the kingdom of Java with a NodeJS trojan horse
-wordpress_id: 2076
+redirect_from: /conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse/
 ---
 <img src="http://upload.wikimedia.org/wikipedia/commons/6/6e/Trojan_Horse_by_A_Yakovlev_1911.jpg">
 Most of FINN.no is built with Java and we've been a Java shop for 6-7 years. With the professionalization of front-end development we saw that the tools available in the Java Web Development ecosystem was preventing us from delivering rapidly and with high quality.

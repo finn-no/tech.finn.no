@@ -6,7 +6,7 @@ date: 2011-04-08 07:09:39+00:00
 layout: post
 slug: xss-protection-whos-responsibility
 title: 'XSS protection: who''s responsibility?'
-wordpress_id: 268
+redirect_from: /xss-protection-whos-responsibility/
 tags:
 - API Design
 - front-end

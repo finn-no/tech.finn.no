@@ -6,7 +6,7 @@ date: 2013-06-26 20:42:28+00:00
 layout: post
 slug: package-management-conflicts-continuous-delivery
 title: Package Management conflicts Continuous Delivery
-wordpress_id: 1970
+redirect_from: /package-management-conflicts-continuous-delivery/
 ---
 
 
