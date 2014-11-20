@@ -2,23 +2,32 @@
 layout: default
 title: Developers at FINN blogging about tech
 ---
+<div class="mod transparent">
+    <div class="inner">
+        <div class="bd">
+            {% for post in paginator.posts %}
+            <article>
+                <h1>
+                    <a href="{{ post.url }}">
+                        {{ post.title }}
+                    </a>
+                </h1>
 
-<div class="posts">
-    {% for post in paginator.posts %}
-    <article class="post">
-        <h1 class="post-title">
-            <a href="{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </h1>
+                <div class="mhl">
+                    {% include byline.html date=post.date authors=post.authors %}
+                </div>
 
-        <div class="post-byline">
-            {% include byline.html date=post.date authors=post.authors %}
+                {{ post.content }}
+            </article>
+            {% endfor %}
         </div>
-
-        {{ post.content }}
-    </article>
-    {% endfor %}
+    </div>
 </div>
 
-{% include archive.html offset=1 %}
+<div class="mod transparent">
+    <div class="inner">
+        <div class="bd">
+        {% include archive.html offset=1 %}
+        </div>
+    </div>
+</div>

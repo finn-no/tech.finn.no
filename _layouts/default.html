@@ -4,29 +4,26 @@
 {% include head.html %}
 
 <body>
-    
-    <header class="masthead">
-        <div class="container">
-            <h1 class="masthead-title">
-                <a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a>
-                <small>{{ site.tagline }}</small>
-            </h1>
+    <div class="container">
+        <div class="page">
+            <header class="pvl mvl">
+                <h1>
+                    <div><a href="{{ site.baseurl }}" title="Home">{{ site.title }}</a></div>
+                    <small>{{ site.tagline }}</small>
+                </h1>
+            </header>
+
+            <main>
+                {{ content }}
+            </main>
+
+            {% include footer.html %}
+            {% include scripts.html %}
+
+            {% if site.github.environment %}
+            {% include analytics.html %}
+            {% endif %}
         </div>
-    </header>
-
-    <div class="container content">
-
-        <main>
-            {{ content }}
-        </main>
-
-        {% include footer.html %}
-        {% include scripts.html %}
-
-        {% if site.github.environment %}
-        {% include analytics.html %}
-        {% endif %}
     </div>
-
 </body>
 </html>
