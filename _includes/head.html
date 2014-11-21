@@ -1,11 +1,7 @@
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-
-    <!-- Enable responsiveness on mobile devices-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         {% if page.title == "Home" %}
         {{ site.title }} &middot; {{ site.tagline }}
@@ -14,15 +10,17 @@
         {% endif %}
     </title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">
     <link rel="stylesheet" href="{{ site.baseurl }}public/css/syntax.css">
     <link rel="stylesheet" href="//finncdn.no/bb/latest/css/spaden/styles/spaden.css">
-
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-precomposed.png">
-    <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
-
-    <!-- RSS -->
+    <style>
+    .highlight {
+        background-color: #fff;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .highlight pre {
+        padding: 20px;
+    }
+    </style>
     <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}atom.xml">
 </head>

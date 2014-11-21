@@ -3,8 +3,8 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Tech Blog
-tagline:          FINN.no developer tech blog
+title:            FINN.no developer blog
+tagline:
 url:              http://tech.finn.no
 paginate:         1
 paginate_path:    "page/:num"
