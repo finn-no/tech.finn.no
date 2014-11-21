@@ -83,7 +83,7 @@ chello.no (18485 - 0.47%)
 tele2.no (12218 - 0.31%)  
 bluezone.no (10187 - 0.26%)  
 netcom.no (7987 - 0.20%)  
-sensewave.com (7635 - 0.19%)
+sensewave.com (7635 - 0.19%)  
 ntebb.no (6122 - 0.16%)
 
 ## [Kommune](http://no.wikipedia.org/wiki/Kommune):
