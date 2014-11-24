@@ -3,6 +3,9 @@ require 'rake'
 require 'yaml'
 require 'time'
 
+# Rakefile copied from:
+# https://github.com/plusjade/jekyll-bootstrap
+
 SOURCE = "."
 CONFIG = {
   'version' => "0.3.0",
