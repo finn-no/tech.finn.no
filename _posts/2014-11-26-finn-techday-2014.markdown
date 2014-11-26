@@ -21,21 +21,25 @@ Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day
 
 <blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="https://twitter.com/hashtag/FINN_no?src=hash">#FINN_no</a> <a href="http://t.co/Xdx3HOMY3q">pic.twitter.com/Xdx3HOMY3q</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537540778328072193">November 26, 2014</a></blockquote>
 
+# Arduino Workshop
+
+<blockquote class="twitter-tweet" lang="en"><p>50 minutes of work. <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/lbByxa7iJb">pic.twitter.com/lbByxa7iJb</a></p>&mdash; Christopher Kolstad (@chriswk) <a href="https://twitter.com/chriswk/status/537559324982509568">November 26, 2014</a></blockquote>
+
+# Presentations
+
 <ul>
 <li><a href="https://twitter.com/sisomm">@sisomm</a> Internet of Things</li>
-<li>Workshop</li>
 <li>Rian Liebenberg</li>
-<li>VG Tactus	"Egg og iBeacon"	Bolk 1 - 14:00</li>
-<li>Småjobber - Stefan Engelien</li>
-<li>"En markedsplass blir til: Eksperimentene som skapte FINN Småjobber" Bolk 1 - 14:10</li>
+<li>VG Tactus	"Egg og iBeacon"</li>
+<li>Stefan Engelien - En markedsplass blir til: Eksperimentene som skapte FINN Småjobber</li>
 <li>Reise - Geir Pettersen	<tema>"Hospitering"	Bolk 1 . 14:20</li>
 <li>Henning	"Strategisk planlegging med 'impact mapping'"	Bolk 1 - 14:30</li>
 <li>ADA - Alexander Svanevik	"Language Hacking" - vil gjerne ha lyntalen sin ca kl 15.	Bolk 2 - 15:00</li>
 <li>UU-gruppa - Tom Widerøe	"Universell utforming – hva har blitt bedre" Bolk 2 - 15:10</li>
 <li>Reise - Per Jørgen Walstrøm	"Nummi - om hockey og biler"	Bolk 2 - 15:20</li>
 <li>SPID - Mikael Lindström (Magnus Jonsson) "SPiD «in the cloud»". Bolk 2 - 15:30</li>
-<li>Anders Olsen Sandvik	"Isomorphic Apps"	Bolk 2 - 15:40</li>
-<li>Espen Dalløkken	Lyntale om https://medium.com/@leftiefriele/i-was-wrong-6281c4d07b4d"I was wrong"	Bolk 2 - 15:50</li>
+<li>Anders Olsen Sandvik - <a href="http://www.slideshare.net/AndersOlsenSandvik/isomorphic-apps">Isomorphic Apps</a></li>
+<li>Espen Dalløkken	Lyntale om https://medium.com/@leftiefriele/i-was-wrong-6281c4d07b4d"I was wrong"</li>
 <li>Torgeir Waterhouse</li>
 </ul>
 <br><br>
