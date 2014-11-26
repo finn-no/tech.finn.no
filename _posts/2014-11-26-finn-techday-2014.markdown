@@ -19,8 +19,7 @@ One of the ways of getting inspired and educated about technology here at FINN i
 This year we have a packed program which consists of workshops, some talks and a bunch of lightning talks.
 Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day-2012/">techday was in 2012</a>.
 
-<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdagen?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="http://t.co/28H4kZ4DYP">pic.twitter.com/28H4kZ4DYP</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537521670681280512">November 26, 2014</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="https://twitter.com/hashtag/FINN_no?src=hash">#FINN_no</a> <a href="http://t.co/Xdx3HOMY3q">pic.twitter.com/Xdx3HOMY3q</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537540778328072193">November 26, 2014</a></blockquote>
 
 <ul>
 <li><a href="https://twitter.com/sisomm">@sisomm</a> Internet of Things</li>
