@@ -19,7 +19,7 @@ One of the ways of getting inspired and educated about technology here at FINN i
 This year we have a packed program which consists of workshops, some talks and a bunch of lightning talks.
 Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day-2012/">techday was in 2012</a>.
 
-<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdagen?src=hash">#techdagen</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="http://t.co/28H4kZ4DYP">pic.twitter.com/28H4kZ4DYP</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537521670681280512">November 26, 2014</a></blockquote>
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdagen?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="http://t.co/28H4kZ4DYP">pic.twitter.com/28H4kZ4DYP</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537521670681280512">November 26, 2014</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <ul>
@@ -51,4 +51,4 @@ The topics are broad ranging, and not limited to programming at all.
 <br>
 More info will come.
 <br>
-# Official hashtag #techdagen
+# Official hashtag #techdag2014
