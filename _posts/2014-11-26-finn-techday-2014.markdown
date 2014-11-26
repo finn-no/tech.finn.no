@@ -39,16 +39,16 @@ Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day
 <li>Espen Dalløkken	Lyntale om https://medium.com/@leftiefriele/i-was-wrong-6281c4d07b4d"I was wrong"	Bolk 2 - 15:50</li>
 <li>Torgeir Waterhouse</li>
 </ul>
-<br>
+<br><br>
 ## Workshop
-<br>
+<br><br>
 More info will come.
-<br>
+<br><br>
 ## Lightning talks
-<br>
+<br><br>
 Lightning talks are 10 minutes long and tightly timed.  
 The topics are broad ranging, and not limited to programming at all.
-<br>
+<br><br>
 More info will come.
-<br>
-# Official hashtag #techdag2014
+<br><br>
+# Official hashtag <a href="https://twitter.com/search?f=realtime&q=%23techdag2014&src=typd">#techdag2014</a>
