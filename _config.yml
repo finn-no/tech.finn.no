@@ -2,7 +2,6 @@
 permalink:        pretty
 relative_permalinks: true
 
-# Setup
 title:            FINN.no developer blog
 tagline:
 url:              http://tech.finn.no
@@ -16,6 +15,9 @@ author:
   email:          tech@finn.no
 
 # Custom vars
+markdown: kramdown
+kramdown:
+  input: GFM
 version:          0.0.1
 github:
   repo:           https://github.com/finn-no/tech.finn.no/
