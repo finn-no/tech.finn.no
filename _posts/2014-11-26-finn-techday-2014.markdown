@@ -28,10 +28,10 @@ Here is the list of speakers and their slides:
 <ul>
 <li><a href="https://twitter.com/sisomm">Simen Sommerfeldt</a> - <a href="http://goo.gl/5It5LL">Internet of Things</a></li>
 <li>Rian Liebenberg</li>
-<li>VG Tactus	"Egg og iBeacon"</li>
+<li>William Daraman, VG Tactus	- <a href="http://goo.gl/5kjRkU">"Egg og iBeacon"</a></li>
 <li>Stefan Engelien - En markedsplass blir til: Eksperimentene som skapte FINN Småjobber</li>
 <li>Geir Pettersen - <a href="http://goo.gl/CgoCux">Hospitering</a></li>
-<li><a href="https://twitter.com/spjelkavik">Henning Spjelkavik</a> - <a href="http://goo.gl/byX3Kw">Strategisk planlegging med 'impact mapping'</a></li>
+<li><a href="https://twitter.com/spjelkavik">Henning Spjelkavik</a> - <a href="http://goo.gl/4VCCQY">Strategisk planlegging med 'impact mapping'</a></li>
 <li><a href="https://twitter.com/ASvanevik">Alexander Svanevik</a> - <a href="http://goo.gl/5jJ0r4">Language Hacking</a></li>
 <li><a href="https://twitter.com/twidero">Tom Widerøe</a> - <a href="http://goo.gl/KpkX9k">Universell utforming – hva har blitt bedre</a></li>
 <li><a href="https://www.twitter.com/pjwalstrom">Per Jørgen Walstrøm</a> - <a href="https://goo.gl/QVym94">Nummi - om hockey og biler</a></li>
