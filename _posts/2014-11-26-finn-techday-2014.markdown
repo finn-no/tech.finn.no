@@ -12,31 +12,24 @@ tags:
 - techday
 ---
 
-NB! This post will be updated throughout the day.
-
 One of the ways of getting inspired and educated about technology here at FINN is through our "Tech-Dag".
 This year we have a packed program which consists of workshops, some talks and a bunch of lightning talks.
 Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day-2012/">techday was in 2012</a>.
 
 <blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="https://twitter.com/hashtag/FINN_no?src=hash">#FINN_no</a> <a href="http://t.co/Xdx3HOMY3q">pic.twitter.com/Xdx3HOMY3q</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537540778328072193">November 26, 2014</a></blockquote>
 
-# Arduino Workshop
-
-<blockquote class="twitter-tweet" lang="en"><p>50 minutes of work. <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/lbByxa7iJb">pic.twitter.com/lbByxa7iJb</a></p>&mdash; Christopher Kolstad (@chriswk) <a href="https://twitter.com/chriswk/status/537559324982509568">November 26, 2014</a></blockquote>
-
-<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/J6qYJOrZBt">pic.twitter.com/J6qYJOrZBt</a></p>&mdash; PJ Walstroem (@pjwalstrom) <a href="https://twitter.com/pjwalstrom/status/537551518179024896">November 26, 2014</a></blockquote>
-
-<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/H6uINBBsoH">pic.twitter.com/H6uINBBsoH</a></p>&mdash; Sissel Sveum (@SisselSveum) <a href="https://twitter.com/SisselSveum/status/537538347087187968">November 26, 2014</a></blockquote>
-
 # Presentations
 
+Lightning talks are 10 minutes long and tightly timed.  
+The topics are broad ranging, and not limited to programming at all.
+<br><br>
 <ul>
 <li><a href="https://twitter.com/sisomm">Simen Sommerfeldt</a> - <a href="http://goo.gl/5It5LL">Internet of Things</a></li>
 <li>Rian Liebenberg</li>
 <li>VG Tactus	"Egg og iBeacon"</li>
 <li>Stefan Engelien - En markedsplass blir til: Eksperimentene som skapte FINN Småjobber</li>
-<li>Geir Pettersen - Hospitering</li>
-<li><a href="https://twitter.com/spjelkavik">Henning Spjelkavik</a> - Strategisk planlegging med 'impact mapping'</li>
+<li>Geir Pettersen - <a href="http://goo.gl/CgoCux">Hospitering</a></li>
+<li><a href="https://twitter.com/spjelkavik">Henning Spjelkavik</a> - <a href="http://goo.gl/byX3Kw">Strategisk planlegging med 'impact mapping'</a></li>
 <li>Alexander Svanevik - Language Hacking</li>
 <li>Tom Widerøe - Universell utforming – hva har blitt bedre</li>
 <li><a href="https://www.twitter.com/pjwalstrom">Per Jørgen Walstrøm</a> - <a href="https://goo.gl/QVym94">Nummi - om hockey og biler</a></li>
@@ -46,15 +39,12 @@ Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day
 <li><a href="https://twitter.com/tawaterhouse">Torgeir Waterhouse</a> - <a href="http://goo.gl/ikcAYS">hei FINN.no - hva skjer, internett og sånt...</a></li>
 </ul>
 <br><br>
-## Workshop
-<br><br>
-More info will come.
-<br><br>
-## Lightning talks
-<br><br>
-Lightning talks are 10 minutes long and tightly timed.  
-The topics are broad ranging, and not limited to programming at all.
-<br><br>
-More info will come.
+# Arduino Workshop
+
+<blockquote class="twitter-tweet" lang="en"><p>50 minutes of work. <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/lbByxa7iJb">pic.twitter.com/lbByxa7iJb</a></p>&mdash; Christopher Kolstad (@chriswk) <a href="https://twitter.com/chriswk/status/537559324982509568">November 26, 2014</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/J6qYJOrZBt">pic.twitter.com/J6qYJOrZBt</a></p>&mdash; PJ Walstroem (@pjwalstrom) <a href="https://twitter.com/pjwalstrom/status/537551518179024896">November 26, 2014</a></blockquote>
+
+<blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/H6uINBBsoH">pic.twitter.com/H6uINBBsoH</a></p>&mdash; Sissel Sveum (@SisselSveum) <a href="https://twitter.com/SisselSveum/status/537538347087187968">November 26, 2014</a></blockquote>
 <br><br>
 # Official hashtag <a href="https://twitter.com/search?f=realtime&q=%23techdag2014&src=typd">#techdag2014</a>
