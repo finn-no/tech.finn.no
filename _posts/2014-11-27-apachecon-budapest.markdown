@@ -39,10 +39,10 @@ And yours humbly presented to a packed room our <a href="https://prezi.com/xgjrv
 
 Absolutely a conference I'd recommend to infrastructure, operations, and back-enders serious about their technologies.
 
-
-<p class="centerify">Oh… and Happy <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_celebrates2">15th birthday</a> Apache!<br/><img src="http://farm8.staticflickr.com/7533/15816582111_4b19b886c5_c.jpg"/></p>
-
-More photos from the conference <a href="http://events.linuxfoundation.org/events/apachecon-europe">here</a>
+<br/>
+<table><tr><td></td></tr></table>
+<p class="centerify">Oh… and Happy <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_celebrates2">15th birthday</a> Apache!<br/><img src="http://farm8.staticflickr.com/7533/15816582111_4b19b886c5_c.jpg"/><br/>
+More photos from the conference <a href="http://events.linuxfoundation.org/events/apachecon-europe">here</a></p>
 
 
 
