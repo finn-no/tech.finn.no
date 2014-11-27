@@ -35,8 +35,7 @@ Here is the list of speakers and their slides:
 <li><a href="https://twitter.com/ASvanevik">Alexander Svanevik</a> - <a href="http://goo.gl/5jJ0r4">Language Hacking</a></li>
 <li><a href="https://twitter.com/twidero">Tom Widerøe</a> - <a href="http://goo.gl/KpkX9k">Universell utforming – hva har blitt bedre</a></li>
 <li><a href="https://www.twitter.com/pjwalstrom">Per Jørgen Walstrøm</a> - <a href="https://goo.gl/QVym94">Nummi - om hockey og biler</a></li>
-<li>Mikael Lindström -
-SPiD «in the cloud»</li>
+<li>Mikael Lindström - <a href="http://goo.gl/ulvSlJ">SPiD in the cloud</a></li>
 <li><a href="https://twitter.com/andersos">Anders Olsen Sandvik</a> - <a href="http://goo.gl/3kp2gV">Isomorphic Apps</a></li>
 <li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - <a href="http://goo.gl/Nuqm4T">I was wrong</a></li>
 <li><a href="https://twitter.com/tawaterhouse">Torgeir Waterhouse</a> - <a href="http://goo.gl/ikcAYS">hei FINN.no - hva skjer, internett og sånt...</a></li>
