@@ -45,7 +45,7 @@ SPiD «in the cloud»</li>
 
 # Arduino Workshop
 
-For this workshop we were all split out into teams and each team got a <a href="http://arduino.cc/en/Main/ArduinoStarterKit" Arduino starter kit</a>. The task was to make something cool. Check out this video from what group 10 did:
+For this workshop we were all split out into teams and each team got a <a href="http://arduino.cc/en/Main/ArduinoStarterKit">Arduino starter kit</a>. The task was to make something cool. Check out this video from what group 10 did:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/SbnQW7Kl648" frameborder="0" allowfullscreen></iframe>
 
