@@ -38,7 +38,7 @@ Here is the list of speakers and their slides:
 <li>Mikael Lindström -
 SPiD «in the cloud»</li>
 <li><a href="https://twitter.com/andersos">Anders Olsen Sandvik</a> - <a href="http://goo.gl/3kp2gV">Isomorphic Apps</a></li>
-<li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - <a href="http://goo.gl/Nuqm4T">I was wrong</a>M</li>
+<li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - <a href="http://goo.gl/Nuqm4T">I was wrong</a></li>
 <li><a href="https://twitter.com/tawaterhouse">Torgeir Waterhouse</a> - <a href="http://goo.gl/ikcAYS">hei FINN.no - hva skjer, internett og sånt...</a></li>
 </ul>
 <br><br>
