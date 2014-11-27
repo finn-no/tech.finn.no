@@ -16,13 +16,16 @@ One of the ways of getting inspired and educated about technology here at FINN i
 This year we have a packed program which consists of workshops, some talks and a bunch of lightning talks.
 Last time we posted about <a href="http://tech.finn.no/2012/06/12/technology-day-2012/">techday was in 2012</a>.
 
-<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="https://twitter.com/hashtag/FINN_no?src=hash">#FINN_no</a> <a href="http://t.co/Xdx3HOMY3q">pic.twitter.com/Xdx3HOMY3q</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537540778328072193">November 26, 2014</a></blockquote>
 
 # Presentations
 
+Throughout the day we had some long presentations and some lightning talks.
 Lightning talks are 10 minutes long and tightly timed.  
 The topics are broad ranging, and not limited to programming at all.
-<br><br>
+
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>Starting <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> with <a href="https://twitter.com/sisomm">@sisomm</a> and the Internet of things <a href="https://twitter.com/hashtag/FINN_no?src=hash">#FINN_no</a> <a href="http://t.co/Xdx3HOMY3q">pic.twitter.com/Xdx3HOMY3q</a></p>&mdash; Anders Olsen Sandvik (@Andersos) <a href="https://twitter.com/Andersos/status/537540778328072193">November 26, 2014</a></blockquote>
+
+Here is the list of speakers and their slides:
 <ul>
 <li><a href="https://twitter.com/sisomm">Simen Sommerfeldt</a> - <a href="http://goo.gl/5It5LL">Internet of Things</a></li>
 <li>Rian Liebenberg</li>
@@ -33,12 +36,13 @@ The topics are broad ranging, and not limited to programming at all.
 <li>Alexander Svanevik - Language Hacking</li>
 <li>Tom Widerøe - Universell utforming – hva har blitt bedre</li>
 <li><a href="https://www.twitter.com/pjwalstrom">Per Jørgen Walstrøm</a> - <a href="https://goo.gl/QVym94">Nummi - om hockey og biler</a></li>
-<li>Mikael Lindström (Magnus Jonsson) -  SPiD «in the cloud»</li>
+<li>Mikael Lindström - SPiD «in the cloud»</li>
 <li><a href="https://twitter.com/andersos">Anders Olsen Sandvik</a> - <a href="http://goo.gl/3kp2gV">Isomorphic Apps</a></li>
 <li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - <a href="http://goo.gl/Nuqm4T">I was wrong</a>M</li>
 <li><a href="https://twitter.com/tawaterhouse">Torgeir Waterhouse</a> - <a href="http://goo.gl/ikcAYS">hei FINN.no - hva skjer, internett og sånt...</a></li>
 </ul>
 <br><br>
+
 # Arduino Workshop
 
 <blockquote class="twitter-tweet" lang="en"><p>50 minutes of work. <a href="https://twitter.com/hashtag/techdag2014?src=hash">#techdag2014</a> <a href="http://t.co/lbByxa7iJb">pic.twitter.com/lbByxa7iJb</a></p>&mdash; Christopher Kolstad (@chriswk) <a href="https://twitter.com/chriswk/status/537559324982509568">November 26, 2014</a></blockquote>
