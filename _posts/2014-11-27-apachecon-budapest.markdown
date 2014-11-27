@@ -1,6 +1,6 @@
 ---
 authors:
-- michaelsembwever
+- mck
 comments: true
 date: 2014-11-25 13:00:00+00:00
 layout: post
@@ -8,6 +8,7 @@ slug: apachecon-budapest
 title: ApacheCon Budapest 2014
 redirect_from: /apachecon-budapest/
 tags:
+ - apache
  - conference
  - cassandra
  - hadoop
@@ -30,11 +31,11 @@ The next release of YARN (2.6) will see support for long-lived services, whereby
 
 Of no surprise Solr dealt a lot with scaling and <a href="http://events.linuxfoundation.org/sites/events/files/slides/HighPerformanceSolr.pdf">performance</a>, while Cassandra presented use-cases from across the industry. It felt that big tech companies are migrating their databases over to Cassandra not just for availability but often simply for the sake of performance. "<a href="http://www.slideshare.net/planetcassandra/cassandra-summit-2014-deploying-cassandra-for-call-of-duty">Call of Duty</a>" was rewritten from mysql to cassandra, resulting in the 95th percentile for requests going down to under 500μs. You don't need complicated cache strategies when your backend is this fast!
 
-Other Cassandra talks included Eric Evans presenting <a hef="http:/opennms.github.com/newts">Newts</a>, an lazy-aggregating time-series solution built with graphing and lucene search inbuilt. And <a href="http://events.linuxfoundation.org/sites/events/files/slides/Intro-To-Usergrid%20-%20ApacheCon%20EU%202014.pdf">Apache UserGrid</a>, a fascinating project built upon Cassandra, it is your LAMP stack, a BaaS framework, for the mobile-first world.
+Other Cassandra talks included Eric Evans presenting <a hef="http:/opennms.github.com/newts">Newts</a>, an lazy-aggregating time-series solution built with graphing and lucene search inbuilt. And <a href="http://events.linuxfoundation.org/sites/events/files/slides/Intro-To-Usergrid%20-%20ApacheCon%20EU%202014.pdf">Apache UserGrid</a>, a fascinating project built, it is your LAMP stack, a BaaS framework, for the mobile-first world.
 
 Patrick McFadin held a tutorial putting together kafka, cassandra, and spark, to create a very <a href="https://github.com/killrweather/killrweather">elegant scaling streaming solution</a>. Patrick also discussed the performance gain of putting spark RDD data in cassandra rather than using files on disk. Chatting with both Eric Evans (he who coined "NoSQL") and Patrick highlighted that the throughput per node of our Cassandra cluster is leading in the industry, it's just to add more servers and reap the benefits.
 
-And yours humbly presented to a packed room our <a href="https://prezi.com/xgjrvkxhxkg8/apachecon-cassandra-and-hadoop-finnno/">Cassandra and Hadoop</a> use-cases. I made mention to the need for better gender balance within Apache, Schibsted's role in online classified markets across Europe, the need to look beyond current trends in our industry when designing systems, and having a healthy preference towards AP systems in the enterprise.
+And yours humbly presented to a packed room our <a href="https://prezi.com/xgjrvkxhxkg8/apachecon-cassandra-and-hadoop-finnno/">Cassandra and Hadoop</a> use-cases. Making mention to the need for better gender balance within Apache, Schibsted's role in online classified markets across Europe, the need to look beyond current trends in our industry when designing systems, and having a healthy preference towards AP systems in the enterprise.
 
 Absolutely a conference I'd recommend to infrastructure, operations, and back-enders serious about their technologies.
 
