@@ -25,7 +25,7 @@ Some hot topics were Docker, Mesos, Spark, Cassandra, CouchDB, Hadoop, Solr, Ope
 
 Spark is all the rage because of its brevity and simplicity, but isn't really a complete solution yet simply because it doesn't scale in many situations.
 
-Docker is awesome, and looks to take over the testing domain, but it's remains limited and out of production as long as it has no network stack implementation. There was a very cool demonstration of Mesos and Aurora increasing production utilisation, even allowing in quiet periods for development/testing servers to come in.
+Docker is awesome, and looks to take over the testing domain, but it remains limited and out of production as long as it has no network stack implementation. There was a very cool demonstration of Mesos and Aurora increasing production utilisation, even allowing in quiet periods for development/testing servers to come in.
 
 The next release of YARN (2.6) will see support for long-lived services, whereby we can transform many of our hadoop jobs with very little effort into true streaming solutions. YARN will also be able to <a href="http://blog.sequenceiq.com/blog/2014/11/20/yarn-containers-and-docker">deploy docker containers</a> through its clusters, this could be a very nice solution for our batch jobs. Putting these together and you see that the technical separation between streaming and aggregating solutions fades away and it really just boils down to what data structures you solve each use case with. Talking with a hadoop committer it came to light that FINN could be running the fastest hadoop cluster that they know of, given HDFS runs on SSDs and is dedicated just for hadoop internals.
 
