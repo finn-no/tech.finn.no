@@ -23,7 +23,7 @@ A refreshingly "<a href="http://iamfortress.wordpress.com/2014/11/23/a-newcomers
 
 Some hot topics were Docker, Mesos, Spark, Cassandra, CouchDB, Hadoop, Solr, OpenOffice, and the need for greater diversity in our communities.
 
-Spark is all the rage because of its brevity and simplicity, but isn't really a complete solution yet simply because it doesn't in many situations.
+Spark is all the rage because of its brevity and simplicity, but isn't really a complete solution yet  because it doesn't scale in many situations.
 
 Docker is awesome, and looks to take over the testing domain, but it remains limited and out of production as long as it has no network stack implementation. There was a very cool demonstration of Mesos and Aurora increasing production utilisation, even allowing in quiet periods for development/testing servers to come in.
 
