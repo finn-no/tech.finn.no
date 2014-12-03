@@ -22,7 +22,7 @@ tags:
 
 
 
-[![](http://tech.finn.no/wp-content/uploads/2011/02/finnfronten_thumb.png)](http://tech.finn.no/wp-content/uploads/2011/02/finnfronten_thumb.png)
+<img src="/images/2011-02-01-developing-for-mobile-is-punk-rock/finnfronten.png" alt="finnfronten_thumb">
 
 The title of this post is of course a blatant lie. Mobile development is nothing but pain from here until eternity (no, not really). But, luckily the brave developers at FINN.no aren't scared of a little pain and therefor we decided to do a mobile development trippel header gig to showcase some of the different approaches to mobile developement.Due to some kids falling ille we had to reduce the show to be a double header. It did not end up to make a difference as the guys doing the talks totally kicked ass!
 
