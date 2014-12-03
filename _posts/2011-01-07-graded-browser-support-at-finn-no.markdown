@@ -28,7 +28,7 @@ FINN is the largest site in Norway when it comes to traffic and we have a good f
 
 Having read the early drafts of the awesome book [Secrets of a JavaScript ninja](http://jsninja.com/) by [John Resig](http://ejohn.org/) we decided to follow his approach on creating a GBS matrix and perform a cost-benefit-analysis. We did was to do a quick survey among our developers in order to figure out what the costs where for supporting different user agents on certain platforms. The results are displayed in the chart below and shows our subjective opinions on how much effort is required to support a certain browser. Note that this chart will not look the same for everyone. It is will vary based on the skills of your developers, what browsers they work in, etc, etc.
 
-[![](http://tech.finn.no/wp-content/uploads/2011/01/kostnyttenettleser1-600x414-300x207.png)](http://tech.finn.no/2011/01/07/graded-browser-support-at-finn-no/kostnyttenettleser1-600x414/)
+<img src="/images/2011-01-07-graded-browser-support-at-finn-no/kostnyttenettleser.png" alt="Kostnyttenettleser">
 
 
 ## Support levels
