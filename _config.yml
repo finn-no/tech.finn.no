@@ -18,6 +18,7 @@ author:
 markdown: kramdown
 kramdown:
   input: GFM
+exclude: [vendor]
 version:          0.0.1
 github:
   repo:           https://github.com/finn-no/tech.finn.no/
