@@ -7,6 +7,7 @@ tagline:
 url:              http://tech.finn.no
 paginate:         1
 paginate_path:    "page/:num"
+google_analytics_id: UA-18605626-1
 baseurl:          /
 author:
   name:           Finn Technology
