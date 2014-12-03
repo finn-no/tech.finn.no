@@ -32,10 +32,10 @@ While the rationale to <strong>standardising the logging framework</strong> wasâ
 <h3>Log4j2 wins HANDS down</h3>
 
 Log4j2 was chosen as the logging framework givenâ€¦
-- it provided all the features that logback was becoming popular for,  
-- between old log4j and logback it was the only framework that was written in java with modern concurrency (ie not hard synchronised methods/blocks),  
-- it provided a significant performance improvement (1000-10000 times faster)  
-- it consisted of a more active community (logback has been announced as the replacement for the old log4j, but log4j2 saw a new momentum in its apache community).
+<ul><li>it provided all the features that logback was becoming popular for,  </li>
+<li>between old log4j and logback it was the only framework that was written in java with modern concurrency (ie not hard synchronised methods/blocks),  </li>
+<li>it provided a significant performance improvement (1000-10000 times faster)  </li>
+<li>it consisted of a more active community (logback has been announced as the replacement for the old log4j, but log4j2 saw a new momentum in its apache community).</li></ul>
 
 This proposal was checked with a vote by finn programmers
 - 73% agreed, 27% were unsure, no-one disagreed.
