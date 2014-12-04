@@ -37,7 +37,7 @@ Here is the list of speakers and their slides:
 <li><a href="https://www.twitter.com/pjwalstrom">Per Jørgen Walstrøm</a> - <a href="https://goo.gl/QVym94">Nummi - om hockey og biler</a></li>
 <li>Mikael Lindström - <a href="http://goo.gl/ulvSlJ">SPiD in the cloud</a></li>
 <li><a href="https://twitter.com/andersos">Anders Olsen Sandvik</a> - <a href="http://goo.gl/3kp2gV">Isomorphic Apps</a></li>
-<li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - <a href="http://goo.gl/Nuqm4T">I was wrong</a></li>
+<li><a href="https://twitter.com/leftieFriele">Espen Dalløkken</a> - a talk based on the blog post:<a href="http://goo.gl/Nuqm4T">I was wrong</a></li>
 <li><a href="https://twitter.com/tawaterhouse">Torgeir Waterhouse</a> - <a href="http://goo.gl/ikcAYS">hei FINN.no - hva skjer, internett og sånt...</a></li>
 </ul>
 <br><br>
