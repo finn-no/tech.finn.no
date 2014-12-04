@@ -11,8 +11,6 @@ category:
 tags: []
 ---
 
-# Autocomplete in FINN.no
-
 To help users find items quickly we have introduced different levels of auto-completetion at FINN.no.  There are currently three related concepts which will be described in detail in the post. The idea behind these are to reduce navigation through diffetrent result pages or verticals and to lead the users as quickly as possible to the relevant items.
 
 At FINN.no we have a [SOLR](http://lucene.apache.org/solr/) index for each market (or vertical), with their own `schema.xml` and `solrconfig.xml`, however they contain ads from different sub-markets - for instance both cars and boats are in the MOTOR index.
@@ -48,6 +46,7 @@ For our desktop frontend we use [jQuery UI](http://jqueryui.com/autocomplete/)'s
 
 #### SOLR
 Our autocomplete SOLR backend is inspired by:  [Cominvent's blogpost](http://www.cominvent.com/2012/01/25/super-flexible-autocomplete-with-solr/) on the topic, which in turn is built on top of [Lucidworks' post](http://lucidworks.com/blog/auto-suggest-from-popular-queries-using-edgengrams/).  We stripped it down to include the following fields:
+
 * id: unique identificator - typically genrated
 * suggest: the term/item in question (the term),
 * type: (multivalued) reflects sources (see below)
@@ -56,6 +55,7 @@ Our autocomplete SOLR backend is inspired by:  [Cominvent's blogpost](http://www
 * searchkeygroups: (multivalued) reflects which market(s) the item is relevant for
 
 The field `suggest`): is copied to the following non-stored fields used for matching (`qf`):
+
 * exact: not used at the moment, but intened to boost exact matches - the item with suggest='audi a6' should be the first entry when query='audi a6'
 * suggest_textnge: builds n-grams based on suggest from left edge of word. e.g. suggest='audi' has tokens: 'a', 'au', 'aud', 'audi' and matches all these when entered as query. boosted over matches in `suggest_textng` in `qf` in requesthandler below.
 * suggest_textng: builds n-grams based on suggest. e.g. suggest='audi' has tokens: 'a', 'u', 'd', 'i', 'au', 'ud', ... and matches all these when entered as query.
@@ -64,8 +64,8 @@ For implementation-details we recommend reading the two posts mentioned above.
 
 #### SOLR Requesthandler
 
-```xml
- <requestHandler class="solr.SearchHandler" name="dismax" default="true" >
+{% highlight xml %}
+<requestHandler class="solr.SearchHandler" name="dismax" default="true" >
   <lst name="defaults">
     <str name="defType">edismax</str>
     <str name="rows">10</str>
@@ -76,8 +76,7 @@ For implementation-details we recommend reading the two posts mentioned above.
     <str name="debugQuery">false</str>
   </lst>
 </requestHandler>
-```
-
+{% endhighlight %}
 
 removed fields not in use
 added rank 
