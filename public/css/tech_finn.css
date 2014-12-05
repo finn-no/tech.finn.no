@@ -2,8 +2,8 @@ body{
 	font: 16px/1.5 finnmain,Arial,Helvetica,sans-serif;
 }
 
-.twitter-tweet, iframe { margin:10px 10px; }
+.twitter-tweet, iframe { margin:10px 10px!important; }
 
 @media screen and (min-width:768px) {
-    .twitter-tweet, iframe {margin:10px 20px;}
+    .twitter-tweet, iframe {margin:10px 20px!important;}
 }
