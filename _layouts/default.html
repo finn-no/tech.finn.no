@@ -15,8 +15,13 @@
                 </h1>
             </header>
 
-            <main>
-                {{ content }}
+            <main class="line">
+                <div class="unit r-size2of3">
+                    {{ content }}
+                </div>
+                <div class="unit r-size1of3">
+                    {% include archive.html offset=1 %}
+                </div>
             </main>
 
             {% include footer.html %}
