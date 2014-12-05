@@ -14,11 +14,12 @@ title: Developers at FINN blogging about tech
                     </a>
                 </h1>
 
+                
+                    <p>{% include byline.html date=post.date authors=post.authors %}</p>
+                
                 <div class="post-content r-margin">
-                    {% include byline.html date=post.date authors=post.authors %}
+                    {{ post.content }}
                 </div>
-
-                {{ post.content }}
             </article>
             {% endfor %}
         </div>
