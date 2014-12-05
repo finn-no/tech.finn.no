@@ -1,14 +1,14 @@
 ---
 authors:
-- frerodla
+- fmr
 comments: true
 date: 2014-12-04 13:13:08+0100
 layout: post
 title: "Autocomplete @FINN.no"
 slug: autocomplete-finnno
-description: ""
+description: "How we do aoutcomplete when searching FINN.no"
 category: 
-tags: []
+tags: ["search", "autocomplete", "solr"]
 ---
 
 To help users find items quickly we have introduced different levels of auto-completetion at FINN.no.  There are currently three related concepts which will be described in detail in the post. The idea behind these are to reduce navigation through diffetrent result pages or verticals and to lead the users as quickly as possible to the relevant items.
