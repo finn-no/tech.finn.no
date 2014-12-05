@@ -1,13 +1,10 @@
 ---
-authors:
-- fmr
+authors: fmr
 comments: true
 date: 2014-12-04 13:13:08+0100
 layout: post
 title: "Autocomplete @FINN.no"
-slug: autocomplete-finnno
 description: "How we do aoutcomplete when searching FINN.no"
-category: 
 tags: ["search", "autocomplete", "solr"]
 ---
 
