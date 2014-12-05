@@ -7,9 +7,8 @@ layout: default
             <article>
                 <h1>{{ page.title }}</h1>
 
-                <div class="r-margin mtn">
-                    {% include byline.html date=page.date authors=page.authors path=page.path %}
-                </div>
+                <p class="neutral">{% include byline.html date=page.date authors=page.authors path=page.path %}</p>
+                <hr>
 
                 <div class="post-content r-margin">
                     {{ content }}
