@@ -7,7 +7,7 @@ layout: default
             <article>
                 <h1>{{ page.title }}</h1>
 
-                <div class="mhl">
+                <div class="r-margin mtn">
                     {% include byline.html date=page.date authors=page.authors path=page.path %}
                 </div>
 
@@ -29,7 +29,13 @@ layout: default
             </section>
 -->
             {% if page.comments %}
-            <div id="disqus_thread" class="mhl"></div>
+        </div>
+    </div>
+</div>
+<aside class="mod shadow">
+    <div class="inner">
+        <div class="bd">
+            <div id="disqus_thread" class="r-margin"></div>
             <script type="text/javascript">
             var disqus_shortname = 'finntech';
             (function() {
@@ -42,4 +48,4 @@ layout: default
             {% endif %}
         </div>
     </div>
-</div>
+</aside>
