@@ -2,17 +2,19 @@ body{
 	font: 16px/1.5 finnmain,Arial,Helvetica,sans-serif;
 }
 
-.post-content.r-margin p,
-.post-content.r-margin ul,
-.post-content.r-margin ol,
-.post-content.r-margin dl,
 .post-content.r-margin h1,
 .post-content.r-margin h2,
 .post-content.r-margin h3,
 .post-content.r-margin h4,
 .post-content.r-margin h5,
-.post-content.r-margin h6,
-.post-content.r-margin blockquote { margin-left: 0; margin-right: 0; }
+.post-content.r-margin h6 { margin-left: 0; margin-right: 0; }
+
+.post-content.r-margin p,
+.post-content.r-margin ul,
+.post-content.r-margin ol,
+.post-content.r-margin dl,
+.post-content.r-margin blockquote,
+.post-content.r-margin table { margin-left: 0; margin-right: 0; margin-bottom: 20px; }
 
 .post-content blockquote { padding: 10px 20px; background-color: #F6F8DA; border-radius: 4px; }
 .post-content ul { padding-left: 20px; list-style: disc outside; }
