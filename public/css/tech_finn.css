@@ -16,3 +16,11 @@ body{
 
 .post-content blockquote { padding: 10px 20px; background-color: #F6F8DA; border-radius: 4px; }
 .post-content ul { padding-left: 20px; list-style: disc outside; }
+
+.ftlogo {
+	width: 80px; 
+}
+
+@media screen and (min-width:600px) {
+	.ftlogo { width: 130px; }
+}
