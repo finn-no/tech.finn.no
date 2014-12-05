@@ -5,7 +5,6 @@ authors:
 comments: true
 date: 2014-11-11 17:00:00+00:00
 layout: post
-slug: nova-hackathon
 title: Nova Hackathon
 tags:
 ---
