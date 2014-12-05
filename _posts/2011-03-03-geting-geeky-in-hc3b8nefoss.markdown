@@ -10,7 +10,7 @@ redirect_from: /geting-geeky-in-h%c3%b8nefoss/
 ---
 
 FINN recently created a position called Technical Leader which is going to be our champions of technical excellence. One of the objects for this two-day field trip was to get everyone in the same room and share ideas and challenges from a technological point of view.
-![](http://tech.finn.no/wp-content/uploads/2011/03/sundvollen.png)
+![Sundvollen](/images/2011-03-03-geting-geeky-in-hc3b8nefoss/sundvollen.png)
 
 
 ## Quality does not cost ... it pays
@@ -41,5 +41,6 @@ The term [walk and talk](http://en.wikipedia.org/wiki/Walk_and_talk) is both a t
 
 ## The challenge of  company Open Space sessions
 
+![People](/images/2011-03-03-geting-geeky-in-hc3b8nefoss/people.jpg)
 
-![](http://tech.finn.no/wp-content/uploads/2011/03/IMG_0625-300x224.jpg)During day two we had three [open space sessions](http://en.wikipedia.org/wiki/Open-space_meeting) which was buzzing with excitement. Doing open spaces at conferences it is really inspiring and you learn stuff which you can bring back to your organization. Having open space sessions for just company employees has a different dynamic and can really be something to get your spirits down. When you do this inside a company you build up excitement during the sessions and along with the excitement comes expectations that "somebody needs to make this happen". There is nothing in "open space theory" about how you can easily get more out of these session than just a lot of nice thoughts. This would resemble putting up a suggestions box and then do nothing with any of the suggestions. What we did was to get some people together after the session to see what actions needed to be taken after the sessions. Kind of like a retrospective where we looked at what came out of the open spaces. It would be interesting to hear what others do with their internal open space sessions.
+During day two we had three [open space sessions](http://en.wikipedia.org/wiki/Open-space_meeting) which was buzzing with excitement. Doing open spaces at conferences it is really inspiring and you learn stuff which you can bring back to your organization. Having open space sessions for just company employees has a different dynamic and can really be something to get your spirits down. When you do this inside a company you build up excitement during the sessions and along with the excitement comes expectations that "somebody needs to make this happen". There is nothing in "open space theory" about how you can easily get more out of these session than just a lot of nice thoughts. This would resemble putting up a suggestions box and then do nothing with any of the suggestions. What we did was to get some people together after the session to see what actions needed to be taken after the sessions. Kind of like a retrospective where we looked at what came out of the open spaces. It would be interesting to hear what others do with their internal open space sessions.
