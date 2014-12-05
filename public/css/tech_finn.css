@@ -2,10 +2,5 @@ body{
 	font: 16px/1.5 finnmain,Arial,Helvetica,sans-serif;
 }
 
-.twitter-tweet,
-#disqus_thread { margin:10px 10px; }
-
-@media screen and (min-width:768px) {
-    .twitter-tweet,
-    #disqus_thread {margin:10px 20px;}
-}
+.post-content.r-margin p,
+.post-content.r-margin ul { margin-left: 0; margin-right: 0; }
