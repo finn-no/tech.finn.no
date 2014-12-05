@@ -1,24 +1,21 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2010-11-04 18:11:57+00:00
 layout: post
-slug: finding-gold-in-big-data
 title: Finding Gold in Big Data
-tags:
 ---
 In the <a href="/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
 
-<h6>rehashing the previous article…</h6>
- FINN is a busy site, the busiest in Norway, and we display ~50 million ad pages each day. The old system responsible for collecting statistics was performing up to a thousand database writes per second in peak traffic. Like a lot of web applications we had a modern scalable presentation and logic tier based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The sybase procedure responsible for writing to the statistics table was our biggest thorn.
+## rehashing the previous article
+FINN is a busy site, the busiest in Norway, and we display ~50 million ad pages each day. The old system responsible for collecting statistics was performing up to a thousand database writes per second in peak traffic. Like a lot of web applications we had a modern scalable presentation and logic tier based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The sybase procedure responsible for writing to the statistics table was our biggest thorn.
 
 At the time we were in the process of modularising the FINN web application. The time was right to turn our statistics system into something modern and modular. We wanted an asynchronous, fault-tolerance, linearly scaling, and durable solution. The new design uses the Command-Query Separation pattern by using two separate modules: one for the collecting of events and one for displaying statistics. The event collecting system achieves asynchronousity, scalability, and durability by using Scribe. The backend persistence and statistics module achieves all goals by using Cassandra and Thrift. As an extension of the <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">push-on-change</a> model: the event collection stores denormalised data and it is later aggregated and normalised to the view the statistics module requires; we use MapReduce jobs within a Hadoop cluster.
 
-<img style="margin: 10px; border: 0px solid black" src="/wp-content/uploads/2012/08/Simple-overview.png" width="600px" alt="" />
+<img style="margin: 10px; border: 0px solid black" src="/wp-content/uploads/2012/08/Simple-overview.png" width="600px" alt="Simple overview" />
 
-<h6>the statatistics module</h6>
- At FINN all our modular architecture is built upon interfaces defined by Apache Thrift, and we discourage direct database access from our front-end applications. So our Statistics module simply exposes the read-optimised data sitting in cassandra, its interface defined by thrift like:
+## the statatistics module
+At FINN all our modular architecture is built upon interfaces defined by Apache Thrift, and we discourage direct database access from our front-end applications. So our Statistics module simply exposes the read-optimised data sitting in cassandra, its interface defined by thrift like:
 <pre style="font-size: 80%;">
 service AdViewingsService {
     /** returns total viewings for a given adId */
