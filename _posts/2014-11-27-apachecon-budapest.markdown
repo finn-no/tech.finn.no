@@ -1,10 +1,8 @@
 ---
-authors:
-- mck
+authors: mck
 comments: true
 date: 2014-11-25 13:00:00+00:00
 layout: post
-slug: apachecon-budapest
 title: ApacheCon Budapest 2014
 redirect_from: /apachecon-budapest/
 tags:

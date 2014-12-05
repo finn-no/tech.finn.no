@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2014-10-27 11:50:00+00:00
 layout: post
-slug: log4j2-bringing-together-the-dependencies
 title: Log4j2 - dependencies
 redirect_from: /log4j2-bringing-together-the-dependencies/
 ---

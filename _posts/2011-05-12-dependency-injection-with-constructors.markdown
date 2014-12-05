@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2011-05-12 23:01:00+00:00
 layout: post
-slug: dependency-injection-with-constructors
 title: Dependency Injection with constructors?
 redirect_from: /dependency-injection-with-constructors/
 tags:

@@ -1,10 +1,8 @@
 ---
-authors:
-- Lotte Johansen
+authors: Lotte Johansen
 comments: true
 date: 2014-11-19 18:00:00+00:00
 layout: post
-slug: workshop-with-blindfolded-lunch
 title: Workshop with blindfolded lunch
 tags:
 - accessibility

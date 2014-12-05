@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2013-11-29 09:03:00+00:00
 layout: post
-slug: low-fi-coffe-surveilence
 title: Low-fi Coffe Surveilence
 redirect_from: /low-fi-coffe-surveilence/
 ---

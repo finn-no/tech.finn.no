@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-06-24 07:09:41+00:00
 layout: post
-slug: hosting-our-first-ever-hackaton
 title: Hosting our first ever hackaton
 redirect_from: /hosting-our-first-ever-hackaton/
 tags:

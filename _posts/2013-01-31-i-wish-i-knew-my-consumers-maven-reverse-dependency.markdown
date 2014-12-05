@@ -1,10 +1,8 @@
 ---
-authors:
-- roar
+authors: roar
 comments: true
 date: 2013-01-31 12:49:05+00:00
 layout: post
-slug: i-wish-i-knew-my-consumers-maven-reverse-dependency
 title: I wish I knew my consumers - Maven Reverse Dependency
 redirect_from: /i-wish-i-knew-my-consumers-maven-reverse-dependency/
 ---

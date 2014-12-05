@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-11-21 19:02:40+00:00
 layout: post
-slug: spreading-love-and-good-vibrations-on-github
 title: Spreading love and good vibrations on GitHub
 redirect_from: /spreading-love-and-good-vibrations-on-github/
 tags:

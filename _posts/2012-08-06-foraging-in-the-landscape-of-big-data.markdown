@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2012-08-06 10:26:00+00:00
 layout: post
-slug: foraging-in-the-landscape-of-big-data
 title: Foraging in the landscape of Big Data
 redirect_from: /foraging-in-the-landscape-of-big-data/
 ---

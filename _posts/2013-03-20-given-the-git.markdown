@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2013-03-20 11:14:08+00:00
 layout: post
-slug: given-the-git
 title: given the git
 redirect_from: /given-the-git/
 tags:

@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2012-11-09 13:23:06+00:00
 layout: post
-slug: strataconf-hadoop-world-2012
 title: StrataConf & Hadoop World 2012…
 redirect_from: /strataconf-hadoop-world-2012/
 tags:

@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-03-03 09:35:37+00:00
 layout: post
-slug: geting-geeky-in-h%c3%b8nefoss
 title: Getting Geeky in Hønefoss
 redirect_from: /geting-geeky-in-h%c3%b8nefoss/
 ---

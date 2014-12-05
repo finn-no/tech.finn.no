@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2013-12-03 10:38:00+00:00
 layout: post
-slug: we-love-npm
 title: We love npm
 redirect_from: /we-love-npm/
 ---

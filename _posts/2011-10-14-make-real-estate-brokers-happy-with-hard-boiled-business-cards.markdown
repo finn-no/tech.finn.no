@@ -1,10 +1,8 @@
 ---
-authors:
-- tom
+authors: tom
 comments: true
 date: 2011-10-14 08:21:02+00:00
 layout: post
-slug: make-real-estate-brokers-happy-with-hard-boiled-business-cards
 title: Make real estate brokers happy with hard boiled business cards
 redirect_from: /make-real-estate-brokers-happy-with-hard-boiled-business-cards/
 tags:

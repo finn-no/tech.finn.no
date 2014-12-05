@@ -1,12 +1,9 @@
 ---
-authors:
-- Andersos
+authors: Andersos
 comments: true
 date: 2010-01-01 13:37:00+00:00
 layout: post
-slug: design-template
 title: Design template
-
 tags:
 - design
 - template

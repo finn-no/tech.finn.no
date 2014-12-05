@@ -1,10 +1,8 @@
 ---
-authors:
-- Andersos
+authors: Andersos
 comments: true
 date: 2014-11-26 08:55:00+00:00
 layout: post
-slug: finn-techday-2014
 title: FINN techday 2014
 tags:
 - arduino

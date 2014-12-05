@@ -1,10 +1,8 @@
 ---
-authors:
-- Andersos
+authors: Andersos
 comments: true
 date: 2014-11-21 18:00:00+00:00
 layout: post
-slug: email-providers-in-norway
 title: Email providers in Norway
 redirect_from: /email-providers-in-norway/
 tags: email

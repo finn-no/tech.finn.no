@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-05-09 12:44:05+00:00
 layout: post
-slug: putting-a-face-on-quality
 title: Putting a face on quality
 redirect_from: /putting-a-face-on-quality/
 tags:

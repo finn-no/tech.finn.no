@@ -4,7 +4,6 @@ authors:
 comments: true
 date: 2011-08-26 06:50:51+00:00
 layout: post
-slug: it-has-never-been-about-the-standers-while-it-has-always-been-about-the-standards
 title: It has never been about the standers, while it has always been about the standards
 redirect_from: /it-has-never-been-about-the-standers-while-it-has-always-been-about-the-standards/
 tags:

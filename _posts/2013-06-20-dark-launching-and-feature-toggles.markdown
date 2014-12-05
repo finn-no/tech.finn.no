@@ -1,6 +1,5 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2013-06-20 11:56:20+00:00
 layout: post

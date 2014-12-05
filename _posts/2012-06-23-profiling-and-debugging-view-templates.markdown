@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2012-06-23 10:31:21+00:00
 layout: post
-slug: profiling-and-debugging-view-templates
 title: Profiling and debugging view templates
 redirect_from: /profiling-and-debugging-view-templates/
 tags:

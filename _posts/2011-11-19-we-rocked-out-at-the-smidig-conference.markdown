@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-11-19 12:31:11+00:00
 layout: post
-slug: we-rocked-out-at-the-smidig-conference
 title: We rocked out at the Smidig conference!
 redirect_from: /we-rocked-out-at-the-smidig-conference/
 ---

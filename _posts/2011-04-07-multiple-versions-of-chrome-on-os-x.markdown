@@ -1,10 +1,8 @@
 ---
-authors:
-- gregers
+authors: gregers
 comments: true
 date: 2011-04-07 13:37:45+00:00
 layout: post
-slug: multiple-versions-of-chrome-on-os-x
 title: Multiple versions of Chrome on OS X
 redirect_from: /multiple-versions-of-chrome-on-os-x/
 tags:

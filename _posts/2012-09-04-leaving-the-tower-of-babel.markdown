@@ -1,10 +1,8 @@
 ---
-authors:
-- mortenlj
+authors: mortenlj
 comments: true
 date: 2012-09-04 09:48:05+00:00
 layout: post
-slug: leaving-the-tower-of-babel
 title: Leaving the Tower of Babel
 redirect_from: /leaving-the-tower-of-babel/
 tags:

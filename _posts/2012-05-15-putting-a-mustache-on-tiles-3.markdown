@@ -1,10 +1,8 @@
 ---
-authors:
-- mick
+authors: mick
 comments: true
 date: 2012-05-15 18:58:12+00:00
 layout: post
-slug: putting-a-mustache-on-tiles-3
 title: Putting a mustache on Tiles-3
 redirect_from: /putting-a-mustache-on-tiles-3/
 tags:

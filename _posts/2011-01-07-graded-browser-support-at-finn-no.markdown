@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-01-07 14:16:09+00:00
 layout: post
-slug: graded-browser-support-at-finn-no
 title: Graded browser support at FINN.no
 redirect_from: /graded-browser-support-at-finn-no/
 tags:

@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2013-06-06 07:36:00+00:00
 layout: post
-slug: conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse
 title: Conquering the kingdom of Java with a NodeJS trojan horse
 redirect_from: /conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse/
 ---

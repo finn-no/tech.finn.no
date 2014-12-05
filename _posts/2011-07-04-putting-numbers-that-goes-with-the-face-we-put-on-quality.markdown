@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-07-04 06:50:39+00:00
 layout: post
-slug: putting-numbers-that-goes-with-the-face-we-put-on-quality
 title: Putting numbers that goes with the face we put on quality
 redirect_from: /putting-numbers-that-goes-with-the-face-we-put-on-quality/
 tags:

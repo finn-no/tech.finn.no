@@ -1,10 +1,8 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2012-06-12 08:43:19+00:00
 layout: post
-slug: technology-day-2012
 title: Technology Day 2012
 redirect_from: /technology-day-2012/
 tags:
