@@ -48,4 +48,4 @@ Our levels of support are slightly more simple than those of Yahoo! and we only 
 
 This is how we created our GDS matrix and we hope this will inspire you to do the same for your shop. We are going to do a similar exercise when it comes to mobile, but this is still work in progress.
 
-The matrix is available on [labs.finn.no](http://labs.finn.no/nettlesermatrisen) and [here is an English translation](http://translate.google.com/translate?js=n&prev=_t&hl=en&ie=UTF-8&layout=2&eotf=1&sl=no&tl=en&u=http://labs.finn.no/nettlesermatrisen/).
+The matrix is available on labs.finn.no (the url is no longer available).

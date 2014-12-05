@@ -10,7 +10,7 @@ redirect_from: /package-management-conflicts-continuous-delivery/
 
 
 
-![](http://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/yum%20package_0.png)
+![Package](http://www.slashroot.in/sites/default/files/styles/article_image_full_node/public/field/image/yum%20package_0.png)
 
 
 The idea of package management is to correctly operate and bundle together various components in any system. The practice of package management is a consequence from the design and evolution of each component's API.
