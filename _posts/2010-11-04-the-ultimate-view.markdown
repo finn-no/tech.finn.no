@@ -35,72 +35,31 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
     ![](/wp-content/uploads/2011/01/1351-222x300.jpg)
 
 
-
-
-
-
-
-
-  * [Summary](/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Summary)
-
-
-  * [Background](/2010/11/04/the-ultimate-view/1/#theultimateview-part1-Background)
-
-
-  * [Step 0: Spring to Tiles Integration](/2010/11/04/the-ultimate-view/2/)
-
-
-  * [Step 1: Wildcards](/2010/11/04/the-ultimate-view/3/)
-
-
-  * [Step 2: The fallback pattern](/2010/11/04/the-ultimate-view/4/)
-
-
-  * [Step 3: Definition includes](/2010/11/04/the-ultimate-view/5/)
-
-
-  * [When the Composite pattern is superior](/2010/11/04/the-ultimate-view/6/)
-
-
-  * [Conclusion](/2010/11/04/the-ultimate-view/6#theultimateview-part1-Conclusion)
-
-
-
-
-
-
+* Summary
+* Background
+* Step 0: Spring to Tiles Integration
+* Step 1: Wildcards
+* Step 2: The fallback pattern
+* Step 3: Definition includes
+* When the Composite pattern is superior
+* Conclusion
 
 ## Background
 
+At FINN.no we were redesigning our control and view layers. We, being the architectural team of six, had already decided on Spring-Web as a framework for the control layer due to its flexibility and a design for us providing better, simpler, migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why for practical purposes sitemesh gives the front end developer more flexibility and less xml editing. But we knew sitemesh has some serious shortcomings...
 
-    At FINN.no we were redesigning our control and view layers. We, being the architectural team of six, had already decided on Spring-Web as a framework for the control layer due to its flexibility and a design for us providing better, simpler, migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why for practical purposes sitemesh gives the front end developer more flexibility and less xml editing. But we knew sitemesh has some serious shortcomings...
+![image](/wp-content/uploads/2011/01/images.jpe)
 
-    ![](/wp-content/uploads/2011/01/images.jpe)
+**SiteMesh shortcomings:**
 
-    **SiteMesh shortcomings:**
+* from a design perspective the Decorator pattern doesn't combine with MVC as elegantly as the Composite pattern does
+* requires to hold all possible html for a request in buffer requiring large amounts of memory
+* unable to flush the response before the response is complete
+* requires more overall processing due to the processing of all the potentially included fragments
+* does not guaranteed thread safety
+* does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward
 
-
-
-
-  * from a design perspective the Decorator pattern doesn't combine with MVC as elegantly as the Composite pattern does
-
-
-  * requires to hold all possible html for a request in buffer requiring large amounts of memory
-
-
-  * unable to flush the response before the response is complete
-
-
-  * requires more overall processing due to the processing of all the potentially included fragments
-
-
-  * does not guaranteed thread safety
-
-
-  * does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward
-
-
-    One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org/) It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a [ViewPreparer](http://tiles.apache.org/tutorial/advanced/preparer.html). This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the ball onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
+One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org/) It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a ViewPreparer (URL not working anymore). This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the ball onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
 
     Yet the most valuable benefit Tiles was going to offer wasn't realised until we [started experimenting a little more...](/2010/11/04/the-ultimate-view/2/)
 
@@ -571,30 +530,15 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
 
 
-    **References**
+## References
 
-
-
-
-  1. [Tiles-2](http://tiles.apache.org)
-
-
-  2. [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern)
-
-
-  3. [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern)
-
-
-  4. [Spring Web](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/spring-web.html)
-
-
-  5. Integrating [Tiles and Spring](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles)
-
-
-  6. Initial discussion regarding Tiles [definition delegation](http://old.nabble.com/howto-delegate-to-other-definitions---td27516586.html)
-
-
-  7. Spring >3.0.1 required to work with Tiles-2.2+ :: [TilesConfigurer does not ...](http://jira.springframework.org/browse/SPR-6097)
+1. [Tiles-2](http://tiles.apache.org)
+2. [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern)
+3. [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern)
+4. [Spring Web](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/spring-web.html)
+5. Integrating [Tiles and Spring](http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles)
+6. Initial discussion regarding Tiles definition delegation (URL not available)
+7. Spring >3.0.1 required to work with Tiles-2.2+ :: [TilesConfigurer does not ...](http://jira.springframework.org/browse/SPR-6097)
 
     [ ](http://jira.springframework.org/browse/SPR-6097)  
 

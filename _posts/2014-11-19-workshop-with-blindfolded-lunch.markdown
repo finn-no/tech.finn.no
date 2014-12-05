@@ -24,9 +24,9 @@ At the end of the day the workshop participants tried out various tools Stein Er
 
 The last half hour of the workshop was used to solve the challenges we had found during the day. The result was several pull requests and a good number of issues in the backlog to make finn.no a better site for everyone!
 
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/keynote.JPG">
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/in-transport.jpeg">
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/lunch-blindfolded.JPG">
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/lunch-blindfolded2.jpg">
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/station1.JPG">
-<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/station2.JPG">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/keynote.JPG" alt="keynote">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/in-transport.jpeg" alt="in-transport">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/lunch-blindfolded.JPG" alt="lunch-blindfolded">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/lunch-blindfolded2.jpg" alt="lunch-blindfolded2">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/station1.JPG" alt="station1">
+<img src="/images/2014-11-19-workshop-with-blindfolded-lunch/station2.JPG" alt="station2">
