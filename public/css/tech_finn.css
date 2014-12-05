@@ -14,4 +14,5 @@ body{
 .post-content.r-margin h6,
 .post-content.r-margin blockquote { margin-left: 0; margin-right: 0; }
 
-.post-content.r-margin blockquote { padding: 10px 20px; background-color: #F6F8DA; border-radius: 4px; }
+.post-content blockquote { padding: 10px 20px; background-color: #F6F8DA; border-radius: 4px; }
+.post-content ul { padding-left: 20px; list-style: disc outside; }
