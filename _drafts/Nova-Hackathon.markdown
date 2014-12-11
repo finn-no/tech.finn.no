@@ -10,7 +10,7 @@ tags:
 - Nova
 ---
 
-We were invited by[Nova](http://www.nova100.no/) for their first Nova Hackathon.
+We were invited by [Nova](http://www.nova100.no/) for their first Nova Hackathon.
 A Hackaton is period of time where computer programmers collaborate intensively
 on a given task or multiple tasks. For the Nova Hackathon Challenge Finn was invited to
 make a task for the students along with 2 other companies.
@@ -31,7 +31,7 @@ Read what HP has written about the [Hackaton event](http://h30499.www3.hp.com/t5
 
 The students was divided into 4 groups with different backgrounds. The business representatives helped the students underway and as you can se by this picture
 
-![Participants for the Finn's Challenge](/images/2014-12-11-nova-hackaton/hackaton.JPG "Participants for the Finn's Challenge")
+![Participants for the Finn's Challenge](/images/2014-12-11-nova-hackathon/hackaton.JPG "Participants for the Finn's Challenge")
 
 the students was highely focused and competitive against the other groups.
 
@@ -42,6 +42,6 @@ It was fun to see all the hard work anf that the students put a tremendous effor
 The Finn ambassadors, [Anders Olsen Sandvik](https://twitter.com/andersos) , [Mick semb wever](https://twitter.com/mck_sw), [Nicolai Høge](https://no.linkedin.com/pub/nicolai-h%C3%B8ge/2/333/524), [sverre roos](https://twitter.com/sverreroos) and [Rida Aatif](https://no.linkedin.com/pub/rida-aatif/0/b65/438)
 had a lot of fun collaborating with the students and we can agree that this is something we would do again.
 
-![Picture of all the Participants](/images/2014-12-11-nova-hackaton/participants.jpg "Picture of all the Participant")
+![Picture of all the Participants](/images/2014-12-11-nova-hackathon/participants.jpg "Picture of all the Participant")
 
-![Group 2](/images/2014-12-11-nova-hackaton/php_group.jpg "Group 2")
+![Group 2](/images/2014-12-11-nova-hackathon/php_group.jpg "Group 2")
