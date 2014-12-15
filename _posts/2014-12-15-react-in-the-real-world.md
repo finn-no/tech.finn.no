@@ -24,7 +24,7 @@ Since then all new features have been written with React, and when we are reques
 When migrating large pages to React we start from the inside, the deepest DOM nodes, and let it gradually grow till the whole page is reactified. This often happened through several iterations and deployments, as React and the old JSP/JQuery can quite peacefully coexist.
 
 ##Bundles
-With React, HTML is represented as JavaScripts, so the JavaScript bundles will contain all the HTML, and hence grow as the pages grow. Instead of having a bundle for each page (very small), or having a bundle for the whole site (very big), we found a middle way where we have bundles based on roles, in our use cases contractor and owner. A possible improvement on this is loading JavaScript on demand with technologies like webpack.
+With React, HTML is represented as JavaScripts, so the JavaScript bundles will contain all the HTML, and hence grow as the pages grow. Instead of having a bundle for each page (very small), or having a bundle for the whole site (very big), we found a middle way where we have bundles based on roles, in our use cases contractor and owner. A possible improvement on this is loading JavaScript on demand with technologies like [webpack](http://webpack.github.io/).
 
 ##Flux
 So if React is our first great discovery, the Flux pattern is very much in second place. [The Flux pattern](http://facebook.github.io/flux/docs/overview.html) decouples the logic from the views, in a different way than the traditional MVC-pattern. Logic and state are located in stores, and actions from the views to stores are asynchronous. When state in stores change, they will update React components that listen to changes, providing a single source of truth and unidirectional flow of data.
