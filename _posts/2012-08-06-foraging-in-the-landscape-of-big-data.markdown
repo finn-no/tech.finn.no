@@ -64,8 +64,9 @@ The resulting project is kick-ass, let me say. Especially Cassandra, it is a tru
 
 A challenge we face now is broader adoption of the project and the technologies involved. Various departments: from developers to tech support; want to read the data, regardless if it is traditional or 'big data', and the habit was always to read it directly from production's Sybase. And it's a habit that's important in fostering a data-driven culture within the company, without having to encourage datamodel centric designs. With our Big Data solution this hasn't been so easy. Without this transparency to the data, developers, tech support, and product owners alike seem to be failing to initiate further involvement - to solve this, since our big data is stored in Cassandra, we'd love to see a read only web-based gui interface based off caqel.
 <div style="margin-left: 180px; color: darkgrey;"><strong><em>…to be continued…</em></strong></div><br/><br/>
-----
-<div style="font-size: 80%;">References:
+
+
+## References:
 • <a href="http://www.fastcoexist.com/1679847/an-operating-system-for-dna">DNA sequencing is ultimately a big data problem.</a>
 • <a href="http://www.whitehouse.gov/sites/default/files/microsites/ostp/big_data_fact_sheet.pdf">Obama's 2012 Big Data initiatives</a>
 • <a href="http://seekingalpha.com/article/441171-beware-the-hype-over-big-data-analytics">Beware The Hype Over Big Data Analytics</a>
@@ -76,4 +77,4 @@ A challenge we face now is broader adoption of the project and the technologies 
 • <a href="http://tech.finn.no/2011/05/09/putting-a-face-on-quality/">FINN moving toward continuous innovation</a>
 • <a href="http://radar.oreilly.com/2011/01/data-warehouse-big-data.html">Will data warehousing survive the advent of big data?</a>
 • <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">Why are Facebook, Digg, and Twitter so hard to scale?</a>
-• <a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">Do You Really Need SQL to Do It All in Cassandra?</a></div><br/><br/><br/>
+• <a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">Do You Really Need SQL to Do It All in Cassandra?</a>
