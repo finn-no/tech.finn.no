@@ -12,7 +12,7 @@ tags:
 - OS-X
 ---
 
-As a professional web developer you should use the bleeding version of Google Chrome, so you're prepared what your users will see a few weeks ahead. But the dev version tends to be a bit more buggy (naturally), and you have to test that your page works with both the beta and the stable version. Google Chrome has a command-line parameter to specify another profile, but it's a bit tricky to add command-line parameters to a Mac application. Yesterday I found a [blog-post by Duo Consulting](http://thoughts.duoconsulting.com/blog/multiple-profiles-google-chrome-os-x). They have made a nice little script that will generate an app with the profile you specify. I modified it a bit to allow running different versions of Google Chrome as well as a profile for each of them.
+As a professional web developer you should use the bleeding version of Google Chrome, so you're prepared what your users will see a few weeks ahead. But the dev version tends to be a bit more buggy (naturally), and you have to test that your page works with both the beta and the stable version. Google Chrome has a command-line parameter to specify another profile, but it's a bit tricky to add command-line parameters to a Mac application. Yesterday I found a blog-post by Duo Consulting. They have made a nice little script that will generate an app with the profile you specify. I modified it a bit to allow running different versions of Google Chrome as well as a profile for each of them.
 
 To make the install process even easier for others I've zipped the generated applications (they just contain a script).
 

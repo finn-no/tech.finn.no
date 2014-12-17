@@ -52,7 +52,7 @@ The burst of the .com bubble created something of an atomic winter as far as web
 
 
 
-Thankfully all the bad stuff was swiftly cleaned up with the introduction of the [AJAX approach by Jesse James Garret in 2005](http://en.wikipedia.org/wiki/Ajax_(programming)). All the interface developers came out from their hiding places and they sure had been busy during that atomic winter. Out popped all kinds of amazing things like [Dojo Toolkit](http://dojotoolkit.org/), [Yahoo! UI Library](http://developer.yahoo.com/yui/) and [JQuery](http://jquery.com). Once more the web moved forward at a rapid pace thanks to the newly found fame due to the AJAX hype. JavaScript was getting recognition as an actual language and CSS was being implemented in a more serious manner than before.
+Thankfully all the bad stuff was swiftly cleaned up with the introduction of the [AJAX approach by Jesse James Garret in 2005](http://en.wikipedia.org/wiki/Ajax_(programming)). All the interface developers came out from their hiding places and they sure had been busy during that atomic winter. Out popped all kinds of amazing things like [Dojo Toolkit](http://dojotoolkit.org/), Yahoo! UI Library and [JQuery](http://jquery.com). Once more the web moved forward at a rapid pace thanks to the newly found fame due to the AJAX hype. JavaScript was getting recognition as an actual language and CSS was being implemented in a more serious manner than before.
 
 
 
