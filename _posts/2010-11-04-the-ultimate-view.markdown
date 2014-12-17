@@ -15,24 +15,16 @@ tags:
 - Tiles
 ---
 
-
-
-
 > **This article has been rewritten for Tiles-3.**  
-Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the-ultimate-view-tiles-3/) ...
+[tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the-ultimate-view-tiles-3/)
 
-
-
-
-    A story of getting the View layer up and running quickly in Spring, using Tiles with wildcards, fallbacks, and definition includes, to use the Composite pattern and Convention over Configuration providing a minimal ongoing xml changes.
-
+A story of getting the View layer up and running quickly in Spring, using Tiles with wildcards, fallbacks, and definition includes, to use the Composite pattern and Convention over Configuration providing a minimal ongoing xml changes.
 
 ## Summary
 
+From the architect's perspective you see Apache Tiles as rare exotic Italian marble sheets laid out exquisitely, while the same architect will see SiteMesh as the steel wiring stuck inside the concrete slab. The beauty of the tiles is always admired and a key component in creating an eye-catching surrounding.
 
-    From the architect's perspective you see Apache Tiles as rare exotic Italian marble sheets laid out exquisitely, while the same architect will see SiteMesh as the steel wiring stuck inside the concrete slab. The beauty of the tiles is always admired and a key component in creating an eye-catching surrounding.
-
-    ![](/wp-content/uploads/2011/01/1351-222x300.jpg)
+![](/wp-content/uploads/2011/01/1351-222x300.jpg)
 
 
 * Summary
@@ -281,7 +273,9 @@ One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org
 
     As the system developers write new spring controllers creating brand new definitions the front end developers, with this new "Convention over Configuration" Tiles setup, only need to create the  new folder and jsps for fragments they wish to customise. No more xml editing and no duplicate JSPs.
 
-    ![](/wp-content/uploads/2010/11/information.gif) For a large company this could help enforce UI standards because they have control over the common/ folder - and they can keep an eye that the overrides, the customisations, never become too outlandish, or too out of line, with the standard look of the website. In turn the front end developers can also look back at the common/ folder to see what the expected default should look like.
+![](/wp-content/uploads/2010/11/information.gif)
+
+For a large company this could help enforce UI standards because they have control over the common/ folder - and they can keep an eye that the overrides, the customisations, never become too outlandish, or too out of line, with the standard look of the website. In turn the front end developers can also look back at the common/ folder to see what the expected default should look like.
 
 
 
@@ -500,9 +494,13 @@ One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org
 
     It's nonsense to think that any one pattern is _better_. Both the Composite pattern and the Decorator pattern have their strengths and weaknesses, even after we have progressed the Composite on to being highly dynamic and automated. They do, and achieve, quite different things and hence each should be used where applicable...
 
-    ![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern) allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
+![](/wp-content/uploads/2010/11/lightbulb_on.gif)
 
-    ![](/wp-content/uploads/2010/11/lightbulb_on.gif) The [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern) presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
+The [Decorator pattern](http://en.wikipedia.org/wiki/Decorator_pattern) allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
+
+![](/wp-content/uploads/2010/11/lightbulb_on.gif)
+
+The [Composite pattern](http://en.wikipedia.org/wiki/Composite_pattern) presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
 
 
 
@@ -513,7 +511,7 @@ One of the alternatives we looked at was [Apache Tiles.](http://tiles.apache.org
     It also shows how we can maintain a top-down control of the page's heirarchy, something necessary in a MVC design where the control layer wants to hand off a finished model map, ie a fixed context, that the view layer is free to build itself off. In contrast when we choose the Decorator pattern we can run foul of letting code run in parallel to the MVC pattern.
 
 
-    ![](/wp-content/uploads/2010/11/patterns-flow.gif)
+![](/wp-content/uploads/2010/11/patterns-flow.gif)
 
 
 
