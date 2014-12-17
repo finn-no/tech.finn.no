@@ -19,6 +19,12 @@ If you want to preview drafts run with the '--drafts' flag
 $ bundle exec rake post title="Hello World"
 ```
 
+## Testing
+If you want to test locally run
+
+```bash
+bundle exec htmlproof ./_site
+```
 
 ## Comments
 We are using [Disqus](https://disqus.com/) ([#1](https://github.com/finn-no/tech.finn.no/issues/1)).  
