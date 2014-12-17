@@ -9,39 +9,23 @@ tags:
 - git
 ---
 
-![](http://t2.gstatic.com/images?q=tbn:ANd9GcT06Df3cXPHx1qzMy6AV2ibmUOXlKFstSObwkgmQvdUpIC16Uz_)
-
-
-
-
+![Frog](http://t2.gstatic.com/images?q=tbn:ANd9GcT06Df3cXPHx1qzMy6AV2ibmUOXlKFstSObwkgmQvdUpIC16Uz_)
 
 > "There is no way to do CVS right." - Linus
-
-
 
 **FINN is migrating from subversion to the ever trendy git.**
 We've waited years for it to happen,
 here we'll try to highlight why and how we are doing it.
 
-
-
-
 ### Working together
-
 
 There's no doubt that git gives us a cleaner way of working on top of each other. Wherever you promote peer review you need a way of working with changesets from one computer to the next without having to commit to and via the trunk where everyone is affected. Creating custom branches comes with too much (real or perceived) overhead, so the approach at best falls to throwing patches around. Coming away from a pair-programming session it's better when developers go back to their own desk with such a patch so they can work on it a bit more and finish it properly with tests, docs, and a healthy dose of clean coding. It properly entitles them as the author rather than appearing as if someone else took over and committed their work. Git's decentralisation of repositories provides the cleaner way by replacing these patches with private repositories and its easy to use branches.
 
-
-
-
 ### Individual productivity
-
 
 Git improves the individual's productivity with benefits of [stashing](http://git-scm.com/book/en/Git-Tools-Stashing), [squashing](http://git-scm.com/book/en/Git-Tools-Rewriting-History), [reseting](http://git-scm.com/book/en/Git-Basics-Undoing-Things), and [rebasing](http://git-scm.com/book/en/Git-Branching-Rebasing). A number of programmers for a number of years were already on the bandwagon using git-svn against our subversion repositories. This was real proof of the benefits, given the headaches of git-svn (can't [move](http://stackoverflow.com/questions/5652521/does-git-svn-handle-moved-files) files and [renaming](http://stackoverflow.com/questions/3011625/git-mv-and-only-change-case-of-directory) files gives corrupted repositories)
 
 With Git, work is encouraged to be done on feature branches and merged in to master as complete (squashed/rebased) changesets with clean and summarised commit messages.
-
-
 
   1. This improves efforts towards continuous deployment due to a more stable HEAD.
 
@@ -51,15 +35,9 @@ With Git, work is encouraged to be done on feature branches and merged in to mas
 
   3. By squashing all those checkpoint commits we typically make we get more meaningful, contextual, and accurate [commit messages](http://thomashw.github.com/blog/2012/12/02/commit-messages/).
 
-
-
 Reading isolated and complete changesets provides clear oversight, to the point reading code history becomes enjoyable, rather than a chore. Equally important is that such documentation that resides so close to, if not with, the code comes with a real permanence. There is no documentation more accurate over all of time than the code itself and the commit messages to it. Lastly writing and rewriting good commit message will alleviate any culture of jira issues with vague, or completely inadequate, descriptions as teams hurry themselves through scrum methodologies where little attention is given to what is written down.
 
-
-
-
 ### Maintaining forks
-
 
 Git makes maintaining forks of upstream projects easy.
 
@@ -151,17 +129,7 @@ The introduction of Git was stalled for a year from our Ops team as there was no
 
 [![Atlassian Stash](http://www.atlassian.com/software/stash/overview/feature-overview/featureItems/00/imageBinary/stashtour_highlight_builtforenterprise.png)](http://www.atlassian.com/software/stash/)
 
-
-
-
-
-
-
-
-
-
 ### We're still a cathedral
-
 
 Git decentralises everything, but we're not a real bazaar: our private code is our cathedral with typical enterprise trends like scrum and kanban in play; and so we have still the need to centralise a lot.
 Our list of users and roles we still want centralised, when people push to the master repository are all commits logged against known users or are we going to end up with multiple aliases for every developer? Or worse junk users like "localhost"?
@@ -169,24 +137,15 @@ To tackle this we wrote a pre-push hook that authenticates usernames for all com
 
 Releases can be made off any clone and obviously not be something we want. Released artifacts need to be permanent and unique, and deployed to our central maven repository. Maven's release plugin fortunately tackles this for us as when you run `mvn release:prepare` or `mvn release:branch` it automatically pushes resulting changes upstream for you, as dictated by the scm details in the pom.xml
 
-
-
-
 ### Migrating repositories
-
 
 Our practice with subversion was to have everything in one large subversion repository, like how Apache does [it](http://svn.apache.org/repos/asf/). This approach worked best for us allowing projects and the code across projects to be freely moved around. With Git it makes more sense for each project to have its own repository, as moving files along with their history between repositories is easy.
 
 Initial attempts of conversion were using svn2git as described [here](http://veys.com/2010/07/24/migrating-multi-project-subversion-repositories-to-git/) along with [svndumpfilter3](http://furius.ca/pubcode/pub/conf/bin/svndumpfilter3.html).
 
-But a plugin in Stash came along called [SubGit](http://subgit.com/stash/). It rocks! Converting individual projects from such a large subversion repository one at a time is easy. Remember to moderate the .gitattributes file afterwards, we found in most usecases it could be deleted.
-
-
-
-
+But a plugin in Stash came along called [SubGit](http://old.subgit.com/stash/). It rocks! Converting individual projects from such a large subversion repository one at a time is easy. Remember to moderate the .gitattributes file afterwards, we found in most usecases it could be deleted.
 
 ### Hurdles
-
 
 **Integration with our existing tools** (bamboo, fisheye, jira) was easier when everything was in one subversion repository. Now with scores of git repositories it is rather cumbersome. Every new git repository has to be added manually into every other tool. We're hoping that Atlassian comes to the rescue and provides some sort of [automatic recognition](https://jira.atlassian.com/browse/STASH-2589) of new and renamed repositories.
 
@@ -195,12 +154,7 @@ But a plugin in Stash came along called [SubGit](http://subgit.com/stash/). It r
 
 **Binary files** we were worried about as our largest codebase had many and was already slow on subversion due to it. Subversion also stores all xml files by default as binary and in a large spring based application with a long history this might have been a problem. We were ready to investigate solutions like [git-annex](http://git-annex.branchable.com/). All test migrations though showed that it was not a problem, git clones of this large codebase were super fast, and considerably smaller (subversion 4.1G -> git 1.1G).
 
-
-
-
-
 ### Adaptation
-
 
 Towards the end of February we were lucky enough to have [Tim Berglund](http://twitter.com/tlberglund), [Brent Beer](http://twitter.com/brntbeer), and [David Graham](http://twitter.com/davidgraham), from GitHub come and [teach](http://teach.github.com/presentations/git-foundations.html#/) us Git. The first two days was a set course with 75 participants and covered
 
@@ -218,16 +172,9 @@ Other documentation that's encouraged for everyone to read/watch is
   * [Advanced Git](http://vimeo.com/49444883) video from Tim Berglund,
   * [The Flow Of Change](http://www.youtube.com/watch?v=AJ-CpGsCpM0) video from Google (covers engineering principles of branching codebases).
 
-
-
-![](/wp-content/uploads/2013/03/timberglund.jpg)
-
-
-
-
+![Tim Berglund](/images/2013-03-20-given-the-git/timberglund.jpg)
 
 ### Tips and tricks for beginners…
-
 
 To wrap it up here's some of the tips and tricks we've documented for ourselves…  
 
@@ -271,7 +218,3 @@ When recording a cherry-pick commit, using the "-x" option appends the line _"(c
 
 **Edit and squash commits before pushing them**
 `git config --global alias.ready "rebase -i @{u}"`
-
-
-
-

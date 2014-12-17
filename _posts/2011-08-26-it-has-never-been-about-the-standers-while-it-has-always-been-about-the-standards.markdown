@@ -23,7 +23,7 @@ I was introduced to the World Wide Web back in 1995 while being a student at [Mo
 
 
 
-Creating web sites and web-based applications for me has always been about trying to adopt the latest technological advances in browsers, as soon as they were available. Naturally, this has lead to me reaching a few dead ends (IE’s [Data Binding](http://msdn.microsoft.com/en-us/library/ms531388(v=vs.85).asp) and [Netscape JavaScript style sheets](http://en.wikipedia.org/wiki/JavaScript_Style_Sheets)), but mostly it has enabled me to create some pretty cool things.
+Creating web sites and web-based applications for me has always been about trying to adopt the latest technological advances in browsers, as soon as they were available. Naturally, this has lead to me reaching a few dead ends (IE’s [Data Binding](http://msdn.microsoft.com/en-us/library/ms531388) and [Netscape JavaScript style sheets](http://en.wikipedia.org/wiki/JavaScript_Style_Sheets)), but mostly it has enabled me to create some pretty cool things.
 
 
 

@@ -19,7 +19,8 @@ Cut the general crap - show me the business cards!
 ## What's in it for the user?
 
 
-[![](http://tech.finn.no/wp-content/uploads/2011/10/full_ad-264x600.jpg)](http://tech.finn.no/2011/10/14/make-real-estate-brokers-happy-with-hard-boiled-business-cards/full_ad/)Larger images and the possibility to navigate through images without leaving the page were the first thing that was noticed, and liked, during our user testing sessions. For a full size view of 900 pixel images we have still kept a link to our old image viewing page. However, after release we have got feedback from many users who failed to find this link and complain that images are smaller. There is still work to be done to improve this.
+![Full ad](/images/2011-10-14-make-real-estate-brokers-happy-with-hard-boiled-business-cards/full_ad.jpg)
+Larger images and the possibility to navigate through images without leaving the page were the first thing that was noticed, and liked, during our user testing sessions. For a full size view of 900 pixel images we have still kept a link to our old image viewing page. However, after release we have got feedback from many users who failed to find this link and complain that images are smaller. There is still work to be done to improve this.
 
 The information about the home is divided into primary and secondary information. The prime information, like price, area, address and viewings, is put at the top of the page, so the user won't need to scroll to find it. More detailed information, like facilities, plot size and descriptions is located below the prime information and the image viewing module.
 
@@ -48,7 +49,7 @@ By the time of release we had 13 different customized business cards on our pros
 ### Contact information for a basic prospect
 
 
-[![](http://tech.finn.no/wp-content/uploads/2011/10/basic_contact.png)](http://tech.finn.no/2011/10/14/make-real-estate-brokers-happy-with-hard-boiled-business-cards/basic_contact/)
+![Contact](/images/2011-10-14-make-real-estate-brokers-happy-with-hard-boiled-business-cards/basic_contact.png)
 
 HTML code for a business card looks like this:
 
@@ -114,7 +115,7 @@ This is the basic css for contact information:
 ### Default styling of a business card
 
 
-[![](http://tech.finn.no/wp-content/uploads/2011/10/card_basic.png)](http://tech.finn.no/2011/10/14/make-real-estate-brokers-happy-with-hard-boiled-business-cards/card_basic/)
+![Card](/images/2011-10-14-make-real-estate-brokers-happy-with-hard-boiled-business-cards/card_basic.png)
 
 This is the second layer of css which forms a basic business card:
 
@@ -143,8 +144,7 @@ This is the second layer of css which forms a basic business card:
 ### Customized business card
 
 
-[![](http://tech.finn.no/wp-content/uploads/2011/10/card_customized1.png)](http://tech.finn.no/2011/10/14/make-real-estate-brokers-happy-with-hard-boiled-business-cards/card_customized-2/)
-
+![Card](/images/2011-10-14-make-real-estate-brokers-happy-with-hard-boiled-business-cards/card_customized1.png)
 This third layer of css forms the broker's  customized business card:
 
 

@@ -48,7 +48,7 @@ Redirecting to [tech.finn.no/the-ultimate-view-tiles-3/](http://tech.finn.no/the
 
 At FINN.no we were redesigning our control and view layers. We, being the architectural team of six, had already decided on Spring-Web as a framework for the control layer due to its flexibility and a design for us providing better, simpler, migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why for practical purposes sitemesh gives the front end developer more flexibility and less xml editing. But we knew sitemesh has some serious shortcomings...
 
-![image](/wp-content/uploads/2011/01/images.jpe)
+![image](/images/2010-11-04-the-ultimate-view/images.jpe)
 
 **SiteMesh shortcomings:**
 

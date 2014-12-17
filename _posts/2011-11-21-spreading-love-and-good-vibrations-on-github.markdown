@@ -21,7 +21,7 @@ Currently there are a few repositories out there:
   * [eventHub](https://github.com/finn-no/eventhub)
 
 
-  * [Awesome Board](https://github.com/finn-no/awesomeboard)
+  * Awesome Board[Gone]
 
 
 
@@ -36,17 +36,14 @@ This is just a tiny piece of code which enables you to build loosely coupled com
 
 
 
-We have written one-page JS applications using only the hub besides jQuery for DOM manipulation. It scales pretty well and it is pretty much what you'd need to create an application. Once your application grows to be quite large you might want to add some other architectural components, but for small to medium sized projects it is brilliant. It is used for the dashboard part for [the Awesome Board](https://github.com/finn-no/awesomeboard).
+We have written one-page JS applications using only the hub besides jQuery for DOM manipulation. It scales pretty well and it is pretty much what you'd need to create an application. Once your application grows to be quite large you might want to add some other architectural components, but for small to medium sized projects it is brilliant. It is used for the dashboard part for the Awesome Board[Gone].
 
 
 
 
 ## Awesome Board
 
-
-
-
-[The Awesome Board](https://github.com/finn-no/awesomeboard) is the application which has featured in two articles about visualizing quality. We have shown it a few times to different audiences and due to request for making it available we decided it was a good thing to share it on GitHub. There are some pieces missing from the version we run internally, but have patience the rest might still make it to a repo near you.
+The Awesome Board[Gone] is the application which has featured in two articles about visualizing quality. We have shown it a few times to different audiences and due to request for making it available we decided it was a good thing to share it on GitHub. There are some pieces missing from the version we run internally, but have patience the rest might still make it to a repo near you.
 
 
 

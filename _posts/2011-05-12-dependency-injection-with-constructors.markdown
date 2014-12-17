@@ -15,25 +15,14 @@ tags:
 - Systems
 ---
 
-![Pic of Neo/The Matrix](/images/2011-05-12-dependency-injection-with-constructors/neo-300x300.jpg)
-
-
-
-
+![Pic of Neo/The Matrix](/images/2011-05-12-dependency-injection-with-constructors/neo.jpg)
 
 **_The debate whether to use
 constructors, setters, fields, or interfaces
 for [dependency injection](http://martinfowler.com/articles/injection.html) is often heated and opinionated.
 Should you have a preference?_**
 
-
-
-
-
-
 ##  The argument for Constructor Injection
-
-
 
 We had a consultant working with us reminding us to take a preference towards Constructor injection. Indeed we had a large code base using predominantly setter injection because in the past that is what the Spring community recommended.
 
@@ -56,11 +45,7 @@ And that Setter injection can be used when needed for cyclic dependencies, optio
 
 Being a big fan of Inversion of Control but not overly of Dependency Injection frameworks something smelt wrong to me. Yet solely within the debate of constructor versus setter injection i don't disagree that constructor injection has the advantage. Having been using Spring's dependency injection through annotation a little recently and building a favouritism towards field injection I was happy to get the chance to ponder it over, to learn and to be taught new things. What was it i was missing? Is there a bigger picture?
 
-
-
 ##  API vs Implementation
-
-
 
 If there is a bigger picture it has to be around the Dependency Inversion argument since this is known to be potentially complex. The point here of using constructor injection is that _1)_ through a public declaration and injection of dependencies we build an explicit graph showing the dependency inversion throughout the application, and _2)_ even if the application is wired magically by a framework such injection must still be done in the same way without the framework (eg when writing tests).  The latter _(2)_ is interesting in that the requirement on "dependency injection" is too also inverted, that the framework providing dependency injection is removed from the architectural design and becomes solely a implementation detail. But it is the graph in _(1)_ that becomes an important facet in the following analysis.
 
@@ -78,16 +63,10 @@ Therefore it is important to sometimes have all dependency injection completely 
 
 Taking this further we can introduce the distinction between [API and SPI](http://wiki.apidesign.org/index.php?title=APIvsSPI&useskin=monobook). Here a good practice is to stick to using final classes for API and interfaces for SPI. By the same argument as above SPI can't use constructor injection because they don't have constructors.
 
-
-
 ##  Inversion-of-Control vs Dependency-Injection
-
-
-
 What about the difference between IoC and DI. They are overlapping concepts: the subtlety between the “the contexts” and “the dependencies” rarely emphasised enough. (Java EE 6 has tried to address the distinction between contexts and dependencies at the implementation level with the [CDI spec](http://www.oracle.com/technetwork/articles/java/cdi-javaee-bien-225152.html).) The difference between the two, nuanced as it may be, can help illustrate that the DI graph in any application deserves attention in multiple dimensions.
 
-
-![](/wp-content/uploads/2011/05/request-stack.png)
+![Request stack](/images/2011-05-12-dependency-injection-with-constructors/request-stack.png)
 
 Drawing an application's architecture up as a graph where the vertical axis represents the request stack: that which is typically categorised into architectural layers view, control, and model/services; and the horizontal axis representing the broadness of each architectural layer, then it can be demonstrated that:
 **→** IoC generally forms the passing and layering of contexts downwards.
@@ -103,22 +82,15 @@ Drawing an application's architecture up as a graph where the vertical axis repr
 Another illustration is when having to instantiate the initial context at the very top of the request/application stack it involves instantiating all the implementation of dependencies used in contexts down through the stack, this is when dependency inversion explodes - the case where the IoC becomes up-front and explicit, and the encapsulation of implementation is lost through an unnecessary leak of abstractions. A problem paralleling to this is trying to apply checked exceptions up through the request stack: one answer is that we need different checked exceptions per architectural layer (another answer is [anchored exceptions](http://www.cs.kuleuven.be/publicaties/rapporten/cw/CW544.pdf)). With dependencies we would eventuate with requiring different dependency types per architectural layer and this could lead to dependencies types from inner domains needing to be declared from the outer domains. Here we can instead declare _resource loaders_ in the initial context and then letting each architectural layer build from scratch its own context with dependencies constructed from configuration. But this comes the full circle in coming back to a design similar to a _service locator_. Something similar has happened with annotations in that by bringing Convention over Configuration to DI what was once loose wiring with xml has become the magic of the convention and begins too to resemble the _service locator_ or _naming lookups_.
 
 
-![follow the white rabbit/The Matrix](/wp-content/uploads/2011/05/rabbits-matrix-150x150.jpg)
+![follow the white rabbit/The Matrix](/images/2011-05-12-dependency-injection-with-constructors/rabbits-matrix.jpg)
 
 
 For a legacy application this likely becomes all too much: the declaring of all dependencies required throughout all these contexts; and so relying on a little louse-coupling-magic (be it reflection or spring injection) is our answer out. Indeed this seems to be one of the reasons spring dependency injection was introduced into FINN.
 _And so we've become less worried about the type of injection used..._
 
-
-
-
-
-
 ##  Broad vs Deep Applications
 
-
-
- [FINN.no](http://www.finn.no) is generally a broad application with a shallow contextual stack. Here is the traditional view-control-model design and the services inside the model layer typically interact directly with the data stores and maybe interact with one or two peer services.
+[FINN.no](http://www.finn.no) is generally a broad application with a shallow contextual stack. Here is the traditional view-control-model design and the services inside the model layer typically interact directly with the data stores and maybe interact with one or two peer services.
 
  Focusing on the interfaces to the services we see there is a huge amount of public api available to the controller layer and very little in defined contexts except a few parameters, or maybe the whole parameter map, and the current user object. There is therefore very little inversion of control in our contexts, it is often just parameterisation. (Why we often use interfaces to define service APIs is interesting since we usually have no intention for client code to be supplying their own implementations, it is definitely not SPIs that are being published. Such interfaces are used as a poor-man's simplification of the API declaration of public methods within the final classes. Albeit these interfaces do make it easy to make stubs and mocks for tests.)
 
@@ -134,15 +106,9 @@ Hopefully by now you've guessed that we really should be more interested in modu
 
 With modularisation we can minimise contexts, isolate dependency chains, publish contextual inversion of control into APIs, declare interface-injection for SPIs, and move dependency injection into wired constructors.
 
-
-![](/wp-content/uploads/2011/05/request-stack-2.png)
-
-
-
+![Request stack](/images/2011-05-12-dependency-injection-with-constructors/request-stack-2.png)
 
 ##  Back to Constructor injection
-
-
 
 So it's true that constructor injection goes beyond just DI in being able to provide some IoC. But it alone can not satisfy Inversion of Control in any application unless you are willing to overlook API and SPI design. DI is not a subset or union of IoC: it has uses horizontally and in loose-coupling configuration; and IoC is not a subset or union of DI: to insinuate such would mean IoC can only be implemented using spring beans leading to an application of only spring beans and singletons. In the latter case IoC will often become forgotten outside the application's realm of DI.
 
@@ -158,15 +124,12 @@ For the majority of developers for the majority of the time you will be writing 
 
 
 
-![Pic of Morpheus/The Matrix](/wp-content/uploads/2011/05/Morpheus-Red-or-Blue-Pill-the-matrix-430x370-300x258.jpg)
+![Pic of Morpheus/The Matrix](/images/2011-05-12-dependency-injection-with-constructors/Morpheus-Red-or-Blue-Pill-the-matrix.jpg)
 
 
 _Keep questioning everything..._
 ...by remaining focused on what is required from the code at hand we can be pragmatic in a world full of rules and recommendations. This isn't about laziness or permitting poor code, but about being the idealist: the person that knows the middle way between the pragmatist and ideologue. By knowing: when what can, and for how long, be dropped; we can incrementally evolve complex code towards a modular design in a sensible, sustainable, and practical way.
 In turn this means the programmer gets the chance to catch breath and remember [paramount to their work is the people](/putting-a-face-on-quality/): those that will develop against the design and those end-users of the product.
-
-
-
 
 **References:**
 
@@ -186,8 +149,5 @@ In turn this means the programmer gets the chance to catch breath and remember [
   * What's the difference between [Dependency Injection and Inversion of Control](http://neelzone.wordpress.com/2007/04/04/injection-and-inversion/)
 
 
-
-
 **Credits:**
 A large and healthy dose of credit must go to Kaare Nilsen for being a sparring partner in the discussion that lead up to this article.
-

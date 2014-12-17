@@ -7,7 +7,7 @@ title: the ultimate view — Tiles-3
 redirect_from: /the-ultimate-view-tiles-3/
 ---
 A story of getting the View layer up and running quickly in Spring...
-<blockquote>Since the <a href="">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote>
+<blockquote>Since the <a href="http://tech.finn.no/2010/11/04/the-ultimate-view/">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote>
 
 
 <div style="background-color: WhiteSmoke;">Based upon the <strong>Composite pattern</strong> and <strong>Convention over Configuration</strong> we'll pump steroids into  
@@ -15,20 +15,20 @@ A story of getting the View layer up and running quickly in Spring...
         with four simple steps using <strong>Spring</strong> and <strong>Tiles-3</strong>  
             to make organising large complex websites elegant with minimal of xml editing.</div>
 
-<img src="/images/2012-07-25-the-ultimate-view-tiles-3/1351-222x300.jpg" alt="" />
-- <a href="#theultimateview-part1-Background">Background</a>
-- <a href="#theultimateview-part1-Step0">Step 0: Spring to Tiles Integration</a>
-- <a href="#theultimateview-part1-Step1">Step 1: Wildcards</a>
-- <a href="#theultimateview-part1-Step2">Step 2: The fallback pattern</a>
-- <a href="/the-ultimate-view-tiles-3/5/">Step 3: Definition includes</a>
-- <a href="/the-ultimate-view-tiles-3/6/">When the Composite pattern is superior</a>
-- <a href="#theultimateview-part1-Conclusion">Conclusion</a>
+<img src="/images/2012-07-25-the-ultimate-view-tiles-3/1351-222x300.jpg" alt="tiles" />
+- Background
+- Step 0: Spring to Tiles Integration
+- Step 1: Wildcards
+- Step 2: The fallback pattern
+- Step 3: Definition includes
+- When the Composite pattern is superior
+- Conclusion
 
-<a name="theultimateview-part1-Background"><h4>Background</h4></a>
+#### Background
 At FINN.no we were redesigning our control and view layers. The architectural team had decided on Spring-Web as a framework for the control layer due to its flexibility and for providing us a simpler migration path. For the front end we were a little unclear. In a department of ~60 developers we knew that the popular vote would lead us towards SiteMesh. And we knew why – for practical purposes sitemesh gives the front end developer more flexibility and definitely less xml editing.
 But sitemesh has some serious shortcomings...
 
-<span class="image-wrap" style="float: right"><img style="border: 0px solid black" src="/images/2012-07-25-the-ultimate-view-tiles-3/images.jpg" alt="" width="145" /></span>
+<span class="image-wrap" style="float: right"><img style="border: 0px solid black" src="/images/2012-07-25-the-ultimate-view-tiles-3/images.jpg" alt="images" width="145" /></span>
 
 <div style="font-size:80%;"><strong>SiteMesh shortcomings:</strong><ul><li>from a design perspective the Decorator pattern can undermine the seperation MVC intends,</li>
 	    <li>requires all possible html for a request in buffer requiring large amounts of memory</li>
@@ -40,9 +40,7 @@ But sitemesh has some serious shortcomings...
 One of the alternatives we looked at was <a class="external-link" rel="nofollow" href="http://tiles.apache.org/">Apache Tiles.</a> It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a <a class="external-link" rel="nofollow" href="http://tiles.apache.org/framework/tutorial/advanced/preparer.html">ViewPreparer</a>. This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the model onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
 <div style="margin: 30px;"><em>“Tiles has been indeed the most undervalued project in past decade. It was the most useful part of struts, but when the focus shifted away from struts, tiles was forgotten. Since then struts as been outpaced by spring and JSF, however tiles is still the easiest and most elegant way to organize a complex web site, and it works not only with struts, but with every current MVC technology.” – Nicolas Le Bas</em></div>Yet the best Tiles was going to give wasn't realised until we started experimenting a little more...
 
-
-<!--nextpage-->
-<a name="theultimateview-part1-Step0"><h4>Step 0: Spring to Tiles Integration</h4></a>
+#### Step 0: Spring to Tiles Integration
 The first step is integrating Tiles and Spring together. For Tiles-3 it boils down to registering a ViewResolver and a TilesConfigurer in your spring-web configuration.
 
 {% highlight xml %}
@@ -56,7 +54,7 @@ The first step is integrating Tiles and Spring together. For Tiles-3 it boils do
 
 You need Spring-3.2 to get this to work, specifically "spring-webmvc". If you're using an older version of Spring then you can <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.jar">download</a> the required classes separately and add them to your classpath. (There's a <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.pom">pom</a> file also available.)
 
-The TilesConfigurer hooks in the "tilesInitializer" class. This is the way in Tiles-3 of providing the <a class="external-link" rel="nofollow" href="http://tiles.apache.org/config-reference.html">configuration</a>. If you don't specify one it'll use by default <a href="http://tiles.apache.org/framework/apidocs/org/apache/tiles/extras/complete/CompleteAutoloadTilesInitializer.html">CompleteAutoloadTilesInitializer</a> which gives you a fully featured Tiles setup (you'll need tiles-extras.jar in the classpath). The setup here uses the FinnTilesInitialiser and FinnTilesContainerFactory classes to make possible further configurations.
+The TilesConfigurer hooks in the "tilesInitializer" class. This is the way in Tiles-3 of providing the <a class="external-link" rel="nofollow" href="https://tiles.apache.org/framework/config-reference.html">configuration</a>. If you don't specify one it'll use by default <a href="http://tiles.apache.org/framework/apidocs/org/apache/tiles/extras/complete/CompleteAutoloadTilesInitializer.html">CompleteAutoloadTilesInitializer</a> which gives you a fully featured Tiles setup (you'll need tiles-extras.jar in the classpath). The setup here uses the FinnTilesInitialiser and FinnTilesContainerFactory classes to make possible further configurations.
 For now FinnTilesContainerFactory is an empty class extending BasicTilesContainerFactory, and FinnTilesInitialiser looks like
 
 {% highlight java %}
@@ -71,9 +69,8 @@ public class FinnTilesInitialiser extends AbstractTilesInitializer {
 }
 {% endhighlight %}
 
-<!--nextpage-->
-<a name="theultimateview-part1-Step1"><h4>Step 1: Wildcards</h4></a>
-<img style="margin: 10px" src="/images/2012-07-25-the-ultimate-view-tiles-3/Screenshot1-149x300.png" border="0" alt="create these files and folders" align="right" />
+#### Step 1: Wildcards
+<img style="margin: 10px" src="/images/2012-07-25-the-ultimate-view-tiles-3/Screenshot1.png" border="0" alt="create these files and folders" align="right" />
 We are going to create a basic website with three simple pages: cat, cow, and dog. The jsps making up these pages are shown to the right.
 
 Composing these jsps together into their corresponding pages we encounter Tiles' most obvious downfall: every single jsp included must be declared in a definition in the tiles.xml file. Anyone that ever tried Tiles-1 knows this bad smell.
@@ -155,11 +152,10 @@ The Apache Tiles tutorial on wildcards explains that to extend the use of wildca
     }
 {% endhighlight %}
 
-<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/information.gif" width="16" height="16" align="absmiddle" /> <strong>Troubleshooting:</strong> remember to include the <a href="http://tiles.apache.org/framework/tiles-extras/project-summary.html"><i>tiles-extras</i></a> dependency! Without it you'll get <code style="dont-size: 70%;">...CompatibilityDigesterDefinitionsReader cannot be cast to ...Definition</code><br/><br/><br/>
+<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/information.gif" alt="information" width="16" height="16" align="absmiddle" /> <strong>Troubleshooting:</strong> remember to include the <a href="http://tiles.apache.org/framework/tiles-extras/project-summary.html"><i>tiles-extras</i></a> dependency! Without it you'll get <code style="dont-size: 70%;">...CompatibilityDigesterDefinitionsReader cannot be cast to ...Definition</code><br/><br/><br/>
 
-<!--nextpage-->
-<a name="theultimateview-part1-Step2"><h4>Step 2: The fallback pattern</h4></a>
-<img style="margin: 10px" src="/images/2012-07-25-the-ultimate-view-tiles-3/Screenshot-146x300.png" border="0" alt="create these files and folders" align="right" />
+#### Step 2: The fallback pattern
+<img style="margin: 10px" src="/images/2012-07-25-the-ultimate-view-tiles-3/Screenshot.png" border="0" alt="create these files and folders" align="right" />
 
 Not needing anymore to edit tiles.xml is nice, but as the number of definitions grows the number of duplicated jsps with also grow. For example maybe footers and headers are identical in nearly every definition.
 
@@ -203,10 +199,9 @@ public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
 As the system developer writes new spring controllers to create completely new definitions the front end developer, with this new <em>Convention over Configuration</em> setup, only needs to create the new folder and jsps for fragments they wish to customise. Again there's no further xml editing.
 <strong>No more xml editing and no duplicate JSPs.</strong><br/>
 
-<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/information.gif" border="0" alt="" width="16" height="16" align="absmiddle" /> For a large company this can help enforce UI standards by having control over the common folder — keeping an eye on UI overrides and customisations never become too outlandish with the standard look of the website. The front end developer can also be referencing this common folder for UI standards.
+<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/information.gif" alt="information" border="0" width="16" height="16" align="absmiddle" /> For a large company this can help enforce UI standards by having control over the common folder — keeping an eye on UI overrides and customisations never become too outlandish with the standard look of the website. The front end developer can also be referencing this common folder for UI standards.
 
-<!--nextpage-->
-<h4><a name="theultimateview-part1-Step3:Definitionincludes">Step 3: Definition includes</a></h4>
+#### Step 3: Definition includes
 Realistically these fragments: meta, header, body, and footer; won't be enough. You can quickly be using scores of fragments for columns within the body, banners and advertisements, analytics, seo meta data, css and javascript meta includes, etc, etc.
 
 With these different pages cat, dog, and cow it'll also be pretty certain that they'll have different "actions" applicable upon them. For example viewing, editing, and searching pages. Once again there'll be a lot of duplicate jsps.
@@ -413,23 +408,22 @@ public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
 }
 {% endhighlight %}
 
-<!--nextpage-->
-<h4><a name="theultimateview-part1-WhentheCompositepatternissuperior">When the Composite pattern is superior</a></h4>
+#### When the Composite pattern is superior
 It's nonsense to think that any one pattern is <em>better</em>. Both the Composite pattern and the Decorator pattern have their strengths and weaknesses, even after we have progressed the Composite on to being highly dynamic and automated. They do, and achieve, quite different things and hence each should be used where applicable...
 
-<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/lightbulb_on.gif" border="0" alt="" width="16" height="16" align="absmiddle" /> The <a class="external-link" rel="nofollow" href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a> allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
+<img src="/images/2012-07-25-the-ultimate-view-tiles-3/lightbulb_on.gif" border="0" alt="lightbulb_on" width="16" height="16" align="absmiddle" /> The <a class="external-link" rel="nofollow" href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a> allows front end code and design to be injected as we process. When a decision is known during the request processing the code can immediately build a decorator. The context here only holds all the built decorators. And at the end of the request lifecycle the page is assembled by putting together all these decorators. Decorators can also be built upon each other, or stacked, and this can be useful when the composition of the page is completely loose.
 
-<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/lightbulb_on.gif" border="0" alt="" width="16" height="16" align="absmiddle" /> The <a class="external-link" rel="nofollow" href="http://en.wikipedia.org/wiki/Composite_pattern">Composite pattern</a> presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
+<img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/lightbulb_on.gif" alt="lightbulb_on" border="0" width="16" height="16" align="absmiddle" /> The <a class="external-link" rel="nofollow" href="http://en.wikipedia.org/wiki/Composite_pattern">Composite pattern</a> presumes the page to be a "composite" made up from components, where each component is free to be itself a "composite". The pattern allows more control of the composite's heirarchy: as the delegation is top-down as opposed to the Decorator pattern whom's is bottom-up. The composite pattern works well when the operations you need to perform on each object is limited, that is it isn't a problem that the operations you may perform on any one object is the lowest common demominator of operations that you can perform on every object.
 
 When you use jsp includes whether you like it or not you have a page heirarchy. If your jsps typically have a template with fragments you are already working within the composite pattern's paradigm: the template being the "composite" and the fragments being the components. Each fragment, each JSP, has a context that holds the model map, or variables, in various scopes, and within this context they are self-sufficient. The only operation required upon them by others is inclusion. Applying the composite pattern here means treating each fragment as a self-sufficient object, the only thing that can happen to it is it will be included.
 
 This shows how we can design to reduce complexity and encourage there to be only one unified context.
 
 It also shows how we can maintain a top-down control of the page's heirarchy, something necessary in a MVC design where the control layer wants to hand off a finished model map, ie one fixed and unified context, that the view layer is free to build itself off. In contrast when we choose the Decorator pattern we can run foul of letting code run in parallel to the MVC pattern.   <br class="atl-forced-newline" /> <br class="atl-forced-newline" />
-<img style="border: 0px solid black;width:100%" src="/images/2012-07-25-the-ultimate-view-tiles-3/patterns-flow.gif" alt="" align="center" />
+<img style="border: 0px solid black;width:100%" src="/images/2012-07-25-the-ultimate-view-tiles-3/patterns-flow.gif" alt="Patterns flow" align="center" />
 
 
-<a name="theultimateview-part1-Conclusion"><h4>Conclusion</h4></a>
+#### Conclusion
 Front end developers, the system developers, and the architects need to work together. With the front end today often centered around loose coupling design: javascript's lack of type safety, ajax's separation from the server, and jQuery's liberation of the dom; it is all too easy to rebel against any form of structure or organisation for fear of being tied into the formalities of the strict-typed java world.  
 
 Neither should the fear of giving up control of one's craftsmanship mean keeping logic and control in the View layer, this stuff belongs in the Control layer: and this means the system developers need to work harder to get the front end developers collaborating in the control layer, or the roles of system and front end developers need more overlap within teams. Everything has entropy, the larger the organisation, the larger the codebase, the less you fight the entropy, the quicker you end up with a pile of spaghetti in your lap.  
@@ -443,5 +437,5 @@ These four steps show you how Tiles-3 and the Composite pattern can be ramped up
 3. <a href="http://en.wikipedia.org/wiki/Decorator_pattern">Decorator pattern</a>  
 4. <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/spring-web.html">Spring Web</a>  
 5. Integrating <a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/view.html#view-tiles">Tiles and Spring</a>  
-6. Initial discussion regarding Tiles <a href="http://old.nabble.com/howto-delegate-to-other-definitions---td27516586.html">definition delegation</a>
+6. Initial discussion regarding Tiles definition delegation[Gone]
 7. Spring 3.2 with Tiles-3 :: <a href="http://jira.springframework.org/browse/SPR-8825">Tiles-3 support</a>

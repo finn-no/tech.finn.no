@@ -12,7 +12,7 @@ tags:
 - interface development
 ---
 
-Inspired by the kick-ass developers of [Yahoo!](http://developer.yahoo.com/) and their work on [Graded Browser Support](http://developer.yahoo.com/yui/articles/gbs/) (GBS) we at FINN.no decided to adopt graded browser support as a way to communicate what level of support we have for different combinations of browsers and platforms.
+Inspired by the kick-ass developers of [Yahoo!](http://developer.yahoo.com/) and their work on Graded Browser Support (GBS) we at FINN.no decided to adopt graded browser support as a way to communicate what level of support we have for different combinations of browsers and platforms.
 
 
 ## Creating the support matrix

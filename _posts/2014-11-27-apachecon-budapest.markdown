@@ -29,7 +29,7 @@ The next release of YARN (2.6) will see support for long-lived services, whereby
 
 Of no surprise Solr dealt a lot with scaling and <a href="http://events.linuxfoundation.org/sites/events/files/slides/HighPerformanceSolr.pdf">performance</a>, while Cassandra presented use-cases from across the industry. It felt that big tech companies are migrating their databases over to Cassandra not just for availability but often simply for the sake of performance. "<a href="http://www.slideshare.net/planetcassandra/cassandra-summit-2014-deploying-cassandra-for-call-of-duty">Call of Duty</a>" was rewritten from mysql to cassandra, resulting in the 95th percentile for requests going down to under 500μs. You don't need complicated cache strategies when your backend is this fast!
 
-Other Cassandra talks included Eric Evans presenting <a hef="http:/opennms.github.com/newts">Newts</a>, an lazy-aggregating time-series solution built with graphing and lucene search inbuilt. And <a href="http://events.linuxfoundation.org/sites/events/files/slides/Intro-To-Usergrid%20-%20ApacheCon%20EU%202014.pdf">Apache UserGrid</a>, a fascinating project built, it is your LAMP stack, a BaaS framework, for the mobile-first world.
+Other Cassandra talks included Eric Evans presenting [Newts](http://opennms.github.com/newts), an lazy-aggregating time-series solution built with graphing and lucene search inbuilt. And <a href="http://events.linuxfoundation.org/sites/events/files/slides/Intro-To-Usergrid%20-%20ApacheCon%20EU%202014.pdf">Apache UserGrid</a>, a fascinating project built, it is your LAMP stack, a BaaS framework, for the mobile-first world.
 
 Patrick McFadin held a tutorial putting together kafka, cassandra, and spark, to create a very <a href="https://github.com/killrweather/killrweather">elegant scaling streaming solution</a>. Patrick also discussed the performance gain of putting spark RDD data in cassandra rather than using files on disk. Chatting with both Eric Evans (he who coined "NoSQL") and Patrick highlighted that the throughput per node of our Cassandra cluster is leading in the industry, it's just to add more servers and reap the benefits.
 
@@ -39,7 +39,7 @@ Absolutely a conference I'd recommend to infrastructure, operations, and back-en
 
 <br/>
 <table><tr><td></td></tr></table>
-<p class="centerify">Oh… and Happy <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_celebrates2">15th birthday</a> Apache!<br/><img src="http://farm8.staticflickr.com/7533/15816582111_4b19b886c5_c.jpg"/><br/>
+<p class="centerify">Oh… and Happy <a href="https://blogs.apache.org/foundation/entry/the_apache_software_foundation_celebrates2">15th birthday</a> Apache!<br/><img src="http://farm8.staticflickr.com/7533/15816582111_4b19b886c5_c.jpg" alt="Party" /><br/>
 More photos from the conference <a href="http://events.linuxfoundation.org/events/apachecon-europe">here</a></p>
 
 

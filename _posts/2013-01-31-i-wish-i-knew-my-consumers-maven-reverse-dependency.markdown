@@ -18,11 +18,7 @@ The idea was to have every project report its dependencies to a graph database, 
 The plugin is published on github @ [Finn Technology's account](https://github.com/finn-no/maven-dependency-mapper). Feel free!
 [@gardleopard](http://twitter.com/gardleopard) and [@roarjoh](http://twitter.com/roarjoh)
 
-
-
 ## Usage examples
-
-
 
 Dependencies to current maven project:
 `
@@ -55,4 +51,4 @@ mvn no.finntech:dependency-mapper-maven-plugin:read
 `
 
 Usage of third party framework (using neo4j's included admin interface):
-![](http://tech.finn.no/wp-content/uploads/2013/01/neo4jshot.png)
+![Noe4jshot](/images/2013-01-31-i-wish-i-knew-my-consumers-maven-reverse-dependency/neo4jshot.png)

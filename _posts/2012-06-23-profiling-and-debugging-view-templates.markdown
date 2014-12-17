@@ -20,25 +20,15 @@ With Tiles-3 you can use the `PublisherRenderer` to profile and debug not just t
 At FINN all web pages print such a tree at the bottom of the page. This helps us see what templates were involved in the rendering of that page, and which templates are slow to render.
 
 
-[![](http://tech.finn.no/wp-content/uploads/2012/06/Screenshot-tiles-publisherrenderer-tree.png)](http://tech.finn.no/2012/06/23/profiling-and-debugging-view-templates/screenshot-tiles-publisherrenderer-tree/)
+![Tiles publisherrenderer tree](/images/2012-06-23-profiling-and-debugging-view-templates/tiles-publisherrenderer-tree.png)]
+
 We also embed into the html source wrapping comments like
-
-
 
     ...template output...
 
-
-
-
-
-
-
-
 ## The code please
 
-
 To do this register and then attach your own listener to the `PublisherRenderer`. For example in your `TilesContainerFactory` (the class you extend to setup and configure Tiles) add to the methd createTemplateAttributeRenderer something like:
-
 
 
         @Override

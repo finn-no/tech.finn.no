@@ -28,7 +28,7 @@ _Disclaimer: Each version will have it's own profile, so you have to set up each
 I.e.: /Users/gregers/Applications/
 
 
-  2. Unzip [Chrome-Trio.zip](http://tech.finn.no/wp-content/uploads/2011/04/Chrome-Trio.zip) and put the apps in /Applications
+  2. Unzip Chrome-Trio.zip(File removed) and put the apps in /Applications
 
 
   3. Don't select any of them as default browser, since that will use the default profile instead of the custom. Instead start Safari -> Preferences -> General -> Default web browser -> Select... -> Go to /Applications and choose the version of Chrome you want as default :)

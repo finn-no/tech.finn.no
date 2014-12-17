@@ -39,7 +39,7 @@ Oh and the picture on the left is a flyer we put up everywhere to market the eve
 
 
 
-Frank and Sven Inge from [Team Mobile](http://labs.finn.no/wp-content/uploads/2011/01/Teambilde-med-Kjetil.png) at FINN.no presented the [beta for m.finn.no](http://beta.m.finn.no). As [ announced previously on labs.finn.no](http://labs.finn.no/prov-utkast-til-ny-mobilweb-beta-m-finn-no/) the beta for our mobile web service is now available for testing and feedback. We are very excited about this application and we feel that it takes mobile web to a new level here in Norway.
+Frank and Sven Inge from Team Mobile at FINN.no presented the [beta for m.finn.no](http://beta.m.finn.no). As announced previously on labs.finn.no[Gone] the beta for our mobile web service is now available for testing and feedback. We are very excited about this application and we feel that it takes mobile web to a new level here in Norway.
 
 
 
@@ -81,7 +81,7 @@ The slides from this presentations can be [downloaded from the Cocoa Heads Oslo 
 
 
 
-This was an awesome session with two great talks which highlighted some of the challenges with creating applications for mobile devices across multiple platforms. Thanks to Audun and [Team Mobile](http://labs.finn.no/wp-content/uploads/2011/01/Teambilde-med-Kjetil.png)!
+This was an awesome session with two great talks which highlighted some of the challenges with creating applications for mobile devices across multiple platforms. Thanks to Audun and Team Mobile!
 
 
 

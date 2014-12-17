@@ -17,7 +17,7 @@ It's easy to include a style sheet for small-screen mobile devices, but what if 
 ![Touch](/images/2011-03-10-style-sheet-for-touch-devices/touch2.jpg)
 So the best solution I've found is to use JavaScript to detect if the browser has touch events. It's a bit dangerous because Firefox and Chrome have support for touch, so you can't be sure they don't expose the touch events to devices without a touch screen. Fortunately this has [already happened](http://code.google.com/p/chromium/issues/detail?id=36415) in Google Chrome. The team decided to disable the touch events so the detection developers already used would continue to work.
 
-[Paul Irish](http://twitter.com/#!/paul_irish) has researched a bit for [Modernizr](http://modernizr.com) to find out [what detection methods work best](http://modernizr.github.com/Modernizr/touch.html). You can of course use Modernizr, but if all you need is this test it's not necessary to include the whole library. All you really need is this:
+[Paul Irish](http://twitter.com/#!/paul_irish) has researched a bit for [Modernizr](http://modernizr.com) to find out what detection methods work best. You can of course use Modernizr, but if all you need is this test it's not necessary to include the whole library. All you really need is this:
 
 {% highlight javascript %}
 'ontouchstart' in window

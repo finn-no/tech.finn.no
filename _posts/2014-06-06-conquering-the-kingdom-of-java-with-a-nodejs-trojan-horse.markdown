@@ -6,7 +6,7 @@ layout: post
 title: Conquering the kingdom of Java with a NodeJS trojan horse
 redirect_from: /conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse/
 ---
-<img src="http://upload.wikimedia.org/wikipedia/commons/6/6e/Trojan_Horse_by_A_Yakovlev_1911.jpg">
+<img src="http://upload.wikimedia.org/wikipedia/commons/6/6e/Trojan_Horse_by_A_Yakovlev_1911.jpg" alt="trojan horse">
 Most of FINN.no is built with Java and we've been a Java shop for 6-7 years. With the professionalization of front-end development we saw that the tools available in the Java Web Development ecosystem was preventing us from delivering rapidly and with high quality.
 The trend was that the tools we used weren't keeping up with the pace set by people creating tools in <a href="http://nodejs.org/">Node</a>'s <acronym title="Node Package Management">NPM</acronym> module ecosystem. When working on pet projects we could use these tools, but in our daily job we were working with second rate tools. This was a frustration for many of us, so we set out to work out how we could utilize Node without having to rewrite all our applications.
 
@@ -31,5 +31,5 @@ In order to make the transition as smooth as possible we needed to have Node mod
 <h2>In closing</h2>
 This was by no means the fastest way to introduce Node into an existing architecture. If you're a small shop with few people, you should adopt a more aggressive approach. Our approach however works beautifully for those of you working in larger organizations were you need to do things in a more subtle way. Taking small steps and always making sure everyone can perform their job as normal was one of our keys to succeeding. If we'd gone all out and created additional work for many developers, our Node adventure would've never happened.
 
-<a href="//github.com/leftieFriele">Espen Dalløkken</a> from the Front-end Core Team <a href="http://www.boosterconf.no/talks/232">did a short lightening talk</a> about this very subject at <a href="http://www.boosterconf.no/">Booster Conference</a> 2014 in Bergen:
+<a href="//github.com/leftieFriele">Espen Dalløkken</a> from the Front-end Core Team <a href="http://2014.boosterconf.no/talks/232">did a short lightening talk</a> about this very subject at <a href="http://www.boosterconf.no/">Booster Conference</a> 2014 in Bergen:
 <p><a href="http://vimeo.com/89938193">Conquering the wicked kingdom of Java with a NodeJS Trojan horse - Espen Dalløkken</a> from <a href="http://vimeo.com/boosterconf">Booster conference</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

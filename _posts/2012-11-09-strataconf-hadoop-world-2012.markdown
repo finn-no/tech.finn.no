@@ -14,10 +14,6 @@ tags:
 A summary of this year's Strataconf & Hadoop World.
 A fascinating and inspiring conference with use-cases on both sides of an ethical divide – proof that the technologies coming are game-changers in both our industry and in society. Along with some intimidating use-cases i've never seen such recruitment [efforts](http://twitter.com/SQLDiva/status/261523933243789312) at any conference before, from multi-nationals to the [CIA](https://twitter.com/comsysto/status/261174163455225857). The need for developers and data scientists in Big Data is burning – the market for Apache Hadoop Market is [expected](https://twitter.com/TheASF/status/263823598731530240) to reach $14 billion by 2017.
 
-
-
-
-
 Plenty of honesty towards the hype and the challenges involved too. A barcamp _Big Data Controversies_ labelled it all as Big Noise and looked at ways through the hype. It presented balancing perspectives from a insurance company's statistician who has dealt successfully with the problem of too much data for a decade and a hadoop techie who could provide much desired answers to previously impossible questions. Highlights from this barcamp were…
 
   * One should always use intelligent samples before ever committing to big data.
@@ -42,8 +38,6 @@ Plenty of honesty towards the hype and the challenges involved too. A barcamp _B
 
 
 
-
-
 **Noteworthy (10 minute) keynotes…**
 
 
@@ -65,11 +59,6 @@ Plenty of honesty towards the hype and the challenges involved too. A barcamp _B
 
 
   * _[Cloud, Mobile and Big Data](http://bit.ly/PPVB15)_. Paul Kent, a witty speaker, talks about analytics in a new world. "At the end of the day, we are closer to the beginning than we are at end of this big data revolution… One radical change hadoop and m/r brings is now we push the work to the data, instead of pulling the data out."
-
-
-
-
-
 
 **Noteworthy (30 minute) presentations…**
 
@@ -98,35 +87,15 @@ All these products were written in PIG. Moving data around is the key problem. K
 
   * _[Visualizing Networks](http://slidesha.re/RzPWuk)_. The art of using the correct visualisation and layout. Be careful of our natural human trait to see visual implications from familiarity and proximity – we don't always look at the legend. A lot of examples using the d3 javascript library.
 
-
-
-
-
-
-
-
 The two training sessions I attended were Testing Hadoop, and Hadoop using Hive.
 _[Testing Hadoop.](http://bit.ly/XbVbDK)_
 Presented by an old accomplice from the NetBeans Governance board, Tom Wheeler. He presented an interesting perspective on testing calling it another form of computer security: "a computer is secure if you can depend on it and its software to behave as you expect". Otherwise i took home a number of key technologies to fill in the gaps between and around our current unit and single-node integration tests on our CountStatistics project: Apache MRUnit for m/r units, MiniMRCluster and MiniDFSCluster for multi-jvm integration cluster, and BigTop for ecosystem testing (pig, hive, etc). We also went through various ways to benchmark hadoop jobs using TeraSort, MRBench, NNBench, TestDFSIO, GridMix3, and SWIM. Lastly we went through a demo of the free product "Cloudera Manager" – a diagnostics UI similar to Cassandra's OpsCenter.
 
-_[Hadoop using Hive.](http://bit.ly/RCHMzT)_
+Hadoop using Hive.
 Hive provides an SQL interface to Hadoop. It works out-of-the-box if you're using HBase but with Cassandra as our underlying database we haven't gotten around to installing it yet. The tutorial went through many live queries on a AWS EC2 cluster, exploring the specifics to STRUCTs in schemas, JOINs, UDFs, and serdes. This is a crucial interface to make it easier for others, particularly BI and FINN økosystem, to explore freely through our data. Pig isn't the easiest way in for outsiders, but everyone knows enough SQL to get started. Fingers crossed we get Hive or Impala installed some time soon…  
-
-
-
-
-
 
 A number of meet-ups occurred during the evenings, one hosted at AppNexus, a company providing 10 billion real-time ads per day (with a stunning office). AppNexus does all their hadoop work using python, but they also putting focus on RESTful Open APIs like we do. The other meetup represented Cassandra by [DataStax](http://www.datastax.com/) with plenty of free Cassandra beer. Latest [benchmarks](http://bit.ly/Ut7ZzB) prove it to be the fastest distributed database around. I was hoping to see more Cassandra at strataconf – when someone mentions big data i think of Cassandra before Hadoop.
 
-
-
-
-
 Otherwise this US election was on the news as the _[big data election](http://bit.ly/RCFWim)_
 
-
-
-
-
-![](/wp-content/uploads/2012/11/hadoop1.jpg)
+![Hadoop](/images/2012-11-09-strataconf-hadoop-world-2012/hadoop1.jpg)
