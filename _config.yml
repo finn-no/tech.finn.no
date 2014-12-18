@@ -25,3 +25,4 @@ github:
   repo:           https://github.com/finn-no/tech.finn.no/
 gems:
   - jekyll-redirect-from
+  - jemoji

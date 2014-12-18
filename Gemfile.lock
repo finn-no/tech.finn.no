@@ -113,4 +113,5 @@ DEPENDENCIES
   html-proofer
   jekyll-redirect-from
   jekyll-sitemap
+  jemoji
   rake

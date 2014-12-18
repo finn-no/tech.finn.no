@@ -187,3 +187,7 @@ log4j:log4j:2-empty
 <!-- logstash -->  
 net.logstash.log4j2:log4j2-logstash-jsonevent-layout:3.0.0-finn-2  
 {% endhighlight %}
+
+# Emoji
+
+:+1:
