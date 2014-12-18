@@ -1,3 +1,4 @@
+sudo: false
 language: ruby
 cache: bundler
 rvm:
@@ -5,8 +6,7 @@ rvm:
 script: "bundle exec jekyll build && bundle exec htmlproof ./_site"
 branches:
   only:
-  - gh-pages  
-cache: bundler
+  - gh-pages
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
