@@ -1,8 +1,10 @@
 # [tech.finn.no](http://tech.finn.no) [![Build Status](https://travis-ci.org/finn-no/tech.finn.no.svg)](https://travis-ci.org/finn-no/tech.finn.no)
 
-## Usage
+## Quick start
 
 We are using Jekyll. Read more about it [here](http://jekyllrb.com/).
+You need Ruby to run the project. It will work out of the box on Mac.
+If you are on another platform check out the [installation](http://jekyllrb.com/docs/installation/).
 
 ```sh
 $ gem install bundler # only needed once
@@ -14,10 +16,8 @@ Open <http://localhost:4000> in your browser, and voilà.
 
 If you want to preview drafts run with the '--drafts' flag
 
-## Creating a new post
-```sh
-$ bundle exec rake post title="Hello World"
-```
+## Want to write a post or help
+Check out https://github.com/finn-no/tech.finn.no/blob/gh-pages/CONTRIBUTING.md
 
 ## Testing
 If you want to test locally run
@@ -31,4 +31,4 @@ We are using [Disqus](https://disqus.com/) ([#1](https://github.com/finn-no/tech
 If you want access to the moderation tools [sign up](https://disqus.com/profile/signup/) for a Disqus account and contact [@Andersos](https://github.com/Andersos).
 
 ## Tracking
-We are using [Google Analytics](http://www.google.com/analytics/) for tracking ([#7](https://github.com/finn-no/tech.finn.no/issues/7)). If you want access to the tracking data contact [@Andersos](https://github.com/Andersos). You will need to send him your Google account.
+We are using [Google Analytics](http://www.google.com/analytics/) for tracking ([#7](https://github.com/finn-no/tech.finn.no/issues/7)). If you want access to the tracking data contact [@Andersos](https://github.com/Andersos).
