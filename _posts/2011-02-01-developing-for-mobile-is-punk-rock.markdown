@@ -68,7 +68,7 @@ The mobile web solution looks awesome and we can not wait to see the final versi
 
 
 
-[Audun Kjelstrup](http://twitter.com/audungk) from [Nordaker](http://nordaaker.no/) shared his experiences with mobile app development using HTML+CSS+JavaScript for multiple platforms using [Phonegap](http://www.phonegap.com/). Drawing on his past experiences with developing [the Dolly Dimple pizza configurator](http://www.dolly.no/shop/nyheter/dollys_pizzabygger_naa_ogsaa_som_iphone_app) for iPhone and the NHO Conference app for iOS, Android and Symbian he covered some of the challenges with this kind of development.
+[Audun Kjelstrup](http://twitter.com/audungk) from [Nordaker](http://nordaaker.com/) shared his experiences with mobile app development using HTML+CSS+JavaScript for multiple platforms using [Phonegap](http://www.phonegap.com/). Drawing on his past experiences with developing [the Dolly Dimple pizza configurator](http://www.dolly.no/shop/nyheter/dollys_pizzabygger_naa_ogsaa_som_iphone_app) for iPhone and the NHO Conference app for iOS, Android and Symbian he covered some of the challenges with this kind of development.
 
 
 

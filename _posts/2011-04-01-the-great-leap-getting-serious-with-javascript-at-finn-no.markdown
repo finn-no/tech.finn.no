@@ -15,7 +15,7 @@ tags:
 
 ![Krafttak for JavaScript](/images/2011-04-01-the-great-leap-getting-serious-with-javascript-at-finn-no/krafttak-cjno.png)
 
-FINN.no are blessed to be based in the same country as one of the brightest young stars when it comes to testing in JavaScript and applying Test Driven Development: [Christian Johansen](http://www.cjohansen.no/) (the poster above was used to promote the event).
+FINN.no are blessed to be based in the same country as one of the brightest young stars when it comes to testing in JavaScript and applying Test Driven Development: [Christian Johansen](https://github.com/cjohansen) (the poster above was used to promote the event).
 He works as a developer at [Gitorious](http://gitorious.com/) during the day time, but he also cranks out frameworks like [SinonJS](http://sinonjs.org) and he has even published a [book on how to do Test Driven Development in JavaScript](http://www.amazon.com/dp/0321683919/).
 
 ## Driving your design with tests

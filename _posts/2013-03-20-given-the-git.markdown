@@ -141,7 +141,7 @@ Releases can be made off any clone and obviously not be something we want. Relea
 
 Our practice with subversion was to have everything in one large subversion repository, like how Apache does [it](http://svn.apache.org/repos/asf/). This approach worked best for us allowing projects and the code across projects to be freely moved around. With Git it makes more sense for each project to have its own repository, as moving files along with their history between repositories is easy.
 
-Initial attempts of conversion were using svn2git as described [here](http://veys.com/2010/07/24/migrating-multi-project-subversion-repositories-to-git/) along with [svndumpfilter3](http://furius.ca/pubcode/pub/conf/bin/svndumpfilter3.html).
+Initial attempts of conversion were using svn2git as described [here](http://veys.com/2010/07/24/migrating-multi-project-subversion-repositories-to-git/) along with svndumpfilter3.
 
 But a plugin in Stash came along called [SubGit](http://old.subgit.com/stash/). It rocks! Converting individual projects from such a large subversion repository one at a time is easy. Remember to moderate the .gitattributes file afterwards, we found in most usecases it could be deleted.
 
