@@ -28,14 +28,12 @@
                     {% include archive.html %}
                 </div>
             </main>
-
             {% include footer.html %}
-
-            {% if site.github.environment %}
-            {% endif %}
         </div>
     </div>
+    {% if site.github.environment %}
     {% include analytics.html %}
+    {% endif %}
     {% include scripts.html %}
 </body>
 </html>

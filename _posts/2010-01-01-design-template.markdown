@@ -1,6 +1,6 @@
 ---
 authors: Andersos
-comments: true
+comments: false
 date: 2010-01-01 13:37:00+00:00
 layout: post
 title: Design template
