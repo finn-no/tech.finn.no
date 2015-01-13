@@ -191,3 +191,7 @@ net.logstash.log4j2:log4j2-logstash-jsonevent-layout:3.0.0-finn-2
 # Emoji
 
 :+1:
+
+# Mentions
+
+@Andersos

@@ -26,3 +26,4 @@ github:
 gems:
   - jekyll-redirect-from
   - jemoji
+  - jekyll-mentions
