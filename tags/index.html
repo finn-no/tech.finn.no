@@ -1,7 +1,9 @@
 ---
-layout: default
+layout: page
 ---
-
+<div class="mod shadow">
+    <div class="inner">
+        <div class="bd">
 {% capture tags %}{% for tag in site.tags %}{{ tag[0] }}{% if forloop.last != true %}|{% endif %}{% endfor %}{% endcapture %}
 
 {% assign sorted_tags = tags | split: '|' | sort %}
@@ -18,3 +20,6 @@ layout: default
     {% endfor %}
 </ul>
 {% endfor %}
+        </div>
+    </div>
+</div>
