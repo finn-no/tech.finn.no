@@ -12,6 +12,10 @@ layout: default
 
                 <div class="post-content r-margin">
                     {{ content }}
+                    Tags:
+                    {% for tag in page.tags %}
+                    <a href="{{ site.baseurl }}tags/">{{ tag }}</a>
+                    {% endfor %}
                 </div>
             </article>
 <!--
