@@ -79,14 +79,14 @@ Yet the best Tiles was going to give wasn't realised until we started experiment
 The first step is integrating Tiles and Spring together. For Tiles-3 it boils down to registering a ViewResolver and a TilesConfigurer in your spring-web configuration.
 </div>
 
-<div style="font-size:80%;">{% highlight xml %}
+{% highlight xml %}
 <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>  
 <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">  
 <property name="tilesInitializer">  
 <bean class="no.finntech.control.servlet.tiles.FinnTilesInitialiser"/>  
 </property>  
 </bean>  
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 You need Spring-3.2 to get this to work, specifically "spring-webmvc". If you're using an older version of Spring then you can <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.jar">download</a> the required classes separately and add them to your classpath. (There's a <a href="http://wever.org/spring-webmvc-tiles3-3.2.0.RC2-finn-1.pom">pom</a> file also available.)
@@ -95,7 +95,7 @@ The TilesConfigurer hooks in the "tilesInitializer" class. This is the way in Ti
 For now FinnTilesContainerFactory is an empty class extending BasicTilesContainerFactory, and FinnTilesInitialiser looks like
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
 public class FinnTilesInitialiser extends AbstractTilesInitializer {
 
     public FinnTilesInitialiser() {}
@@ -105,7 +105,7 @@ public class FinnTilesInitialiser extends AbstractTilesInitializer {
         return new FinnTilesContainerFactory();
     }
 }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <br/>
 
@@ -127,7 +127,7 @@ Let's declare a definition and template as below and create some files and folde
 
 <br/>
 
-<div style="font-size:80%;">{% highlight xml %}
+{% highlight xml %}
 //--tiles.xml
 //--  anything that doesn't start with a slash is considered a definition here.
 <definition name="REGEXP:([^/].*)" template="/WEB-INF/tiles/template.jsp">
@@ -150,13 +150,13 @@ Let's declare a definition and template as below and create some files and folde
         <div id="footer"><tiles:insertAttribute name="footer"/></div>
     </body>
 </html>
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 Write a Spring controller to return definitions that match the names of the folders, that is the three definitions "cat", "dog", and "cow".
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
 @Controller
 public class MyWebsite{
 
@@ -181,7 +181,7 @@ public class MyWebsite{
         return new ModelAndView("cow", modelMap);
     }
 }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 
 <div style="font-size:90%;">
@@ -191,7 +191,7 @@ public class MyWebsite{
 The Apache Tiles tutorial on wildcards explains that to extend the use of wildcards to also allow rich regular expressions one should use the <code>CompleteAutoloadTilesContainerFactory</code>. In this article we are building up our own FinnTilesInitialiser and FinnTilesContainerFactory configuration classes. To enable both wilcards and regular expressions, distinguished by the use of prefixes, we need to override the following method in FinnTilesContainerFactory…
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
     @Override
     protected <T> PatternDefinitionResolver<T> createPatternDefinitionResolver(Class<T> cls) {
         PrefixedPatternDefinitionResolver<T> r = new PrefixedPatternDefinitionResolver<T>();
@@ -201,7 +201,7 @@ The Apache Tiles tutorial on wildcards explains that to extend the use of wildca
                        "REGEXP", new RegexpDefinitionPatternMatcherFactory());
         return r;
     }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:80%;"><img class="emoticon" src="/images/2012-07-25-the-ultimate-view-tiles-3/information.gif" alt="information" width="16" height="16" align="absmiddle" /> <strong>Troubleshooting:</strong> remember to include the <a href="http://tiles.apache.org/framework/tiles-extras/project-summary.html"><i>tiles-extras</i></a> dependency! Without it you'll get <code style="dont-size: 70%;">...CompatibilityDigesterDefinitionsReader cannot be cast to ...Definition</code><br/><br/><br/></div>
 
@@ -224,7 +224,7 @@ Introduce the "common" folder, as shown to the right, and the example turns into
 
 <br/><br/><br/>
 
-<div style="font-size:80%;">{% highlight xml %}
+{% highlight xml %}
 //--tiles.xml
 <definition name="REGEXP:([^/].*" template="/WEB-INF/tiles/template.jsp">
     <put-attribute name="meta" value="/WEB-INF/tiles/${options[myopts]}/meta.jsp"/>
@@ -238,13 +238,13 @@ Introduce the "common" folder, as shown to the right, and the example turns into
         <add-attribute value="common"/>
     </put-list-attribute>
 </definition>
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 To configure this <code>OptionsRenderer</code> to work in your <code>TilesContainerFactory</code> you'll also need to do the following
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
 public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
     ...
     @Override
@@ -256,7 +256,7 @@ public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
     }
     ....
 }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 As the system developer writes new spring controllers to create completely new definitions the front end developer, with this new <em>Convention over Configuration</em> setup, only needs to create the new folder and jsps for fragments they wish to customise. Again there's no further xml editing.
@@ -279,7 +279,7 @@ With these different pages cat, dog, and cow it'll also be pretty certain that t
 By being able to dynamically inject one tiles definitions into another, referred to here as "definition injection", this can all elegantly handed. First of all change the existing definition names into the form "action.category" making the controllers look like
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
     @Controller
     @RequestMapping("/cat")
     public class CatController{
@@ -328,13 +328,13 @@ By being able to dynamically inject one tiles definitions into another, referred
             return new ModelAndView("search.cow", modelMap);
         }
     }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 then change the tiles.xml to introduce the definition includes
 </div>
 
-<div style="font-size:80%;">{% highlight xml %}
+{% highlight xml %}
 //-- tiles.xml
 <definition name="REGEXP:([^/.][^.]*)\.([^.]+)" template="/WEB-INF/tiles/template.jsp">
     <put-attribute name="meta" value="/WEB-INF/tiles/${options[myopts]}/meta.jsp"/>
@@ -420,7 +420,7 @@ then change the tiles.xml to introduce the definition includes
     <put-attribute name="cow.extra_information" value="/WEB-INF/tiles/${options[myopts-cow]}/cow_extra_information.jsp"/>
     <put-attribute name="cow.farm" value="/WEB-INF/tiles/${options[myopts-cow]}/cow_farm.jsp"/>
 </definition>
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 There's a lot of configuration here now, but the idea isn't to avoid configuration altogether but to avoid having to edit the configuration everytime a new jsp or page is created. That is we are putting effort here into creating our <em>convention</em> so that further configuration isn't required.
@@ -430,7 +430,7 @@ Now there's a clear separation between each category definition and each action 
 The following DefinitionsFactory makes this all come together
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
 public class FinnUnresolvingLocaleDefinitionsFactoryImpl extends UnresolvingLocaleDefinitionsFactory {
 
     private static final String DEF_INJECTION = "definition-injection";
@@ -468,13 +468,13 @@ public class FinnUnresolvingLocaleDefinitionsFactoryImpl extends UnresolvingLoca
         }
     }
 }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <div style="font-size:90%;">
 To plug this DefinitionsFactory in make sure to return it from your TilesContainerFactory
 </div>
 
-<div style="font-size:80%;">{% highlight java %}
+{% highlight java %}
 public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
     ...
     @Override
@@ -483,7 +483,7 @@ public class FinnTilesContainerFactory extends BasicTilesContainerFactory {
     }
     ...
 }
-{% endhighlight %}</div>
+{% endhighlight %}
 
 <br/>
 

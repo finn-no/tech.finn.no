@@ -1,4 +1,5 @@
 .highlight pre { margin: 20px 0; }
+.highlight pre { font-size: 80%; }
 .highlight .hll { background-color: #ffc; }
 .highlight .c { color: #999; } /* Comment */
 .highlight .err { color: #a00; background-color: #faa } /* Error */
