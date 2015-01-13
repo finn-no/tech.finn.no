@@ -1,6 +1,5 @@
 ---
-authors:
-- espen
+authors: espen
 comments: true
 date: 2011-02-01 19:08:24+00:00
 layout: post
