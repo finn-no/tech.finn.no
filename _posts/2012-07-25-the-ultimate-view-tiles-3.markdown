@@ -4,7 +4,13 @@ comments: true
 date: 2012-07-25 13:48:52+00:00
 layout: post
 title: the ultimate view — Tiles-3
-redirect_from: /the-ultimate-view-tiles-3/
+redirect_from: 
+- /the-ultimate-view-tiles-3/
+- /2012/07/25/the-ultimate-view-tiles-3/2/
+- /2012/07/25/the-ultimate-view-tiles-3/3/
+- /2012/07/25/the-ultimate-view-tiles-3/4/
+- /2012/07/25/the-ultimate-view-tiles-3/5/
+- /2012/07/25/the-ultimate-view-tiles-3/6/
 ---
 A story of getting the View layer up and running quickly in Spring...
 
