@@ -30,7 +30,7 @@ List of 10 most visited posts:
 - [The Ultimate view tiles 3](http://tech.finn.no/2012/07/25/the-ultimate-view-tiles-3/)
 - [XSS protection whos responsibility](http://tech.finn.no/2011/04/08/xss-protection-whos-responsibility/)
 - [Dependency injection with constructors](http://tech.finn.no/2011/05/13/dependency-injection-with-constructors/)
-- [Conquering the kingdom of Java with a Node.js trojan horse](http://tech.finn.no/2014/06/06/conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse/)
+- [Conquering the kingdom of Java with a Node.js trojan horse](http://tech.finn.no/2013/06/06/conquering-the-kingdom-of-java-with-a-nodejs-trojan-horse/)
 - [When do you know how much testing is enough](http://tech.finn.no/2012/05/21/when-do-you-know-how-much-testing-is-enough/)
 - [Given the git](http://tech.finn.no/2013/03/20/given-the-git/)
 - [Log4j2 in production making it fly](http://tech.finn.no/2014/07/01/log4j2-in-production-making-it-fly/)
