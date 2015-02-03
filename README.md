@@ -17,7 +17,7 @@ Open <http://localhost:4000> in your browser, and voilà.
 If you want to preview drafts run with the '--drafts' flag
 
 ## Want to write a post or help
-Check out [CONTRIBUTING](https://github.com/finn-no/tech.finn.no/blob/gh-pages/CONTRIBUTING.md).
+Check out [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Testing
 If you want to test locally run
