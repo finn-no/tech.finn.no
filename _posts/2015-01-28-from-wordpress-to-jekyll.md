@@ -4,6 +4,7 @@ comments: true
 date: 2015-01-28 14:40:36+0100
 authors: Andersos
 title: "From Wordpress to Jekyll"
+thumbnail: "http://tech.finn.no/images/2015-01-28-from-wordpress-to-jekyll/jekyll.png"
 tags:
 - Wordpress
 - Jekyll
