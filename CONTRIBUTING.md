@@ -60,3 +60,6 @@ authors:
 
 ## tags
 If you want to add tags add them here. For inspiration of what tags others use see [here](http://tech.finn.no/tags/).
+
+## thumbnail
+Used for [Twitter cards](https://dev.twitter.com/cards/overview) and [Open Graph](http://ogp.me/)
