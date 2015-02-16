@@ -1,5 +1,8 @@
 # [tech.finn.no](http://tech.finn.no) [![Build Status](https://travis-ci.org/finn-no/tech.finn.no.svg)](https://travis-ci.org/finn-no/tech.finn.no)
 
+Developers at FINN blogging about tech. 
+You can also find us on Twitter [@FINN_tech](https://twitter.com/finn_tech).
+
 ## Quick start
 
 We are using Jekyll. Read more about it [here](http://jekyllrb.com/).
