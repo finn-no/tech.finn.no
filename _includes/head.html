@@ -6,6 +6,18 @@
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://tech.finn.no{{ page.url }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@finn_tech" />
+    <meta name="twitter:title" content="{{ page.title }}" />
+    <meta name="twitter:description" content="Read the post on our blog." />
+    {% if page.thumbnail %}
+    <meta property="og:image" content="{{ page.thumbnail }}">
+    <meta name="twitter:image" content="{{ page.thumbnail }}">
+    {% else %}
+    <meta property="og:image" content="{{ site.url }}/images/tech_logo.png">
+    <meta name="twitter:image" content="{{ site.url }}/images/tech_logo.png">
+    {% endif %}
+    <meta name="twitter:url" content="http://tech.finn.no{{ page.url }}" />
     <title>
         {% if page.title == "Home" %}
         {{ site.title }} &middot; {{ site.tagline }}
