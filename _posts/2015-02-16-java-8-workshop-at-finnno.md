@@ -4,6 +4,7 @@ comments: true
 date: 2015-02-16 08:50:16+0100
 authors: Sjur Millidahl
 title: "Java 8 workshop at Finn.no"
+thumbnail: "http://tech.finn.no/images/2015-02-06-java-8-workshopp-at-finnno/DSC_0091.JPG"
 tags:
 - java
 - java8
