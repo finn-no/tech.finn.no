@@ -47,7 +47,7 @@ IntStream.iterate(0, i -> (i + 1) % 2)
          .limit(10)
          .forEach(System.out::println);
 ```
-(Locking up all cores on a CPU is bad, and should only be done when the machine is right about to become self-aware and turn against you.)
+(Locking up all cores on a CPU is bad, and should only be done when the machine is right about to become [self-aware](http://xkcd.org/1046/) and turn against you.)
 
 <figure>
   <img src="/images/2015-02-06-java-8-workshopp-at-finnno/DSC_0092.JPG" alt="Several lambda-arrows pointing in the right direction here"/>
