@@ -20,7 +20,7 @@ Now, as a frontend-developer and getting to know JavaScript, I have realized tha
 
 {% endhighlight %}
 
-This is awkward and you know it, however JavaScript is evolving. The next version ECMAScript 6 is in its final phase, and will have, among [several features](https://github.com/zloirock/core-js#ecmascript-6)), the following method:
+This is awkward and you know it, however JavaScript is evolving. The next version ECMAScript 6 is in its final phase, and will have, among [several features](https://github.com/zloirock/core-js#ecmascript-6), the following method:
 
 {% highlight javascript %}
 
