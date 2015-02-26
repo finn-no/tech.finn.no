@@ -10,7 +10,7 @@ tags:
 
 As a die-hard java-developer for several years I was quite annoyed by the fact that Java as a language lagged several years behind C#. E.g. Java got lambdas last year, 6 years after [C#](http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29).
 
-##Polyfill
+## Polyfill
 Now, as a frontend-developer and getting to know JavaScript, I have realized that JavaScript is lagging even further behind. Take for example the everyday case of checking if a string contains another string:
 
 {% highlight javascript %}
@@ -53,7 +53,7 @@ array.find(function(it) {
 
 ECMAScript 6 is feature complete, and is started to be supported by modern browser like Chrome, Firefox and Internet Explorer 11. As for older browsers, great polyfills like [core-js](https://github.com/zloirock/core-js) come to our rescue.
 
-##Transpiling
+## Transpiling
 While polyfills extends current objects with new methods, ECMAScript 6 also contains new language syntax. Let's look at the arrow function (also known as fat arrow):
 
 {% highlight javascript %}
@@ -72,7 +72,7 @@ Older browser will not understand "=>" (for a long time!), so this code has to b
 
 There are some great transcompilation tools out there, and the one we have used is [Babel](https://babeljs.io/).
 
-###Scoped variables
+### Scoped variables
 JavaScript will also get scoped variables (let and const):
 
 {% highlight javascript %}
@@ -94,7 +94,7 @@ if (true) {
 }
 {% endhighlight %}
 
-###Class
+### Class
 And finally, JavaScript is getting support for classes (which is sugar around prototype), and the syntax looks like this:
 
 {% highlight javascript %}
@@ -138,7 +138,7 @@ var Hello = (function () {
 
 {% endhighlight %}
 
-##Conclusion
+## Conclusion
 ECMAScript 6 is here, and we should start using it. Older browser will be around for a long time, so I think we should get used to transpiling code on the web-platform.
 
 Tor Arne
