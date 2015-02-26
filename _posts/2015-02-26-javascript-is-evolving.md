@@ -70,7 +70,7 @@ Older browser will not understand "=>" (for a long time!), so this code has to b
 
 {% endhighlight %}
 
-There are some great transcompilation tools out there, and the one we have used is [Babel](https://babeljs.io/).
+There are some great transcompilation tools out there, and the one we have used is [Babel](https://babeljs.io/). You can even play around with it [here](https://babeljs.io/repl/).
 
 ### Scoped variables
 JavaScript will also get scoped variables (let and const):
