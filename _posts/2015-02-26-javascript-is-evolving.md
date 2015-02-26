@@ -79,7 +79,7 @@ JavaScript will also get scoped variables (let and const):
 
 const hello = "Hello"
 
-if(true){
+if(true) {
   const hello = "Inner scoped hello"
 }
 {% endhighlight %}
@@ -99,11 +99,11 @@ And finally, JavaScript is getting support for classes (which is sugar around pr
 
 {% highlight javascript %}
 
-class Hello{
-  constructor(){
+class Hello {
+  constructor() {
     this.hello = "Hello World"
   }
-  getHello(){
+  getHello() {
     return this.hello;
   }
 }
