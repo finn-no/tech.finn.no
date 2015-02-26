@@ -8,7 +8,7 @@ tags:
 - javascript
 ---
 
-As a die-hard java-developer for several years I was quite annoyed by the fact that Java as a language lagged several years behind C#. E.g. Java got lambdas last year, 6 years after [C#](http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29).
+As a die-hard java-developer for several years I was quite annoyed by the fact that Java as a language lagged several years behind C#. (E.g. Java got lambdas last year, 6 years after [C#](http://en.wikipedia.org/wiki/C_Sharp_%28programming_language%29), so standards are nice for compatibility, but tends to be slow to evolve.)
 
 ## Polyfill
 Now, as a frontend-developer and getting to know JavaScript, I have realized that JavaScript is lagging even further behind. Take for example the everyday case of checking if a string contains another string:
