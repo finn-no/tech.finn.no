@@ -54,7 +54,7 @@ array.find(function(it) {
 ECMAScript 6 is feature complete, and is started to be supported by modern browser like Chrome, Firefox and Internet Explorer 11. As for older browsers, great polyfills like [core-js](https://github.com/zloirock/core-js) come to our rescue.
 
 ## Transpiling
-While polyfills extends current objects with new methods, ECMAScript 6 also contains new language syntax. Let's look at the arrow function (also known as fat arrow):
+While polyfills extend current objects with new methods, ECMAScript 6 also contains new language syntax. Let's look at the arrow function (also known as fat arrow):
 
 {% highlight javascript %}
 ["one", "two", "three"].map(v => v + "!")
