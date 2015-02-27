@@ -45,9 +45,7 @@ And now it can be written like:
 
 {% highlight javascript %}
 
-array.find(function(it) {
-      return it.something === something
-      });
+array.find(it => it.something === something);
 
 {% endhighlight %}
 
