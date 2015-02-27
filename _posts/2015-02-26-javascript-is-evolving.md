@@ -34,7 +34,7 @@ Another new nice feature is for finding the first item in an array. It used to b
 {% highlight javascript %}
 
 for(int i = 0; i < array.length; i++){
-  if(array[i] === something){
+  if(array[i].something === something){
     return array[i];
   }
 }
@@ -46,7 +46,7 @@ And now it can be written like:
 {% highlight javascript %}
 
 array.find(function(it) {
-      return it === something
+      return it.something === something
       });
 
 {% endhighlight %}
@@ -143,3 +143,6 @@ ECMAScript 6 is here, and we should start using it. Older browser will be around
 
 Tor Arne
 Senior developer
+
+
+#### 27.feb.2015: Revised with improved code-examples from discussion on [reddit](https://www.reddit.com/r/javascript/comments/2x900k/javascript_is_evolving/).
