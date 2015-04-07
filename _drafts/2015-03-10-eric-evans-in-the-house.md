@@ -13,7 +13,7 @@ In our continuing quest to break up our old monolith and create a more flexible 
 
 Quite a few people in FINN has read (at least parts of) the Domain-Driven Design book, and we did some preliminary efforts to map our domains and look at our bounded contexts. We quickly realized that this was a very complex exercise, even with highly motivated tech and product people present. We figured we needed some help to get us on the right track. If you need help and information about DDD, why not get it straight from the horse's mouth? So we got [Eric Evans](http://www.linkedin.com/in/ericevansddd/en) to visit us for a week at the end of February.
 
-We needed to make the most of our time with [Eric Evans](http://www.linkedin.com/in/ericevansddd/en), so we set up a rather extensive agenda:
+We needed to make the most of our time with Eric, so we set up a rather extensive agenda:
 
 Day | Subject | Attending
 ----|---------|----------
@@ -31,7 +31,8 @@ The workshops the rest of the week focused on understanding the challenges invol
 Some lessons we learnt during the week.
 
 * When you are trying to create a context map, start with a very concrete example of how the system works. Which components interacts with each other, what data is passed between them, exactly what does the input and output look like
-*  Use a *huge* whiteboard
+* Use a *huge* whiteboard
+* Plan to use at least a few hours on every session. Doing a context map for even a part of a system may take a lot longer than you think.
 
 Then you can manage to turn something like this:
 
@@ -58,5 +59,5 @@ Example trying to map a larger part of our system.
 
 Another thing we focused on was the concept of distilling the core. Figuring out which parts of your system that gives you a competitive advantage, and deserves extra attention. As part of this process it is also important to identify your supporting and generic domains. The tricky part is that it is really your business strategy that dictates what your core domain is.
 
-So to sum things up: Having Eric Evans on-site for such a long time gave us invaluable insight into DDD, and how to apply it in our own business. Together the bounded context map, and our identified domains can help us drive development in the right direction. They are tools for discussion, not a framework that removes the need for highly competent developers.
+So to sum things up: Having [Eric Evans](http://www.linkedin.com/in/ericevansddd/en) on-site for such a long time gave us invaluable insight into DDD, and how to apply it in our own business. Together the bounded context map, and our identified domains can help us drive development in the right direction. They are tools for discussion, not a framework that removes the need for highly competent developers.
 
