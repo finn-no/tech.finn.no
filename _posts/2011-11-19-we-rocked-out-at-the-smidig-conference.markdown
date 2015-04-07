@@ -7,7 +7,7 @@ title: We rocked out at the Smidig conference!
 redirect_from: /we-rocked-out-at-the-smidig-conference/
 ---
 
-The annual [Smidig conference](http://smidig2011.no/) in Oslo, Norway was held last week and as usual people from FINN.no made a big contribution to the conference. We hade three lightening talks during the two day conference and there were about ten attendants in total. This community event brings together newbies and veterans of agile software development for two days of lightning talks and open space sessions. We all had a great time at the conference and are very much looking forward to next years conference.
+The annual [Smidig conference](http://smidig.no/) in Oslo, Norway was held last week and as usual people from FINN.no made a big contribution to the conference. We hade three lightening talks during the two day conference and there were about ten attendants in total. This community event brings together newbies and veterans of agile software development for two days of lightning talks and open space sessions. We all had a great time at the conference and are very much looking forward to next years conference.
 
 Our three lightning talks spanned from a Norwegian version of over to a talk showing how we transformed our customer service team and the last one about how you need to measure in order to achieve the full effect of agile processes. You can check out the videos below, but be warned they are all in Norwegian.
 
