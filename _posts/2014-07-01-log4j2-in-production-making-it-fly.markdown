@@ -73,4 +73,4 @@ To wrap it up the hurdles have been there, but trivial and easy to deal with, wh
 
 Because of the significant performance provided by the lmax-disruptor we also use the open-sourced <a href="https://github.com/finn-no/statsd-lmax-disruptor-client">statsd client</a> that takes advantage of it.
 
-<a href="http://www.deviantart.com/art/Fire-and-Ice-129732715"><img src="http://wever.org/Fire_and_Ice_by_Canadian_fast_food.jpg" alt="Fire and Ice by Canadian fast food"/></a>
+<a href="http://www.deviantart.com/art/Fire-and-Ice-129732715"><img src="http://fc06.deviantart.net/fs46/f/2009/197/a/0/Fire_and_Ice_by_Canadian_fast_food.jpg" alt="Fire and Ice by Canadian fast food"/></a>
