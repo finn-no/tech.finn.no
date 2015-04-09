@@ -3,10 +3,13 @@ language: ruby
 cache: bundler
 rvm:
 - 2.1
-script: "bundle exec jekyll build && bundle exec htmlproof ./_site"
+script: bundle exec jekyll build && bundle exec htmlproof ./_site
 branches:
   only:
   - gh-pages
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+notifications:
+  slack:
+    secure: J7gNGBHY3Q1ZWvg8jPHPj00yUgXww+ZIDL8eDuQBiW9deggPWepz7s7GyN28wtGvHdk4xFiowzO/UtiZnI+Dp+aXA0QXCcT/Egp4ZNShzo4YUjKjhxx7tTN9UQESs/lOXL8zJXEf+1Hric6QT7PyP9vVAooayXhthxj1457fIhA=
