@@ -4,7 +4,7 @@ comments: true
 date: 2012-07-25 13:48:52+00:00
 layout: post
 title: the ultimate view — Tiles-3
-redirect_from: 
+redirect_from:
 - /the-ultimate-view-tiles-3/
 - /2012/07/25/the-ultimate-view-tiles-3/2/
 - /2012/07/25/the-ultimate-view-tiles-3/3/
@@ -14,10 +14,7 @@ redirect_from:
 ---
 A story of getting the View layer up and running quickly in Spring...
 
-<div style="font-size:90%;">
 <blockquote>Since the <a href="http://tech.finn.no/2010/11/04/the-ultimate-view/">original article</a>, parts of the code has been accepted upstream, now available as part of the Tiles-3 release, so the article has been updated — it's all even simpler!</blockquote>
-
-</div>
 
 <div style="font-size:80%;">
 
@@ -62,28 +59,15 @@ But sitemesh has some serious shortcomings...</div>
 	    <li>does not provide any structure or organisation amongst jsps, making refactorings and other tricks awkward.</li>
     </ul></div>
 
-
-<div style="font-size:90%;">
 One of the alternatives we looked at was <a class="external-link" rel="nofollow" href="http://tiles.apache.org/">Apache Tiles.</a> It follows the Composite Pattern, but within that allows one to take advantage of the Decorator pattern using a <a class="external-link" rel="nofollow" href="http://tiles.apache.org/framework/tutorial/advanced/preparer.html">ViewPreparer</a>. This meant it provided by default what we considered a superior design but if necessary could also do what SiteMesh was good at. It already had integration with Spring, and the way it worked it meant that once the Spring-Web controller code was executed, the Spring's view resolver would pass the model onto Tiles letting it do the rest. This gave us a clear MVC separation and an encapsulation ensuring single thread safety within the view domain.
-</div>
 
-
-<div style="font-size:90%;">
 <blockquote>“Tiles has been indeed the most undervalued project in past decade. It was the most useful part of struts, but when the focus shifted away from struts, tiles was forgotten. Since then struts as been outpaced by spring and JSF, however tiles is still the easiest and most elegant way to organize a complex web site, and it works not only with struts, but with every current MVC technology.” – Nicolas Le Bas</blockquote>
-</div>
 
-
-<div style="font-size:90%;">
-Yet the best Tiles was going to give wasn't realised until we started experimenting a little more...</div>
-
-
-<br/>
+Yet the best Tiles was going to give wasn't realised until we started experimenting a little more...
 
 ## Step 0: Spring to Tiles Integration
 
-<div style="font-size:90%;">
 The first step is integrating Tiles and Spring together. For Tiles-3 it boils down to registering a ViewResolver and a TilesConfigurer in your spring-web configuration.
-</div>
 
 {% highlight xml %}
 <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>  
