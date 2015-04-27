@@ -3,7 +3,7 @@ In this article I'd like to explore how Cassandra can become quickly a key techn
 
 ## microservices
 
-Microservices is a term that's come out of [ThoughtWorks' Martin Fowler and James Lewis](http://martinfowler.com/articles/microservices.html). It's a bit of a buzzword, basically a fresh revival of the parts of service orientated architecture that you should be focusing on and getting right. A lot of it hopefully is obvious to you already. If you've been doing service orientated architecture or even generally just unix programming properly over the years it might well be frustrating just how buzz "microservices" has become. But it's worth keeping in mind how much garbage we've collected and how many aspects of service orientated architecture that we've gotten badly wrong over the years. Younger programmers certainly deserve the clarity that ThoughtWorks is giving us here.
+Microservices is a term that's come out of [ThoughtWorks'](http://martinfowler.com/articles/microservices.html) Martin Fowler and James Lewis. It's a bit of a buzzword, basically a fresh revival of the parts of service orientated architecture that you should be focusing on and getting right. A lot of it hopefully is obvious to you already. If you've been doing service orientated architecture or even generally just unix programming properly over the years it might well be frustrating just how buzz "microservices" has become. But it's worth keeping in mind how much garbage we've collected and how many aspects of service orientated architecture that we've gotten badly wrong over the years. Younger programmers certainly deserve the clarity that ThoughtWorks is giving us here.
 
 Microservices, following the tips and guidelines from Sam Newman, can basically be broken down into four groups.
 
@@ -13,7 +13,7 @@ Ensure that you standardise the systems architecture at large and especially the
 
 #### deployment
 
-Simplify deployment down to having just one of deploying artifacts, of any type, to any environment. The proces of deployment needs to be so easy that deploying continuously each and every change into production becomes standard practice. This often also requires some organisational and practical changes like moving to stable master codebases and getting developers comfortable with working with branches and [dark launching](http://tech.finn.no/2013/06/20/dark-launching-and-feature-toggles/).
+Simplify deployment down to having just one way of deploying artifacts, of any type, to any environment. The proces of deployment needs to be so easy that deploying continuously each and every change into production becomes standard practice. This often also requires some organisational and practical changes like moving to stable master codebases and getting developers comfortable with working with branches and [dark launching](http://tech.finn.no/2013/06/20/dark-launching-and-feature-toggles/).
 
 #### monitoring
 
