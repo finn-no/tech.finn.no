@@ -4,6 +4,13 @@ comments: true
 date: 2015-04-27 09:00:00+00:00
 layout: post
 title: Finding Gold in Big Data
+tags:
+- Big Data
+- Cassandra
+- Hadoop
+- Thrift
+- Scribe
+- Kafka
 ---
 In the <a href="/2012/08/06/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
 
