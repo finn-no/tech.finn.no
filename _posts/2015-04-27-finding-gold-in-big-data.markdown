@@ -1,11 +1,11 @@
 ---
 authors: mick
 comments: true
-date: 2010-11-04 18:11:57+00:00
+date: 2015-04-27 09:00:00+00:00
 layout: post
 title: Finding Gold in Big Data
 ---
-In the <a href="/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
+In the <a href="/2012/08/06/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
 
 ## rehashing the previous article
 FINN is a busy site, the busiest in Norway, and we display over 80 million ad pages each day. Back when we it was around 50 million views per day, the old system responsible for collecting statistics was performing up to a thousand database writes per second in peak traffic. Like a lot of web applications we had a modern scalable presentation and logic tier based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The procedure responsible for writing to the statistics table in the relational database was our biggest thorn.
