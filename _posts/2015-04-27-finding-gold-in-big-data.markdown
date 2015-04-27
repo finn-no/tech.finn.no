@@ -19,7 +19,8 @@ The new design uses the Command-Query Separation pattern by using two separate m
 
 ## the statistics module
 At FINN all our modular architecture is built either upon REST or interfaces defined by Apache Thrift. We discourage direct database access from our front-end applications. So our Statistics module simply exposes the aggregated read-optimised data out of cassandra, with a Thrift IDL like:
-<pre style="font-size: 80%;">
+
+{% highlight cql %}
 service AdViewingsService {
     /** returns total viewings for a given adId */
     long fetchTotal(1: i64 adId)
@@ -27,22 +28,23 @@ service AdViewingsService {
     list&lt;long> fetchRolled(1: i64 adId, 2: Interval interval, 3: i64 startTimestamp, 4: i64 endTimestamp)
 }
 enum Interval { YEAR, MONTH, DAY, HOUR, QUARTER_HOUR }
-</pre>
-<br/>
+{% endhighlight %}
 
 ## the event collection module
  The collecting of events we wanted to happen asynchronously and in a fail-over safe manner so we chose a combination of thrift and <a href="https://github.com/facebook/scribe">Scribe</a> from facebook. Each event object, or bean, is a thrift defined object, and these are serialised using thrift into base64 encoded strings and transported through the network via Scribe. The event collection module is nothing more than a scribe sink and it dumps these thrift beans, still serialised, directly into <a href="http://cassandra.apache.org">Cassandra</a>.
 
 Each event is schemaless in its <code>values</code> field, it's up to the application to decide what data to record, and is defined by thrift like:
-<pre style="font-size: 80%;">struct Event {
+{% highlight cql %}
+struct Event {
     /** different categories generally won't be mixed in the normalised views. */
     1: required string category;
     2: required string subcategory;
     3: required map&lt;string,string> values;
-}</pre>
+}
+{% endhighlight %}
 
 For the persistence of events in cassandra we store events in rows based on the timestamp of the current minute plus a random number upto the numbers of nodes in our cassandra cluster. So a partition key looks like <code>&lt;minute-timestamp>_&lt;node-number></code>. The reason for the addition column "node_number", named "partition" in the cql, is it ensures write and read load is distributed around the cluster at all times, rather than one node being a hotspot for any given minute. Then each event is stored within a clustering key "collected_timestamp". The value columns are essentially the category, the subcategory, and the json map keys_and_values. 
-<pre style="font-size: 80%;">
+{% highlight cql %}
 CREATE TABLE events (
   minute text,
   partition int
@@ -54,11 +56,11 @@ CREATE TABLE events (
   PRIMARY KEY ((minute, partition), type, collected_timestamp)
 );
 CREATE INDEX collected_minuteIndex ON events (collected_minute);
-</pre>
+{% endhighlight %}
+
 We have moved the category column in as the first clustering key as the aggregation jobs typically only scan one type of category at a time. In hindsight we might not have done this as it would be better to be able to use the DateTieredCompactionStrategy. Within this schema there are two timestamp that we have to work with, both the real_timestamp representing when the event happened and the collected_timestamp when the event got stored in Cassandra. Analytical jobs, like how many bicycles were sold in Oslo on a specific day, are interested in the real_timestamp. While the incremental aggregation jobs are interested in aggregating just those events that have come into the system since the last incremental run.
 
 
-<br/>
 ## the technologies <span class="image-wrap" style="float: left"><img style="margin: 5px; border: 0px solid black" src="http://avatar.identi.ca/8594-96-20100330175539.jpeg" alt="" />&nbsp;</span></h6>
 Cassandra is truly amazing and refreshingly modern database: linear scalability, decentralised, elastic, fault-tolerant, durable; with a rich datamodel that provides often <a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">superior</a> approaches to joins, grouping, and ordering than traditional sql. The counting module, the scribe sink, simply <a href="http://wiki.apache.org/cassandra/ScribeToCassandra">dumps</a> the thrift objects, without deserialising them, directly into a cassandra column family. We use Apache <a href="http://hadoop.apache.org">Hadoop</a> to then in the background aggregate this denormalised data. The storing of denormalised data in this manner extends the <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">push-on-change</a> model, an approach far more scalable in “comparison with pull-on-demand model where data is stored normalized and combined by queries on demand – classical relational approach”<a href="http://maxgrinev.com/2010/07/12/do-you-really-need-sql-to-do-it-all-in-cassandra/">²</a>. In hadoop our aggregation jobs piece-wise over time scan over the denormalised data, normalising in this case by each ad's unique identifier, this normalised summation for each ad is then added to a separate column family in cassandra which uses counter columns and is optimised for query performance. 
 
