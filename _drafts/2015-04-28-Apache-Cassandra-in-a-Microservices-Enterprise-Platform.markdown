@@ -13,7 +13,7 @@ Ensure that you standardise the systems architecture at large and especially the
 
 #### deployment
 
-Simplify deployment down to having just one way of deploying artifacts, of any type, to any environment. The proces of deployment needs to be so easy that deploying continuously each and every change into production becomes standard practice. This often also requires some organisational and practical changes like moving to stable master codebases and getting developers comfortable with working with branches and [dark launching](http://tech.finn.no/2013/06/20/dark-launching-and-feature-toggles/).
+Simplify deployment down to having just one way of deploying artifacts, of any type, to any environment. The process of deployment needs to be so easy that deploying continuously each and every change into production becomes standard practice. This often also requires some organisational and practical changes like moving to stable master codebases and getting developers comfortable with working with branches and [dark launching](http://tech.finn.no/2013/06/20/dark-launching-and-feature-toggles/).
 
 #### monitoring
 
@@ -21,7 +21,7 @@ It isn't just about the motto of "monitor everything" and to have all metrics an
 
 #### architectural safety
 
-Addressing the fallacies of distributed computing, ensure that services are as available as possible and consumer handle failures gracefully by using such mechanisms as circuit breakers, load balancing, and bulkheads.
+Addressing the fallacies of distributed computing, ensure that services are as available as possible and consumers handle failures gracefully by using such mechanisms as circuit breakers, load balancing, and bulkheads.
 
 If you want more than I can only highly recommend Sam Newman's just published book on <a href="http://shop.oreilly.com/product/0636920033158.do">Building Microservices</a>.
 <img src="http://akamaicovers.oreilly.com/images/0636920033158/cat.gif"/>
@@ -30,7 +30,7 @@ In this article, and when talking about microservices, i'm most interested in ho
 Here Cassandra is relevant to the monitoring and architectural safety aspects of microservices, from looking at how monitoring is typically time series data, a known strength for Cassandra, and looking into how modern distributed systems should be put together.
 
 ## turning the database inside out
-Having worked in the enterprise for over a decade it's clear that the relational database is at juxtaposition to the rest of our industry. The way we code against the RDMS, layering domain logic and at various layers up through the stack we insert additional complexity and cyclic dependencies with caches that require invalidation, makes it obvious we've been doing things wrong. You can see it all too often in plain sight when watching presentations where people show their wonderful service orientated architectures or microservices platforms, and despite talking about how their services scale, are fault-tolerant and resilent, maybe even throwing in some fancy messaging system, there is still in the corner of their diagrams a magic unicorn – the relational database. Amidst all the promotion and praise for BASE architectures, acceptance that our own services and those infrastructural like Solr, Elastic Search, or Kafka, need to work with eventual consistency so to achieve performance and availability, the relational database somehow gets a free ride, an exception, to all this common sense.
+Having worked in the enterprise for over a decade it's clear that the relational database is at juxtaposition to the rest of our industry. The way we code against the RDMS, layer domain logic upon it, and at various layers up through the stack add additional complexity and cyclic dependencies with caches that require invalidation, makes it obvious we've been doing things wrong. You can see it all too often in plain sight when watching presentations where people show their wonderful service orientated architectures or microservices platforms, and despite talking about how their services scale, are fault-tolerant and resilent, maybe even throwing in some fancy messaging system, there is still in the corner of their diagrams the magic unicorn – the relational database. Amidst all the promotion and praise for BASE architectures, acceptance that our own services and those infrastructural like Solr, Elastic Search, or Kafka, need to work with eventual consistency so to achieve performance and availability, the relational database somehow gets a free ride, an exception, to all this common sense.
 
 Martin Kleppman presented at Strange Loop last year and afterwards wrote an article ["Turning the database inside out with Apache Sanza"](http://blog.confluent.io/2015/03/04/turning-the-database-inside-out-with-apache-samza/) that properly hits the nail on the head, or rather smashes that nail properly into place, perfectly describing my woes around why the relational database has ruined back-end programming for us. And he sums it up rather elegantly to that the replication mechanism to databases needs to come out and become its own integral and accepted component to our systems designs. And this externalised replication is what we call streams and event driven design, and it leads us to de-normalised datasets and more time-series data models.
 
@@ -39,17 +39,17 @@ Martin Kleppman presented at Strange Loop last year and afterwards wrote an arti
 ## product examples
 Let's look at a few examples from FINN.no and see how these things work in practice.
 
-First of all we know that Cassandra has a number of known strengths over its competitors, from dealing with large volumes of data and providing superior performance on both write and read performance, to time series data and data that benefits from time-to-live so to simplify database management.
+First of all we know that Cassandra has a number of known strengths over its competitors, from dealing with large volumes of data and providing superior performance on both write and read performance, to time series data and time-to-live data.
 
-But one of the areas that's not highlighted enough is that Cassandra's CQL schema sometimes provides a simpler schema over the SQL equivalent, something that's easier to work with and for programmers today something that uses more familiar constructs and fluent APIs.
+But one of the areas that's not highlighted enough is that Cassandra's CQL schema often provides a simpler schema over the SQL equivalent, something that's easier to work with and for programmers today something that uses more familiar constructs and fluent APIs.
 
-After all the whole point with your microservices platform is that you're writing smaller and smaller services, and those smaller services each come with their own private data models. As services and their schemas get simpler and as we move towards more de-normalisation of data across the platform we find that we don't need relationships and constraints and all the other complexities that the RDMS has to offer, and instead the constructs available to us in CQL are not just better suited and easier to work with but are also faster.
+After all the whole point with your microservices platform is that you're writing smaller and smaller services, and those smaller services each come with their own private data models. As services and their schemas get smaller and simpler we find that we don't need relationships and constraints and all the other complexities that the RDMS has to offer, and instead the constructs available to us in CQL are actually superior, and faster.
 
 The first example is how we store the users search history. This shouldn't be a product that needs to be explained to anyone. The CQL schema to this is incredibly simple and it takes advantage of the combination between partition and clustering keys. And it operates fast, just make sure to apply the "CLUSTERING ORDER BY" or you'll be falling into a Cassandra anti-pattern where you'll be left reading tons of tombstones each read.
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
 
-It shouldn't be of any surprise that Cassandra is going to hit the sweet spot for particular services in a polyglot persistence platform. But bring it back to the bigger picture and we can look at how we can remove that magic unicorn we keep seeing in systems designs' overviews.
+So it shouldn't be of any surprise that Cassandra is going to hit the sweet spot for particular services in a number of different ways in any polyglot persistence platform. But bring it back to the bigger picture and we can look at how we can remove that magic unicorn we keep seeing in systems designs' overviews.
 
 ## brewer's theorem
 
@@ -61,7 +61,7 @@ Here's a simple example of a web application (named "xxx") making three synchron
 
 <img width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
 
-It's not easy to see this isn't a great design. First of all it's keeping all the logic on how these services calls are initiated and how the data joined together high up in the presentation layer. It's also not a great performer unless you're willing to introduce concurrency code up in your presentation layer.
+It's not difficult to see this isn't a great design. First of all it's keeping all the logic on how these services calls are initiated and how the data joined together high up in the presentation layer. It's also not a great performer unless you're willing to introduce concurrency code up in your presentation layer.
 
 The obvious thing to do is introduce an aggregate service so that the web app only needs to make two inner requests and much of the logic, including any concurrency code, is pushed down into the platform and into the bounded context where it belongs. Another thing that typically happens here is that a cache, one that requires invalidation, is added into the aggregate service to address performance and availability.
 
@@ -83,7 +83,7 @@ When it comes to correlation IDs a brilliant tool out there is Zipkin from Twitt
 
 Naturally Zipkin can be put together with Cassandra, the best fit as it's perfect for large volumes of time series data. We also use scribe for the sending of the trace messages from all the jvms throughout our platform over to the zipkin collector which then stores them into Cassandra.
 
-This is the typical page in Zipkin. Under the list of services the first row is the user's request, here we can see that it took 195ms. Then  under that we can see when and how long all the individual service calls took place. We can see which back-end services are running properly in parallel and which service calls are sequential. Services like Solr, Elastic Search, the Kafka producers, and of course Cassandra, are all listed as well. Not only is this fantastic for keeping your platform tuned for performance but it's a great tool for helping to figure out what's going on with those slow requests you've got, for example in the top 5th percentile.
+This is the typical page in Zipkin. Under the list of services the first row is the user's request, here we can see that it took 195ms. Then under that we can see when and how long all the individual service calls took place. We can see which back-end services are running properly in parallel and which service calls are sequential. Services like Solr, Elastic Search, the Kafka producers, and of course Cassandra, are all listed as well. Not only is this fantastic for keeping your platform tuned for performance but it's a great tool for helping to figure out what's going on with those slow requests you've got, for example in the top 5th percentile.
 
 <img width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
 
