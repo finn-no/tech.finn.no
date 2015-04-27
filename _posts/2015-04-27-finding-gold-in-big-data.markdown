@@ -43,7 +43,7 @@ struct Event {
 }
 {% endhighlight %}
 
-For the persistence of events in Cassandra we store events in rows based on the timestamp of the current minute plus a random number upto the numbers of nodes in our Cassandra cluster. So a partition key looks like <code>&lt;minute-timestamp>_&lt;node-number></code>. The reason for the addition column "node_number", named "partition" in the CQL (Cassandra Query Language), is it ensures write and read load is distributed around the cluster at all times, rather than one node being a hotspot for any given minute. Then each event is stored within a clustering key "collected_timestamp". The value columns are essentially the category, the subcategory, and the json map keys_and_values.
+For the persistence of events in Cassandra we store events in rows based on minute by minute buckets. The  partition key goes a little further and looks like <code>&lt;minute-bucket>_&lt;random-number></code>. The reason for the addition column random_number, named "partition" in the CQL (Cassandra Query Language) schema, is it ensures write and read load is distributed around the cluster at all times, rather than one node being a hotspot for any given minute. Then each event is stored within a clustering key "collected_timestamp". The value columns are essentially the category, the subcategory, and the json map keys_and_values.
 {% highlight sql %}
 CREATE TABLE events (
   minute text,
