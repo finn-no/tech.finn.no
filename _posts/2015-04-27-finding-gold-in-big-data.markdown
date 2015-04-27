@@ -15,9 +15,9 @@ tags:
 In the <a href="/2012/08/06/foraging-in-the-landscape-of-big-data/">previous article</a> we introduced our own introduction into the world of Big Data, and explored what it meant for FINN. Here we'll go into the technical depth about the implementation of our Big Data needs.
 
 ## rehashing the previous article
-FINN is a busy site, the busiest in Norway, and we display over 80 million ad pages each day. Back when we it was around 50 million views per day, the old system responsible for collecting statistics was performing up to a thousand database writes per second in peak traffic. Like a lot of web applications we had a modern scalable presentation and logic tier based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The procedure responsible for writing to the statistics table in the relational database was our biggest thorn. It has indeed gotten so bad that during peak traffic operations would at the first sign of trouble turn off this procedure – that is when users were getting the most traffic to their ads we had to stop collecting their statistics.
+FINN is a busy site, the busiest in Norway, and we display over 80 million ad pages each day. Back when it was around 50 million views per day, the old system responsible for collecting statistics was performing up to a thousand database writes per second during peak traffic. Like a lot of web applications we had a modern scalable presentation and logic tier based upon ten tomcat servers but just one not-so-scalable monster database sitting in the data tier. The procedure responsible for writing to the statistics table in the relational database was our biggest thorn. It had indeed gotten so bad that during peak traffic operations had to at the first sign of trouble turn off this database procedure – that is when users were getting the most traffic to their ads we had to stop collecting their statistics.
 
-At the same time we were in the process of modularising the FINN web application. The time was right to turn our statistics system into something modern and modular. We wanted an asynchronous, fault-tolerance, linearly scaling, and durable solution.
+At this time we were also in the process of modularising the FINN web application. The time was right to turn our statistics system into something modern and modular. We wanted an asynchronous, fault-tolerance, linearly scaling, and durable solution.
 
 ## the design
 The new design uses the Command Query Separation pattern by using two separate modules: one for the collecting of events and one for displaying statistics. The event collecting system achieves asynchronousity, scalability, and durability by using Scribe. The backend persistence and statistics module achieves all goals by using <a href="http://cassandra.apache.org">Cassandra</a> and Thrift. As an extension of the <a href="http://highscalability.com/blog/2009/10/13/why-are-facebook-digg-and-twitter-so-hard-to-scale.html">push-on-change</a> model: the event collection stores denormalised data and it is later aggregated and normalised to the views the statistics module requires; we use MapReduce jobs within a Hadoop cluster.
@@ -25,7 +25,7 @@ The new design uses the Command Query Separation pattern by using two separate m
 <img src="/images/2015-04-27-finding-gold-in-big-data/event-collection-overview.png" alt="Event Statistics Overview">
 
 ## the statistics module
-At FINN all our modular architecture is built either upon REST or interfaces defined by Apache Thrift. We discourage direct database access from our front-end applications. So our Statistics module simply exposes the aggregated read-optimised data out of cassandra, with a Thrift IDL like:
+At FINN all our modular architecture is built either upon REST or interfaces defined by Apache Thrift. We discourage direct database access from any front-end application. So our Statistics module simply exposes the aggregated read-optimised data out of cassandra, with a Thrift IDL like:
 
 {% highlight java %}
 service AdViewingsService {
@@ -38,7 +38,7 @@ enum Interval { YEAR, MONTH, DAY, HOUR, QUARTER_HOUR }
 {% endhighlight %}
 
 ## the event collection module
- The collecting of events we wanted to happen asynchronously and in a fail-over safe manner so we chose a combination of thrift and <a href="https://github.com/facebook/scribe">Scribe</a> from Facebook. Each event object, or bean, is a thrift defined object, and these are serialised using thrift into Base64 encoded strings and transported through the network via Scribe. The event collection module is nothing more than a Scribe sink and it dumps these Thrift beans, still serialised, directly into Cassandra.
+ The collecting of events we wanted to happen asynchronously and in a fail-over safe manner so we chose a combination of thrift and <a href="https://github.com/facebook/scribe">Scribe</a> from Facebook. Each event object, or bean, is a thrift defined object, and these are serialised using thrift into Base64 encoded strings and transported through the network via Scribe. The event collection module is nothing more than a Scribe sink and it dumps these Thrift event beans directly into Cassandra.
 
 Each event is schemaless in its <code>values</code> field, it's up to the application to decide what data to record, and is defined by Thrift like:
 {% highlight java %}
@@ -50,7 +50,7 @@ struct Event {
 }
 {% endhighlight %}
 
-For the persistence of events in Cassandra we store events in rows based on minute by minute buckets. The  partition key goes a little further and looks like <code>&lt;minute-bucket>_&lt;random-number></code>. The reason for the addition column random_number, named "partition" in the CQL (Cassandra Query Language) schema, is it ensures write and read load is distributed around the cluster at all times, rather than one node being a hotspot for any given minute. Then each event is stored within a clustering key "collected_timestamp". The value columns are essentially the category, the subcategory, and the json map keys_and_values.
+For the persistence of events in Cassandra we store events in rows based on minute by minute buckets. The  partition key goes a little further and looks like <code>&lt;minute-bucket>_&lt;random-number></code>. The reason for the additional column random_number, named "partition" in the CQL (Cassandra Query Language) schema, is it ensures write and read load is distributed around the cluster at all times, rather than one node being a hotspot for any given minute. Then each event is stored within a clustering key "collected_timestamp". The value columns are essentially the category, the subcategory, and the json map keys_and_values.
 {% highlight sql %}
 CREATE TABLE events (
   minute text,
@@ -65,7 +65,7 @@ CREATE TABLE events (
 CREATE INDEX collected_minuteIndex ON events (collected_minute);
 {% endhighlight %}
 
-We have moved the category column in as the first clustering key as the aggregation jobs typically only scan one type of category at a time. In hindsight we might not have done this as it would be better to be able to use the DateTieredCompactionStrategy. Within this schema there are two timestamp that we have to work with, both the real_timestamp representing when the event happened and the collected_timestamp when the event got stored in Cassandra. Analytical jobs, like how many bicycles were sold in Oslo on a specific day, are interested in the real_timestamp. While the incremental aggregation jobs are interested in aggregating just those events that have come into the system since the last incremental run.
+We have moved the category column in as the first clustering key since the aggregation jobs typically only scan one type of category at a time. In hindsight we might not have done this as it would be better to be able to use the DateTieredCompactionStrategy. Within this schema there are two timestamp that we have to work with, both the real_timestamp representing when the event happened and the collected_timestamp when the event got stored in Cassandra. Analytical jobs, like "how many bicycles were sold in Oslo on a specific day?", are interested in the real_timestamp. While the incremental aggregation jobs are interested in aggregating just those events that have come into the system since the last incremental run.
 
 
 ## the technologies 
