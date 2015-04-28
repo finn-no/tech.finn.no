@@ -119,7 +119,7 @@ The plugin to Graphite is called Cyanite and very simply replaces all the carbon
 
 <div class="line">
     <img class="unit" width="300" alt="Graphite Carbon" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png">
-    <img class="unit" width="300" alt="Graphite Cyanite" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png">
+    <img class="unit" width="500" alt="Graphite Cyanite" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png">
 </div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
