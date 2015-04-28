@@ -38,9 +38,9 @@ Addressing the fallacies of distributed computing, ensure that services are as a
 
 If you want more than I can only highly recommend Sam Newman's just published book on <a href="http://shop.oreilly.com/product/0636920033158.do">Building Microservices</a>.
 
-<img  class="center-block" src="http://akamaicovers.oreilly.com/images/0636920033158/cat.gif"/>
+<img  class="center-block" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/building-microservices.jpg"/>
 
-In this article, and when talking about microservices, i'm most interested in how Cassandra, now one of the ten most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
+In this article, and when talking about microservices, i'm most interested in how Cassandra, now one of the most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
 Here Cassandra is relevant to the monitoring and architectural safety aspects of microservices, from looking at how monitoring is typically time series data, a known strength for Cassandra, and looking into how modern distributed systems should be put together.
 
 ## turning the database inside out
@@ -62,20 +62,20 @@ After all the whole point with your microservices platform is that you're writin
 
 The first example is how we store the users search history. This shouldn't be a product that needs to be explained to anyone. The CQL schema to this is incredibly simple and it takes advantage of the combination between partition and clustering keys. And it operates fast, just make sure to apply the "CLUSTERING ORDER BY" or you'll be falling into a Cassandra anti-pattern where you'll be left reading tons of tombstones each read.
 {% highlight sql %}CREATE TABLE users_search_history (
-  user_id text,
-  search_id timeuuid,
-  search_url text,
-  description text,
-  PRIMARY KEY (user_id, search_id)
+  user_id      text,
+  search_id    timeuuid,
+  search_url   text,
+  description  text,
+  PRIMARY KEY  (user_id, search_id)
 )
 WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
 {% highlight sql %}CREATE TABLE ad_created (
-  day timestamp,
-  created timeuuid,
-  adid bigint,
-  rules map<text, int>,
+  day         timestamp,
+  created     timeuuid,
+  adid        bigint,
+  rules       map<text, int>,
   PRIMARY KEY (day, created)
 ){% endhighlight %}
 
