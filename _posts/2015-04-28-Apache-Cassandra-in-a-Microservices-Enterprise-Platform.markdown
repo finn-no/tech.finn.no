@@ -38,7 +38,7 @@ Addressing the fallacies of distributed computing, ensure that services are as a
 
 If you want more than I can only highly recommend Sam Newman's just published book on <a href="http://shop.oreilly.com/product/0636920033158.do">Building Microservices</a>.
 
-<img  class="center-block" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/building-microservices.jpg"/>
+<img  class="center-block" width="150" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/building-microservices.jpg"/>
 
 In this article, and when talking about microservices, i'm most interested in how Cassandra, now one of the most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
 Here Cassandra is relevant to the monitoring and architectural safety aspects of microservices, from looking at how monitoring is typically time series data, a known strength for Cassandra, and looking into how modern distributed systems should be put together.
