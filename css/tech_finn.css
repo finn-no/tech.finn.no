@@ -28,3 +28,9 @@ body{
 @media screen and (min-width:600px) {
 	.ftlogo { width: 130px; }
 }
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
