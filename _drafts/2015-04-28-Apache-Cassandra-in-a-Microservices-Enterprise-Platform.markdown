@@ -71,7 +71,7 @@ So it shouldn't be of any surprise that Cassandra is going to hit the sweet spot
 
 Looking at the [CAP theorem](http://en.wikipedia.org/wiki/CAP_theorem) you recognise that to build a BASE microservices platform it means building AP systems. When you look at Martin Kleppman's message that the replication is its own concern in your BASE platform, when you look at domain driven design and how to focus keeping your services within clear bounded contexts and then taking it further to use event driven design to further break those bounded contexts apart, you see that it ties back to the CAP theorem and it is for the sake of scalability and performance and even just simplisty in design, a preference for availability over consistency. Looking into it deeper in how streaming solutions often still need to write to raw event stores, and similar to a event sourcing model when a service needs to bootstrap its de-normalised dataset from scratch from data beyond that to which is stored in the stream's history, you can see there is a parallel to partition tolerance and how it, just like partition tolerance within the CAP theorem, is a hard fast requirement to any distributed architecture.
 
-<img  class="center-block" width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
+<img  class="center-block" width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/cap.png"/>
 
 Here's a simple example of a web application (named "xxx") making three synchronous requests to underlying services in our platform when the user logs in. One service call to do the authentication, and the other two to fetch user data due to that user data being stored/available in different back-end systems.
 
@@ -117,7 +117,7 @@ Another infrastructure tool i want to look into is Grafana, and the Graphite and
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
-<div style="float: center;"><div style="width: 40%;"><img width="200" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div style="width: 40%;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
+<div style="float: center;"><div style="width: 40%;"><img width="300" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div style="width: 40%;"><img width="300" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
