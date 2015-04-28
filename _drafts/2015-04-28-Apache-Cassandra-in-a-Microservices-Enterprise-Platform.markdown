@@ -47,7 +47,7 @@ But one of the areas that's not highlighted enough is that Cassandra's CQL schem
 After all the whole point with your microservices platform is that you're writing smaller and smaller services, and those smaller services each come with their own private data models. As services and their schemas get smaller and simpler we find that we don't need relationships and constraints and all the other complexities that the RDMS has to offer. Rather the constructs available to us in CQL are superior, and faster.
 
 The first example is how we store the users search history. This shouldn't be a product that needs to be explained to anyone. The CQL schema to this is incredibly simple and it takes advantage of the combination between partition and clustering keys. And it operates fast, just make sure to apply the "CLUSTERING ORDER BY" or you'll be falling into a Cassandra anti-pattern where you'll be left reading tons of tombstones each read.
-{% highlight sql %}CREATE TABLE search (
+{% highlight sql %}CREATE TABLE users_search_history (
   user_id text,
   search_id timeuuid,
   search_url text,
@@ -57,6 +57,13 @@ The first example is how we store the users search history. This shouldn't be a 
 WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
+{% highlight sql %}CREATE TABLE ad_created (
+  day timestamp,
+  created timeuuid,
+  adid bigint,
+  rules map<text, int>,
+  PRIMARY KEY (day, created)
+){% endhighlight %}
 
 So it shouldn't be of any surprise that Cassandra is going to hit the sweet spot for particular services in a number of different ways in any polyglot persistence platform. But bring it back to the bigger picture and we can look at how we can remove that magic unicorn we keep seeing in systems designs' overviews.
 
@@ -110,7 +117,7 @@ Another infrastructure tool i want to look into is Grafana, and the Graphite and
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
-<div style="float: center;"><div style="width: 40%;"><img wiidth="200" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div style="width: 40%;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
+<div style="float: center;"><div style="width: 40%;"><img width="200" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div style="width: 40%;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
