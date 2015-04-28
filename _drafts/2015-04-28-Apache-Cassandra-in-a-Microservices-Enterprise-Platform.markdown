@@ -113,7 +113,7 @@ Something that we're added to Zipkin is a cascasding job that runs nightly in ou
 
 This cascading job that aggregates this data should now be available in the [original Twitter Github repository](https://github.com/twitter/zipkin), otherwise you'll find it in FINN's fork of it.
 
-Another infrastructure tool i want to look into is Grafana, and the Graphite and StatsD stack underneath it. Grafana and Graphite is one of those must-have tools in your infrastructure, but the problem is it just doesn't scale. Indeed the carbon and whisper components to graphite are dead in the water. We've hit this problem and looked into the alternatives, and there's one interesting alternative out there based on Cassandra, which only makes sense as it's another perfect match for time series data.
+Another crucial infrastructure tool is Grafana, and the Graphite and StatsD stack underneath it. Grafana and Graphite is one of those must-have tools in your infrastructure, but the problem is it just doesn't scale. Indeed the carbon and whisper components to graphite are dead in the water. We've hit this problem and looked into the alternatives, and there's one interesting alternative out there based on Cassandra, which only makes sense as it's another perfect match for time series data.
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
@@ -125,4 +125,4 @@ The plugin to Graphite is called Cyanite and very simply replaces all the carbon
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
 ## a compliment to the modern enterprise platform
-With a run through of just a few product and infrastructure examples it's quickly obvious how Cassandra is an incredibly useful technology to have established in any polyglot persistence model. And with an understanding on distributed computing it becomes even harder to deny Cassandra its natural home in the modern enterprise platform.
+With a run through of just a few product and infrastructure examples it's quickly obvious how Cassandra is an  useful technology to have established in any polyglot persistence model. And with an understanding on distributed computing it becomes even harder to deny Cassandra its natural home in the modern enterprise platform.
