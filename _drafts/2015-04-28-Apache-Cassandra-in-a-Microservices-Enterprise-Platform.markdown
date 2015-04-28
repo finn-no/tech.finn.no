@@ -47,6 +47,14 @@ But one of the areas that's not highlighted enough is that Cassandra's CQL schem
 After all the whole point with your microservices platform is that you're writing smaller and smaller services, and those smaller services each come with their own private data models. As services and their schemas get smaller and simpler we find that we don't need relationships and constraints and all the other complexities that the RDMS has to offer. Rather the constructs available to us in CQL are superior, and faster.
 
 The first example is how we store the users search history. This shouldn't be a product that needs to be explained to anyone. The CQL schema to this is incredibly simple and it takes advantage of the combination between partition and clustering keys. And it operates fast, just make sure to apply the "CLUSTERING ORDER BY" or you'll be falling into a Cassandra anti-pattern where you'll be left reading tons of tombstones each read.
+{% highlight sql %}CREATE TABLE search (
+  user_id text,
+  search_id timeuuid,
+  search_url text,
+  description text,
+  PRIMARY KEY (user_id, search_id)
+) 
+WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
 
