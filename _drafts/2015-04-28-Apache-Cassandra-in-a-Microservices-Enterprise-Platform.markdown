@@ -1,3 +1,17 @@
+---
+authors: mick
+comments: true
+date: 2015-04-28 14:00:00+00:00
+layout: post
+title: Apache Cassandra in a Microservices Enterprise Platform
+tags:
+- Microservices
+- Cassandra
+- REST
+- Thrift
+- Kafka
+---
+
 In this article we'll explore how Apache Cassandra, the world's most popular wide column store and 8th most [popular](http://db-engines.com/en/ranking) database overall, will only grow as a cornerstone technology in a microservices platform. With a little theory to microservices, to some examples of microservices and underlying required infrastructure, we'll show that any solution both capable of scaling and dealing with time-series data-models is going to need to depend upon Apache Cassandra as a persistence layer, despite having a polyglot persistence model at large.
 
 ## microservices
