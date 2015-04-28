@@ -13,26 +13,26 @@ tags:
 ---
 
 In this article we'll explore how Apache Cassandra, the world's most popular wide column store and 8th most [popular](http://db-engines.com/en/ranking) database overall, will only grow as a cornerstone technology in a microservices platform. With a little theory to microservices, to some examples of microservices and underlying required infrastructure, we'll show that any solution both capable of scaling and dealing with time-series data-models is going to need to depend upon Apache Cassandra as a persistence layer, despite having a polyglot persistence model at large.
-and 
+
 ## microservices
 
 Microservices is a term that's come out of [ThoughtWorks'](http://martinfowler.com/articles/microservices.html) Martin Fowler and James Lewis. It's a bit of a buzzword, basically a fresh revival of the parts of service orientated architecture that you should be focusing on and getting right. A lot of it hopefully is obvious to you already. If you've been doing service orientated architecture or even generally just unix programming properly over the years it might well be frustrating just how buzz "microservices" has become. But it's worth keeping in mind how much garbage we've collected and how many aspects of service orientated architecture that we've gotten badly wrong over the years. Younger programmers certainly deserve the clarity that ThoughtWorks is giving us here.
 
 Microservices, following the tips and guidelines from Sam Newman, can basically be broken down into four groups.
 
-#### interfaces
+### interfaces
 
 Ensure that you standardise the systems architecture at large and especially the gaps or what we know as the APIs between services. Standardise upon practices and protocols that minimise coupling. Move from tightly coupled systems with many compile time dependencies and distributed published client libraries, to clearly defined and isolated runtime APIs. Take advantage of REST, especially level 3 in richardson's maturity model, for the synchronous domain driven designed parts of your system. When it comes to event driven design use producer defined schemas, like that offered by Apache Thrift's IDL which gives you embedded schemas for good forward and backward compatibility along with isolated APIs that prevent transitive dependencies creeping through your platform. Getting this right also means that within services teams get a lot more freedom and autonomy to implement as they like, which in turns diminishes the effects of Brook's law.
 
-#### deployment
+### deployment
 
 Simplify deployment down to having just one way of deploying artifacts, of any type, to any environment. The process of deployment needs to be so easy that deploying continuously each and every change into production becomes standard practice. This often also requires some organisational and practical changes like moving to stable master codebases and getting developers comfortable with working with branches and [dark launching](http://tech.finn.no/2013/06/20/dark-launching-and-feature-toggles/).
 
-#### monitoring
+### monitoring
 
 It isn't just about the motto of "monitor everything" and to have all metrics and logs accessible in one central place, but to include synthetic requests to provide monitoring alerts that catch critical errors immediately, and to use correlation IDs to be able to easily put all the moving parts together for any one specific request.
 
-#### architectural safety
+### architectural safety
 
 Addressing the fallacies of distributed computing, ensure that services are as available as possible and consumers handle failures gracefully by using such mechanisms as circuit breakers, load balancing, and bulkheads.
 
