@@ -85,13 +85,13 @@ Naturally Zipkin can be put together with Cassandra, the best fit as it's perfec
 
 This is the typical page in Zipkin. Under the list of services the first row is the user's request, here we can see that it took 195ms. Then under that we can see when and how long all the individual service calls took place. We can see which back-end services are running properly in parallel and which service calls are sequential. Services like Solr, Elastic Search, the Kafka producers, and of course Cassandra, are all listed as well. Not only is this fantastic for keeping your platform tuned for performance but it's a great tool for helping to figure out what's going on with those slow requests you've got, for example in the top 5th percentile.
 
-<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-request-page.jpg"/></div>
+<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-request-page.png"/></div>
 
 It's also a gret tool to help keep teams up to date with all the constantly evolving moving parts that exist in a microservices platform, something that'll no doubt be outdated a week after any manual catalog documentation was written. This is especially useful for front end developers that usually haven't the faintest idea what's going on behind the scenes.
 
 This visualisation can also be offered from within the browser, both Firefox and Chrome have plugins, so that developers can see what's happening near real-time as they make requests.
 
-<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-graph.jpg"/></div>
+<div><div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-graph.png"/></div></div>
 
 Something that we're added to Zipkin is a cascasding job that runs nightly in our hadoop yarn cluster, that aggregates all the different traces made during the day and builds up a graph of the platform showing which services are calling services. In this graph on the left hand side you will see our web and batch applications, then to the right of that the microservices moving down the stack the further to the right you go. Legacy databases with shared schemas end up as big honey pots on the very right while databases with properly isolated schemas appear as satellites to the services that own them. If you're undertaking a move towards event driven design then you'll see the connections between services and especially across bounded contexts break apart, and you should see those bounded contexts become more grouped neighbourhoods for themselves.
 
@@ -101,7 +101,7 @@ Another infrastructure tool i want to look into is Grafana, and the Graphite and
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
-<div style="float: center;"><img width="50%" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/><img width="50%" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div>
+<div style="float: center;"><img width="25%" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/><img width="75%" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
