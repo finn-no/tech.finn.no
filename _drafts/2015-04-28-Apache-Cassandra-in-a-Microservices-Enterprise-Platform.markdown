@@ -53,7 +53,7 @@ The first example is how we store the users search history. This shouldn't be a 
   search_url text,
   description text,
   PRIMARY KEY (user_id, search_id)
-) 
+)
 WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
@@ -117,7 +117,10 @@ Another infrastructure tool i want to look into is Grafana, and the Graphite and
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
-<div style="float: center;"><span style="width: 40%;"><img width="300" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></span><span style="width: 50%;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></span></div>
+<div class="line">
+    <img class="unit" width="300" alt="Graphite Carbon" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png">
+    <img class="unit" width="300" alt="Graphite Cyanite" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png">
+</div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
