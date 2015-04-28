@@ -23,7 +23,8 @@ It isn't just about the motto of "monitor everything" and to have all metrics an
 Addressing the fallacies of distributed computing, ensure that services are as available as possible and consumers handle failures gracefully by using such mechanisms as circuit breakers, load balancing, and bulkheads.
 
 If you want more than I can only highly recommend Sam Newman's just published book on <a href="http://shop.oreilly.com/product/0636920033158.do">Building Microservices</a>.
-<span style="float: center;"><img src="http://akamaicovers.oreilly.com/images/0636920033158/cat.gif"/></span>
+
+<img  class="center-block" src="http://akamaicovers.oreilly.com/images/0636920033158/cat.gif"/>
 
 In this article, and when talking about microservices, i'm most interested in how Cassandra, now one of the ten most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
 Here Cassandra is relevant to the monitoring and architectural safety aspects of microservices, from looking at how monitoring is typically time series data, a known strength for Cassandra, and looking into how modern distributed systems should be put together.
@@ -34,7 +35,7 @@ Having worked in the enterprise for over a decade it's clear that the relational
 
 Martin Kleppman presented at Strange Loop last year and afterwards wrote an article ["Turning the database inside out with Apache Sanza"](http://blog.confluent.io/2015/03/04/turning-the-database-inside-out-with-apache-samza/) that properly hits the nail on the head, perfectly describing my own woes around why the relational database has ruined back-end programming for us. And he sums it up rather elegantly to that the replication mechanism to databases needs to come out and become its own integral and accepted component to our systems designs. And this externalised replication is what we call streams and event driven design, and it leads us to de-normalised datasets and more time-series data models.
 
-<div style="float: center;"><img src="https://confluentinc.files.wordpress.com/2015/03/slide-40.png?w=400"/></div>
+<img  class="center-block" src="https://confluentinc.files.wordpress.com/2015/03/slide-40.png?w=400"/>
 
 ## product examples
 Let's look at a few examples from FINN.no and see how these things work in practice.
@@ -55,23 +56,23 @@ So it shouldn't be of any surprise that Cassandra is going to hit the sweet spot
 
 Looking at the [CAP theorem](http://en.wikipedia.org/wiki/CAP_theorem) you recognise that to build a BASE microservices platform it means building AP systems. When you look at Martin Kleppman's message that the replication is its own concern in your BASE platform, when you look at domain driven design and how to focus keeping your services within clear bounded contexts and then taking it further to use event driven design to further break those bounded contexts apart, you see that it ties back to the CAP theorem and it is for the sake of scalability and performance and even just simplisty in design, a preference for availability over consistency. Looking into it deeper in how streaming solutions often still need to write to raw event stores, and similar to a event sourcing model when a service needs to bootstrap its de-normalised dataset from scratch from data beyond that to which is stored in the stream's history, you can see there is a parallel to partition tolerance and how it, just like partition tolerance within the CAP theorem, is a hard fast requirement to any distributed architecture.
 
-<img width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
+<img  class="center-block" width="40" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
 
 Here's a simple example of a web application (named "xxx") making three synchronous requests to underlying services in our platform when the user logs in. One service call to do the authentication, and the other two to fetch user data due to that user data being stored/available in different back-end systems.
 
-<img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-1.png"/>
+<img  class="center-block" width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-1.png"/>
 
 It's not difficult to see this isn't a great design. First of all it's keeping all the logic on how these services calls are initiated and how the data joined together high up in the presentation layer. It's also not a great performer unless you're willing to introduce concurrency code up in your presentation layer.
 
 The obvious thing to do is introduce an aggregate service so that the web app only needs to make two inner requests and much of the logic, including any concurrency code, is pushed down into the platform and into the bounded context where it belongs. Another thing that typically happens here is that a cache, one that requires invalidation, is added into the aggregate service to address performance and availability.
 
-<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-2.png"/></div>
+<img  class="center-block" width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-2.png"/>
 
 But it's a hack. Now you have more network traffic than before and more overall complexity, and just a poor and possibly very slow system of eventual consistency.
 
 There is a better way, imagine there was but one service and all the data in a shared schema and then bring the replication mechanism of the database out into a stream to realise this. That is de-normalise the data from the auxiliary user-profile service back into the original user service. What you end up with is faster, more available, better scaling solution. Once you're in the swing of event driven design and de-normalised datasets this is simpler solution too.
 
-<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-3.png"/></div>
+<img  class="center-block" width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/finn-platform-3.png"/>
 
 ## infrastructure examples
 
@@ -79,19 +80,19 @@ With some ideas of how Cassandra can become important for a successful microserv
 
 When it comes to correlation IDs a brilliant tool out there is Zipkin from Twitter. Zipkin provides for you in all your applications and services this correlation ID, a unique ID for each user request, which you can for example put into your log4j thread context or MDC and then via a tool like Kibana be able to put together all the logs from across your whole platform for one specific user request. But Zipkin goes a lot further than this, based off Google's Dapper paper, it provides for you with distributed tracing or profiling of these individual requests.
 
-<div style="float: center;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/></div>
+<img  class="center-block" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin.jpg"/>
 
 Naturally Zipkin can be put together with Cassandra, the best fit as it's perfect for large volumes of time series data. We also use scribe for the sending of the trace messages from all the jvms throughout our platform over to the zipkin collector which then stores them into Cassandra.
 
 This is the typical page in Zipkin. Under the list of services the first row is the user's request, here we can see that it took 195ms. Then under that we can see when and how long all the individual service calls took place. We can see which back-end services are running properly in parallel and which service calls are sequential. Services like Solr, Elastic Search, the Kafka producers, and of course Cassandra, are all listed as well. Not only is this fantastic for keeping your platform tuned for performance but it's a great tool for helping to figure out what's going on with those slow requests you've got, for example in the top 5th percentile.
 
-<div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-request-page.png"/></div>
+<img  class="center-block" width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-request-page.png"/>
 
-It's also a gret tool to help keep teams up to date with all the constantly evolving moving parts that exist in a microservices platform, something that'll no doubt be outdated a week after any manual catalog documentation was written. This is especially useful for front end developers that usually haven't the faintest idea what's going on behind the scenes.
+It's also a great tool to help keep teams up to date with all the constantly evolving moving parts that exist in a microservices platform, something that'll no doubt be outdated a week after any manual catalog documentation was written. This is especially useful for front end developers that usually haven't the faintest idea what's going on behind the scenes.
 
 This visualisation can also be offered from within the browser, both Firefox and Chrome have plugins, so that developers can see what's happening near real-time as they make requests.
 
-<div style="width: 100%;"><div style="float: center;"><img width="400" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-graph.png"/></div></div>
+<img width="400"  class="center-block" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/zipkin-graph.png"/>
 
 Something that we're added to Zipkin is a cascasding job that runs nightly in our hadoop yarn cluster, that aggregates all the different traces made during the day and builds up a graph of the platform showing which services are calling services. In this graph on the left hand side you will see our web and batch applications, then to the right of that the microservices moving down the stack the further to the right you go. Legacy databases with shared schemas end up as big honey pots on the very right while databases with properly isolated schemas appear as satellites to the services that own them. If you're undertaking a move towards event driven design then you'll see the connections between services and especially across bounded contexts break apart, and you should see those bounded contexts become more grouped neighbourhoods for themselves.
 
@@ -101,7 +102,7 @@ Another infrastructure tool i want to look into is Grafana, and the Graphite and
 
 The plugin to Graphite is called Cyanite and very simply replaces all the carbon and whisper components. In an earlier version it was quite limited and you couldn't for example get wildcarded paths in graphite working, but it now bundles with Elastic Search to give you a fully functional Graphite.
 
-<div style="float: center;"><div><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
+<div style="float: center;"><div style="width: 40%;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-carbon.png"/></div><div style="width: 40%;"><img src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/graphite-cyanite.png"/></div></div>
 
 If you want to take a go at setting this up and see for yourself just how easy it is to get running, and how easily Grafana, Graphite, Cyanite, Elastic Search, and Cassandra, are configured together take a look at the GitHub repository <a href="https://github.com/mbrannigan/docker-cyanite-grafana">docker-cyanite-grafana</a>. It's a docker image – just run `build.sh` and once everything has started up run `test.sh` to start feeding in dummy metrics and test away all the grafana features you're used to working with.
 
