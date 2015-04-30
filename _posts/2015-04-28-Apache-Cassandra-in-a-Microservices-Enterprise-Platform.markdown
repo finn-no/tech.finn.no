@@ -40,7 +40,7 @@ If you want more than I can only highly recommend Sam Newman's just published bo
 
 <img  class="center-block" width="150" src="/images/2015-04-28-Apache-Cassandra-in-a-Microservices-Enterprise-Platform/building-microservices.jpg"/>
 
-In this article, and when talking about microservices, i'm most interested in how Cassandra, now one of the most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
+In this article, and when talking about microservices, i'm most interested in how Cassandra, one of the most popular databases in our industry and the database most realistic to the practical realities of distributed computing, comes into its own.
 Here Cassandra is relevant to the monitoring and architectural safety aspects of microservices, from looking at how monitoring is typically time series data, a known strength for Cassandra, and looking into how modern distributed systems should be put together.
 
 ## turning the database inside out
@@ -72,11 +72,10 @@ WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
 {% highlight sql %}CREATE TABLE ad_created (
-  day         timestamp,
-  created     timeuuid,
   adid        bigint,
+  updated     timeuuid,
   rules       map<text, int>,
-  PRIMARY KEY (day, created)
+  PRIMARY KEY (adid, updated)
 ){% endhighlight %}
 
 So it shouldn't be of any surprise that Cassandra is going to hit the sweet spot for particular services in a number of different ways in any polyglot persistence platform. But bring it back to the bigger picture and we can look at how we can remove that magic unicorn we keep seeing in systems designs' overviews.
