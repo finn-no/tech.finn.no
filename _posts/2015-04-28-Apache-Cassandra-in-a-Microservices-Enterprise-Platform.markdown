@@ -71,7 +71,7 @@ The first example is how we store the users search history. This shouldn't be a 
 WITH CLUSTERING ORDER BY (search_id desc);{% endhighlight %}
 
 Another example is fraud detection, and while fraud detection is typically a complicated bounded context at large, breaking it down you may find individual components using small simple isolated schemas. Here we have a CQL schema, much simpler than its relational SQL schema counterpart not only because is it time-series using the clustering key, but using Cassandra's collection type to store the scores of each of the rules calculated during the fraud detection's expert rules system.
-{% highlight sql %}CREATE TABLE ad_created (
+{% highlight sql %}CREATE TABLE ad_scores (
   adid        bigint,
   updated     timeuuid,
   rules       map<text, int>,
