@@ -8,7 +8,7 @@ tags:
 - architecture
 ---
 
-In our continuing quest to break up our old monolith and create a more flexible and scalable architecture, we have realized that we need to some new tools and methods. One of the more promising approaches was [Domain Driven Design](http://domainlanguage.com/ddd/), a term coined by [Eric Evans](https://www.linkedin.com/in/ericevansddd) in his [Big Blue Book](http://www.amazon.com/exec/obidos/ASIN/0321125215/domainlanguag-20)
+In our continuing quest to break up our old monolith and create a more flexible and scalable architecture, we have realized that we need to some new tools and methods. One of the more promising approaches was [Domain Driven Design](http://domainlanguage.com/ddd/), a term coined by [Eric Evans](https://twitter.com/ericevans0) in his [Big Blue Book](http://www.amazon.com/exec/obidos/ASIN/0321125215/domainlanguag-20)
 
 
 Quite a few people in FINN has read (at least parts of) the Domain-Driven Design book, and we did some preliminary efforts to map our domains and look at our bounded contexts. We quickly realized that this was a very complex exercise, even with highly motivated tech and product people present. We figured we needed some help to get us on the right track. If you need help and information about DDD, why not get it straight from the horse's mouth? So we got Eric Evans to visit us for a week at the end of February.
