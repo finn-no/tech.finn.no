@@ -5,7 +5,7 @@ rvm:
 - 2.1
 script:
 - bundle exec jekyll build
-- bundle exec htmlproof ./_site --href-ignore https://no.linkedin.com/pub/nicolai-h%C3%B8ge/2/333/524,https://www.linkedin.com/pub/idar-borlaug,https://no.linkedin.com/in/haakongjersvikeriksen,https://www.linkedin.com/in/andreasberre,https://no.linkedin.com/in/geipette
+- bundle exec htmlproof ./_site --href-ignore https://no.linkedin.com/pub/nicolai-h%C3%B8ge/2/333/524,https://www.linkedin.com/pub/idar-borlaug,https://no.linkedin.com/in/haakongjersvikeriksen,https://www.linkedin.com/in/andreasberre,https://no.linkedin.com/in/geipette,http://www.steria.no/
 branches:
   only:
   - gh-pages

@@ -20,7 +20,7 @@ One of the ways of getting inspired and educated about technology here at FINN i
 
 **Clojure workshop**
 
-Alternative languages on the Java Virtual Machine is a hot topic all over and at FINN we are exploring our options as well. Therefor we have invited [Johannes Brodwall](https://twitter.com/jhannes), [Ivar Nilsen](http://twitter.com/ivarni) and [Anders Karlsen](http://twitter.com/anderskar) from [Steria](http://www.soprasteria.no/) to do a introduction to Clojure workshop.
+Alternative languages on the Java Virtual Machine is a hot topic all over and at FINN we are exploring our options as well. Therefor we have invited [Johannes Brodwall](https://twitter.com/jhannes), [Ivar Nilsen](http://twitter.com/ivarni) and [Anders Karlsen](http://twitter.com/anderskar) from [Steria](http://www.steria.no/) to do a introduction to Clojure workshop.
 
 **FINN Way of Innovation**
 
