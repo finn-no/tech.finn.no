@@ -1,9 +1,9 @@
 ---
 layout: post
 comments: true
-date: 2015-05-29 17:16:32+0200
+date: 2015-06-16 17:16:32+0200
 authors: Henning Spjelkavik
-title: "Browser statistics May 2015"
+title: "Browser statistics June 2015"
 tags:
 - tag
 ---
