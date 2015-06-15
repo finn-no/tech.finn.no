@@ -11,6 +11,15 @@ tags:
 
 If you [want to travel from Oslo to London](http://www.finn.no/reise/flybilletter/resultat?tripType=roundtrip&requestedOrigin=OSL.METROPOLITAN_AREA&requestedDestination=LON.METROPOLITAN_AREA&requestedOrigin2=&requestedDestination2=&requestedDepartureDate=11.11.2015&requestedReturnDate=13.11.2015&numberOfAdults=1&numberOfChildren=0&cabinType=economy), you may end up getting results which include layovers in far-away places. Do you really want to spend a night at the airport in Moscow if you only want to go from Oslo to London? Probably not, but nonetheless, some of the results we receive at the [FINN Flight Search](http://www.finn.no/reise/flybilletter/) are those kind of travels. Those travels may be really cheap, ending up at the top of our result list as we sort by price, but they are mostly garbage and we do not want our users to be confused by those outliers. We want them to go away!
 
+## A previous solution
+We have tried to fix this before. With limited success. A solution we used a couple of years back was something like this:
+
+```
+3 * Average of the three shortest flights
+```
+
+This works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok. However, it doesn't work too well on longer flights. If you want to go from Oslo to Bangkok, you would probably spend at least 11 hours in the air. In that case, it would be too conservative to just remove the flights that are 33 hours or more.
+
 ## A theoretical solution
 The correct way to remove the outliers is by [finding the quartiles](http://en.wikipedia.org/wiki/Quartile). When the quartiles are found, the upper fence is defined by 
 
@@ -19,15 +28,6 @@ Upper fence = Q1 + 1.5 * IQR
 ```
 
 Where IQR is the Interquartile Range; Q3 - Q1. We are using [Solr](http://lucene.apache.org/solr/) at FINN, but the stats query in Solr does not give us the quartiles out of the box, so we would need to do a separate query to calculate the quartiles. Should be easy enough.
-
-## A previous solution
-We have tried to do this before. With limited success. A solution we used a couple of years back was something like this:
-
-```
-3 * Average of the three shortest flights
-```
-
-This works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok. However, it doesn't work too well on longer flights. If you want to go from Oslo to Bangkok, you would probably spend at least 11 hours in the air. In that case, it would be too conservative to just remove the flights that are 33 hours or more.
 
 ## What is too long?
 So what is a **too long** flight? That's not an easy question to answer. Racking our brains (and doing some guesswork), we came up with the following suggestions. The times are per leg:
@@ -59,13 +59,13 @@ A lot of good information there! We get the standard deviation, mean and min val
 Sometimes, the supplier sends us incorrect data. That's bad. But the good thing is that when the data is incorrect it is *really* incorrect. We sometimes receive flight times of 0 minutes. That is obviously wrong, and we filter out those. However, we have *not* seen any occurences of, say, 1 minute flight times. That would be wrong as well, but more difficult to handle. So we close our eyes and don't care about those.
 
 ## But hang on...
-So, we were ready to go! We wanted to fix this problem once and for all. But before we started coding, we talked to emeritus [Harald Goldstein](http://www.sv.uio.no/econ/english/people/aca/haraldg/index.html) at the University of Oslo. He's been teaching statistics at the university level for years and had some good feedback on our theoretical solution. First of all, he pointed out that the solutions we have outlined is a good solution if we have a symmetrical distribution of the flight times. The quartiles and the standard deviation works well on a symmetrical distribution like the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), but what about *our* data? Is it normal distributed? That was a relevant question, and as one of FINN's main strategies is "data in our backbones", we surely needed to have a closer look at this.
+So, we were ready to go! We wanted to fix this problem once and for all. But before we started coding, we talked to emeritus [Harald Goldstein](http://www.sv.uio.no/econ/english/people/aca/haraldg/index.html) at the University of Oslo. He's been teaching statistics at the university level for years and had some good feedback on our theoretical solution. First of all, he pointed out that the solution we have outlined is a good solution if we have a symmetrical distribution of the flight durations. The quartiles and the standard deviation works well on a symmetrical distribution like the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), but what about *our* data? Is it normal distributed? That was a relevant question, and as one of FINN's main strategies is "data in our backbones", we surely needed to have a closer look at this.
 
 So here goes, flights from Oslo to London. Trip duration on the x-axis, number of occurences on the y-axis:
 
 ![distribution](/images/2015-06-09-removing-long-travels-in-the-flight-search/osl_lon_distribution.png "tripDuration on the x-axis, number of occurences on the y-axis")
 
-The shortest trip duration OSL - LON is 230 minutes in the graph above (115 min per leg), and there is actually an outlier - which is not visible - at 2750 minutes, too! However, it is quite clear that this is not a normal distribution. It might look more like a [gamma distribution](https://en.wikipedia.org/wiki/Gamma_distribution) for the part where x > 230. 
+The shortest trip duration OSL - LON is 230 minutes in the graph above (115 min per leg) and there is actually an outlier - which is not visible - at 2750 minutes, too! However, it is quite clear that this is not a normal distribution. It might look more like a [gamma distribution](https://en.wikipedia.org/wiki/Gamma_distribution) for the part where x > 230. 
 
 Darn!
 
@@ -73,7 +73,7 @@ Darn!
 All the fancy statistics didn't provide the solution, but it helped us really understand the problem. Obviously, we needed to re-think.
 
 ### Logarithm
-A problem with the solution from ages back (described above), was that it didn't work very well on long hauls. The relation between the minimum trip duration OSL-BKK and OSL-LON is approx. 6:1. Alas, the upper fence must be relatively lower on longer trips. After some more brain-racking, we came up with the idea that we should look at this logarithmically. 
+A problem with the solution from ages back (described at the beginning), was that it didn't work very well on long hauls. The relation between the minimum trip duration OSL-BKK and OSL-LON is approx. 6:1. Alas, the upper fence must be relatively lower on longer trips. After some more brain-racking, we came up with the idea that we should look at this logarithmically. 
 
 ![log](/images/2015-06-09-removing-long-travels-in-the-flight-search/log.png "a logartihmic graph")
 
