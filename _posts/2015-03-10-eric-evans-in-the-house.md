@@ -8,7 +8,7 @@ tags:
 - architecture
 ---
 
-In our continuing quest to break up our old monolith and create a more flexible and scalable architecture, we have realized that we need to some new tools and methods. One of the more promising approaches was [Domain Driven Design](http://domainlanguage.com/ddd/), a term coined by [Eric Evans](https://twitter.com/ericevans0) in his [Big Blue Book](http://www.amazon.com/exec/obidos/ASIN/0321125215/domainlanguag-20)
+In our continuing quest to break up our old monolith and create a more flexible and scalable architecture, we have realized that we need to look at some new tools and methods. One of the more promising approaches was [Domain Driven Design](http://domainlanguage.com/ddd/), a term coined by [Eric Evans](https://twitter.com/ericevans0) in his [Big Blue Book](http://www.amazon.com/exec/obidos/ASIN/0321125215/domainlanguag-20)
 
 
 Quite a few people in FINN has read (at least parts of) the Domain-Driven Design book, and we did some preliminary efforts to map our domains and look at our bounded contexts. We quickly realized that this was a very complex exercise, even with highly motivated tech and product people present. We figured we needed some help to get us on the right track. If you need help and information about DDD, why not get it straight from the horse's mouth? So we got Eric Evans to visit us for a week at the end of February.
@@ -19,7 +19,7 @@ Day | Subject | Attending
 ----|---------|----------
 Monday | Strategic Domain Driven Design Course | FINNs CTO, our functional product directors, the members of our enterprise architecture group including our Chief Enterprise Architect, several key developers and a couple of our international friends from Schibsted Classified Media
 Tuesday | Strategic Domain Driven Design Course cont'd | Same as Monday
-Wednesday | Workshop: Ad concept and our miscellaneous vertical | Chief Enterprise architect, EA group, Functional Product Director, Product Owner, Lead Developer
+Wednesday | Workshop: Ad concept and our miscellaneous vertical | Chief Enterprise architect, EA group, Functional Product Director, Product Owner, Lead Developers
 Thursday | Workshop: Job vertical and company profile | Chief Enterprise architect, EA group, Functional Product Director, Product Owner, Lead Developers
 Friday | Presentation for everyone in FINN.no, plus workshop: Communications | Chief Enterprise architect, EA group, Functional Product Director, Product Owner, Lead Developers
 
@@ -44,8 +44,8 @@ Into a nice map like this:
 
 Our key findings on bounded contexts:
 
-* Bounded contexts represents a higher order logical representation of a solution
-* They may span several of FINNs current "microservices"
+* Bounded contexts represent a higher order logical representation of a solution
+* They may span several of FINN's current "microservices"
 * They are useful for understanding the high level architecture, and how teams and solutions depend on each other
 
 > The context map is a tool for discussions, and the boundaries and relationships are subjective.
