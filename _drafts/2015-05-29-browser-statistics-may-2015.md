@@ -7,17 +7,21 @@ title: "Browser statistics May 2015"
 tags:
 - tag
 ---
-In [July 2013 more than 40% of the visits to FINN.no](http://hjemmehos.finn.no/no/webfolk_+_entusiaster/finn_labs/FINN-statistikken+for+sommeren+2013.9UFRnSXl.ips) were from a tablet or a phone. Nearly one year later, in [April 2014 - 48% were from a table or a phone](http://www.inma.no/ARTIKLER/Blogg/innlegg/FINN-statistikken-for-april-2014). 
+In [July 2013 more than 40% of the visits to FINN.no](http://hjemmehos.finn.no/no/webfolk_+_entusiaster/finn_labs/FINN-statistikken+for+sommeren+2013.9UFRnSXl.ips) were from a tablet or a phone. Nearly one year later, in [April 2014 - the share was 48%](http://www.inma.no/ARTIKLER/Blogg/innlegg/FINN-statistikken-for-april-2014).
 
-*What do you think has happened in the market the last year?*
+*What do you think has happened the last year?*
 
-Google rolled out the [mobile-friendly update](http://googlewebmastercentral.blogspot.no/2015/04/rolling-out-mobile-friendly-update.html) April the 21st, which boosts the ranking of sites that are mobile friendly in the Google search. We're clearly not the only one seeing the increased market share of mobile devices.
+In April, Google rolled out thir ["mobile-friendly update"](http://googlewebmastercentral.blogspot.no/2015/04/rolling-out-mobile-friendly-update.html), which boosts the ranking of sites that are mobile friendly in the Google search. We're clearly not the only one seeing the increased market share of mobile devices.
 
-The first graph shows the share of our users using a mobile phone, tablet or a desktop computer to access FINN.no, regardless of whether they use the traditional somewhat-response-desktop-version (www.finn.no), our responsive mobile web (m.finn.no) or an app. The desktop now has a market share of 38%.
+## How many visitors use a desktop or laptop?
+
+Our first graph shows the share of our users using a mobile phone, tablet or a desktop computer to access FINN.no, regardless of whether they use the traditional somewhat-responsive-desktop-version (www.finn.no), our responsive mobile web (m.finn.no) or an Android or iPhone app. 62% of our visits are now from a smartphone or a tablet. *The traditional desktop/laptop has a market share of 38%.*
 
 [<img class="center-block" alt="Channel graph" src="/images/2015-05-29-browser-statistics-may-2015/Visits per channel percent.png"/>](/images/2015-05-29-browser-statistics-may-2015/Visits per channel percent.png)
 
-The reponsive site now has the biggest share of our visits! 14% of our visits are from our native apps, and 42% from www.finn.no, 44% from our responsive m.finn.no.
+## Which FINN.no channel do they use?
+
+The reponsive site is now the biggest! 14% of our visits are from our native apps, 42% from www.finn.no, and 44% from our responsive m.finn.no.
 
 [<img class="center-block" alt="Application graph" src="/images/2015-05-29-browser-statistics-may-2015/Visits pr application percent.png"/>](/images/2015-05-29-browser-statistics-may-2015/Visits pr application percent.png)
 
