@@ -30,10 +30,11 @@ Upper fence = Q1 + 1.5 * IQR
 ```
 
 Where IQR is the Interquartile Range; Q3 - Q1. 
+
 We are using [Solr](http://lucene.apache.org/solr/) at FINN, but the stats query in Solr does not give us the quartiles out of the box, so we would need to do a separate query to calculate the quartiles. Should be easy enough.
 
 ## What is too long?
-So what is a **too long** flight? That's not an easy question to answer. Racking our brains (and doing some guesswork), we came up with the following suggestions. The durations are per leg:
+So what is a **too long** flight? That's not an easy question to answer. Racking our brains (and doing some guesswork), we came up with the following suggestions on what the upper fence on duration to different destinations should be. The durations are per leg:
 
 OSL - LON 300 mins = 5 hrs. Given the minimum flight time OSL - LON = 115.
 OSL - BKK (Bangkok) 1000 mins = 17 hrs. Minimum = 674
@@ -68,7 +69,7 @@ So here goes, flights from Oslo to London. Trip duration on the x-axis, number o
 
 ![distribution](/images/2015-06-09-removing-long-travels-in-the-flight-search/osl_lon_distribution.png "tripDuration on the x-axis, number of occurences on the y-axis")
 
-The shortest trip duration OSL - LON is 230 minutes in the graph above (115 min per leg) and there is actually an outlier - which is not visible - at 2750 minutes, too! However, it is quite clear that this is not a normal distribution. It might look more like a [gamma distribution](https://en.wikipedia.org/wiki/Gamma_distribution) for the part where x > 230. 
+The shortest trip duration OSL - LON is 230 minutes in the graph above (115 min per leg) and there is even an outlier - which is not visible - at 2750 minutes! However, it is quite clear that this is not a normal distribution. It might look more like a [gamma distribution](https://en.wikipedia.org/wiki/Gamma_distribution) for the part where x > 230. 
 
 Darn!
 
@@ -121,7 +122,7 @@ OSL-NYC. min = 920  => x = 1678 (28 hrs)
 
 That seems to work quite well. In the SVG (Stavanger) - BGO (Bergen) case, the formula removes approx. 30% of the offers. Some of them with a layover in Oslo. 
 
-No need to hesitate, this simple formula is now in our production systems. If you want to go from OSL to LON, you will get a slider which is preset with an upper fence of 5hrs 15min.
+No need to hesitate then, this simple formula is now in our production systems. If you want to go from OSL to LON, you will get a slider which is preset with an upper fence of 5hrs 15min.
 
 ![filter](/images/2015-06-09-removing-long-travels-in-the-flight-search/enabled_filter.png "Enabled filter")
 
