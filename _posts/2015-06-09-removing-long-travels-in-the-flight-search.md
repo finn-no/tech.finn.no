@@ -15,10 +15,10 @@ If you [want to travel from Oslo to London](http://www.finn.no/reise/flybillette
 We have tried to fix this before. With limited success. A solution we used a couple of years back was something like this:
 
 ```
-3 * Average of the three shortest flights
+x = 3 * Average of the three shortest flights
 ```
 
-This works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok. 
+We removed offers with duration > x. This which works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok.
 
 However, it doesn't work too well on longer flights. If you want to go from Oslo to Bangkok, you would probably spend at least 11 hours in the air. In that case, it would be too conservative to just remove the flights that are 33 hours or more.
 
