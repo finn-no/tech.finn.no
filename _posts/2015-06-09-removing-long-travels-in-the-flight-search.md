@@ -18,7 +18,7 @@ We have tried to fix this before. With limited success. A solution we used a cou
 x = 3 * Average of the three shortest flights
 ```
 
-We removed offers with duration > x. This works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok.
+We removed results with duration > x. This works fine on short travels, like a two-hour flight from Oslo to London. With the given formula, all trips longer than 6 hours to London will be removed. That's ok.
 
 However, it doesn't work too well on longer flights. If you want to go from Oslo to Bangkok, you would probably spend at least 11 hours in the air. In that case, it would be too conservative to just remove the flights that are 33 hours or more.
 
@@ -63,7 +63,7 @@ A lot of good information there! We get the standard deviation, mean and min val
 Sometimes, the supplier sends us incorrect data. That's bad. But the good thing is that when the data is incorrect it is *really* incorrect. We sometimes receive flight times of 0 minutes. That is obviously wrong, and we filter out those. However, we have *not* seen any occurences of, say, 1 minute flight times. That would be wrong as well, but more difficult to handle. So we close our eyes and don't care about those.
 
 ## But hang on...
-So, we were ready to go! We wanted to fix this problem once and for all. But before we started coding, we talked to emeritus [Harald Goldstein](http://www.sv.uio.no/econ/english/people/aca/haraldg/index.html) at the University of Oslo. He's been teaching statistics at the university level for years and had some good feedback on our theoretical solution. First of all, he pointed out that the solution we have outlined is a good solution if we have a symmetrical distribution of the flight durations. The quartiles and the standard deviation works well on a symmetrical distribution like the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), but what about *our* data? Is it normal distributed? That was a relevant question, and as one of FINN's main strategies is "data in our backbones", we surely needed to have a closer look at this.
+So, we were ready to go! We wanted to fix this problem once and for all. But before we started coding, we talked to emeritus [Harald Goldstein](http://www.sv.uio.no/econ/english/people/aca/haraldg/index.html) at the University of Oslo. He's been teaching statistics at the university level for years and had some good feedback on our theoretical solution. First of all, he pointed out that the solution we have outlined is a good solution if we have a *symmetrical* distribution of the flight durations. The quartiles and the standard deviation works well on a symmetrical distribution like the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), but what about *our* data? Is it normal distributed? That was a relevant question, and as one of FINN's main strategies is "data in our backbones", we surely needed to have a closer look at this.
 
 So here goes, flights from Oslo to London. Trip duration on the x-axis, number of occurences on the y-axis:
 
