@@ -32,7 +32,7 @@ Arve Søreide talked about three things you need to do in order to achieve the d
 ## An end to negativity - Norwegian style
 
 
-This talk was originally held by [Chris William](http://twitter.com/#!/voodootikigod) at [JSConf EU 2011](http://jsconf.eu/2011/) and you should check out [the original version of An End To Negativity](http://jsconf.eu/2011/an_end_to_negativity.html).
+This talk was originally held by [Chris William](https://twitter.com/voodootikigod) at [JSConf EU 2011](http://jsconf.eu/2011/) and you should check out [the original version of An End To Negativity](http://jsconf.eu/2011/an_end_to_negativity.html).
 
 
 
