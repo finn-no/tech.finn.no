@@ -5,7 +5,7 @@ date: 2015-06-26 01:00:32+0200
 authors: Henning Spjelkavik
 title: "Browser statistics June 2015"
 tags:
-- tag
+- browser statistics
 ---
 In [July 2013 more than 40% of the visits to FINN.no](http://hjemmehos.finn.no/no/webfolk_+_entusiaster/finn_labs/FINN-statistikken+for+sommeren+2013.9UFRnSXl.ips) were from a tablet or a phone. Nearly one year later, in April 2014 - [the share was 48%](http://www.inma.no/ARTIKLER/Blogg/innlegg/FINN-statistikken-for-april-2014).
 
