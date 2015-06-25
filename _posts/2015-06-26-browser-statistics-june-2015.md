@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2015-06-16 17:16:32+0200
+date: 2015-06-26 01:00:32+0200
 authors: Henning Spjelkavik
 title: "Browser statistics June 2015"
 tags:
@@ -25,19 +25,26 @@ We have three major versions of FINN.no - the desktop, the responsive m.finn.no,
 
 [<img class="center-block" alt="Application graph" src="/images/2015-06-16-browser-statistics-june-2015/Visits pr application percent.png"/>](/images/2015-06-16-browser-statistics-june-2015/Visits pr application percent.png)
 
-## Browsers
+## Browser vendors
 
-Do you remember the "browser wars"? When IE 6.0 ruled the web? And we thought it was a nearly impossible job to test for all three major browsers? Welcome to 2015. First of all, let's take a look at the numbers of the browser vendors. The ranking is clear, Apple is biggest, ahead of Google, Microsoft and Mozilla - and Opera is still in the top 5, representing an amazing 0.2% of our visits. 
+First of all, let's take a look at the numbers of the browser vendors. The ranking is clear, Apple is the biggest, ahead of Google, Microsoft and Mozilla - and Opera is still in the top 5, representing more than an amazing 0.2% of our visits. 
 
 [<img class="center-block" alt="All providers" src="/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg)
 
-If we exclude the mobile browsers, we get the "exciting" graph showing who is leading the non-mobile browser race. Formerly known as the desktop browser wars - [that race ended in 2014](http://www.zdnet.com/article/did-the-browser-wars-finally-end-in-2014).
+## Desktop browsers
 
-[<img class="center-block" alt="All browsers except mobile" src="/images/2015-06-16-browser-statistics-june-2015/browsers-except-mobile.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browsers-except-mobile.jpg)
+Do you remember the "browser wars"? When IE 6.0 ruled the web? In case you wondered which browser is the biggest on the "desktop" - defined as a browser running on a Microsoft Windows operating system - here is the ranking:
 
-Looking at the complete graph, you might find that you should make your site work well on Mobile Safari.
+[<img class="center-block" alt="Browsers, Windows" src="/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg)
 
-<img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/really-all-browsers.jpg"/>
+## Browsers
+It's 2015, and IE 6.0 is not on the list. And we have more than three flavours of browsers that should work well on a modern site.
 
-In case you still have Internet Explorer 9 as your favourite, it's still making it to the top 15, with a total share of 1.2% of our traffic, marginally ahead of Internet Explorer 10 with 1.4%.
+The complete browser statistics, across all applications are as follows:
+
+<a href="/images/2015-06-16-browser-statistics-june-2015/browsers-all.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/browsers-all.jpg"/></a>
+
+It seems like a good idea to make sure your website works well with Safari!
+
+In case you still have Internet Explorer 9 as your favourite, it's still making it to the top 15, with a total share of 1.2% of our traffic, marginally behind Internet Explorer 10 with 1.4%.
 
