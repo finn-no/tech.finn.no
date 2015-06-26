@@ -46,5 +46,5 @@ In case you still have Internet Explorer 9 as your favourite, it's still making 
 <a href="/images/2015-06-16-browser-statistics-june-2015/ie-version.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/ie-versions.jpg"/></a>
 
 
-*Thanks to Tobiaa Flatin, Chris Searle, Gregers G Rygg, Trond Hjorteland and others for feedback.*
+*Thanks to Tobias Flatin, Chris Searle, Gregers G Rygg, Trond Hjorteland, and others for feedback.*
 
