@@ -11,7 +11,7 @@ In [July 2013 more than 40% of the visits to FINN.no](http://hjemmehos.finn.no/n
 
 *What do you think has happened the last year?*
 
-In April, Google rolled out thir ["mobile-friendly update"](http://googlewebmastercentral.blogspot.no/2015/04/rolling-out-mobile-friendly-update.html), which boosts the ranking of sites that are mobile friendly in the Google search. We're clearly not the only one seeing the increased market share of mobile devices.
+In April, Google rolled out their ["mobile-friendly update"](http://googlewebmastercentral.blogspot.no/2015/04/rolling-out-mobile-friendly-update.html), which boosts the ranking of sites that are mobile friendly in the Google search. We're clearly not the only one seeing the increased market share of mobile devices.
 
 ## How many visitors use a desktop or laptop?
 
@@ -31,11 +31,9 @@ First of all, let's take a look at the numbers of the *browser vendors*. The ran
 
 [<img class="center-block" alt="All providers" src="/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg)
 
-Do you remember the "browser wars"? When IE 6.0 ruled the web? In case you wondered which browser is the biggest on the "desktop" - defined as a browser running on a *Microsoft Windows* operating system - here is the ranking:
+Do you remember the "browser wars"? When IE 8.0 ruled the web? In case you wondered which browser is the biggest on the "desktop" here's the trend:
 
-[<img class="center-block" alt="Browsers, Windows" src="/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg)
-
-It's 2015, and IE 6.0 is not on the list. And we have more than three flavours of browsers that should work well on a modern site.
+[<img class="center-block" alt="Browsers, Windows" src="/images/2015-06-16-browser-statistics-june-2015/desktop.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/desktop.jpg)
 
 The *complete browser statistics*, across all applications are as follows:
 
@@ -43,5 +41,10 @@ The *complete browser statistics*, across all applications are as follows:
 
 It seems like a good idea to make sure your website works well with Safari!
 
-In case you still have Internet Explorer 9 as your favourite, it's still making it to the top 15, with a total share of 1.2% of our traffic, marginally behind Internet Explorer 10 with 1.4%.
+In case you still have Internet Explorer 9 as your favourite, it's still making it to the top 15, with a total share of 1.2% of our traffic, marginally behind Internet Explorer 10 with 1.4%. In 2015, poor IE8 is down to 0.3%.
+
+<a href="/images/2015-06-16-browser-statistics-june-2015/ie-version.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/ie-versions.jpg"/></a>
+
+
+*Thanks to Tobiaa Flatin, Chris Searle, Gregers G Rygg, Trond Hjorteland and others for feedback.*
 
