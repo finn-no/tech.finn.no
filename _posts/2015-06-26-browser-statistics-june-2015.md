@@ -25,22 +25,19 @@ We have three major versions of FINN.no - the desktop, the responsive m.finn.no,
 
 [<img class="center-block" alt="Application graph" src="/images/2015-06-16-browser-statistics-june-2015/Visits pr application percent.png"/>](/images/2015-06-16-browser-statistics-june-2015/Visits pr application percent.png)
 
-## Browser vendors
+## Browsers
 
-First of all, let's take a look at the numbers of the browser vendors. The ranking is clear, Apple is the biggest, ahead of Google, Microsoft and Mozilla - and Opera is still in the top 5, representing more than an amazing 0.2% of our visits. 
+First of all, let's take a look at the numbers of the *browser vendors*. The ranking is clear, Apple is the biggest, ahead of Google, Microsoft and Mozilla - and Opera is still in the top 5, representing more than an amazing 0.2% of our visits. 
 
 [<img class="center-block" alt="All providers" src="/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browser-types.jpg)
 
-## Desktop browsers
-
-Do you remember the "browser wars"? When IE 6.0 ruled the web? In case you wondered which browser is the biggest on the "desktop" - defined as a browser running on a Microsoft Windows operating system - here is the ranking:
+Do you remember the "browser wars"? When IE 6.0 ruled the web? In case you wondered which browser is the biggest on the "desktop" - defined as a browser running on a *Microsoft Windows* operating system - here is the ranking:
 
 [<img class="center-block" alt="Browsers, Windows" src="/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg"/>](/images/2015-06-16-browser-statistics-june-2015/browsers-windows.jpg)
 
-## Browsers
 It's 2015, and IE 6.0 is not on the list. And we have more than three flavours of browsers that should work well on a modern site.
 
-The complete browser statistics, across all applications are as follows:
+The *complete browser statistics*, across all applications are as follows:
 
 <a href="/images/2015-06-16-browser-statistics-june-2015/browsers-all.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/browsers-all.jpg"/></a>
 
