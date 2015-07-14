@@ -54,7 +54,7 @@ Plenty of honesty towards the hype and the challenges involved too. A barcamp _B
 
 
 
-  * _[Bringing the 'So What' to Big Data](http://t.co/pmpdJw3h)_, a different keynote with a sell towards going to work for the CIA. Big data isn't about data but changing and improving lives.
+  * _[Bringing the 'So What' to Big Data](https://www.youtube.com/watch?v=00RgRJIAxYo)_, a different keynote with a sell towards going to work for the CIA. Big data isn't about data but changing and improving lives.
 
 
 
