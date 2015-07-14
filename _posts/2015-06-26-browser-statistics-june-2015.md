@@ -43,7 +43,7 @@ It seems like a good idea to make sure your website works well with Safari!
 
 In case you still have Internet Explorer 9 as your favourite, it's still making it to the top 15, with a total share of 1.2% of our traffic, marginally behind Internet Explorer 10 with 1.4%. In 2015, poor IE8 is down to 0.3%.
 
-<a href="/images/2015-06-16-browser-statistics-june-2015/ie-version.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/ie-versions.jpg"/></a>
+<a href="/images/2015-06-16-browser-statistics-june-2015/ie-versions.jpg"><img class="center-block" alt="All browsers" src="/images/2015-06-16-browser-statistics-june-2015/ie-versions.jpg"/></a>
 
 
 *Thanks to Tobias Flatin, Chris Searle, Gregers G Rygg, Trond Hjorteland, and others for feedback.*
