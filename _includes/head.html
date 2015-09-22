@@ -9,7 +9,11 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@finn_tech" />
     <meta name="twitter:title" content="{{ page.title }}" />
+    {% if page.description %}
+    <meta name="twitter:description" content="{{ page.description }}">
+    {% else %}
     <meta name="twitter:description" content="Read the post on our blog." />
+    {% endif %}
     {% if page.thumbnail %}
     <meta property="og:image" content="{{ page.thumbnail }}">
     <meta name="twitter:image" content="{{ page.thumbnail }}">

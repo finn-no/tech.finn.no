@@ -4,6 +4,7 @@ comments: true
 date: 2015-09-22 15:58:41+0200
 authors: Henning Spjelkavik
 title: "The Process of Using Kafka"
+description: "The tale of how we tried all permutations of settings when we started using Kafka"
 tags:
 - kafka
 - tradeoffs
