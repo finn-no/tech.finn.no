@@ -32,7 +32,7 @@ The main trade off is thus between reliability - the possibility of losing data 
 
 These simple demonstrations were run on a laptop connected to our dev-cluster, consisting of 3 brokers. The response times we got are as expected - i.e matches the intuitive expectation, and clearly demonstrates the trade offs.
 
-The code connects to Kafka, does timing of the sending of 8 events, and then sends a big chunk of events. The various combinations of options in this exercise demonstrates actual patterns of code we have observed. Some of the combinations are NON-SAFE. Which of them is left as an exercise for the reader...
+The code connects to Kafka, does timing of the sending of 8 events, and then sends a big chunk of events. The various combinations of options in this exercise demonstrates actual patterns of code we have observed. Some of the combinations are NON-SAFE. Beware!
 
 ## Timing information ##
 
@@ -90,7 +90,7 @@ For various combinations of producer type (sync/async), ```request.required.acks
 
 Let's switch to the asynchronous producer. The producing thread will continue, but we'll need to be aware of the need to drain any queues before exiting. Messages will be batched together within a 5 s window, so just exiting can be a serious problem if you care about your data.
 
-*Run 2.1 - Async, closing the producer before exiting:*
+*Run 2.1 - Async, blocking on producer.close() before exiting:*
 
     -----------------------------------------
     ms     %     Task name
@@ -142,7 +142,7 @@ Let's switch to the asynchronous producer. The producing thread will continue, b
     00000  000%  send 1 kafka event - 7
     00209  100%  send 10000 kafka events
 
-The process does not terminate, as there is a non-daemon producer thread left. After 5 seconds, all messages will be delivered.
+The process does not terminate, as there is a non-daemon producer thread left. The default value of ```queue.buffering.max.ms``` is 5000 ms, and ``` queue.buffering.max.messages ``` is 10.000 messages. This means that the queue will be sent after 10.000 messages, or after waiting at most 5000 ms.
 
 
 *Run 2.4 - Async, sleep 8 seconds after sending, then System.exit()*
@@ -163,6 +163,7 @@ The process does not terminate, as there is a non-daemon producer thread left. A
 
 100% of the messages were delivered
 
+As 8 s is more than 5000 ms, the messages will be delivered.
 
 
 *Run 2.5 - Async, sleep 4 seconds after sending, then System.exit()*
@@ -182,6 +183,9 @@ The process does not terminate, as there is a non-daemon producer thread left. A
     04001  097%  sleeping
 
 99.89% (9989/10000) of the messages were delivered.
+
+As 4 s is less than 5000 ms, the first 10.000 messages will be delivered, and the rest will be left in the queue. As we've sent more than 10.000 message during the session, some messages were lost.
+
 
 ## Summary ##
 
