@@ -12,6 +12,8 @@ tags:
 
 *Use and misuse*
 
+Actually, the title is a bit too broad. We'll look at how different number of acks, async and timeouts will affect the reliability of your messages.
+
 ## Abstract / TL;DR ##
 Kafka can be used in many ways, and there are also many options that you need to understand and decide upon before you start using Kafka. As always, the combination of options you choose is a compromise - a trade off - and in my opinion, explicit trade offs are much better than accidential ones.
 
@@ -124,7 +126,7 @@ Let's switch to the asynchronous producer. The producing thread will continue, b
     00000  000%  send 1 kafka event - 7
     00220  100%  send 10000 kafka events
 
-0% of the messages were delivered!
+_0% of the messages were delivered!_
 
 
 *Run 2.3 - Async, main method returns normally, without calling close()*
@@ -198,9 +200,9 @@ Before using Kafka, you need to understand it! Read the [documentation](http://k
 | --- | --- |
 | 8.2 ms | Sync, wait for all in sync replicas |
 | 3.9 ms | Sync, wait for leader |
-| 2.0 ms | Sync, don't wait |
+| 2.0 ms | Sync, don't wait for ack |
 | 0.13 ms | Async, wait for the queue to finish |
-| 0.02 ms | Async, don't wait (aka /dev/null)|
+| 0.02 ms | Async, exit without waiting (aka /dev/null)|
 
 
 ## The sample code ##
