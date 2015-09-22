@@ -202,7 +202,7 @@ Before using Kafka, you need to understand it! Read the [documentation](http://k
 | 3.9 ms | Sync, wait for leader |
 | 2.0 ms | Sync, don't wait for ack |
 | 0.13 ms | Async, wait for the queue to finish |
-| 0.02 ms | Async, exit without waiting (aka /dev/null)|
+| 0.02 ms | Async, exit without waiting (aka /dev/null for the last messages)|
 
 
 ## The sample code ##
