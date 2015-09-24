@@ -66,3 +66,9 @@ alias nginx-restart='nginx-stop && nginx-start'
 ```
 
 source ~/.profile
+
+Credit:
+https://www.nginx.com/blog/nginx-1-9-5/
+https://ma.ttias.be/enable-http2-in-nginx/
+https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/
+https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286
