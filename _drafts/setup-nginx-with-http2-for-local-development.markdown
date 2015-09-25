@@ -82,6 +82,8 @@ To see that you really are using HTTP/2 in Chrome, you have to open the Network 
 
 If you have problems, check the nginx error log: `/usr/local/var/log/nginx/error.log`
 
+*Thanks to Sveinung Røsaker and Rune Halvorsen for feedback*
+
 Credit:
 1. <https://www.nginx.com/blog/nginx-1-9-5/>
 2. <https://ma.ttias.be/enable-http2-in-nginx/>
