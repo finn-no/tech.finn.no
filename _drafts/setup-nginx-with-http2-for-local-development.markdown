@@ -10,8 +10,9 @@ tags:
 - http/2
 - https
 ---
-HTTP/2 became an official standard in May earlier this year, and support is starting to land in servers already. [HTTPS over TLS 1.2 is a requirement to use HTTP/2](https://http2.github.io/http2-spec/#TLSUsage). [Same with Service Workers](http://www.w3.org/TR/service-workers/#security-considerations), and probably [other features soon](https://w3c.github.io/webappsec/specs/powerfulfeatures/).
-The most recent, and very welcome addition, is [nginx 1.9.5](https://www.nginx.com/blog/nginx-1-9-5/). What makes it extra awesome is that it's very easy to set up nginx in front of any other HTTP 1.x server (or HTTP/2 for that matter).
+HTTP/2 became an official standard in May earlier this year, and support is starting to land in servers already. The most recent, and very welcome addition, is [nginx 1.9.5](https://www.nginx.com/blog/nginx-1-9-5/). What makes nginx extra awesome is that it's very easy to set up in front of any other HTTP 1.x server (or HTTP/2 for that matter). Server push won't work just yet, but at least we can start to test how multiplexing works. Multiplexing is said to eliminate the need to concatenate resources into bundles. With multiple releases a day, it just feels wrong that clients have to download the whole 100+ kB JavaScript bundle after every release. If we don't need to bundle anymore, the clients only need to download the resources that had changed since their last visit!
+
+[HTTPS over TLS 1.2 is a requirement to use HTTP/2](https://http2.github.io/http2-spec/#TLSUsage). [Service Workers also require secure connections](http://www.w3.org/TR/service-workers/#security-considerations), and probably [other features soon](https://w3c.github.io/webappsec/specs/powerfulfeatures/).
 
 This guide will help you set up nginx for local development on OS X, with [proxy passing](https://www.nginx.com/resources/admin-guide/reverse-proxy/) requests to your local server on port 8080 (or whichever port you prefer). In plain English, that means we put nginx in between your browser and your local development server. Your browser communicates securely over HTTP/2 to nginx, and nginx forwards the requests to your local server over unsecured HTTP/1.1.
 
@@ -40,21 +41,20 @@ server {
         proxy_set_header    Host      $host;
         proxy_set_header    X-Real-IP $remote_addr;
         proxy_set_header    X-HTTPS   'True';
-        proxy_set_header    X-HTTP2   $http2;
     }
 }
 ```
 
-Now we need to generate a self signed certificate. Run this command to generate the certificate:
+Now we need to generate a self signed certificate. It will give you warnings in the browser, but it works fine for local development. This command will generate the certificate:
 
 ```
 $ cd /usr/local/etc/nginx/
 $ openssl req -x509 -sha256 -newkey rsa:2048 -keyout cert.key -out cert.pem \
    -days 1024 -nodes -subj '/CN=local.finn.no'
 ```
-Common Name: local.finn.no
+When asked for «Common Name», fill in the hostname you use locally. Most FINN.no developers use `local.finn.no`
 
-To make nginx start automatically on boot:
+If you want nginx to start automatically on boot:
 
 ```$ sudo cp /usr/local/opt/nginx/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/```
 
@@ -65,7 +65,15 @@ alias nginx-stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.ngi
 alias nginx-restart='nginx-stop && nginx-start'
 ```
 
-source ~/.profile
+The aliases won't work before you open a new terminal, but you can execute `.profile` in the current shell:
+`$ source ~/.profile`
+
+Start nginx:
+`$ nginx-start`
+
+Now you should be able to open (https://localhost/)[https://localhost/] and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
+
+If you have problems, check the nginx error log: `/usr/local/var/log/nginx/error.log`
 
 Credit:
 https://www.nginx.com/blog/nginx-1-9-5/
