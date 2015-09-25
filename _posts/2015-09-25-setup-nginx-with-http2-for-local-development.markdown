@@ -18,17 +18,22 @@ This guide will help you set up nginx for local development on OS X, with [proxy
 
 ## Installing nginx
 
-You have to compile nginx with the `--with-http_v2_module` configuration parameter, but [Homebrew](http://brew.sh/) makes that a breeze. If you don't have Homebrew already, go and install it right now! It's one of my favourite tools on OS X. Run this one-liner in Terminal to install Homebrew: `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+You have to compile nginx with the `--with-http_v2_module` configuration parameter, but [Homebrew](http://brew.sh/) makes that a breeze. If you don't have Homebrew already, go and install it right now! It's one of my favourite tools on OS X. Run this one-liner in Terminal to install Homebrew:
+{% highlight bash %}
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+{% endhighlight %}
 
 If you already have Homebrew, remember to `brew update` to get an updated list of packages
 
 To compile and install nginx with http2:
-```$ sudo brew install --devel --with-spdy nginx```
+{% highlight bash %}
+$ sudo brew install --devel --with-spdy nginx
+{% endhighlight %}
 
 After it has been installed, you'll need to edit /usr/local/etc/nginx/nginx.conf
 Comment out the existing `server` section, and copy-paste in this instead <sup>[[2]](https://ma.ttias.be/enable-http2-in-nginx/)</sup>:
 
-```
+{% highlight nginx %}
 server {
     listen                     443 ssl http2;
     server_name                localhost;
@@ -45,33 +50,41 @@ server {
         proxy_set_header    X-HTTPS   'True';
     }
 }
-```
+{% endhighlight %}
 
 Now we need to generate a self signed certificate. It will give you warnings in the browser, but it works fine for local development. This command will generate the certificate <sup>[[3]](https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/)</sup>:
 
-```
+{% highlight bash %}
 $ cd /usr/local/etc/nginx/
 $ sudo openssl req -x509 -sha256 -newkey rsa:2048 -keyout cert.key -out cert.pem \
    -days 1024 -nodes -subj '/CN=local.finn.no'
-```
+{% endhighlight %}
+
 When asked for «Common Name», fill in the hostname you use locally. Most FINN.no developers use `local.finn.no`
 
 If you want nginx to start automatically on boot <sup>[[4]](https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286)</sup>:
 
-```$ sudo cp /usr/local/opt/nginx/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/```
+{% highlight bash %}
+$ sudo cp /usr/local/opt/nginx/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/
+{% endhighlight %}
 
 Add to ~/.profile for easy aliases <sup>[[4]](https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286)</sup>:
-```
+
+{% highlight bash %}
 alias nginx-start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx-stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx-restart='nginx-stop && nginx-start'
-```
+{% endhighlight %}
 
 The aliases won't work before you open a new terminal, but you can execute `.profile` in the current shell:
-`$ source ~/.profile`
+{% highlight bash %}
+$ source ~/.profile
+{% endhighlight %}
 
 Start nginx:
-`$ nginx-start`
+{% highlight bash %}
+$ nginx-start
+{% endhighlight %}
 
 Now you should be able to open (https://localhost/)[https://localhost/] and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
 
@@ -81,7 +94,10 @@ To see that you really are using HTTP/2 in Chrome, you have to open the Network 
 Then you should see HTTP/2 traffic show up as *h2* in the protocol column.
 ![Screenshot of the protocol column showing network traffic as “h2”](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-protocol-column.png)
 
-If you have problems, check the nginx error log: `/usr/local/var/log/nginx/error.log`
+If you have problems, check the nginx error log:
+{% highlight bash %}
+/usr/local/var/log/nginx/error.log
+{% endhighlight %}
 
 *Thanks to Sveinung Røsaker and Rune Halvorsen for feedback*
 

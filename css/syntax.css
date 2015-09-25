@@ -1,3 +1,4 @@
+pre { white-space: pre; overflow: auto; }
 .highlight pre { margin: 20px 0; }
 .highlight pre { font-size: 80%; }
 .highlight .hll { background-color: #ffc; }
