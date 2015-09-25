@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2015-09-24 16:54:00+0200
+date: 2015-09-25 23:57:00+0200
 authors: Gregers Rygg
 title: "Setup nginx with HTTP/2 for local development (OS X)"
 description: "Simple instructions on how to get started with nginx on your local developement computer"
@@ -75,10 +75,11 @@ Start nginx:
 
 Now you should be able to open (https://localhost/)[https://localhost/] and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
 
-To see that you really are using HTTP/2 in Chrome, you have to open the Network tab in Developer Tools. Right click (or CTRL-click) the column heading above the network requests, then make sure “Protocol” is checked.
-![test](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-show-protocol.png)
+To see that you really are using HTTP/2 in Chrome, you have to open the Network tab in Developer Tools. Right click (or CTRL-click) the column heading above the network requests, then make sure *Protocol* is checked.
+![How to add a protocol column in Chrome Dev-tools](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-show-protocol.png)
 
-![test2](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-protocol-column.png)
+Then you should see HTTP/2 traffic show up as *h2* in the protocol column.
+![Screenshot of the protocol column showing network traffic as “h2”](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-protocol-column.png)
 
 If you have problems, check the nginx error log: `/usr/local/var/log/nginx/error.log`
 
