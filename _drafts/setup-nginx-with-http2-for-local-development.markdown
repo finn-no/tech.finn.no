@@ -45,7 +45,7 @@ server {
 }
 ```
 
-Now we need to generate a self signed certificate. It will give you warnings in the browser, but it works fine for local development. This command will generate the certificate:
+Now we need to generate a self signed certificate. It will give you warnings in the browser, but it works fine for local development. This command will generate the certificate <sup>[[3]](https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/)</sup>:
 
 ```
 $ cd /usr/local/etc/nginx/
@@ -76,7 +76,7 @@ Now you should be able to open (https://localhost/)[https://localhost/] and ngin
 If you have problems, check the nginx error log: `/usr/local/var/log/nginx/error.log`
 
 Credit:
-https://www.nginx.com/blog/nginx-1-9-5/
-https://ma.ttias.be/enable-http2-in-nginx/
-https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/
-https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286
+1. <https://www.nginx.com/blog/nginx-1-9-5/>
+2. <https://ma.ttias.be/enable-http2-in-nginx/>
+3. <https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/>
+4. <https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286>
