@@ -7,7 +7,7 @@ title: "Setup nginx with HTTP/2 for local development (OS X)"
 description: "Simple instructions on how to get started with nginx on your local developement computer"
 tags:
 - nginx
-- http/2
+- http2
 - https
 ---
 HTTP/2 became an official standard in May earlier this year, and support is starting to land in servers already. The most recent, and very welcome addition, is nginx 1.9.5 [[1]](https://www.nginx.com/blog/nginx-1-9-5/). What makes nginx extra awesome is that it's very easy to set up in front of any other HTTP 1.x server (or HTTP/2 for that matter). Server push won't work just yet, but at least we can start to test how multiplexing works. Multiplexing is said to eliminate the need to concatenate resources into bundles. At FINN.no we do multiple releases a day, and it just feels wrong that users have to download the whole 100+ kB JavaScript bundle after every release, even though most of the time only a few lines have changed. If we don't need to bundle anymore, the users only need to download the few scripts that had changed since their last visit!
