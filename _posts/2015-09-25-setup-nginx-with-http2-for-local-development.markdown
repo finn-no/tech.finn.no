@@ -86,7 +86,7 @@ Start nginx:
 $ nginx-start
 {% endhighlight %}
 
-Now you should be able to open (https://localhost/)[https://localhost/] and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
+Now you should be able to open [https://localhost/](https://localhost/) and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
 
 To see that you really are using HTTP/2 in Chrome, you have to open the Network tab in Developer Tools. Right click (or CTRL-click) the column heading above the network requests, then make sure *Protocol* is checked.
 ![How to add a protocol column in Chrome Dev-tools](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-show-protocol.png)
