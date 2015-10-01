@@ -18,20 +18,31 @@ This guide will help you set up nginx for local development on OS X, with [proxy
 
 ## Installing nginx
 
-You have to compile nginx with the `--with-http_v2_module` configuration parameter, but [Homebrew](http://brew.sh/) makes that a breeze. If you don't have Homebrew already, go and install it right now! It's one of my favourite tools on OS X. Run this one-liner in Terminal to install Homebrew:
-{% highlight bash %}
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-{% endhighlight %}
+You have to compile nginx with the `--with-http_v2_module` configuration parameter, but [Homebrew](http://brew.sh/) makes that a breeze. It's one of my favorite tools on OS X.
 
-If you already have Homebrew, remember to `brew update` to get an updated list of packages
+If you don't have Homebrew, see [Install Homebrew](#install-homebrew) further down.
 
 To compile and install nginx with http2:
 {% highlight bash %}
+$ sudo brew update   # update list of packages
 $ sudo brew install --devel --with-spdy nginx
 {% endhighlight %}
 
-After it has been installed, you'll need to edit /usr/local/etc/nginx/nginx.conf
-Comment out the existing `server` section, and copy-paste in this instead <sup>[[2]](https://ma.ttias.be/enable-http2-in-nginx/)</sup>:
+Test that the install works (make sure port 8080 is available):
+
+{% highlight bash %}
+$ sudo nginx
+$ open http://localhost:8080/
+{% endhighlight %}
+
+You should see a page with the title “Welcome to nginx!”
+
+{% highlight bash %}
+# stop nginx
+$ sudo nginx -s stop
+{% endhighlight %}
+
+Now it's time to set up the https server with HTTP/2 enabled. Open /usr/local/etc/nginx/nginx.conf in an editor, and comment out the existing `server` section. Then copy-paste in the config below instead<sup>[[2]](https://ma.ttias.be/enable-http2-in-nginx/)</sup>. If your local server runs on a different port than 8080, you can change it in the proxy_pass URL.
 
 {% highlight nginx %}
 server {
@@ -52,7 +63,7 @@ server {
 }
 {% endhighlight %}
 
-Now we need to generate a self signed certificate. It will give you warnings in the browser, but it works fine for local development. This command will generate the certificate <sup>[[3]](https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/)</sup>:
+To use https we need to generate a self signed certificate. It will give you a warning in the browser, but it works fine for local development. This command will generate the certificate <sup>[[3]](https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/)</sup>:
 
 {% highlight bash %}
 $ cd /usr/local/etc/nginx/
@@ -62,31 +73,35 @@ $ sudo openssl req -x509 -sha256 -newkey rsa:2048 -keyout cert.key -out cert.pem
 
 When asked for «Common Name», fill in the hostname you use locally. Most FINN.no developers use `local.finn.no`
 
-If you want nginx to start automatically on boot <sup>[[4]](https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286)</sup>:
+To set up nginx to start automatically on boot, [Homebrew Services](https://github.com/Homebrew/homebrew-services) can set it up very easily.
 
 {% highlight bash %}
-$ sudo cp /usr/local/opt/nginx/homebrew.mxcl.nginx.plist /Library/LaunchDaemons/
+# install Homebrew Services
+$ sudo brew tap homebrew/services
 {% endhighlight %}
 
-Add to ~/.profile for easy aliases <sup>[[4]](https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286)</sup>:
+It is required to run nginx as root to open ports under 1024, and we want it to run on port 443. Homebrew Services will set it up correctly just by using sudo.
 
+Start nginx (and install to /Library/LaunchDaemons):
 {% highlight bash %}
-alias nginx-start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx-stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx-restart='nginx-stop && nginx-start'
+$ sudo brew services start nginx
 {% endhighlight %}
 
-The aliases won't work before you open a new terminal, but you can execute `.profile` in the current shell:
+Homebrew Services can also be used to stop and restart nginx
 {% highlight bash %}
-$ source ~/.profile
+$ sudo brew services stop nginx
+$ sudo brew services restart nginx
 {% endhighlight %}
 
-Start nginx:
-{% highlight bash %}
-$ nginx-start
-{% endhighlight %}
+Now you should be able to open [https://localhost/](https://localhost/) and nginx should proxy pass to your local development server.
 
-Now you should be able to open [https://localhost/](https://localhost/) and nginx should proxy pass to your local development server. If you get a 502 error, check that your local server is running.
+If you get a certificate warning, then it is working. It is only because you're using the self signed certificate and not one signed by a certificate authority. Most browsers allow you to ignore the warning.
+
+![Certificate warning. Click the “Advanced” link in the lower left corner.](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-cert-warn-1.png)
+
+![Certificate warning #2. Click “Proceed to {hostname} (unsafe)” link in the lower left corner.](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-cert-warn-2.png)
+
+If it doesn't work, see the [Troubleshooting](#troubleshooting) section further down.
 
 To see that you really are using HTTP/2 in Chrome, you have to open the Network tab in Developer Tools. Right click (or CTRL-click) the column heading above the network requests, then make sure *Protocol* is checked.
 ![How to add a protocol column in Chrome Dev-tools](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-show-protocol.png)
@@ -94,15 +109,38 @@ To see that you really are using HTTP/2 in Chrome, you have to open the Network 
 Then you should see HTTP/2 traffic show up as *h2* in the protocol column.
 ![Screenshot of the protocol column showing network traffic as “h2”](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-protocol-column.png)
 
-If you have problems, check the nginx error log:
-{% highlight bash %}
-/usr/local/var/log/nginx/error.log
-{% endhighlight %}
+Congratulations, you now have HTTP/2 and HTTPS working!
 
-*Thanks to Sveinung Røsaker and Rune Halvorsen for feedback*
+*Thanks to Sveinung Røsaker, Rune Halvorsen, Tor Arne Kvaløy and Frode Risøy for feedback*
+
+Update Oct. 1, 2015: Replaced custom aliases with `brew services` and added tips for common problems.
 
 Credit:
 1. <https://www.nginx.com/blog/nginx-1-9-5/>
 2. <https://ma.ttias.be/enable-http2-in-nginx/>
 3. <https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/>
-4. <https://superuser.com/questions/304206/how-do-i-start-nginx-on-port-80-at-os-x-login/474286#474286>
+
+
+## Extra
+
+### Install Homebrew
+
+Run this one-liner in Terminal to install Homebrew:
+{% highlight bash %}
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# if you haven't installed Command Line Developer Tools from Apple already
+$ xcode-select --install
+{% endhighlight %}
+
+### Troubleshooting
+
+#### Connection refused
+A “Connection refused” error probably means that nginx is not running correctly.
+
+* Check that the ports in nginx.conf is not already in use
+* Check that you run nginx as root (sudo)
+* Check the error.log: `/usr/local/var/log/nginx/error.log`
+
+#### 502 Bad Gateway
+If you get a 502 error, nginx is running, but nginx is not able to connect to your development server. Check that your development server is running, and that you have the correct port in nginx.conf. Copy the value of `proxy_pass` and try to open it in your browser. For the config above, that would be `http://localhost:8080`.
