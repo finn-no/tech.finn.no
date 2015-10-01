@@ -99,7 +99,13 @@ If you get a certificate warning, then it is working. It is only because you're 
 
 ![Certificate warning. Click the “Advanced” link in the lower left corner.](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-cert-warn-1.png)
 
-![Certificate warning #2. Click “Proceed to {hostname} (unsafe)” link in the lower left corner.](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-cert-warn-2.png)
+By adding the self signed certificate as a trusted certificate in System Keychain, we'll get the green lock icon <sup>[[4]](http://apple.stackexchange.com/questions/80623/import-certificates-into-system-keychain-via-the-command-line)</sup>:
+
+{% highlight bash %}
+$ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /usr/local/etc/nginx/cert.pem
+{% endhighlight %}
+
+![Green lock icon beside the hostname](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-green-lock.png "Yes, I do like tabs 🙈")
 
 If it doesn't work, see the [Troubleshooting](#troubleshooting) section further down.
 
@@ -111,14 +117,15 @@ Then you should see HTTP/2 traffic show up as *h2* in the protocol column.
 
 Congratulations, you now have HTTP/2 and HTTPS working!
 
-*Thanks to Sveinung Røsaker, Rune Halvorsen, Tor Arne Kvaløy and Frode Risøy for feedback*
+*Thanks to Sveinung Røsaker, Rune Halvorsen, Tor Arne Kvaløy, Frode Risøy and Martin Solli for feedback and tips*
 
-Update Oct. 1, 2015: Replaced custom aliases with `brew services` and added tips for common problems.
+Update Oct. 1, 2015: How to make the self-signed certificate trusted. Replaced custom aliases with `brew services` and added tips for common problems.
 
 Credit:
 1. <https://www.nginx.com/blog/nginx-1-9-5/>
 2. <https://ma.ttias.be/enable-http2-in-nginx/>
 3. <https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/>
+4. <http://apple.stackexchange.com/questions/80623/import-certificates-into-system-keychain-via-the-command-line>
 
 
 ## Extra
