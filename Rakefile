@@ -12,6 +12,7 @@ CONFIG = {
   'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'drafts' => File.join(SOURCE, "_drafts"),
   'post_ext' => "md",
   'theme_package_version' => "0.1.0"
 }
@@ -52,17 +53,10 @@ task :post do
   category = "\"#{category.gsub(/-/,' ')}\"" if !category.empty?
   user = ENV["USER"] || ""
   slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-  begin
-    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
-    datetime = Time.now.strftime('%Y-%m-%d %T%z')
-  rescue => e
-    puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
-    exit -1
-  end
+  date = get_or_make_date
+  datetime = Time.now.strftime('%Y-%m-%d %T%z')
   filename = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
-  if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
-  end
+  abort_if_exists?(filename)
 
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
@@ -79,6 +73,20 @@ task :post do
   end
 end # task :post
 
+# Usage: rake publish slug="a-slug-from-drafts-directory" [date="2015-10-07"]
+desc "Move a draft from #{CONFIG['drafts']} to #{CONFIG['posts']} for publishing"
+task :publish do
+  abort("rake aborted: #{CONFIG['drafts']} directory not found.") unless FileTest.directory?(CONFIG['drafts'])
+  abort("rake aborted: #{CONFIG['posts']} directory not found.") unless FileTest.directory?(CONFIG['posts'])
+  slug = ENV["slug"] || "a-slug"
+  date = get_or_make_date
+  source = File.join(CONFIG['drafts'], "#{slug}.#{CONFIG['post_ext']}")
+  abort("rake aborted: #{source} file not found.") unless File.exist?(source)
+  target = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  abort_if_exists?(target)
+  FileUtils.mv(source, target)
+end
+
 # Usage: rake page name="about.html"
 # You can also specify a sub-directory path.
 # If you don't specify a file extention we create an index.html at the path specified
@@ -88,9 +96,7 @@ task :page do
   filename = File.join(SOURCE, "#{name}")
   filename = File.join(filename, "index.html") if File.extname(filename) == ""
   title = File.basename(filename, File.extname(filename)).gsub(/[\W\_]/, " ").gsub(/\b\w/){$&.upcase}
-  if File.exist?(filename)
-    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
-  end
+  abort_if_exists?(filename)
 
   mkdir_p File.dirname(filename)
   puts "Creating new page: #{filename}"
@@ -311,6 +317,22 @@ end
 def get_stdin(message)
   print message
   STDIN.gets.chomp
+end
+
+def abort_if_exists?(filename)
+    if File.exist?(filename)
+        abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+    end
+end
+
+def get_or_make_date
+    begin
+        date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d')
+    rescue => e
+        puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
+        exit -1
+    end
+    date
 end
 
 #Load custom rake scripts
