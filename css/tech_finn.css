@@ -22,7 +22,7 @@ body{
 .post-content ul { padding-left: 20px; list-style: disc outside; }
 
 .ftlogo {
-	width: 80px; 
+	width: 80px;
 }
 
 @media screen and (min-width:600px) {
@@ -33,4 +33,16 @@ body{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.expandable-image {
+  float: left;
+  margin: 10px;
+  margin-left: 0;
+  transition: max-width .2s;
+  max-width: 100%;
+}
+
+.expandable-image-small {
+    max-width: 300px;
 }

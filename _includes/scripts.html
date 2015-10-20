@@ -8,3 +8,14 @@
 }(document.getElementsByTagName('time')));
 </script>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+(function(images){
+    for (var i = 0; i < images.length; ++i) {
+        var el = images[i];
+        el.onclick = function() {
+            this.classList.toggle('expandable-image-small');
+        };
+        el.title += " (Click to enlarge)";
+    }
+}(document.getElementsByClassName('expandable-image')));
+</script>
