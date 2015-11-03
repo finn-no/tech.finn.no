@@ -80,11 +80,15 @@ task :publish do
   abort("rake aborted: #{CONFIG['posts']} directory not found.") unless FileTest.directory?(CONFIG['posts'])
   slug = ENV["slug"] || "a-slug"
   date = get_or_make_date
+  datetime = Time.now.strftime('%Y-%m-%d %T%z')
   source = File.join(CONFIG['drafts'], "#{slug}.#{CONFIG['post_ext']}")
   abort("rake aborted: #{source} file not found.") unless File.exist?(source)
   target = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
   abort_if_exists?(target)
-  FileUtils.mv(source, target)
+  open(target, 'w') do |post|
+      post.puts File.read(source).gsub(/^date: \d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.*$/, "date: #{datetime}")
+  end
+  FileUtils.rm(source)
 end
 
 # Usage: rake page name="about.html"
