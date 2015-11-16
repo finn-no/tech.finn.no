@@ -1,153 +1,136 @@
 ---
 layout: post
 comments: true
-date: 2015-09-25 23:57:00+0200
-authors: Gregers Rygg
-title: "Setup nginx with HTTP/2 for local development (OS X)"
-description: "Simple instructions on how to get started with nginx on your local developement computer"
+date: 2015-10-16 16:00:00+0200
+authors: Tor Arne Kvaløy
+title: "Javascript: from callback hell to heaven"
+description: "Short introduction to ES7 async await features"
 tags:
-- nginx
-- http2
-- https
+- es6
+- es7
 ---
-HTTP/2 became an official standard in May earlier this year, and support is starting to land in servers already. The most recent, and very welcome addition, is nginx 1.9.5 [[1]](https://www.nginx.com/blog/nginx-1-9-5/). What makes nginx extra awesome is that it's very easy to set up in front of any other HTTP 1.x server (or HTTP/2 for that matter). Server push won't work just yet, but at least we can start to test how multiplexing works. Multiplexing is said to eliminate the need to concatenate resources into bundles. At FINN.no we do multiple releases a day, and it just feels wrong that users have to download the whole 100+ kB JavaScript bundle after every release, even though most of the time only a few lines have changed. If we don't need to bundle anymore, the users only need to download the few scripts that had changed since their last visit!
 
-[HTTPS over TLS 1.2 is a requirement to use HTTP/2](https://http2.github.io/http2-spec/#TLSUsage). [Service Workers also require secure connections](http://www.w3.org/TR/service-workers/#security-considerations), and probably [other features soon](https://w3c.github.io/webappsec/specs/powerfulfeatures/).
+This blogpost explains how some nifty features in ES7 will make it easier to write asynchronous code, and how ES6 generators will pave the way for this.
+ 
+## Async/await 
+ 
+My main annoyance with javascript and Node has been the tedious asynchronous programming model of callbaks, leading to nested callbacks and the so called “callback hell” or “pyramid of doom”. Take for example the following code where we are creating a function that reads a file and parses it to JSON, and see how cumbersome it is to read and follow the code: 
 
-This guide will help you set up nginx for local development on OS X, with [proxy passing](https://www.nginx.com/resources/admin-guide/reverse-proxy/) requests to your local server on port 8080 (or whichever port you prefer). In plain English, that means we put nginx in between your browser and your local development server. Your browser communicates securely over HTTP/2 to nginx, and nginx forwards the requests to your local server over unsecured HTTP/1.1.
+{% highlight javascript %}
+const fs = require("fs");
 
-## Installing nginx
+function readJSONFile(callback) {
+    fs.readFile("file.json", "utf8", (err, data) => {
+        if (err) throw err;
+        callback(JSON.parse(data));
+    });
+};
 
-You have to compile nginx with the `--with-http_v2_module` configuration parameter, but [Homebrew](http://brew.sh/) makes that a breeze. It's one of my favorite tools on OS X.
-
-If you don't have Homebrew, see [Install Homebrew](#install-homebrew) further down.
-
-To compile and install nginx with http2:
-{% highlight bash %}
-$ sudo brew update   # update list of packages
-$ sudo brew install --devel --with-spdy nginx
-{% endhighlight %}
-
-Test that the install works (make sure port 8080 is available):
-
-{% highlight bash %}
-$ sudo nginx
-$ open http://localhost:8080/
-{% endhighlight %}
-
-You should see a page with the title “Welcome to nginx!”
-
-{% highlight bash %}
-# stop nginx
-$ sudo nginx -s stop
-{% endhighlight %}
-
-Now it's time to set up the https server with HTTP/2 enabled. Open /usr/local/etc/nginx/nginx.conf in an editor, and comment out the existing `server` section. Then copy-paste in the config below instead<sup>[[2]](https://ma.ttias.be/enable-http2-in-nginx/)</sup>. If your local server runs on a different port than 8080, you can change it in the proxy_pass URL.
-
-{% highlight nginx %}
-server {
-    listen                     443 ssl http2;
-    server_name                localhost;
-
-    ssl                        on;
-    ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
-    ssl_certificate            cert.pem;
-    ssl_certificate_key        cert.key;
-
-    location / {
-        proxy_pass          http://localhost:8080;
-        proxy_set_header    Host      $host;
-        proxy_set_header    X-Real-IP $remote_addr;
-        proxy_set_header    X-HTTPS   'True';
-    }
+try {
+    readJSONFile(
+        json => {
+            console.log(json);
+            //continue program
+        });
+} catch (err) {
+    //do something
 }
 {% endhighlight %}
 
-To use https we need to generate a self signed certificate. It will give you a warning in the browser, but it works fine for local development. This command will generate the certificate <sup>[[3]](https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/)</sup>:
+This was slightly improved and simplified with ES6 [promsies](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), however, as we can see in the following code, we are still stuck with nested .then-calls:
 
-{% highlight bash %}
-$ cd /usr/local/etc/nginx/
-$ sudo openssl req -x509 -sha256 -newkey rsa:2048 -keyout cert.key -out cert.pem \
-   -days 1024 -nodes -subj '/CN=local.finn.no'
+{% highlight javascript %}
+const bluebird = require("bluebird");
+const fs = bluebird.promisifyAll(require("fs"));
+
+function readJSONFile() {
+    return fs.readFileAsync("file.json", "utf8")
+        .then(data => {
+            return JSON.parse(data);
+        })
+};
+
+readJSONFile()
+    .then(json => {
+        console.log(json);
+        //continue program
+    })
+    .catch(err => {
+        //do something
+    })
 {% endhighlight %}
 
-When asked for «Common Name», fill in the hostname you use locally. Most FINN.no developers use `local.finn.no`
+Callbacks and nested .then-statements will be thing of the past with the upcoming version of Javascript (ES7). It will provide us with the keywords [async and await](https://tc39.github.io/ecmascript-asyncawait/), which will enable us to write asynchronous code as we would have written it in an imperative synchronous way:
+{% highlight javascript %}
+const bluebird = require("bluebird");
+const fs = bluebird.promisifyAll(require("fs"));
 
-To set up nginx to start automatically on boot, [Homebrew Services](https://github.com/Homebrew/homebrew-services) can set it up very easily.
+async function readJSONFile() {
+    const data = await fs.readFileAsync("file.json", "utf8");
+    return JSON.parse(data);
+}
 
-{% highlight bash %}
-# install Homebrew Services
-$ sudo brew tap homebrew/services
+async function() {
+    try {
+        const json = await readJSONFile();
+        console.log(json);
+        //continue program
+    } catch(err) {
+        //do something
+    }
+};
 {% endhighlight %}
 
-It is required to run nginx as root to open ports under 1024, and we want it to run on port 443. Homebrew Services will set it up correctly just by using sudo.
+The await keyword can either take a promise or an async-function, and pauses until the promise resolves, or the async function returns.  If the promise rejects or the async function throws an error, the error can be caught with a normal catch-statement.  This provides a significant improvement in readability, which likely leads to less bugs and a pleasure to write.
 
-Start nginx (and install to /Library/LaunchDaemons):
-{% highlight bash %}
-$ sudo brew services start nginx
+
+## Generators
+
+Along with promises, ES6 brought [generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators), which allows a function to paused at a certain point (yield) and continue when requested with .next(), as illustrated in the following code:
+
+{% highlight javascript %}
+function* hello(name) {
+    console.log(name);
+    const age = yield;
+    console.log(age);
+}
+
+const helloGen = hello("Tor");
+helloGen.next(); // => Tor
+helloGen.next(37); // => 37
+
 {% endhighlight %}
 
-Homebrew Services can also be used to stop and restart nginx
-{% highlight bash %}
-$ sudo brew services stop nginx
-$ sudo brew services restart nginx
+
+Generators are not very useful for normal application logic, but they provide the buildings blocks for some nifty features. 
+
+First of all, ES7 async/await can be transpiled ([by Babel](https://babeljs.io)) to generators, so that javascript environments that supports generators (Chrome, Firefox and Node), also supports async/await. 
+
+However, because Safari and Internet Explorer don't support generators yet, it is to early to start using generators on the front-end, however, on the backend with Node, it can be safely used, because async/await keywords are transpiled to generators.   
+
+A web framework in Node that is based around generators, and uses it for all it is worth, is [Koa](http://koajs.com). They utilize generators to make the code behave similar to async/await: 
+
+{% highlight javascript %}
+const Koa = require("koa");
+const app = Koa();
+const router = require("koa-router")();
+
+function* getName() {
+    return Promise.resolve("Tor");
+}
+
+app.use(router.routes());
+
+router.get("/hello", function* () {
+    const name = yield getName();
+    this.body = "Hello " + name;
+});
+
+app.listen(3000);
+
 {% endhighlight %}
 
-Now you should be able to open [https://localhost/](https://localhost/) and nginx should proxy pass to your local development server.
+The [yield](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield) keyword behaves as await, and generator [function* ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) behaves as async functions. The main motivation for this is to simplify writing middlewares, and avoid the mentioned callback hell. In the next version of Koa, the yield keyword and generator functions will be replaced with await and async.  
 
-If you get a certificate warning, then it is working. It is only because you're using the self signed certificate and not one signed by a certificate authority. Most browsers allow you to ignore the warning.
-
-![Certificate warning. Click the “Advanced” link in the lower left corner.](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-cert-warn-1.png)
-
-By adding the self signed certificate as a trusted certificate in System Keychain, we'll get the green lock icon <sup>[[4]](http://apple.stackexchange.com/questions/80623/import-certificates-into-system-keychain-via-the-command-line)</sup>:
-
-{% highlight bash %}
-$ sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /usr/local/etc/nginx/cert.pem
-{% endhighlight %}
-
-![Green lock icon beside the hostname](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-green-lock.png "Yes, I do like tabs 🙈")
-
-If it doesn't work, see the [Troubleshooting](#troubleshooting) section further down.
-
-To see that you really are using HTTP/2 in Chrome, you have to open the Network tab in Developer Tools. Right click (or CTRL-click) the column heading above the network requests, then make sure *Protocol* is checked.
-![How to add a protocol column in Chrome Dev-tools](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-show-protocol.png)
-
-Then you should see HTTP/2 traffic show up as *h2* in the protocol column.
-![Screenshot of the protocol column showing network traffic as “h2”](/images/2015-09-25-setup-nginx-with-http2-for-local-development/chrome-protocol-column.png)
-
-Congratulations, you now have HTTP/2 and HTTPS working!
-
-*Thanks to Sveinung Røsaker, Rune Halvorsen, Tor Arne Kvaløy, Frode Risøy and Martin Solli for feedback and tips*
-
-Update Oct. 1, 2015: How to make the self-signed certificate trusted. Replaced custom aliases with `brew services` and added tips for common problems.
-
-Credit:
-1. <https://www.nginx.com/blog/nginx-1-9-5/>
-2. <https://ma.ttias.be/enable-http2-in-nginx/>
-3. <https://ma.ttias.be/how-to-create-a-self-signed-ssl-certificate-with-openssl/>
-4. <http://apple.stackexchange.com/questions/80623/import-certificates-into-system-keychain-via-the-command-line>
-
-
-## Extra
-
-### Install Homebrew
-
-Run this one-liner in Terminal to install Homebrew:
-{% highlight bash %}
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# if you haven't installed Command Line Developer Tools from Apple already
-$ xcode-select --install
-{% endhighlight %}
-
-### Troubleshooting
-
-#### Connection refused
-A “Connection refused” error probably means that nginx is not running correctly.
-
-* Check that the ports in nginx.conf is not already in use
-* Check that you run nginx as root (sudo)
-* Check the error.log: `/usr/local/var/log/nginx/error.log`
-
-#### 502 Bad Gateway
-If you get a 502 error, nginx is running, but nginx is not able to connect to your development server. Check that your development server is running, and that you have the correct port in nginx.conf. Copy the value of `proxy_pass` and try to open it in your browser. For the config above, that would be `http://localhost:8080`.
+## Conclusion
+So, ES7 provides a fantastic improvement in simplifying asynchronous code that makes code easier to read and write. These features can already be used on the backend with Node and web frameworks like Koa.
