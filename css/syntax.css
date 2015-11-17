@@ -1,6 +1,6 @@
 pre { white-space: pre; overflow: auto; }
-.highlight pre { margin: 20px 0; }
-.highlight pre { font-size: 80%; }
+.highlight { background-color: #F4F4F4; }
+.highlight pre { font-size: 80%; padding: 20px 0}
 .highlight .hll { background-color: #ffc; }
 .highlight .c { color: #999; } /* Comment */
 .highlight .err { color: #a00; background-color: #faa } /* Error */
