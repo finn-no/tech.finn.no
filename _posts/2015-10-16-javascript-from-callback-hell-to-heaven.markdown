@@ -22,7 +22,17 @@ const fs = require("fs");
 function readJSONFile(callback) {
     fs.readFile("file.json", "utf8", (err, data) => {
         if (err) return callback(err);
-        callback(null, JSON.parse(data));
+        
+        let json;
+        let parseError;
+        
+        try {
+            json = JSON.parse(data);
+        } catch(e) {
+            parseError = e;
+        }
+        
+        callback(null, json);
     });
 };
 
