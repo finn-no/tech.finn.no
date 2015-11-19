@@ -143,3 +143,6 @@ The [yield](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Op
 
 ## Conclusion
 So, ES7 provides a fantastic improvement in simplifying asynchronous code that makes code easier to read and write. These features can already be used on the backend with Node and web frameworks like Koa.
+
+## Credits
+Thanks to Sveinung Røsaker for improving the callback example.
