@@ -21,20 +21,19 @@ const fs = require("fs");
 
 function readJSONFile(callback) {
     fs.readFile("file.json", "utf8", (err, data) => {
-        if (err) throw err;
-        callback(JSON.parse(data));
+        if (err) return callback(err);
+        callback(null, JSON.parse(data));
     });
 };
 
-try {
-    readJSONFile(
-        json => {
-            console.log(json);
-            //continue program
-        });
-} catch (err) {
-    //do something
-}
+readJSONFile((err, json) => {
+    if(err) {
+        //handle error
+    }
+    console.log(json);
+    //continue program
+});
+
 {% endhighlight %}
 
 This was slightly improved and simplified with ES6 [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), however, as we can see in the following code, we are still stuck with nested .then-calls:
@@ -56,7 +55,7 @@ readJSONFile()
         //continue program
     })
     .catch(err => {
-        //do something
+        //handle error
     })
 {% endhighlight %}
 
@@ -76,7 +75,7 @@ async function() {
         console.log(json);
         //continue program
     } catch(err) {
-        //do something
+        //handle error
     }
 };
 {% endhighlight %}
