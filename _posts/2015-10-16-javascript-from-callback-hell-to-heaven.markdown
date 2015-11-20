@@ -32,7 +32,7 @@ function readJSONFile(callback) {
             parseError = e;
         }
         
-        callback(null, json);
+        callback(parseError, json);
     });
 };
 
