@@ -1,5 +1,5 @@
 ---
-authors: mortenlj
+authors: Morten Lied Johansen
 comments: true
 date: 2012-09-04 09:48:05+00:00
 layout: post

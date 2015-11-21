@@ -2,7 +2,7 @@
 layout: post
 comments: true
 date: 2015-11-21 22:28:28+0100
-authors: mortenlj
+authors: Morten Lied Johansen
 title: The great big Schibsted programming language survey 2015
 image_dir: /images/the-great-big-schibsted-programming-language-survey-2015
 tags:
