@@ -46,10 +46,10 @@ class Experts(object):
         criterion = self.df['Current work'].map(predicate)
         df2 = self.df[criterion][language]
         filename = "expert/{}/{}.png".format(level, language)
-        print "Plotting {} - {} to {}".format(language, level, filename)
         if not df2.empty:
             plot = df2.plot(kind='hist', title="{} - {}".format(language, level), range=(1, 6), bins=5, align='left')
             plot.get_figure().savefig(filename)
+            print filename
 
 
 class MultiColumn(object):
@@ -62,7 +62,7 @@ class MultiColumn(object):
             os.unlink(self.filename)
 
     def plot(self):
-        print "Plotting {} to {}".format(self.column_name, self.filename)
+        print self.filename
         df2 = self.df[self.column_name]
         df3 = df2.str.split(",").apply(pd.Series)
         df4 = df3.unstack().dropna().str.strip()

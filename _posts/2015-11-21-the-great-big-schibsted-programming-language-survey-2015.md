@@ -157,9 +157,9 @@ So, how good are we at what we do?
 The results here are somewhat skewed by the fact that people will naturally be more skilled in the languages they use regulary, and the companies with the most number of respondents use only a few of the languages regulary. As a result, there are more Java-experts than any other kind of experts. 102 respondents consider themselves Java-experts. Java is also the only language where there are more experts than any of the other "ranks".
 
 <div style="clear: both;">
-<img src="{{ page.image_dir }}/expert/all/Java.png" title="Java" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/all/JavaScript.png" title="JavaScript" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/all/PHP.png" title="PHP" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/Java.png" title="Java" alt="Java" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/JavaScript.png" title="JavaScript" alt="JavaScript" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/PHP.png" title="PHP" alt="PHP" class="expandable-image expandable-image-small"/>
 </div>
 <div style="clear: both;"/>
 
@@ -170,9 +170,9 @@ Languages we don't really know are C#, Clojure, CoffeeScript, Go, Groovy, Object
 Most people consider themselves above average when it comes to JavaScript (205 respondents scored 3 or higher), while only 15 don't know it at all. Similary, 255 people consider themselves above average in Java, and only 13 don't know it at all. Of the three most used languages, Bash is the only one where the skills are concentrated below average. 223 people scored themselves at 3 or less for Bash knowledge, of which 18 don't know it at all. At the other end, a single person considers themselves a Bash-expert.
 
 <div style="clear: both;">
-<img src="{{ page.image_dir }}/expert/all/Python.png" title="Python" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/all/Objective-C.png" title="Objective-C" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/all/Scala.png" title="Scala" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/Python.png" title="Python" alt="Python" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/Objective-C.png" title="Objective-C" alt="Objective-C" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/all/Scala.png" title="Scala" alt="Scala" class="expandable-image expandable-image-small"/>
 </div>
 <div style="clear: both;"/>
 
@@ -183,9 +183,9 @@ I'll pick a few interesting ones, graphs for all are available at the end.
 Java is almost symetrical among the "amateurs". Most amateurs are about average, but of the rest, less and more knowledge is more or less equally distributed. This is in sharp contrast to the "pros", where a large majority consider themselves experts. While it's easy to think that in the group of "pros", it will always be many experts, Java, Objective-C and PHP are the only languages where the experts are the largest group.
 
 <div style="clear: both;">
-<img src="{{ page.image_dir }}/expert/pro/Java.png" title="Java" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/pro/Objective-C.png" title="Objective-C" class="expandable-image expandable-image-small"/>
-<img src="{{ page.image_dir }}/expert/pro/PHP.png" title="PHP" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/pro/Java.png" title="Java" alt="Java" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/pro/Objective-C.png" title="Objective-C" alt="Objective-C" class="expandable-image expandable-image-small"/>
+<img src="{{ page.image_dir }}/expert/pro/PHP.png" title="PHP" alt="PHP" class="expandable-image expandable-image-small"/>
 </div>
 <div style="clear: both;"/>
 
@@ -247,30 +247,15 @@ Let me know if you blog about these results, and I'll add a link here. Or just p
 
 #### Skill levels, currently using the language at work
 
-<div style="clear: both;">
-{% directory path: images/the-great-big-schibsted-programming-language-survey-2015/expert/pro %}
-<img src="{{ file.url | replace: '#', '%23' }}" title="{{ file.slug }}" class="expandable-image expandable-image-small"/>
-{% enddirectory %}
-</div>
-<div style="clear: both;"/>
+[Bash]({{page.image_dir}}/expert/pro/Bash.png), [C]({{page.image_dir}}/expert/pro/C.png), [C#]({{page.image_dir}}/expert/pro/C%23.png), [C++]({{page.image_dir}}/expert/pro/C++.png), [Clojure]({{page.image_dir}}/expert/pro/Clojure.png), [CoffeeScript]({{page.image_dir}}/expert/pro/CoffeeScript.png), [Go]({{page.image_dir}}/expert/pro/Go.png), [Groovy]({{page.image_dir}}/expert/pro/Groovy.png), [Java]({{page.image_dir}}/expert/pro/Java.png), [JavaScript]({{page.image_dir}}/expert/pro/JavaScript.png), [Objective-C]({{page.image_dir}}/expert/pro/Objective-C.png), [PHP]({{page.image_dir}}/expert/pro/PHP.png), [Python]({{page.image_dir}}/expert/pro/Python.png), [Ruby]({{page.image_dir}}/expert/pro/Ruby.png), [Scala]({{page.image_dir}}/expert/pro/Scala.png), [Swift]({{page.image_dir}}/expert/pro/Swift.png)
 
 #### Skill levels, not using the language at work
 
-<div style="clear: both;">
-{% directory path: images/the-great-big-schibsted-programming-language-survey-2015/expert/amateur %}
-<img src="{{ file.url | replace: '#', '%23' }}" title="{{ file.slug }}" class="expandable-image expandable-image-small"/>
-{% enddirectory %}
-</div>
-<div style="clear: both;"/>
+[Bash]({{page.image_dir}}/expert/amateur/Bash.png), [C]({{page.image_dir}}/expert/amateur/C.png), [C#]({{page.image_dir}}/expert/amateur/C%23.png), [C++]({{page.image_dir}}/expert/amateur/C++.png), [Clojure]({{page.image_dir}}/expert/amateur/Clojure.png), [CoffeeScript]({{page.image_dir}}/expert/amateur/CoffeeScript.png), [Go]({{page.image_dir}}/expert/amateur/Go.png), [Groovy]({{page.image_dir}}/expert/amateur/Groovy.png), [Java]({{page.image_dir}}/expert/amateur/Java.png), [JavaScript]({{page.image_dir}}/expert/amateur/JavaScript.png), [Objective-C]({{page.image_dir}}/expert/amateur/Objective-C.png), [PHP]({{page.image_dir}}/expert/amateur/PHP.png), [Python]({{page.image_dir}}/expert/amateur/Python.png), [Ruby]({{page.image_dir}}/expert/amateur/Ruby.png), [Scala]({{page.image_dir}}/expert/amateur/Scala.png), [Swift]({{page.image_dir}}/expert/amateur/Swift.png)
 
 #### Skill levels, all respondents
 
-<div style="clear: both;">
-{% directory path: images/the-great-big-schibsted-programming-language-survey-2015/expert/all %}
-<img src="{{ file.url | replace: '#', '%23' }}" title="{{ file.slug }}" class="expandable-image expandable-image-small"/>
-{% enddirectory %}
-</div>
-<div style="clear: both;"/>
+[Bash]({{page.image_dir}}/expert/all/Bash.png), [C]({{page.image_dir}}/expert/all/C.png), [C#]({{page.image_dir}}/expert/all/C%23.png), [C++]({{page.image_dir}}/expert/all/C++.png), [Clojure]({{page.image_dir}}/expert/all/Clojure.png), [CoffeeScript]({{page.image_dir}}/expert/all/CoffeeScript.png), [Go]({{page.image_dir}}/expert/all/Go.png), [Groovy]({{page.image_dir}}/expert/all/Groovy.png), [Java]({{page.image_dir}}/expert/all/Java.png), [JavaScript]({{page.image_dir}}/expert/all/JavaScript.png), [Objective-C]({{page.image_dir}}/expert/all/Objective-C.png), [PHP]({{page.image_dir}}/expert/all/PHP.png), [Python]({{page.image_dir}}/expert/all/Python.png), [Ruby]({{page.image_dir}}/expert/all/Ruby.png), [Scala]({{page.image_dir}}/expert/all/Scala.png), [Swift]({{page.image_dir}}/expert/all/Swift.png)
 
 {% comment %}
     links
