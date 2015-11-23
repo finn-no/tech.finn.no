@@ -135,8 +135,8 @@ Schibsted Tech Polska delivers to a number of other companies, so they need to k
 Willhaben in Austria also know a few languages, with Java, C, JavaScript and C++ being known by almost all. PHP and Python is known by two thirds of the company, with Perl and Ruby edging onto the "known by half" list. Groovy, Scala just missed the 50% mark, along with Haskell.
 
 
-SQL and it's many variations
-----------------------------
+SQL and its many variations
+---------------------------
 
 ![sql-you-know]{: .expandable-image .expandable-image-small}
 
