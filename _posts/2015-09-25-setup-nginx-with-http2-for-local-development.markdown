@@ -77,7 +77,7 @@ To set up nginx to start automatically on boot, [Homebrew Services](https://gith
 
 {% highlight bash %}
 # install Homebrew Services
-$ sudo brew tap homebrew/services
+$ brew tap homebrew/services
 {% endhighlight %}
 
 It is required to run nginx as root to open ports under 1024, and we want it to run on port 443. Homebrew Services will set it up correctly just by using sudo.
