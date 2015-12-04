@@ -24,8 +24,8 @@ If you don't have Homebrew, see [Install Homebrew](#install-homebrew) further do
 
 To compile and install nginx with http2:
 {% highlight bash %}
-$ sudo brew update   # update list of packages
-$ sudo brew install --devel --with-spdy nginx
+$ brew update   # update list of packages
+$ brew install --devel --with-spdy nginx
 {% endhighlight %}
 
 Test that the install works (make sure port 8080 is available):
