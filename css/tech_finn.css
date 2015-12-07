@@ -2,6 +2,10 @@ body{
 	font: 16px/1.5 finnmain,Arial,Helvetica,sans-serif;
 }
 
+.tagline {
+  display: block;
+}
+
 .post-content.r-margin h1,
 .post-content.r-margin h2,
 .post-content.r-margin h3,

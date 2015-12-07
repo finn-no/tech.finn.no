@@ -3,7 +3,7 @@ permalink:        pretty
 relative_permalinks: true
 
 title:            FINN Technology
-tagline:
+tagline:          <a href="//finn.no/apply-here">Join us?</a>
 url:              http://tech.finn.no
 paginate:         1
 paginate_path:    "page/:num"
