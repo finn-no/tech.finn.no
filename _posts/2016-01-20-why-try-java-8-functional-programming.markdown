@@ -74,7 +74,10 @@ private void print(Try<Integer> t) {
 }
 {% endhighlight %}
 
-This is contrived of course. And one should rarely accept a Try as a method argument. Aaand one should rarely generate an infinite stream of 2s and print them out.
+This is contrived of course. And one should rarely accept a Try as a method argument. (And one should rarely generate an infinite stream of 2s and print them out.)
+
+
+Lets look at a slightly more realistic example. Here we want to validate an order using different services that can throw a checked Exception:
 
 {% highlight java %}
 public class OrderProcessor {
@@ -126,8 +129,8 @@ class PaymentService {
 }
 {% endhighlight %}
 
-In this example we combine services to determine if a Order is valid or not. We use Try.flatMap() because this guarantees that the provided lambda will only be run if the proceeding Try is a Success. If any of the 3 service calls result in a Failure, the flatMapping call-chain will simply roll the Failure forward. The recover-call provides two lambdas: One to be handle in the case of Success, and one to be handled in the case of Failure.
+In this example we combine services to determine if a Order is valid or not. We use Try.flatMap() because this guarantees that the provided lambda will only be run if the proceeding Try is a Success. If any of the 3 service calls result in a Failure, the flatMapping call-chain will simply roll the Failure forward. The recover-method takes two lambdas: One to be executed in the case of Success, and one to be executed in the case of Failure.
 
-Read more about Try, Either, StreamableOptional and more in FINN.no's open sourced lambda-companion project available at [github](https://github.com/finn-no/lambda-companion) and for use in your project through the central maven repository.
+You can read more about Try, Either, StreamableOptional and more in FINN.no's open sourced lambda-companion project available at [github](https://github.com/finn-no/lambda-companion) and for use in your project through the central maven repository.
 
-Happy lambda'ing, and may all your Tries be Successes!
+Happy flatMapping, and may all your Tries be Successes!
