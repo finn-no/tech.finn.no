@@ -18,7 +18,7 @@ tags:
 
 <figure>
   <img src="/images/2016-01-20-why-try-java-8-functional-programming/thumbnail.png" alt="lambdas dislike checked exceptions" />
-  <figcaption>Why won't this compile? (And whyyy does riskyTask throw a PrinterException?!)</figcaption>
+  <figcaption>Why won't this compile? (And why does riskyTask throw a PrinterException?!)</figcaption>
 </figure>
 
 One does not have to use lambdas in Java 8 long before running into the obstacle of checked Exceptions. Because the PrinterException is checked, the compiler forces us to deal with it, even within a lambda:
@@ -47,12 +47,12 @@ But we don't like to do this. We use lambdas to express intent in a concise and 
 
 For this reason, FINN.no's open source  [lambda-companion](https://github.com/finn-no/lambda-companion) project introduces a useful structure for using lambdas in a world with checked Exceptions : Try.
 
-A Try represents a computation which might fail, and is always represented as a Success or a Failure (but never both). The concept borrows from Scala's Try, and shares several properties to other monadic functional structures :
+A Try represents a computation which might fail, and is always represented as a Success or a Failure (but never both). The concept borrows from [Scala's Try](http://www.scala-lang.org/api/current/index.html#scala.util.Try), and shares several properties to other monadic functional structures :
 - Future (completable success or failure)
 - Optional (present or empty value)
 - Either (one of two values)
 
-FINN.no's Try is right-biased, meaning that one can map and flatMap on a Try without providing behaviour for when the Try is a Failure; the computation will simply only take place if it is a Success.
+FINN.no's Try is right-biased, meaning that one can map and flatMap on a Try without having to add specific logic to handle a Try being a Failure; the computation will simply only take place if it is a Success.
 
 Using a Try we could refactor our riskyTask-example:
 
