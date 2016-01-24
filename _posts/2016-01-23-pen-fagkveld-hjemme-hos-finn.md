@@ -9,11 +9,11 @@ tags:
 - events
 ---
 
-Velkommen til fagkveld **onsdag 10. februar, fra kl 15-20** hos FINN i Grensen 5-7.
+Velkommen til åpen fagkveld **onsdag 10. februar, fra kl 15-20** hjemme hos FINN i Grensen 5-7.
 
 [Link til påmelding (kommer)](http://)
 
-Før jul kom vi opp med en idé om å invitere til en fagkveld der vi skulle dele av våre FINNske erfaringer. Vi bestemte oss for å sjekke interessen for denne ideen ved å sende ut en forespørsel i sosiale medier. Vi fikk nesten 100 svar! Det har gjort oss ganske sikre på at det er interesse for en fagkveld på FINN, og vi har satt sammen et program basert på tilbakemeldingene folk ga.
+Før jul kom vi opp med en idé om å invitere til en fagkveld der vi skulle dele av våre FINNske erfaringer. Vi bestemte oss for å sjekke interessen for denne ideen ved å sende ut en forespørsel i sosiale medier. Vi fikk nesten 100 svar! Det har gjort oss ganske sikre på at det er interesse for en fagkveld på FINN, og vi har satt sammen et program basert på tilbakemeldingene vi mottok.
 
 ### Tilbakemeldinger
 
