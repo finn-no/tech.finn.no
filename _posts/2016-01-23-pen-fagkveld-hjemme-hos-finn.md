@@ -11,7 +11,7 @@ tags:
 
 Velkommen til åpen fagkveld **onsdag 10. februar, fra kl 15-20** hjemme hos FINN i Grensen 5-7.
 
-Link til påmelding: [http://goo.gl/forms/FQ1Ssnsylx](http://goo.gl/forms/FQ1Ssnsylx)
+Link til påmelding: (Beklager men arrangementet er fullt.)
 
 Før jul kom vi opp med en idé om å invitere til en fagkveld der vi skulle dele av våre FINNske erfaringer. Vi bestemte oss for å sjekke interessen for denne ideen ved å sende ut en forespørsel i sosiale medier. Vi fikk nesten 100 svar! Det har gjort oss ganske sikre på at det er interesse for en fagkveld på FINN, og vi har satt sammen et program basert på tilbakemeldingene vi mottok.
 
@@ -57,7 +57,7 @@ Hør om hvordan vi jobber for å forstå brukernes behov. Vi vil blant annet pre
 
 Alle som deltar kan velge to av tre spor. Hvert spor varer én time, deretter rullering og én time til. Temasporene blir en blanding av lyntaler og diskusjon.
 
-Link til påmelding: [http://goo.gl/forms/FQ1Ssnsylx](http://goo.gl/forms/FQ1Ssnsylx)
+Link til påmelding: (Beklager men arrangementet er fullt.)
 
 ### Temasporene
 <table>
@@ -73,6 +73,6 @@ Link til påmelding: [http://goo.gl/forms/FQ1Ssnsylx](http://goo.gl/forms/FQ1Ssn
 </tr>
 </table>
 
-Link til påmelding: [http://goo.gl/forms/FQ1Ssnsylx](http://goo.gl/forms/FQ1Ssnsylx)
+Link til påmelding: (Beklager men arrangementet er fullt.)
 
 Husk å merke hvilke to spor du ønsker å delta på, og om du blir igjen til mingling fra 19-20. Vi lover deg – det kommer til å bli en fin(n) kveld!
