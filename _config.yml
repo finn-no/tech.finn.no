@@ -1,6 +1,6 @@
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
+relative_permalinks: false
 
 title:            FINN Technology
 tagline:          <a href="//finn.no/apply-here">Join us?</a>
@@ -27,3 +27,4 @@ gems:
   - jekyll-redirect-from
   - jemoji
   - jekyll-mentions
+  - jekyll-paginate
