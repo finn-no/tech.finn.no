@@ -58,7 +58,8 @@ Presentasjonene var delt inn i tre spor.
 </td>
 <td>
 <a href="https://schibsted.box.com/s/pyr9bvywglcrkm50tm5y85ugmu2it8h5">Brukerorientert, målstyrt og iterativt</a> (Bjørn Henrik & Bente Mari)<br/>
-<a href="https://schibsted.box.com/s/px5fsmk7uoh0esfhl84n426ob8rvj0zb">Eksperimentering på skjema</a> (Per Gunnar)
+<a href="https://schibsted.box.com/s/px5fsmk7uoh0esfhl84n426ob8rvj0zb">Eksperimentering på skjema</a> (Per Gunnar) <br/>
+<a href="https://schibsted.box.com/s/be6gezi7ctwtuxw6ohgrnmazzpgcjio1">Brukeropplevelse i FINN</a> (Kaija)
 </td>
 <td>
 <a href="https://schibsted.box.com/s/ge9623npgzy4496wpuykkb47wsnrijmg">Innovasjon</a> (Jens)
