@@ -9,9 +9,9 @@ tags:
 - events
 ---
 
-![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_7613.jpg "Sondre Gravir åpner fagkvelden")
+![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_0715.jpg "Sondre Gravir åpner fagkvelden")
 
-Onsdag 10. februar så hadde vi 140 personer på besøk hos FINN. Vi fortale litt om hvordan vi jobber og serverte litt pølser og øl. Nedenfor kan du finne presentasjonene fra dagen.
+Onsdag 10. februar så hadde vi 140 personer på besøk hos FINN. Vi fortale litt om hvordan vi jobber i FINN og serverte pølser og øl. Nedenfor kan du finne presentasjonene fra fagkvelden.
 
 ## Programmet
 
@@ -24,7 +24,6 @@ Onsdag 10. februar så hadde vi 140 personer på besøk hos FINN. Vi fortale lit
 <td>15:30 – 16:10</td>
 <td>Brukerorientering og datadrevet produktutvikling<br/>
 <a href="https://schibsted.box.com/s/cjunftgwwl7u7gohfp8uzegyim7jcrj0">Hvordan involvere brukeren?</a> (Dag Olav)<br/>
-
 <a href="https://schibsted.box.com/s/7h2arlm72rss63z1ycji77u28op9zjb8">Brukerinvolvering + data = suksess</a> (Marthe)
 </td>
 </tr>
@@ -41,6 +40,9 @@ Onsdag 10. februar så hadde vi 140 personer på besøk hos FINN. Vi fortale lit
 <td>Mingling med øl og snacks</td>
 </tr>
 </table>
+
+![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_0752.jpg "Marthe fortelle om brukerorientering.")
+
 
 Presentasjonene var delt inn i tre spor.
 
@@ -67,4 +69,8 @@ Presentasjonene var delt inn i tre spor.
 </tr>
 </table>
 
+![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_0738.jpg "Dag Olav om produktutvikling.")
 ![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_7612.jpg "Presentasjoner i resepsjonen.")
+
+Lær mer om FINN.no og se bilder og videoer her:
+[![Følg FINN.no](/images/2016-02-15-pen-fagkveld-presentasjoner/FollowFINN.png)](https://www.finn.no/job/employer/company/1)
