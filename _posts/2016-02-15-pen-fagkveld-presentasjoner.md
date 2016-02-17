@@ -57,7 +57,8 @@ Presentasjonene var delt inn i tre spor.
 <a href="https://schibsted.box.com/s/8tyutyfzdb2ib3loeh8vfg6litoj1cen">Slik reorganiserte vi 100 utviklere</a> (Nicolai)
 </td>
 <td>
-Presentasjonene kommer.
+<a href="https://schibsted.box.com/s/pyr9bvywglcrkm50tm5y85ugmu2it8h5">Brukerorientert, målstyrt og iterativt</a> (Bjørn Henrik & Bente Mari)<br/>
+<a href="https://schibsted.box.com/s/px5fsmk7uoh0esfhl84n426ob8rvj0zb">Eksperimentering på skjema</a> (Per Gunnar)
 </td>
 <td>
 <a href="https://schibsted.box.com/s/ge9623npgzy4496wpuykkb47wsnrijmg">Innovasjon</a> (Jens)
