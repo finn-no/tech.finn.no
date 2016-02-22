@@ -1,6 +1,6 @@
 {% if paginator.total_pages > 1 %}
 <div class="t4 centerify r-margin">
-  <a rel="start" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', 1 }}" class="mrm pam" aria-label="First">
+  <a rel="start" href="{{ site.baseurl }}" class="mrm pam" aria-label="First">
     <svg height="1em" viewBox="0 0 18 16" class="valign-middle">
       <switch>
         <g fill="none" stroke="#07E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -20,36 +20,12 @@
     </svg><!-- No line break here
     --></a>
   {% endif %}
-    <span class="hidegt768">
+    <span>
       Page {{paginator.page}}
-    </span>
-    <span class="hidelt768">
-    {% if paginator.page < 3 %}
-
-      {% if paginator.total_pages - 3 > paginator.page %}
-        {% for page in ((1..paginator.page + 3)) %}
-        <a class="phs valign-middle" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">
-        {% endfor %}
-      {% else %}
-        {% for i in (1..paginator.total_pages) %}
-        <a class="phs valign-middle" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{page}}</a>
-        {% endfor %}
-      {% endif %}
-      {% else %}
-        {% if paginator.total_pages - 3 > paginator.page %}
-          {% for page in ((paginator.page - 3)..(paginator.page + 3) %}
-          <a class="phs valign-middle" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{page}}</a>
-          {% endfor %}
-        {% else %}
-          {% for page in ((paginator.page-3)..paginator.total_pages) %}
-          <a class="phs valign-middle" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{page}}</a>
-          {% endfor %}
-        {% endif %}
-    {% endif %}
     </span>
     {% if paginator.next_page %}
     <span>
-      <a rel="next" href="{{paginator.next_page_path}}" class="pam" aria-label="Neste"><span class="hidegt768 valign-middle mrs">Neste</span><!-- No line break here
+      <a rel="next" href="{{paginator.next_page_path}}" class="pam" aria-label="Next"><span class="hidegt768 valign-middle mrs">Next</span><!-- No line break here
             --><svg height="1em" viewBox="0 0 10 16" class="valign-middle">
                 <switch>
                     <polyline points="2,2 8,8 2,14" fill="none" stroke="#07E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
