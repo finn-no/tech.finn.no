@@ -20,10 +20,7 @@
     </svg><!-- No line break here
     --></a>
   {% endif %}
-    <span>
-      Page {{paginator.page}}
-    </span>
-    {% if paginator.next_page %}
+  {% if paginator.next_page %}
     <span>
       <a rel="next" href="{{paginator.next_page_path}}" class="pam" aria-label="Next"><span class="hidegt768 valign-middle mrs">Next</span><!-- No line break here
             --><svg height="1em" viewBox="0 0 10 16" class="valign-middle">
