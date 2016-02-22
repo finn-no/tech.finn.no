@@ -140,10 +140,8 @@ DEPENDENCIES
   html-proofer
   jekyll
   jekyll-mentions
+  jekyll-paginate
   jekyll-redirect-from
   jekyll-sitemap
   jemoji
   rake
-
-BUNDLED WITH
-   1.11.2
