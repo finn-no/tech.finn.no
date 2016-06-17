@@ -33,7 +33,7 @@ When we started out, this is how our MainStoryboard_iPhone looked like:
 
 Yes, kinda messy and not necessarily super-manageable. And not very informative either, conceptually. So how do we go about splitting it up?
 
-With XCode 7, we got a new, nice feature - Refactor to storyboard… :
+With XCode 7, we got a new, nice feature - Refactor to storyboard… :  
 ![Refactor to storyboard](/images/2016-06-17-splitting-up-a-storyboard/refactor.to.storyboard.png)
 
 You just select all the scenes you want to extract and then this refactor feature will both create a new storyboard for you, and it will wire up any connections between scenes in the old storyboard and the new storyboard. [This, however, doesn’t work](http://stackoverflow.com/a/33691412/1485715) if you’re supporting iOS 8 AND you’re using relationship segues (i.e. segues from a UITabBarController).
