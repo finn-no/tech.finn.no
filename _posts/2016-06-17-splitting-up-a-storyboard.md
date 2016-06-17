@@ -45,7 +45,7 @@ Which is the case for us, of course. But, at least it gives us a handy shortcut 
 ### Juggling two storyboards
 
 Ok, so now we had a new storyboard, with just the “Min FINN” scenes:
-![MinFINN storyboard](/images/2016-06-17-splitting-up-a-storyboard/minnfinn.storyboard.png)
+![MinFINN storyboard](/images/2016-06-17-splitting-up-a-storyboard/minfinn.storyboard.png)
 
 Most of the “self.storyboard instantiateViewControllerWithIdentifier calls spread out around the code still work, but not all. For example, in some areas of the Min FINN storyboard, we open up the FINObjectViewController that is still on the MainStoryboard. And there are a couple of scenes on the Min FINN storyboard that are accessed from scenes on the main storyboard. How can we know at call site which storyboard a given scene is located on? There are many such invocations. And as we later down the line continue to split up the main storyboard, this will be even more fragmented. We needed a common place to handle this so that the call site didn’t need to know where a given scene is located.
 
