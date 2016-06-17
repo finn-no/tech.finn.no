@@ -117,16 +117,16 @@ Ok. What does Objc classes have that Swift classes don’t, that is easily acces
 Would it be possible to do that for Swift files instead? No, because there isn’t necessaritly a 1-1 correlation between Swift **classes** and **filenames**.
 
 Believe it or not: this was the last hurdle, and we now have generated code for Objc and Swift. For Objc, the generated code looks like this:
-![Objective-C function](/images/2016-06-17-splitting-up-a-storyboard/finstoryboards.instantiate.jpg)
+![Objective-C function](/images/2016-06-17-splitting-up-a-storyboard/finstoryboards.instantiate.png)
 
 And at call site:
-![Objective-C call site](/images/2016-06-17-splitting-up-a-storyboard/finstoryboards.callsite.jpg)
+![Objective-C call site](/images/2016-06-17-splitting-up-a-storyboard/finstoryboards.callsite.png)
 
 Swift generated code:
-![Swift function](/images/2016-06-17-splitting-up-a-storyboard/storyboards.instantiate.jpg)
+![Swift function](/images/2016-06-17-splitting-up-a-storyboard/storyboards.instantiate.png)
 
 At call site:
-![Swift call site](/images/2016-06-17-splitting-up-a-storyboard/storyboards.callsite.jpg)
+![Swift call site](/images/2016-06-17-splitting-up-a-storyboard/storyboards.callsite.png)
 
 That’s about as simple as you can get it.
 
