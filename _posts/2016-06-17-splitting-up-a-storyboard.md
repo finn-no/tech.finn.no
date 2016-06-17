@@ -29,14 +29,12 @@ There are 2 problems with this:
 We needed a better way.
 
 When we started out, this is how our MainStoryboard_iPhone looked like:
-
-XXXXX
+![Main storyboard before split]({{ site.url }}/images/mainstoryboard.before.png)
 
 Yes, kinda messy and not necessarily super-manageable. And not very informative either, conceptually. So how do we go about splitting it up?
 
 With XCode 7, we got a new, nice feature - Refactor to storyboard… :
-
-XXXXX
+![Refactor to storyboard]({{ site.url }}/images/refactor.to.storyboard.png)
 
 You just select all the scenes you want to extract and then this refactor feature will both create a new storyboard for you, and it will wire up any connections between scenes in the old storyboard and the new storyboard. [This, however, doesn’t work](http://stackoverflow.com/a/33691412/1485715) if you’re supporting iOS 8 AND you’re using relationship segues (i.e. segues from a UITabBarController).
 
@@ -63,7 +61,15 @@ But we very much liked the Swiftgen approach of creating functions that can be c
 
 So we decided to create our own generator. The first iteration was to create a Swift-class that did not rely on Swift enums that are unusable in Objc, and that could be called from both Swift and Objc. This seemed absolutely doable, and our first generated Swift-file had static functions like this:
 
-XXXXX
+{% highlight swift ‰}
+static func instantiateWebViewController() -> FINWebViewController {
+    return self.storyboard.instantiateViewControllerWithIdentifier(MainStoryboardIdentifier.WebViewController.rawValue) as! FINWebViewController
+}
+
+static func instantiateFrontPageSearchViewController() -> FrontPageSearchViewController {
+    return self.storyboard.instantiateViewControllerWithIdentifier(MainStoryboardIdentifier.FrontPageSearchViewController.rawValue) as! FrontPageSearchViewController
+}
+{% endhighlight %}
 
 
 ### Objective-C compiler complaining
@@ -74,13 +80,15 @@ After **a lot** of trial and error (I can assure you that I’m sparing you a lo
 
 Not really. Since some of the Swift view controllers are used from both objc and Swift, we annotate them with the objc name:
 
-XXXXX
+{% highlight swift ‰}
+@objc (FinUserAdListViewController)
+class UserAdListViewController : UIViewController, UICollectionViewDataSource, UICollectionVi...
+{% endhighlight ‰}
 
 That’s all well and good, but since our Python script parses the storyboard files and extracts the storyboard identifiers and their respective custom class names (if any), we had class names **with** the prefix (objc classes) and class names **without** the prefix (Swift classes). This enabled us to check for this prefix while generating. When generating Objc code, we added the prefix to the Swift classname, and when generating Swift code, we left it as is. Remember, in the storyboard, the non-prefixed Swift class name was used.
 
 Now, this resulted in compiler warnings like this:
 
-XXXXX
 
 WTF? Even though the UserAdListViewController class is annotated with the prefixed name, this doesn’t work. Since we practise zero-tolerance for warnings in our project, we needed to fix this. What about casting it to the class it’s supposed to return? Let’s give it a shot:
 
