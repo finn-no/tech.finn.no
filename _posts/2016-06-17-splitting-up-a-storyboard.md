@@ -45,8 +45,7 @@ Which is the case for us, of course. But, at least it gives us a handy shortcut 
 ### Juggling two storyboards
 
 Ok, so now we had a new storyboard, with just the “Min FINN” scenes:
-
-XXXXX
+![MinFINN storyboard]({{ site.url }}/images/minnfinn.storyboard.png)
 
 Most of the “self.storyboard instantiateViewControllerWithIdentifier calls spread out around the code still work, but not all. For example, in some areas of the Min FINN storyboard, we open up the FINObjectViewController that is still on the MainStoryboard. And there are a couple of scenes on the Min FINN storyboard that are accessed from scenes on the main storyboard. How can we know at call site which storyboard a given scene is located on? There are many such invocations. And as we later down the line continue to split up the main storyboard, this will be even more fragmented. We needed a common place to handle this so that the call site didn’t need to know where a given scene is located.
 
@@ -88,11 +87,10 @@ class UserAdListViewController : UIViewController, UICollectionViewDataSource, U
 That’s all well and good, but since our Python script parses the storyboard files and extracts the storyboard identifiers and their respective custom class names (if any), we had class names **with** the prefix (objc classes) and class names **without** the prefix (Swift classes). This enabled us to check for this prefix while generating. When generating Objc code, we added the prefix to the Swift classname, and when generating Swift code, we left it as is. Remember, in the storyboard, the non-prefixed Swift class name was used.
 
 Now, this resulted in compiler warnings like this:
-
+![Incompatible pointer types]({{ site.url }}/images/incompatible.pointer.types.png)
 
 WTF? Even though the UserAdListViewController class is annotated with the prefixed name, this doesn’t work. Since we practise zero-tolerance for warnings in our project, we needed to fix this. What about casting it to the class it’s supposed to return? Let’s give it a shot:
-
-XXXXX
+![Casting to prefixed classname]({{ site.url }}/images/casting.to.prefixed.classname.png)
 
 Warning gone! Now it HAS to work! Yes?
 
@@ -110,8 +108,7 @@ Lo and behold, it did! Now Objective-C recognizes the class.
 ### Swift compiler complaining
 
 Oh, wait. Now the generated Swift class doesn’t work?
-
-XXXXX
+![User of undeclared type]({{ site.url }}/images/use.of.undeclared.type.png)
 
 Of course, in the Swift realm, there is no such class. It’s supposed to refer to UserAdListViewController. No problem, we’ll just **remove** the prefix now when we’re generating the Swift code. But wait. The way we’d known whether a class was an Objc class or a Swift class was to check for this prefix, right? So how do we figure out whether a class found in the storyboard is a Swift class when they ALL have prefixes now?
 
@@ -120,20 +117,16 @@ Ok. What does Objc classes have that Swift classes don’t, that is easily acces
 Would it be possible to do that for Swift files instead? No, because there isn’t necessaritly a 1-1 correlation between Swift **classes** and **filenames**.
 
 Believe it or not: this was the last hurdle, and we now have generated code for Objc and Swift. For Objc, the generated code looks like this:
-
-XXXXX
+![Objective-C function]({{ site.url }}/images/finstoryboards.instantiate.jpg)
 
 And at call site:
-
-XXXXX
+![Objective-C call site]({{ site.url }}/images/finstoryboards.callsite.jpg)
 
 Swift generated code:
-
-XXXXX
+![Swift function]({{ site.url }}/images/storyboards.instantiate.jpg)
 
 At call site:
-
-XXXXX
+![Swift call site]({{ site.url }}/images/storyboards.callsite.jpg)
 
 That’s about as simple as you can get it.
 
@@ -159,7 +152,3 @@ Now, this script needs to run every time the project is built, **before** buildi
 When you’ve run this script for the first time, you have the functions that are necessary to instantiate your view controllers.
 
 5. Find all places where view controllers are instantiated via the storyboard (and not via segues) and change these invocations so that they use the generated storyboard functions.
-
-
-
-
