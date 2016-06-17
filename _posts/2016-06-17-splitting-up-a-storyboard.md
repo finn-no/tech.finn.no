@@ -7,7 +7,7 @@ _**How do you go about splitting up your storyboard into multiple smaller storyb
 
 ### The problem: Large storyboards makes iOS developers into sad pandas
 
-As the FINN app has grown the last few years, so has our storyboard. Using storyboards means you get several useful features, and it can give you a visual conceptual overview of how your app works. I say “can”, because this is not necessarily the case. Also, using storyboard has some quirks that are not always appreciated when multiple developers are working on the same project. Any small change to a storyboard might mean several changes to the storyboard xml. In addition to this, XCode has an annoying tendency to recalculate coordinates for several storyboard items just because you opened the file! And yet another annoyance is that the larger your storyboard, the slower it is to work with. We usually waited around 5 seconds just for the file to open, and actions were often laggy.
+As the FINN app has grown the last few years, so has our storyboard. Using storyboards means you get several useful features, and it can give you a visual conceptual overview of how your app works. I say “can”, because this is not necessarily the case. Also, using storyboard has some quirks that are not always appreciated when multiple developers are working on the same project. Any small change to a storyboard might mean several changes to the storyboard xml. In addition to this, XCode has an annoying tendency to recalculate coordinates for several storyboard items just because you opened the file! And yet another annoyance is that the larger your storyboard, the slower it is to work with. We usually waited at least 5 seconds just for the file to open, and actions were often laggy.
 
 So, the iOS team had long ago decided it was time to split it up, but that job is not necessarily easy. Or small. Or even fun. And the Jira task for it also stated “Beware of scope creep…”. Yeah, it crept.
 
@@ -143,7 +143,7 @@ As you can clearly see, this was not a straightforward task, and Swift/Objective
 
 3. Name your new storyboard. If you're not using relationship segues, the generated storyboard references should work well for you, and you can leave them!
 
-4. Create a Run script under Buile Phases that will trigger the Python script (follow the guide in the GitHub repository).
+4. Create a Run script under Buile Phases that will trigger the Python script (follow the guide in the [GitHub repository](https://github.com/mariusw/MWStoryboardScenes "MWStoryboardScenes") for this).
 
 As you can see in the demo project, the MWStoryboardScenes.py file should be placed in your project somewhere. In our projects, we have a Scripts folder for these things, and this is not added to the XCode project (but it is handled by Git as a part of the project, of course).
 
@@ -152,3 +152,9 @@ Now, this script needs to run every time the project is built, **before** buildi
 When you’ve run this script for the first time, you have the functions that are necessary to instantiate your view controllers.
 
 5. Find all places where view controllers are instantiated via the storyboard (and not via segues) and change these invocations so that they use the generated storyboard functions.
+
+As mentioned, a more thorough explanation on how to use the generator is provided in the README of the [GitHub project](https://github.com/mariusw/MWStoryboardScenes "MWStoryboardScenes"). 
+
+
+
+Good luck with splitting your storyboard :-)
