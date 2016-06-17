@@ -137,13 +137,13 @@ As you can clearly see, this was not a straightforward task, and Swift/Objective
 
 ### Setting up your project for generation
 
-1. Choose a small, reasonably autonomous part of your app that will get the first separate storyboard.
+**1 -** Choose a small, reasonably autonomous part of your app that will get the first separate storyboard.
 
-2. Select the necessary scenes, go to Editor -> Refactor to Storyboard...
+**2 -** Select the necessary scenes, go to Editor -> Refactor to Storyboard...
 
-3. Name your new storyboard. If you're not using relationship segues, the generated storyboard references should work well for you, and you can leave them!
+**3 -** Name your new storyboard. If you're not using relationship segues, the generated storyboard references should work well for you, and you can leave them!
 
-4. Create a Run script under Buile Phases that will trigger the Python script (follow the guide in the [GitHub repository](https://github.com/mariusw/MWStoryboardScenes "MWStoryboardScenes") for this).
+**4 -** Create a Run script under Buile Phases that will trigger the Python script (follow the guide in the [GitHub project](https://github.com/mariusw/MWStoryboardScenes "MWStoryboardScenes") for this).
 
 As you can see in the demo project, the MWStoryboardScenes.py file should be placed in your project somewhere. In our projects, we have a Scripts folder for these things, and this is not added to the XCode project (but it is handled by Git as a part of the project, of course).
 
@@ -151,7 +151,7 @@ Now, this script needs to run every time the project is built, **before** buildi
 
 When you’ve run this script for the first time, you have the functions that are necessary to instantiate your view controllers.
 
-5. Find all places where view controllers are instantiated via the storyboard (and not via segues) and change these invocations so that they use the generated storyboard functions.
+**5 -** Find all places where view controllers are instantiated via the storyboard (and not via segues) and change these invocations so that they use the generated storyboard functions.
 
 As mentioned, a more thorough explanation on how to use the generator is provided in the README of the [GitHub project](https://github.com/mariusw/MWStoryboardScenes "MWStoryboardScenes"). 
 
