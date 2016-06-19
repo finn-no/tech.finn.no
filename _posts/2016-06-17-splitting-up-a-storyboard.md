@@ -89,7 +89,7 @@ That’s all well and good, but since our Python script parses the storyboard fi
 Now, this resulted in compiler warnings like this:
 ![Incompatible pointer types](/images/2016-06-17-splitting-up-a-storyboard/incompatible.pointer.types.png)
 
-WTF? Even though the UserAdListViewController class is annotated with the prefixed name, this doesn’t work. Since we practise zero-tolerance for warnings in our project, we needed to fix this. What about casting it to the class it’s supposed to return? Let’s give it a shot:
+Double-you tee eff? Even though the UserAdListViewController class is annotated with the prefixed name, this doesn’t work. Since we practise zero-tolerance for warnings in our project, we needed to fix this. What about casting it to the class it’s supposed to return? Let’s give it a shot:
 ![Casting to prefixed classname](/images/2016-06-17-splitting-up-a-storyboard/casting.to.prefixed.classname.png)
 
 Warning gone! Now it HAS to work! Yes?
