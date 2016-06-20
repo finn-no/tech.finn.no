@@ -11,6 +11,11 @@ As the FINN app has grown the last few years, so has our storyboard. Using story
 
 So, the iOS team had long ago decided it was time to split it up, but that job is not necessarily easy. Or small. Or even fun. And the Jira task for it also stated “Beware of scope creep…”. Yeah, it crept.
 
+### The FINN app: Some history
+
+The current FINN app was launched in August 2013. During these three years, the app has of course grown a bit, and during the last year or so several new features have been added using Swift, and quite a few of the older Objective-C classes have been rewritten in Swift. However, the majority of the code base is still Objective-C. Interoperability between Swift and Objective-C is therefore crucial.
+
+A quick count of files says that we currently have 171 Swift files and 349 .m files in our project (not counting third-party code, of course). These files contain  >44,000 lines of code, comprised of 30,000 lines of Objective-C code and >14,000 lines of Swift code (excluding comments and whitespace).
 
 ### Starting out small
 
