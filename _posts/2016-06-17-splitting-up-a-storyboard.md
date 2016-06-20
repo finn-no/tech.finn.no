@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ## Splitting up a storyboard in an Objective-C/Swift mixed legacy project 
 
