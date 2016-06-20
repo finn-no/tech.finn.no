@@ -25,7 +25,7 @@ If you don't have Homebrew, see [Install Homebrew](#install-homebrew) further do
 To compile and install nginx with http2:
 {% highlight bash %}
 $ brew update   # update list of packages
-$ brew install --devel --with-spdy nginx
+$ brew install --with-http2 nginx
 {% endhighlight %}
 
 Test that the install works (make sure port 8080 is available):
@@ -120,6 +120,7 @@ Congratulations, you now have HTTP/2 and HTTPS working!
 *Thanks to Sveinung Røsaker, Rune Halvorsen, Tor Arne Kvaløy, Frode Risøy and Martin Solli for feedback and tips*
 
 Update Oct. 1, 2015: How to make the self-signed certificate trusted. Replaced custom aliases with `brew services` and added tips for common problems.
+Update Jun. 20, 2016: Updated brew install command with the new nginx options.
 
 Credit:
 1. <https://www.nginx.com/blog/nginx-1-9-5/>
