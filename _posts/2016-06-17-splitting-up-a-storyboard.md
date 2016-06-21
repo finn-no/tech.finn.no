@@ -1,7 +1,4 @@
 ---
-published: true
----
----
 layout: post
 comments: true
 date: 2016-06-22 13:19:07+0200
