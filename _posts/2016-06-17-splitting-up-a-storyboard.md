@@ -1,6 +1,16 @@
 ---
 published: true
 ---
+---
+layout: post
+comments: true
+date: 2016-06-22 13:19:07+0200
+authors: Marius Waldal
+title: "Splitting up a storyboard in an Objective-C/Swift mixed legacy project"
+tags:
+- ios,swift,storyboard
+---
+
 ## Splitting up a storyboard in an Objective-C/Swift mixed legacy project 
 
 _**How do you go about splitting up your storyboard into multiple smaller storyboards? And why would you? In this article I’ll tell you why we wanted to do this, what kind of problems we encountered along the way, and how we solved them.**_
