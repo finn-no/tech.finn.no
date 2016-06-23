@@ -5,7 +5,9 @@ date: 2016-06-22 13:19:07+0200
 authors: Marius Waldal
 title: "Splitting up a storyboard in an Objective-C/Swift mixed legacy project"
 tags:
-- ios,swift,storyboard
+- ios
+- swift
+- storyboard
 ---
 
 ## Splitting up a storyboard in an Objective-C/Swift mixed legacy project 
@@ -30,7 +32,7 @@ We decided to start small and extract the part of our app called “Min FINN” 
 
 Some of the navigation is done by segues, but there are multiple places that instantiates the scene’s viewcontroller via the storyboard directly. This, of course, means code like this is littered throughout the codebase:
 
-{% highlight objective-c ‰}
+{% highlight objectivec %}
 FINSearchListViewController *resultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"resultListViewController"];
 {% endhighlight %}
 
@@ -72,7 +74,7 @@ But we very much liked the Swiftgen approach of creating functions that can be c
 
 So we decided to create our own generator. The first iteration was to create a Swift-class that did not rely on Swift enums that are unusable in Objc, and that could be called from both Swift and Objc. This seemed absolutely doable, and our first generated Swift-file had static functions like this:
 
-{% highlight swift ‰}
+{% highlight swift %}
 static func instantiateWebViewController() -> FINWebViewController {
     return self.storyboard.instantiateViewControllerWithIdentifier(MainStoryboardIdentifier.WebViewController.rawValue) as! FINWebViewController
 }
@@ -91,10 +93,10 @@ After **a lot** of trial and error (I can assure you that I’m sparing you a lo
 
 Not really. Since some of the Swift view controllers are used from both objc and Swift, we annotate them with the objc name:
 
-{% highlight swift ‰}
+{% highlight swift %}
 @objc (FinUserAdListViewController)
 class UserAdListViewController : UIViewController, UICollectionViewDataSource, UICollectionVi...
-{% endhighlight ‰}
+{% endhighlight %}
 
 That’s all well and good, but since our Python script parses the storyboard files and extracts the storyboard identifiers and their respective custom class names (if any), we had class names **with** the prefix (objc classes) and class names **without** the prefix (Swift classes). This enabled us to check for this prefix while generating. When generating Objc code, we added the prefix to the Swift classname, and when generating Swift code, we left it as is. Remember, in the storyboard, the non-prefixed Swift class name was used.
 
