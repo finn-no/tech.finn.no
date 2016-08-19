@@ -18,16 +18,16 @@ Recently, however, we opted to switch to [Prometheus](https://prometheus.io/).
 
 <img width="80" src="/images/2016-08-18-down-to-business-with-prometheus/prometheus.png" alt="Prometheus logo" align="left" style="padding-right: 10px"/>
 
-Prometheus was originally developed by SoundCloud as a reaction to scaling issues experienced with just StatsD and Graphite.
+Prometheus, which is heavily inspired by Google’s Borgmon monitoring system, was originally developed by SoundCloud as a reaction to scaling issues experienced with just StatsD and Graphite.
 Taking into mind Adrian Cockcroft's (former "cloud architect" at Netflix) rule [#4 of monitoring](http://www.slideshare.net/adriancockcroft/gluecon-monitoring-microservices-and-containers-a-challenge):
 
 
 > Monitoring systems need to be more available and scalable than the systems being monitored
 
-Prometheus stands out as a great choice, being engineered from the ground up to deal with issues of scale and stability.
+Prometheus stands out as a great choice for us. Not only is it directly supported by [Kubernetes](http://kubernetes.io/), the future container management platform of choice here at FINN, it has been engineered from the ground up to deal with issues of scale and stability.
 In this new area of monitoring microservices, [Graphite seems to be losing ground](https://www.vividcortex.com/blog/2015/11/05/nobody-loves-graphite-anymore/).
 
-The switch to Prometheus has been implemented rapidly by all our autonomous service teams. Along with monitoring of the "traditional" application metrics like latency and memory usage, special care has also been taken to ensure implementation of adequate monitoring of *business metrics*.
+The switch to Prometheus has been rapidly implemented by all our autonomous service teams. Along with monitoring of the "traditional" application metrics like latency and memory usage, special care has also been taken to ensure implementation of adequate monitoring of *business metrics*.
 
 # Business metrics monitoring
 
