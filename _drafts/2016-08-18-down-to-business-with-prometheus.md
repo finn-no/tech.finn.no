@@ -31,7 +31,7 @@ The switch to Prometheus has been rapidly implemented by all our autonomous serv
 
 # Business metrics monitoring
 
-The implications of one failing or partly broken service can be hard to evaluate when you are dealing with a large number of services. Since a complex problem now can be broken up into units that are truly independent, all individual parts can continue to work fine separately, while the end result is just not working. Business metric monitoring is a key tool to successfully discovering and mitigating problems in this world.
+The implications of one failing or partly broken service can be hard to evaluate when you are dealing with a large number of services. Since a complex problem now can be broken up into units that are truly independent, all individual parts can continue to work fine separately, while the end result is just not working. Business metrics monitoring is a key tool to successfully discovering and mitigating problems in this world.
 
 Monitoring business metrics means monitoring the core performance indicators associated with the services you provide. These are the primary features of the business which will potentially suffer if any operational or functional part of the system is not performing.
 Turnbull describes business metrics as
