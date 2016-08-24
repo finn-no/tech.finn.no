@@ -19,7 +19,7 @@ Recently, however, we opted to switch to [Prometheus](https://prometheus.io/).
 <img width="80" src="/images/2016-08-18-down-to-business-with-prometheus/prometheus.png" alt="Prometheus logo" align="left" style="padding-right: 10px"/>
 
 Prometheus, which is heavily inspired by Google’s Borgmon monitoring system, was originally developed by SoundCloud as a reaction to scaling issues experienced with just StatsD and Graphite.
-Taking into mind Adrian Cockcroft's (former "cloud architect" at Netflix) rule [#4 of monitoring](http://www.slideshare.net/adriancockcroft/gluecon-monitoring-microservices-and-containers-a-challenge):
+Taking into mind Adrian Cockcroft's rule [#4 of monitoring](http://www.slideshare.net/adriancockcroft/gluecon-monitoring-microservices-and-containers-a-challenge):
 
 
 > Monitoring systems need to be more available and scalable than the systems being monitored
