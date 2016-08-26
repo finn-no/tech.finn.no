@@ -2,7 +2,7 @@
 layout: post
 authors: Håvard Nesvold
 comments: true
-date: 2016-08-29 09:00:00+0100
+date: 2016-08-26 14:00:00+0100
 title: Getting down to business with Prometheus
 tags:
 - prometheus
