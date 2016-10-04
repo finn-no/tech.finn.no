@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2016-10-04 10:00:32+0200
+date: 2016-10-04 12:02:32+0200
 authors: Henning Spjelkavik
 title: "Browser statistics October 2016"
 tags:
