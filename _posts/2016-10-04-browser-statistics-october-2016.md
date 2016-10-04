@@ -54,7 +54,7 @@ It still seems like a good idea to make sure your website works well with Safari
 
 ## Mobile details ##
 
-Which devices do we see?
+We got a request to give some more details about the mobile devices that uses FINN.no. Apple still has a strong position in Norway!
 
 <a href="/images/2016-10-04-browser-statistics-oct-2016/mobile-devices.png"><img class="center-block" alt="Mobile devices" src="/images/2016-10-04-browser-statistics-oct-2016/mobile-devices.png"/></a>
 
