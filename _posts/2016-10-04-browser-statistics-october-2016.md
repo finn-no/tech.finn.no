@@ -81,10 +81,14 @@ And finally the trend on mobile browsers, by vendor:
 
 ## Which version of Android or iOS? ##
 
-Our apps need to work well on several versions of Android and iOS. How fast are our users upgrading?
-
+Our apps need to work well on several versions of Android and iOS. How fast are our users upgrading? This shows the distribution of operating systems among our apps users.
 
 [<img class="center-block" alt="Android version" src="/images/2016-10-04-browser-statistics-oct-2016/android-app-version.png"/>](/images/2016-10-04-browser-statistics-oct-2016/android-app-version.png)
 
 [<img class="center-block" alt="iOS version" src="/images/2016-10-04-browser-statistics-oct-2016/ios-app-version.png"/>](/images/2016-10-04-browser-statistics-oct-2016/ios-app-version.png)
+
+
+[<img class="center-block" alt="Android version" src="/images/2016-10-04-browser-statistics-oct-2016/android-app-version-top15.png"/>](/images/2016-10-04-browser-statistics-oct-2016/android-app-version-top15.png)
+
+[<img class="center-block" alt="iOS version" src="/images/2016-10-04-browser-statistics-oct-2016/ios-app-version-top15.png"/>](/images/2016-10-04-browser-statistics-oct-2016/ios-app-version-top15.png)
 
