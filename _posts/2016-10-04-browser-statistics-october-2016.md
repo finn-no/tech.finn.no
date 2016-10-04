@@ -18,6 +18,12 @@ Our first graph shows the share of our users using a mobile phone, tablet or a d
 
 [<img class="center-block" alt="Channel graph" src="/images/2016-10-04-browser-statistics-oct-2016/Visits per channel percent.png"/>](/images/2016-10-04-browser-statistics-oct-2016/Visits per channel percent.png)
 
+If we exclude the native app users, which are obviously on either Android or iOS, what is the distribution between table, mobile and "other" (desktop) on our web site?
+
+[<img class="center-block" alt="Channel graph without app" src="/images/2016-10-04-browser-statistics-oct-2016/Visits per channel percent ohne app.png"/>](/images/2016-10-04-browser-statistics-oct-2016/Visits per channel percent ohne app.png)
+
+
+
 ## Which FINN.no application do people use?
 
 We have two major offerings of FINN.no - the responsive web (served from the domains m.finn.no and www.finn.no), and native apps for mobile devices. 24% of our visits are from our native apps, and 76% from our responsive web.
@@ -46,11 +52,26 @@ The *complete browser statistics*, across all applications and devices are as fo
 
 It still seems like a good idea to make sure your website works well with Safari! The old giant Microsoft now has only the 5th spot with IE 11 (6.8%) and the 12th with Edge 13 (1.7%).
 
+## Mobile details ##
+
+Which devices do we see?
+
+<a href="/images/2016-10-04-browser-statistics-oct-2016/mobile-devices.png"><img class="center-block" alt="Mobile devices" src="/images/2016-10-04-browser-statistics-oct-2016/mobile-devices.png"/></a>
+
+
 The most popular browsers on mobile devices:
 
 [//]: # ( https://sc3.omniture.com/sc15/reports/index.html?rp=ob_segment_id%7C5499485ce4b0b3ffc6f830ec&r=Report.GetConversions&a=Report.Standard&ssSession=02cf5bacd4842708446fee96acb31b6a&jpj=4691664005674 )
 
 <a href="/images/2016-10-04-browser-statistics-oct-2016/browsers-mobile.png"><img class="center-block" alt="All browsers" src="/images/2016-10-04-browser-statistics-oct-2016/browsers-mobile.png"/></a>
+
+Then the question is - what is the "Android Browser"? This is the break down of devices that has delivered traffic from the "Android Browser".
+
+<a href="/images/2016-10-04-browser-statistics-oct-2016/android-browser-devices.png"><img class="center-block" alt="All browsers" src="/images/2016-10-04-browser-statistics-oct-2016/android-browser-devices.png"/></a>
+
+Similarily for the Samsung Browser:.
+
+<a href="/images/2016-10-04-browser-statistics-oct-2016/samsung-browser-devices.png"><img class="center-block" alt="All browsers" src="/images/2016-10-04-browser-statistics-oct-2016/samsung-browser-devices.png"/></a>
 
 And finally the trend on mobile browsers, by vendor:
 
@@ -58,5 +79,12 @@ And finally the trend on mobile browsers, by vendor:
 
 <a href="/images/2016-10-04-browser-statistics-oct-2016/browsers-mobile-trend.png"><img class="center-block" alt="All browsers" src="/images/2016-10-04-browser-statistics-oct-2016/browsers-mobile-trend.png"/></a>
 
+## Which version of Android or iOS? ##
 
+Our apps need to work well on several versions of Android and iOS. How fast are our users upgrading?
+
+
+[<img class="center-block" alt="Android version" src="/images/2016-10-04-browser-statistics-oct-2016/android-app-version.png"/>](/images/2016-10-04-browser-statistics-oct-2016/android-app-version.png)
+
+[<img class="center-block" alt="iOS version" src="/images/2016-10-04-browser-statistics-oct-2016/ios-app-version.png"/>](/images/2016-10-04-browser-statistics-oct-2016/ios-app-version.png)
 
