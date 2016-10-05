@@ -92,3 +92,7 @@ Our apps need to work well on several versions of Android and iOS. How fast are 
 
 [<img class="center-block" alt="iOS version" src="/images/2016-10-04-browser-statistics-oct-2016/ios-app-version-top15.png"/>](/images/2016-10-04-browser-statistics-oct-2016/ios-app-version-top15.png)
 
+Given that the user have an iPhone, which models are in use? Unfortunately, the data are quite spotty, but this graph might still be an indication of the truth.
+
+[<img class="center-block" alt="iOS version" src="/images/2016-10-04-browser-statistics-oct-2016/iphone-models.png"/>](/images/2016-10-04-browser-statistics-oct-2016/iphone-models.png)
+
