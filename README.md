@@ -15,6 +15,14 @@ $ bundle install
 $ bundle exec jekyll serve -w
 ```
 
+These commands may not work out of the box if you have the wrong version of Ruby installed. You could try to upgrade to the latest Ruby version, and then run the following.
+
+```sh
+$ gem update --system
+$ gem update bundler
+```
+
+
 Open <http://localhost:4000> in your browser, and voilà.
 
 If you want to preview drafts run with the '--drafts' flag
