@@ -39,7 +39,7 @@ bundle exec htmlproof ./_site
 
 ## Comments
 We are using [Disqus](https://disqus.com/) ([#1](https://github.com/finn-no/tech.finn.no/issues/1)).  
-If you want access to the moderation tools [sign up](https://disqus.com/profile/signup/) for a Disqus account and contact [@gregersrygg](https://github.com/gregersrygg).
+If you want access to the moderation tools [sign up](https://disqus.com/profile/signup/) for a Disqus account and contact [@pjwalstrom](https://github.com/pjwalstrom).
 
 ## Tracking
-We are using [Google Analytics](http://www.google.com/analytics/) for tracking ([#7](https://github.com/finn-no/tech.finn.no/issues/7)). If you want access to the tracking data contact [@Gregersrygg](https://github.com/gregersrygg).
+We are using [Google Analytics](http://www.google.com/analytics/) for tracking ([#7](https://github.com/finn-no/tech.finn.no/issues/7)). If you want access to the tracking data contact [@pjwalstrom](https://github.com/pjwalstrom).
