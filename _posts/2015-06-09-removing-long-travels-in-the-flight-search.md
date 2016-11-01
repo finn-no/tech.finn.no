@@ -36,8 +36,8 @@ We are using [Solr](http://lucene.apache.org/solr/) at FINN, but the stats query
 ## What is too long?
 So what is a **too long** flight? That's not an easy question to answer. Racking our brains (and doing some guesswork), we came up with the following suggestions on what the upper fence on duration to different destinations should be. The durations are per leg:
 
-OSL - LON 300 mins = 5 hrs. Given the minimum flight time OSL - LON = 115.
-OSL - BKK (Bangkok) 1000 mins = 17 hrs. Minimum = 674
+OSL - LON 300 mins = 5 hrs. Given the minimum flight time OSL - LON = 115.  
+OSL - BKK (Bangkok) 1000 mins = 17 hrs. Minimum = 674  
 OSL - KOA (Kona, Hawaii) 2000 mins = 33 hrs. Minimum = 1335
 
 The minimum flight duration is clearly of interest to us. We store that away in Solr, and using the [stats query from Solr](http://wiki.apache.org/solr/StatsComponent) on that field, we get the following data on a flight OSL-LON:
