@@ -31,7 +31,7 @@ If you want to preview drafts run with the '--drafts' flag
 Check out [CONTRIBUTING](CONTRIBUTING.md).
 
 ## Testing
-If you want to test locally run
+If you want to test locally, run
 
 ```bash
 bundle exec htmlproof ./_site
