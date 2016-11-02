@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2016-06-28 12:17:32+0200
+date: 2016-11-01 12:17:32+0200
 authors: Per Jørgen Walstrøm
 title: "Hello world!"
 tags:
