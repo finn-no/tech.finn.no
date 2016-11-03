@@ -12,7 +12,7 @@ tags:
 
 As some of you may know, FINN is owned by [Schibsted](http://www.schibsted.com/). What may not be that familiar, is that Schibsted has online classified solutions in several markets around the world, including [Blocket](http://www.blocket.se) in Sweden, [Le Bon Coin](http://www.leboncoin.fr) in France and [Vibbo](http://www.vibbo.es) in Spain. Schibsted has several hundreds of developers distributed around the globe, and there is a strong need and will to coordinate and cooperate across geographical boundaries.
 
-## The need to co-operate
+## The need to cooperate
 Reinventing the wheel is generally a bad idea. With that in mind, Schibsted has a strong focus on building global components that can be useful for all the companies within Schibsted. However, it is not always easy to understand the needs and challenges across national borders. There are cultural differences and different companies have reached different maturity levels. FINN has been around for years, and is one of the more mature classified sites within Schibsted. In an effort to help building global components, Schibsted has set up an international hub in Barcelona and developers from the local companies are encouraged to come to Barcelona to help out, share knowledge and build a common platform. Several developers from FINN have taken up the challenge and spent some months in beautiful and vibrant Barcelona. Here are Øyvind's impressions.
 
 ![developers_in_bcn](/images/2016-06-28-working-for-another-sch-company/20160628_160134.jpg "happy campers")
@@ -40,7 +40,7 @@ Reinventing the wheel is generally a bad idea. With that in mind, Schibsted has 
 \- When working in FINN, it's easy to forget that you are part of a bigger company. I see that clearly now, the global perspective. It's inspiring to know that I am a part of a global company.
 
 ## Epilogue
-Øyvind spent 6 months in Barcelona and came home with lots of new knowledge, new friends and a Messi-shirt. He contributed in building global compoents and believes FC Barcelona will win Champions League again this season. The migration of the FINN-messaging platform went off without a hitch and we are still [looking for great developers](https://hjemmehos.finn.no/no/jobbe_her+/)!
+Øyvind spent 6 months in Barcelona and came home with lots of new knowledge, new friends and a Messi-shirt. He contributed in building global components and believes FC Barcelona will win Champions League again this season. The migration of the FINN-messaging platform went off without a hitch and we are still [looking for great developers](https://hjemmehos.finn.no/no/jobbe_her+/)!
 
 
 
