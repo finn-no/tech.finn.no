@@ -42,5 +42,12 @@ FINN.no skal ha en åpen studentkveld der vi forteller litt om hvordan vi jobber
 Disse plassene står og venter på deg:
 ![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_7612.jpg "Presentasjoner i resepsjonen.")
  
-[MELD DEG PÅ VED Å KLIKKE HER. FRIST 23. OKTOBER](https://goo.gl/forms/JELyO27f2JzYdxM23)
+
+
+# Presentasjoner
+
+* [Velkommen](/images/2016-10-18-open-student-night/2016-11-03 Velkommen.pdf)
+* [Små og hyppige Leveeranser!](/images/2016-10-18-open-student-night/FINN.no-Små-og-hyppige-leveranser.pdf)
+* [Fra Student til FINN](/images/2016-10-18-open-student-night/fra-student-til-finn.pdf)
+* [Hva ser vi etter når vi rekrutterer?](/images/2016-10-18-open-student-night/2016-11-03 Hva-ser-vi-etter-når-vi-rekrutterer.pptx)
 
