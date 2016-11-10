@@ -50,4 +50,5 @@ Disse plassene står og venter på deg:
 * [Små og hyppige Leveeranser!](/images/2016-10-18-open-student-night/FINN.no-Små-og-hyppige-leveranser.pdf)
 * [Fra Student til FINN](/images/2016-10-18-open-student-night/fra-student-til-finn.pdf)
 * [Hva ser vi etter når vi rekrutterer?](/images/2016-10-18-open-student-night/2016-11-03 Hva-ser-vi-etter-når-vi-rekrutterer.pptx)
+* [Hvordan Skape](/images/2016-10-18-open-student-night/Hvordan-skape.pptx)
 
