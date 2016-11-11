@@ -17,8 +17,6 @@ FINN.no skal ha en åpen studentkveld der vi forteller litt om hvordan vi jobber
 
 * Alle som studerer ved en relevant linje på et universitet eller en høyskole 
 
-[MELD DEG PÅ VED Å KLIKKE HER. FRIST 23. OKTOBER](https://goo.gl/forms/JELyO27f2JzYdxM23)
-
 
 **Våre tre mål for kvelden**
 
@@ -43,6 +41,7 @@ Disse plassene står og venter på deg:
 ![alt text](/images/2016-02-15-pen-fagkveld-presentasjoner/IMG_7612.jpg "Presentasjoner i resepsjonen.")
  
 
+Takk til alle som kom for en hyggelig kveld. Her er presentasjonene.
 
 # Presentasjoner
 
