@@ -2,7 +2,7 @@
 layout: post
 comments: true
 date: 2016-12-15 12:17:32+0200
-authors: Julie Lundgren, Tale Gjøvik
+authors: Julie Lundgren og Tale Gjøvik
 title: "WTF er Programmatic?"
 tags:
 - programmatic
