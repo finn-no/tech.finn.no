@@ -32,15 +32,15 @@ A simple search on the title “Cleaning kitchen”, gave the following ranked r
 | Match rank | Category|
 |-|-----|
 |1|Renovation|
-|1|Cleaning|
-|1|Cleaning|
-|1|Renovation|
-|1|Cleaning|
-|1|Cleaning|
-|1|Cleaning|
-|1|Cleaning|
-|1|Carpentry and assembly|
-|1|Cleaning|
+|2|Cleaning|
+|3|Cleaning|
+|4|Renovation|
+|5|Cleaning|
+|6|Cleaning|
+|7|Cleaning|
+|8|Cleaning|
+|9|Carpentry and assembly|
+|10|Cleaning|
 |||
 
 Our first attempt was to simply **select the highest ranked match**. This gave us 87% chance for guessing the main category correctly, and 68% chance of guessing the subcategory correctly. 
