@@ -18,7 +18,7 @@ Submitting a job is done by filling out a form with a title, a short description
 ## The solution
 
 ### Machine learning
-A typical solution to this kind of problem is to use machine learning, where the goal is to classify job titles into categories. We had a large set of historical data (130 000 registered jobs) where category already was selected by the user. This was a good starting point for a type of machine learning technique called supervised learning. **In supervised learning historical data is used as a training set**, and results in a classifier that can classify job titles into categories. 
+A typical solution to this kind of problem is to use machine learning, where the goal is to classify job titles into categories. **We had a large set of historical data (130 000 registered jobs) where category already was selected by the user.** This was a good starting point for a type of machine learning technique called supervised learning. **In supervised learning historical data is used as a training set**, and results in a classifier that can classify job titles into categories. 
 
 Delving into the field of machine learning is quite a complex task, and requires both theoretical  understanding and knowhow of various software libraries. And in many cases, it requires access to a special machine learning infrastructure. So, **as a lean product development team with limited resources we looked for an easier solution**.
 
