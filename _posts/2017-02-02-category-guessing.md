@@ -10,7 +10,7 @@ tags:
 ---
 
 ## The problem
-**Making it easy to fill out forms is essential for getting data into our system at FINN småjobber**, which is a service to get help with tasks like house cleaning or renovation, where the user submits a job that non-professionals bid on.
+**Making it easy to fill out forms is essential for getting data into our system at [FINN småjobber](https://www.finn.no/smajobber)**, which is a service to get help with tasks like house cleaning or renovation, where the user submits a job that non-professionals bid on.
 
 Submitting a job is done by filling out a form with a title, a short description, and selecting the category the job belongs to. The category hierarchy has two levels: a main category and a subcategory. For example the main category *domestic help*, has the subcategories cleaning and *babysitting*. There are 6 main categories and 26 subcategories, and our assumption was that it was a hassle for the user to go through this long list. **We wanted to simplify this by guessing the category.** Ideally on the given title.
 
