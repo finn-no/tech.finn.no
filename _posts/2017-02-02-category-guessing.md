@@ -5,7 +5,7 @@ date: 2017-02-02 15:14:30+0100
 authors: Tor Arne Kvaløy
 title: "Category guessing"
 tags:
-- javascript
+- search technology
 - machine learning
 ---
 
