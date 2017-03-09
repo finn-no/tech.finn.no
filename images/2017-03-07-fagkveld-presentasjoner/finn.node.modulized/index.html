@@ -1,0 +1,799 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/base.css" media="all">
+    <link rel="stylesheet" href="css/prism.css" media="all">
+    <script src="js/prism.js"></script>
+    <style>
+        /* Code blocks */
+        pre[class*="language-"] {
+            padding: 1em;
+            margin: 0 0;
+            overflow: auto;
+        }
+        .slide.cover {
+            background: #06befb;
+            color: #f5f2f0;
+        }
+        .svg {
+            position: relative;
+            display: block;
+            background-position: center center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .e1 {
+            background: url(img/e1.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e2 {
+            background: url(img/e2.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e3 {
+            background: url(img/e3.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e4 {
+            background: url(img/e4.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e5 {
+            background: url(img/e5.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e5_1 {
+            background: url(img/e5_1.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e5_2 {
+            background: url(img/e5_2.svg);
+            height: 100%;
+            width: 400px;
+        }
+        .e6 {
+            background: url(img/e6.svg);
+            height: 100%;
+            width: 500px;
+        }
+        .e7 {
+            background: url(img/e7.svg);
+            top: 2%;
+            left: 20%;
+            height: 80%;
+            width: 60%;
+        }
+        .e8 {
+            background: url(img/e8.svg);
+            top: 10%;
+            left: 30%;
+            height: 80%;
+            width: 60%;
+        }
+        .left {
+            top: 0;
+            margin-top: 30px;
+            left: 25%;
+        }
+        .right {
+            position: absolute;
+            top: 0;
+            left: 50%;
+        }
+        .row_1 {
+            position: absolute;
+            top: 48%;
+            left: 19%;
+        }
+        .row_2 {
+            position: absolute;
+            top: 48%;
+            left: 38%;
+        }
+        .row_3 {
+            position: absolute;
+            top: 48%;
+            left: 58%;
+        }
+        section.bullet {
+            position: relative;
+            display: block;
+            top: 20%;
+            left: 0;
+            text-align: center;
+            vertical-align: middle;
+            height: 100%;
+            width: 100%;
+        }
+        section.center {
+            position: absolute;
+            left: 35%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="presentation-counter"> </div>
+
+<div class="slides">
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h1>Application<br>modularity</h1>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>node-example-app</h2>
+        <h3>A boilerplate</h3>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>express.js</h2>
+        <h3>http middelware</h3>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e1 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const app = express();
+
+app.get('/boats', (req, res, next) => {
+    res.status(200).send('Loads of boats');
+});
+
+app.get('/boats/:id', (req, res, next) => {
+    res.status(200).send(`Boat with ID ${req.params.id}`);
+});
+
+app.get('/realestate', (req, res, next) => {
+    res.status(200).send('Plenty of real estate');
+});
+
+app.get('/realestate/:id', (req, res, next) => {
+    res.status(200).send(`Real estate with ID ${req.params.id}`);
+});
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e2 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const app = express();
+
+app.get('/boats', (req, res, next) => {
+    res.status(200).send('Loads of boats');
+});
+
+app.get('/boats/:id', (req, res, next) => {
+    res.status(200).send(`Boat with ID ${req.params.id}`);
+});
+
+app.get('/realestate', (req, res, next) => {
+    res.status(200).send('Plenty of real estate');
+});
+
+app.get('/realestate/:id', (req, res, next) => {
+    res.status(200).send(`Real estate with ID ${req.params.id}`);
+});
+
+app.use((req, res) => {
+    res.status(404).send('Not found');
+});
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>next(new Error());</h2>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e3 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const boom = require('boom');
+const app = express();
+
+app.get('/boats', (req, res, next) => {
+    res.status(200).send('Loads of boats');
+});
+
+app.get('/boats/:id', (req, res, next) => {
+    if (req.params.id > 10000) return next(boom.badRequest('Bad request - Validation error'));
+    res.status(200).send(`Boat with ID ${req.params.id}`);
+});
+
+app.get('/realestate', (req, res, next) => {
+    res.status(200).send('Plenty of real estate');
+});
+
+app.get('/realestate/:id', (req, res, next) => {
+    res.status(200).send(`Real estate with ID ${req.params.id}`);
+});
+
+app.use((error, req, res, next) => {
+    if (error.isBoom) return res.status(error.output.statusCode).send(error.message);
+    next(error);
+});
+
+app.use((req, res) => {
+    res.status(404).send('Not found');
+});
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>Middelware</h2>
+        <h3>app.use();</h3>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e4 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const boom = require('boom');
+const app = express();
+
+app.use((req, res, next) => {
+    if (req.params.id > 10000) return next(boom.badRequest('Bad request - Validation error'));
+    next();
+});
+
+app.get('/boats', (req, res, next) => {
+    res.status(200).send('Loads of boats');
+});
+
+app.get('/boats/:id', (req, res, next) => {
+    res.status(200).send(`Boat with ID ${req.params.id}`);
+});
+
+app.get('/realestate', (req, res, next) => {
+    res.status(200).send('Plenty of real estate');
+});
+
+app.get('/realestate/:id', (req, res, next) => {
+    res.status(200).send(`Real estate with ID ${req.params.id}`);
+});
+
+app.use((error, req, res, next) => {
+    if (error.isBoom) return res.status(error.output.statusCode).send(error.message);
+    next(error);
+});
+
+app.use((req, res) => {
+    res.status(404).send('Not found');
+});
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>express.Router();</h2>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e5 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const boom = require('boom');
+const app = express();
+
+app.use((req, res, next) => {
+    if (req.params.id > 10000) return next(boom.badRequest('Bad request - Validation error'));
+    next();
+});
+
+const boats = express.Router();
+boats.get('/boats', (req, res, next) => {
+    res.status(200).send('Loads of boats');
+});
+boats.get('/boats/:id', (req, res, next) => {
+    res.status(200).send(`Boat with ID ${req.params.id}`);
+});
+app.use(boats);
+
+const realestate = express.Router();
+realestate.get('/realestate', (req, res, next) => {
+    res.status(200).send('Plenty of real estate');
+});
+realestate.get('/realestate/:id', (req, res, next) => {
+    res.status(200).send(`Real estate with ID ${req.params.id}`);
+});
+app.use(realestate);
+
+app.use((error, req, res, next) => {
+    if (error.isBoom) return res.status(error.output.statusCode).send(error.message);
+    next(error);
+});
+
+app.use((req, res) => {
+    res.status(404).send('Not found');
+});
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>npm modules</h2>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e5_1 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+// Validation module
+
+module.exports = class Validation {
+    constructor (options = {}) {
+        this.options = options;
+    }
+    middleware() {
+        return (req, res, next) => {
+            if (req.params.id > 10000) return next(boom.badRequest('Bad request - Validation error'));
+            next();
+        }
+    }
+}
+
+
+// Error handler module
+
+module.exports = class HttpErrors {
+    constructor (options = {}) {
+        this.options = options;
+    }
+    middleware() {
+        return (error, req, res, next) => {
+            if (error.isBoom) return res.status(error.output.statusCode).send(error.message);
+            next(error);
+        }
+    }
+    views() {
+        return path.resolve(__dirname, '../views/');
+    }
+}
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e5_2 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+// Boats module
+module.exports = class Boats {
+    constructor () {
+        this.app = express.Router();
+        this.app.get('/boats', (req, res, next) => {
+            res.status(200).send('Loads of boats');
+        });
+        this.app.get('/boats/:id', (req, res, next) => {
+            res.status(200).send(`Boat with ID ${req.params.id}`);
+        });
+    }
+    router() {
+        return this.app;
+    }
+    views() {
+        return path.resolve(__dirname, '../views/');
+    }
+}
+
+// Realestate module
+module.exports = class Realestate {
+    constructor () {
+        this.app = express.Router();
+        this.app.get('/realestate', (req, res, next) => {
+            res.status(200).send('Plenty of real estate');
+        });
+        this.app.get('/realestate/:id', (req, res, next) => {
+            res.status(200).send(`Real estate with ID ${req.params.id}`);
+        });
+    }
+    router() {
+        return this.app;
+    }
+    views() {
+        return path.resolve(__dirname, '../views/');
+    }
+}
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="middle">
+        <h2>Fleksibility</h2>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e5 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Boats = require('Boats');
+const Realestate = require('Realestate');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const boats = new Boats();
+const realestate = new Realestate();
+
+const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', [
+    boats.views(),
+    realestate.views(),
+    httpErrors.views()
+]);
+
+app.use(validation.middelware());
+app.use(boats.router());
+app.use(realestate.router());
+app.use(httpErrors.middelware());
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e6 left"> </section>
+
+<section class="right">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Boats = require('Boats');
+const Cars = require('Cars');
+const Realestate = require('Realestate');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const boats = new Boats();
+const cars = new Cars();
+const realestate = new Realestate();
+
+const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', [
+    boats.views(),
+    cars.views(),
+    realestate.views(),
+    httpErrors.views()
+]);
+
+app.use(validation.middelware());
+app.use(boats.router());
+app.use(cars.router());
+app.use(realestate.router());
+app.use(httpErrors.middelware());
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="svg e7"> </section>
+
+<section class="row_1">
+<pre data-src="prism.js" class="language-js"><code>const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Boats = require('Boats');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const boats = new Boats();
+const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', [
+    boats.views(),
+    httpErrors.views()
+]);
+
+app.use(validation.middelware());
+app.use(boats.router());
+app.use(httpErrors.middelware());
+</code></pre>
+</section>
+
+<section class="row_2">
+<pre data-src="prism.js" class="language-js"><code>const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Cars = require('Cars');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const cars = new Cars();
+const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', [
+    cars.views(),
+    httpErrors.views()
+]);
+
+app.use(validation.middelware());
+app.use(cars.router());
+app.use(httpErrors.middelware());
+</code></pre>
+</section>
+
+<section class="row_3">
+<pre data-src="prism.js" class="language-js"><code>const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Realestate = require('Realestate');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const realestate = new Realestate();
+const app = express();
+
+app.set('view engine', 'hbs');
+app.set('views', [
+    realestate.views(),
+    httpErrors.views()
+]);
+
+app.use(validation.middelware());
+app.use(realestate.router());
+app.use(httpErrors.middelware());
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+
+
+<!-- SLIDE START -->
+<div class="slide">
+<section class="center">
+<pre data-src="prism.js" class="language-js"><code>
+const express = require('express');
+const Validation = require('Validation');
+const HttpErrors = require('HttpErrors');
+const Boats = require('Boats');
+const Realestate = require('Realestate');
+
+const errorPug = require('errorPugTemplates');
+const boatsPug = require('boatsPugTemplates');
+const realestatePug = require('realestatePugTemplates');
+
+const validation = new Validation();
+const httpErrors = new HttpErrors();
+const boats = new Boats();
+const realestate = new Realestate();
+
+const app = express();
+
+app.set('view engine', 'pug');
+app.set('views', [
+    boatsPug.views(),
+    realestatePug.views(),
+    errorPug.views()
+]);
+
+app.use(validation.middelware());
+app.use(boats.router());
+app.use(realestate.router());
+app.use(httpErrors.middelware());
+
+app.listen(8080);
+</code></pre>
+</section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="bullet">
+        <ul>
+            <li>Config</li>
+            <li>Logging</li>
+            <li>Metrics</li>
+            <li>Security</li>
+            <li>Circuit breaking</li>
+            <li>Error handling</li>
+            <li>Crash recovery</li>
+        </ul>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START -->
+<div class="slide cover">
+    <section class="bullet">
+        <h1>Thank you</h1>
+    </section>
+</div>
+<!-- SLIDE END -->
+
+
+
+<!-- SLIDE START
+<div class="slide cover">
+    <section class="middle">
+        <h2>Convention</h2>
+    </section>
+</div>
+SLIDE END -->
+
+
+
+<!-- SLIDE START
+<div class="slide">
+<section>
+<pre data-src="prism.js" class="language-js"><code>
+module.exports = class SomeClass {
+    constructor (options = {}) {
+        this.options = options;
+        this.app = express.Router();
+    }
+
+    router() {
+        return this.app;
+    }
+
+    middleware() {
+        return (req, res, next) => {
+            next();
+        }
+    }
+
+    views() {
+        return path.resolve(__dirname, '../views/');
+    }
+}
+</code></pre>
+</section>
+</div>
+SLIDE END -->
+
+
+<!--
+<div class="slide">
+    <section class="svg e8"> </section>
+</div>
+-->
+
+
+</div>
+<script src="js/slideshow.js"> </script>
+</body>
+</html>
