@@ -15,7 +15,8 @@ tags:
 
 We will also present [Unleash, an open source framework](https://github.com/Unleash/unleash) we created to support feature toggles at an enterprise scale. Unleash allows us to enable features for specific users via the activation strategies concept. Unleash is already set up and in use by multiple teams within Schibsted, including FINN, SPT Payment, and Knocker. 
 
-![alt text](/images/2017-03-10-unleash-your-features-gradually/1-finn-releases.png "Number of production deploys in “week 50” in recent years")<center><i>Number of production deploys in “week 50”</i></center>
+<img class="center-block" src="/images/2017-03-10-unleash-your-features-gradually/1-finn-releases.png" alt="alt" title="Number of production deploys in “week 50” in recent years" />
+<center><i>Number of production deploys in “week 50”</i></center>
 
 <br /><br />
 
@@ -63,7 +64,7 @@ It is powerful to be able to turn a feature on and off instantaneously without r
 
 Another common strategy is to enable a new feature only for specific users. Typically I want to enable a new feature only for myself in production, before I enable it for everyone else. To achieve this we can use the “UserWithIdStrategy”. This strategy allows you to specify a list of specific user ids that you want to activate the new feature for. *(A user id may of course be an email if that is more appropriate in your system.)*
 
-![alt text](/images/2017-03-10-unleash-your-features-gradually/4_user_with_id.png)
+<img class="center-block" src="/images/2017-03-10-unleash-your-features-gradually/4_user_with_id.png" alt="4_user_with_id" />
 
 When I have verified that the new feature works as expected in production, I can activate the feature for some real users. To achieve this I can use one of the gradual rollout strategies. At FINN we use three variants of gradual rollout, which have slightly different purposes: 
 
