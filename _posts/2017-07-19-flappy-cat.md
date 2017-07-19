@@ -10,13 +10,18 @@ tags:
 - game 
 ---
 
-## Why make a Flappy Cat game 
-The Idea was to make a Flappy Bird with motion tracking control. Some quick research told us it should be possible. Since cats are assosiated with FINN, it became a Flappy Cat game. 
-We are planning to use this as a game on JavaZone in September, so come and have a look at our stand. 
+## Why make a Flappy Cat game? 
+The Idea was to make a Flappy Bird with motion tracking control for our JavaZone stand. Some quick research told us it should be possible. Since cats are assosiated with FINN, it of course became a Flappy Cat game. Come and try it at JavaZone in September. 
 
  
 ## How we made it
 Step 1: Make the game. As neither of us are game developers, we found this [flappy bird](http://www.lessmilk.com/tutorial/flappy-bird-phaser-1) tutorial online that we decided to follow. This tutorial uses Phaser, an open source JavaScript/HTML5 game development framework. It was easy to follow and it explained all the steps in detail, so even the most back-end heavy developer in our team had no problem writing his first JavaScript game. 
+
+<table>
+	<tr>
+		<td>![Flappy tutorial](/images/2017-07-19-flappy-cat/flappy-tutorial.gif)</td><td>![Phaser](/images/2017-07-19-flappy-cat/phaser-logo.png)</td>
+	</tr>
+</table>
 
 Step 2: Buy the motion tracker. We chose Kinect as we found videos on YouTube of people doing exactly what we wanted to do with the Kinect sensor. We only had one day to do this project, so this was not the time to reinvent the wheel. 
 
