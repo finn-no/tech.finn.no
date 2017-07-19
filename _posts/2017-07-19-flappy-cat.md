@@ -24,3 +24,4 @@ Step 3: Tweaking one of the example apps that was included in the Kinect 2.0 SDK
 
 Step 4: Creating a simple Node.js server that could not only serve our game, but also have an API endpoint and give the Windows app a way to notify the game that it detected a flap. This is a simple solution; a GET call to /flap is equivalent to pressing space in the game. 
 
+![Flap demo](/images/2017-07-19-flappy-cat/flap-demo.gif)
