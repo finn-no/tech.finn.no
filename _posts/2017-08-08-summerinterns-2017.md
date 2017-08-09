@@ -1,6 +1,7 @@
 ---
 layout: post
 comments: true
+
 date: 2017-08-08 12:56:49+0200
 authors:
 - Inga N. Søreide
@@ -62,7 +63,7 @@ During the first weeks of the project, several surveys regarding aspects of “T
 Using an automated system rather than user feedback would also minimize the possibility of buyers misusing or abusing the feedback module (giving inaccurate/wrong feedback). This system could analyse the amount of pictures, the quality of the pictures, the amount of text, the price etc. in terms of similar ads and compare them to the ad in question. The tags used in “Tilbakemelding” could be used as a starting point, with the most focus on number of pictures and picture quality. According to our results, users would be first and foremost interested in the pictures of the ad. Another recommendation based on our experience is to start user testing early on. By doing so, weaknesses in the prototype can be found before a lot of time is spent programming.
 
 # Project 2: Redesign ad dashboard
-After finishing “Tilbakemelding”, it was decided to do a redesign of the ad dashboard page in order to improve advertisers' user experience. As can be seen on the picture, several of the buttons have been rearranged, and the statistics have been given more space and importance. The old message system has been upgraded to improve the flow and aesthetics. Tips into how your ad can be improved have been added to motivate and help advertisers make even better ads. Lastly, a timeline showing the past, present and future status of the ad are displayed, to help advertisers be more aware of their ads.
+After finishing “Tilbakemelding”, it was decided to do a redesign of the ad dashboard page in order to improve advertisers' user experience. As can be seen on the picture, several of the buttons have been rearranged, and the statistics have been given more space and importance. The old message system has been upgraded to improve the flow and aesthetics. Tips into how your ad can be improved have been added to motivate and help advertisers make even better ads. Lastly, a timeline showing the past, present and future status of the ad are displayed. 
 
 ## Technical solution
 The redesigned ad dashboard page has been created using Node.js and React. By splitting FINN.no into multiple smaller microservices it allows developers to create/modify pages, while still keeping development environments rich and easy to use. We created a Node.js server for handling server rendering and proxying requests to other backend services and a React web application for the frontend. We still utilize existing backend services at FINN, e.g for getting the correct buttons for an ad in a specific state. This allows our newly developed front end to be switched out seamlessly without the user knowing the switched from one application to another. FINN.no has quite a lot of backend services that we can take advantage of to speed up the process. One example of this is the use of Finnlets which creates the identical footer and header while the server is rendering the page to the user. 
