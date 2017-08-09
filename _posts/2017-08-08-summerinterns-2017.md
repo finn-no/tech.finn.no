@@ -49,8 +49,7 @@ Each tag that's chosen by a user was stored in the database connected to differe
 
 
 ## Results UX Design
-Several prototypes were designed using Sketch and Invision, with people inhouse and on the streets helping us evaluate the design. The tests helped us rename several of the tags, helped us deciding the looks of the button and the tags, and the means by which a user should access them. In addition, more elaborate user tests in the prototyping lab of FINN.no were successfully completed, and valuable insights were obtained. It was revealed that most users did not notice the button at first glance, partly due to the location, but also because they did not feel a need to use it. If they wanted information about the product, they would message the advertiser directly, thus limiting the competition for the ad and receiving a response quickly.
-
+Several prototypes were designed using Sketch and Invision, with people inhouse and on the streets helping us evaluate the design. The tests helped us rename several of the tags, helped us deciding the looks of the button and the tags, and the means by which a user should access them. In addition, more elaborate user tests in the prototyping lab of FINN.no were successfully completed, and valuable insights were obtained. Although the user surveys proved a majority of FINN.no users, both buyers and advertisers, wanted a system to improve ads, the user tests proved contrary. It was revealed buyers were not interested in helping improve ads. If they wanted information about the product, they would message the advertiser directly, thus limiting the competition for the ad and receiving a response quickly. Most users did not notice the button at first glance, partly due to the location, but also because they did not feel a need to use it. 
 
 <figure>
    <img class="center-block" src="/images/2017-08-08-Summerinterns-2017/Tilbakemelding2.png" alt="alt" title="feedback1" />
