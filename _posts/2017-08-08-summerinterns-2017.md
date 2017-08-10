@@ -5,9 +5,9 @@ comments: true
 date: 2017-08-08 12:56:49+0200
 authors:
 - Inga N. Søreide
-- Bjorn Hoxmark
+- Bjørn Hoxmark
 - Henriette Ekeberg
-- Kristoffer K.Larsen
+- Kristoffer K. Larsen
 - Alfred Birketvedt
 title: "The summer interns of 2017"
 tags:
