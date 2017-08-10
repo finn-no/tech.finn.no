@@ -5,7 +5,7 @@ comments: true
 date: 2017-08-08 12:56:49+0200
 authors:
 - Inga N. Søreide
-- Bjørn Hoxmark
+- Bjorn Hoxmark
 - Henriette Ekeberg
 - Kristoffer K.Larsen
 - Alfred Birketvedt
