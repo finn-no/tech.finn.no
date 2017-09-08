@@ -13,7 +13,7 @@ tags:
 - recommendations
 ---
 
-#Deep NLP-based Recommenders at Finn.no
+# Deep NLP-based Recommenders at Finn.no
 
 During a hackathon at FINN.no, we figured we wanted to learn more about deep NLP-models. FINN.no has a large database with ads of people trying to sell stuff (around 1 million active ads at any time), and they are categorized into a category tree with three or four layers. For example, full suspension bikes can be found under “Sport and outdoor activities” / “Bike sport” / “Full suspension bikes”.
 
@@ -25,7 +25,6 @@ Some preprocessing still had to be done. We ran through all ads, concatenated th
 
 <figure>
    <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/model architecture proposed by the paper.jpg" alt="alt" title="Model architecture proposed by the paper" />
-   <figcaption style="text-align:center; font-style:italic;">Model architecture proposed by the paper</figcaption>
 </figure>
 
 
@@ -33,7 +32,6 @@ Our initial experiments were done with a simple [“Bag of words” model includ
 
 <figure>
    <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/keras representation of our nlp model .jpg" alt="alt" title="Keras representation of our NLP model" />
-   <figcaption style="text-align:center; font-style:italic;">Keras representation of our NLP model</figcaption>
 </figure>
 
 
@@ -41,7 +39,7 @@ So how did it go? Our hackathon model managed to categorize 10'000 ads into 359 
 
 
 
-##Using the model in recommendations
+## Using the model in recommendations
 
 It is usually the case that category-similarity translates decently to ad-similarity. Using our classifier model we can serve users more ads similar to what they’re already seeing, based on the text of a selected ad.
 
@@ -51,20 +49,17 @@ This is likely due to better supporting “cold ads”, or ads without traffic, 
 
 <figure>
    <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/cold ad.jpg" alt="alt" title="Cold ad" />
-   <figcaption style="text-align:center; font-style:italic;">Cold ad</figcaption>
 </figure>
 
 <figure>
    <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/collaborative filtering.jpg" alt="alt" title="Collaborative filtering" />
-   <figcaption style="text-align:center; font-style:italic;">Collaborative filtering</figcaption>
 </figure>
 
 <figure>
    <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/nlp recommendations.jpg" alt="alt" title="NLP Recommendations" />
-   <figcaption style="text-align:center; font-style:italic;">NLP Recommendations</figcaption>
 </figure>
 
-##Further work
+## Further work
 
 The pure text-model does not prioritize the popularity (or perhaps by proxy, how good the ad is) of the ad at all. This leads us to suspect that although users are being directed to similar ads, they could for example be missing an enticing image to make engagement likely. Seeing how the ensemble model in the end is optimized for click-rate, it likely only gives the NLP model high priority when the ad has low traffic. It would be interesting to somehow introduce this aspect into the NLP model.
 
