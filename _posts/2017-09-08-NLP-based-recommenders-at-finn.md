@@ -28,10 +28,10 @@ Some preprocessing still had to be done. We ran through all ads, concatenated th
 </figure>
 
 
-Our initial experiments were done with a simple [“Bag of words” model included in the Keras repository](https://github.com/fchollet/keras/blob/2.0.3/examples/reuters_mlp.py), but we promptly switched over to [“Convolutional Neural Networks for Sentence Classification” based architecture] (https://arxiv.org/pdf/1408.5882.pdf) after hearing about it from our colleague, Tobias. By looking at the first 15 words of the ad, and using 200 dimensional embeddings for each word, our input is transformed into a 15x200 matrix. We apply three different convolutions on each document. The three convolutions looks at 2, 3 and 4 words (kernel sizes) in each convolution. It then max-pools each over the whole document, so that you end up with one value per document per convolution. For each kernel size you do 100 different filters. Finally you add a dense layer for classification. In addition to the standard model described in the paper, we experimented with different kernel sizes, number of filters, dense layers, batch normalization and dropout. We also added several losses, so that the model optimized both the higher and lower category at the same time. That helped.
+Our initial experiments were done with a simple [“Bag of words” model included in the Keras repository](https://github.com/fchollet/keras/blob/2.0.3/examples/reuters_mlp.py), but we promptly switched over to [“Convolutional Neural Networks for Sentence Classification” based architecture](https://arxiv.org/pdf/1408.5882.pdf) after hearing about it from our colleague, Tobias. By looking at the first 15 words of the ad, and using 200 dimensional embeddings for each word, our input is transformed into a 15x200 matrix. We apply three different convolutions on each document. The three convolutions looks at 2, 3 and 4 words (kernel sizes) in each convolution. It then max-pools each over the whole document, so that you end up with one value per document per convolution. For each kernel size you do 100 different filters. Finally you add a dense layer for classification. In addition to the standard model described in the paper, we experimented with different kernel sizes, number of filters, dense layers, batch normalization and dropout. We also added several losses, so that the model optimized both the higher and lower category at the same time. That helped.
 
 <figure>
-   <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/keras representation of our nlp model.jpg" alt="alt" title="Keras representation of our NLP model" />
+   <img class="center-block" src="/images/2017-09-08-NLP-based-recommenders-at-finn/keras representation of our nlp model .jpg" alt="alt" title="Keras representation of our NLP model" />
    <figcaption style="text-align:center; font-style:italic;">Keras representation of our NLP model</figcaption>
 </figure>
 
@@ -67,5 +67,5 @@ The pure text-model does not prioritize the popularity (or perhaps by proxy, how
 
 We would like to eventually have a more thorough NLP representation of all our ads for other teams to build services and functionality on, and this recommender is an important first step to achieve that.
 
-[Resources] (https://arxiv.org/pdf/1408.5882.pdf) 
+[Resources](https://arxiv.org/pdf/1408.5882.pdf) 
 
