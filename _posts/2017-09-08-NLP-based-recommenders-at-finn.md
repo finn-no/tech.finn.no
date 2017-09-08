@@ -14,6 +14,7 @@ tags:
 ---
 
 #Deep NLP-based Recommenders at Finn.no
+
 During a hackathon at FINN.no, we figured we wanted to learn more about deep NLP-models. FINN.no has a large database with ads of people trying to sell stuff (around 1 million active ads at any time), and they are categorized into a category tree with three or four layers. For example, full suspension bikes can be found under “Sport and outdoor activities” / “Bike sport” / “Full suspension bikes”.
 
 In our daily jobs we are working on recommendations. There, we already have a content based (tf-idf) recommender build on Solr’s More Like This. It seems to work well in areas where our collaborative filtering approaches does not. Would it be possible to build a deep learning NLP-model of similar performance?
@@ -41,6 +42,7 @@ So how did it go? Our hackathon model managed to categorize 10'000 ads into 359 
 
 
 ##Using the model in recommendations
+
 It is usually the case that category-similarity translates decently to ad-similarity. Using our classifier model we can serve users more ads similar to what they’re already seeing, based on the text of a selected ad.
 
 We use the model by cutting the last dense layer (called feature layer in figure above), then comparing normalized dot products (cosine similarity) between objects. Since our our benchmarks for judging anything a success or failure is based on how it performs in a production environment, we went ahead and did that. 
@@ -63,6 +65,7 @@ This is likely due to better supporting “cold ads”, or ads without traffic, 
 </figure>
 
 ##Further work
+
 The pure text-model does not prioritize the popularity (or perhaps by proxy, how good the ad is) of the ad at all. This leads us to suspect that although users are being directed to similar ads, they could for example be missing an enticing image to make engagement likely. Seeing how the ensemble model in the end is optimized for click-rate, it likely only gives the NLP model high priority when the ad has low traffic. It would be interesting to somehow introduce this aspect into the NLP model.
 
 We would like to eventually have a more thorough NLP representation of all our ads for other teams to build services and functionality on, and this recommender is an important first step to achieve that.
