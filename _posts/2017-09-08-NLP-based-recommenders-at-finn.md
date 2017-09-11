@@ -68,5 +68,7 @@ The pure text-model does not prioritize the popularity (or perhaps by proxy, how
 
 We would like to eventually have a more thorough NLP representation of all our ads for other teams to build services and functionality on, and this recommender is an important first step to achieve that.
 
+The code can be found at [FINN.no's github page](https://github.com/finn-no/keras-conv-sentence-classifier).
+
 [Resources](https://arxiv.org/pdf/1408.5882.pdf) 
 
