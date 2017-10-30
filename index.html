@@ -3,7 +3,7 @@ layout: page
 title: Developers at FINN blogging about tech
 ---
 
-<div class="mod shadow">
+<div>
     <div class="inner">
         <div class="bd">
             {% for post in paginator.posts %}
@@ -15,7 +15,6 @@ title: Developers at FINN blogging about tech
                 </h1>
 
                 <p class="neutral">{% include byline.html date=post.date authors=post.authors %}</p>
-                <hr>
 
                 <div class="post-content r-margin">
                     {{ post.content }}
