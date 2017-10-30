@@ -1,5 +1,9 @@
-body{
-	font: 16px/1.5 finnmain,Arial,Helvetica,sans-serif;
+body, html {
+	background-color: white;
+}
+
+body {
+	font: 1em finnmain,Arial,Helvetica,sans-serif;
 }
 
 .tagline {
@@ -24,6 +28,11 @@ body{
 
 .post-content blockquote { padding: 10px 20px; background-color: #F6F8DA; border-radius: 4px; }
 .post-content ul { padding-left: 20px; list-style: disc outside; }
+
+.post-content p, li { line-height: 26px; }
+.post-content b, .b1 { line-height: 20px; }
+
+.bd li a { line-height: 20px; }
 
 .ftlogo {
 	width: 80px;
