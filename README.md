@@ -43,3 +43,14 @@ If you want access to the moderation tools [sign up](https://disqus.com/profile/
 
 ## Tracking
 We are using [Google Analytics](http://www.google.com/analytics/) for tracking ([#7](https://github.com/finn-no/tech.finn.no/issues/7)). If you want access to the tracking data contact [@pjwalstrom](https://github.com/pjwalstrom).
+
+
+## Operating system specific notes
+
+I had to reinstall ruby-dev on Ubuntu 16.04 in WSL:
+```
+apt install build-essential
+apt install ruby2.3-dev --reinstall
+```
+to get `ruby.h` in the right place.
+
