@@ -34,7 +34,7 @@ Check out [CONTRIBUTING](CONTRIBUTING.md).
 If you want to test locally, run
 
 ```bash
-bundle exec htmlproof ./_site
+bundle exec htmlproofer ./_site
 ```
 
 ## Comments
