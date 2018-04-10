@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2018-04-10 08:00:00+0100
+date: 2018-04-09 13:00:00+0100
 authors: Henrik Falch
 title: "Personalized search with a custom SOLR plugin"
 tags:
@@ -21,7 +21,7 @@ On [FINN.no](https://www.finn.no) people can search for classified ads, where th
     <figcaption style="text-align:center; font-style:italic;">Non-personalized search</figcaption>
 </figure>
  
-The first and third ad is bought positions, while the rest is sorted by timestamp and the importance of the word chair.<br>
+The first and third ad is bought positions, while the rest is sorted by published time and the importance of the word chair.<br>
  
 In the fall of 2017, we started experimenting with ways to improve the relevancy sorting. First try was by boosting geo distance, ads close to my position would get a higher score.
 But we could not see any positive changes for our product KPIs. Then we wanted to try sort by mixing scores from both SOLR and our recommendation system.
@@ -33,7 +33,7 @@ We evaluated a few different solutions, mainly:
 - learning to rank in SOLR
 - custom SOLR plugin using the existing recommendations api
 
-Since we already had a system for recommendations, and highly competent data scientists tuning the algorithms and so on, we chose to test this solution. 
+Since we already had a system for recommendations, and awesome data scientists tuning the algorithms and so on, we chose to test this solution. 
 A uncertainty was if we could get the response times needed for a search.
 
 ### SOLR SearchComponent
@@ -53,11 +53,11 @@ We therefore added these parameters:
 - personalization score weight (Double) - recommendation score weight, 1= equal weight to SOLR score
 - user id (String) - to be able to personalize the search
 
-The solution we chose for the plugin is:
-1. Let the search fetch all documents from the first x pages, set by the parameter rerank_pages.
-2. Fetch recommendation score for each document returned by the search from the recommendations api.
-3. Sort the documents by a combination of SOLR score and recommendation score.
-4. Return a subset of the search result, based on offset and rows parameters
+The solution we chose for the plugin is:<br/>
+1) Let the search fetch all documents from the first x pages, set by the parameter rerank_pages.<br/>
+2) Fetch recommendation score for each document returned by the search from the recommendations api.<br/>
+3) Sort the documents by a combination of SOLR score and recommendation score.<br/>
+4) Return a subset of the search result, based on offset and rows parameters
 
 We want the search from the default QueryComponent to run before the PersonalizationComponent, since we need the ad ids (SOLR document ids) for the first x pages of the search result. Therefore we setup our component as a last-component in the solrconfig. 
 
