@@ -318,14 +318,22 @@ Both of the searches includes the same 250 ads on the first 5 pages, but as you 
 Published dates and the query relevance decides which subset of the search result to personalize.
 
 ## Product results
-After testing the personalization search for around 3-4 months, we experienced around 2% better results for the some of the most important product KPIs for search:
-- Shorter time, from start of search to clicking a search result
-- More user sessions with clicking a search result
-- Overall more contacting the sellers
+We made a version of the personalization search, which included distribution, to take care of the professional sellers.
+The personalized search with distribution were tested against the distribution search for 4 months, increasing the share of users getting personalized search to 50% the last couple of months.
+These were the results from the most important KPIs we followed:
 
+|         | Distribution search           | Personalized search with distribution  | Difference |
+| ------------- |:-------------:| :-----:|-----:|
+| Share of sessions with ad click      | 59.7% | 62% | +3.9% (2.3% points) |
+| Time from start of search to ad click      | 63 s      |   61.7 s | -2.3% (1.3 seconds) |
+| Clicks to ads without any contact from buyers, per session | 2.1      |    2.58 | +22.9% |
+
+All of these were better with the personalized search, in addition our other KPIs were unchanged.
 
 ## Summary
-The personalization search makes our search slightly better for the our users in FINN.no.
+To understand what kind of data is populated in each of the SearchComponent's steps, a lot of debugging the default Solr components was necessary, because of incomplete documentation.
+
+The personalization search makes our search better for the our users in FINN.no.
 But it does indeed costs more in terms of latency. Here we hope to be able to increase the performance a bit. There are several possibilities:
 - cache recommendation matrices within the Solr servers, to avoid network overhead
 - find a better way to get the Solr document ids
@@ -338,7 +346,3 @@ As of April 2018, all users of the “torget” search gets the recommendation s
 
 Code for the plugin:
 [Plugin code](/images/2018-04-10-personalized-search/PersonalizationComponent.java)
-
-#### Comments
-There are some pain points when developing a Solr plugin -> the documentation is incomplete, so a lot of debugging the Solr components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
-I have also been reading a lot of the Solr source code, looking for how to solve this problem.
