@@ -343,7 +343,4 @@ But it does indeed costs more in terms of latency. Here we hope to be able to in
 - ...and so on
 
 We will still tune our recommendations algorithms and the plugin to get our results even better. 
-As of April 2018, all users of the “torget” search gets the recommendation search.<br>
-
-Code for the plugin:
-[Plugin code](/images/2018-04-10-personalized-search/PersonalizationComponent.java)
+As of April 2018, all users of the “torget” search gets the recommendation search.
