@@ -61,139 +61,167 @@ The solution we chose for the plugin is:<br/>
 
 We want the search from the default QueryComponent to run before the PersonalizationComponent, since we need the ad ids (Solr document ids) for the first x pages of the search result. Therefore we setup our component as a last-component in the Solrconfig. 
 
-    <requestHandler name="dismax" class="no.finntech.search.Solr.searchhandler.SearchHandler" default="true">
-        ..
-        ..
-        <arr name="last-components">
-            <str>personalization</str>
-        </arr>
-    </requestHandler>
-
+```xml
+<requestHandler name="dismax" class="no.finntech.search.Solr.searchhandler.SearchHandler" 
+    default="true">
+    ..
+    ..
+    <arr name="last-components">
+        <str>personalization</str>
+    </arr>
+</requestHandler>
+```
 
 ### SearchComponent.prepare
 
 The prepare step are evaluating and setting the search parameters count, offset and score. 
 
-    @Override
-    public void prepare(ResponseBuilder rb) throws IOException {
-       if (!shouldWePersonalize(rb.req)) {
-           return;
+```java
+@Override
+public void prepare(ResponseBuilder rb) throws IOException {
+   if (!shouldWePersonalize(rb.req)) {
+       return;
+   }
+
+   final SolrParams params = rb.req.getParams();
+   final SortSpec sortSpec = rb.getSortSpec();
+   final int offset = sortSpec.getOffset();
+   final int reRankNum = getReRankNum(params);
+
+   if (reRankNum > offset) { //reranking only the first x (reRankPages) pages
+       sortSpec.setCount(reRankNum);
+       sortSpec.setOffset(0);
+       if (params.get("score") == null) {//adds score for the search
+           rb.setFieldFlags(SolrIndexSearcher.GET_SCORES);
        }
-    
-       final SolrParams params = rb.req.getParams();
-       final SortSpec sortSpec = rb.getSortSpec();
-       final int offset = sortSpec.getOffset();
-       final int reRankNum = getReRankNum(params);
-    
-       if (reRankNum > offset) { //reranking only the first x (reRankPages) pages
-           sortSpec.setCount(reRankNum);
-           sortSpec.setOffset(0);
-           if (params.get("score") == null) {//adds score for the search
-               rb.setFieldFlags(SolrIndexSearcher.GET_SCORES);
-           }
-       }
-    }
+   }
+}
+```
 
 First we are checking the parameters if it is a personalization search. This component will not manipulate a search without personalization.
-    
-    if (!shouldWePersonalize(rb.req)) {
-       return;
-    }
+
+```java
+if (!shouldWePersonalize(rb.req)) {
+   return;
+}
+```
 
 The personalization search will reorder the first x pages, set by the parameter rerank_pages, therefore count and offset is set to include the first x pages of the search result.
 
-    if (reRankNum > offset) { //reranking only the first x (reRankPages) pages
-               sortSpec.setCount(reRankNum);
-               sortSpec.setOffset(0);
+```java
+if (reRankNum > offset) { //reranking only the first x (reRankPages) pages
+           sortSpec.setCount(reRankNum);
+           sortSpec.setOffset(0);
+```
 
 Setting the flag which makes the QueryComponent calculate scores:
 
-    if (params.get("score") == null) {//adds score for the search
-        rb.setFieldFlags(SolrIndexSearcher.GET_SCORES);
-    }
-
+```java
+if (params.get("score") == null) {//adds score for the search
+    rb.setFieldFlags(SolrIndexSearcher.GET_SCORES);
+}
+```
 
 ### SearchComponent.process
 
 In the process step, the recommendation scores are fetched, and the final sorting of the search result are set based on Solr- and recommendations scores.
 
-    @Override
-    public void process(ResponseBuilder rb) throws IOException {
-       if (!shouldWePersonalize(rb.req)) {
-           return;
-       }
-       final SolrParams params = rb.req.getParams();
-       final String recommenderId = params.get(FINN_PERSONALIZATION_RECOMMENDERID);
-       final String userId = params.get(FINN_USERID);
-       final int rows = params.getInt(ROWS);
-       final int offset = getOffset(params);
-       final float personalizationScoreWeight = getPersonalizationScoreWeight(params);
-       final int reRankNum = rb.getResults().docList.size();
-    
-       if (reRankNum <= offset) { //only reranking first x (reRankNum) documents of a search
-           return;
-       }
-    
-       final DocList initialSearchResult = rb.getResults().docList;
-       List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult);
-    
-       final Map<String, ScoredAd> recommendedItems = getRecommendedItems(userId, recommenderId, reRankNum, results);
-    
-       if (recommendedItems.size() > 0) {
-           results.forEach(result -> {
-               final float normalizedSolrScore = normalizedSolrScore(result.getScore(), initialSearchResult.maxScore());
-               final float personalizationScore = personalizationScore(personalizationScoreWeight, recommendedItems, result.getAdId());
-               result.setScore(normalizedSolrScore + personalizationScore);
-           });
-           results.sort((r1, r2) -> Float.compare(r2.getScore(), r1.getScore()));
-       }
-    
-       final List<ScoredAd> searchResult = results.stream()
-               .skip(offset)
-               .limit(rows)
-               .collect(toList());
-       try {
-           addToResponse(rb, reRankNum, searchResult, initialSearchResult);
-       } catch (IOException e) {
-           LOG.error("Could not add recommended items to search result: " + e);
-       }
-    }
+```java
+@Override
+public void process(ResponseBuilder rb) throws IOException {
+   if (!shouldWePersonalize(rb.req)) {
+       return;
+   }
+   final SolrParams params = rb.req.getParams();
+   final String recommenderId = params.get(FINN_PERSONALIZATION_RECOMMENDERID);
+   final String userId = params.get(FINN_USERID);
+   final int rows = params.getInt(ROWS);
+   final int offset = getOffset(params);
+   final float personalizationScoreWeight = getPersonalizationScoreWeight(params);
+   final int reRankNum = rb.getResults().docList.size();
+
+   if (reRankNum <= offset) { //only reranking first x (reRankNum) documents of a search
+       return;
+   }
+
+   final DocList initialSearchResult = rb.getResults().docList;
+   List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult);
+
+   final Map<String, ScoredAd> recommendedItems = 
+        getRecommendedItems(userId, recommenderId, reRankNum, results);
+
+   if (recommendedItems.size() > 0) {
+       results.forEach(result -> {
+           final float normalizedSolrScore = normalizedSolrScore(result.getScore(), 
+                                                                 initialSearchResult.maxScore());
+           final float personalizationScore = personalizationScore(personalizationScoreWeight, 
+                                                                   recommendedItems, 
+                                                                   result.getAdId());
+           result.setScore(normalizedSolrScore + personalizationScore);
+       });
+       results.sort((r1, r2) -> Float.compare(r2.getScore(), r1.getScore()));
+   }
+
+   final List<ScoredAd> searchResult = results.stream()
+           .skip(offset)
+           .limit(rows)
+           .collect(toList());
+   try {
+       addToResponse(rb, reRankNum, searchResult, initialSearchResult);
+   } catch (IOException e) {
+       LOG.error("Could not add recommended items to search result: " + e);
+   }
+}
+```
 
 As in the prepare step, we start the process step by escaping non-personalization searches, checking if the search is a personalization search, and if the search is within the pages to personalize: 
-   
-    if (!shouldWePersonalize(rb.req)) {
-       return;
-    }
-    
-    if (reRankNum <= offset) { //only reranking first x (reRankNum) documents of a search
-       return;
-    }
+
+```java   
+if (!shouldWePersonalize(rb.req)) {
+   return;
+}
+
+if (reRankNum <= offset) { //only reranking first x (reRankNum) documents of a search
+   return;
+}
+```
 
 The QueryComponent runs its process step before the PersonalizationComponent's process, and creates a doclist containing the search results, with lucene document ids and scores.
 
-    final DocList initialSearchResult = rb.getResults().docList;
-    List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult);
+```java
+final DocList initialSearchResult = rb.getResults().docList;
+List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult);
+```
 
 Note that Lucene document id is not the same as Solr document id. 
-Next, to get the Solr document ids, which we will use for recommendation scores, we need to do a index lookup per document. ```searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
-In FINN.no’s case we have a relatively small index (up to 1,3 million documents / 4GB), so it should be mostly memory lookups.
+Next, to get the Solr document ids, which we will use for recommendation scores, we need to do a index lookup per document. ```java searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
+In FINN.no's case we have a relatively small index (up to 1,3 million documents / 4GB), so it should be mostly memory lookups.
 
-    private static List<ScoredAd> getInitialSearchDocs(ResponseBuilder rb, int reRankNum, DocList initialSearchResult) throws IOException {
-       List<ScoredAd> results = new ArrayList<>();
-       int counter = 0;
-       final SolrIndexSearcher searcher = rb.req.getSearcher();
-       for (DocIterator docIterator = initialSearchResult.iterator(); docIterator.hasNext() && counter < reRankNum; counter++) {
-           results.add(createDoc(searcher, docIterator.next(), docIterator.score()));
-       }
-       return results;
-    }
-    
-    private static ScoredAd createDoc(SolrIndexSearcher searcher, int luceneDocumentId, float score) throws IOException {
-       final Document doc = searcher.doc(luceneDocumentId, Sets.newHashSet("id")); //there should be a better way to do the luceneid -> id mapping
-       String adid = doc.get("id");
-       return new ScoredAd(luceneDocumentId, adid, score);
-    }
- 
+```java
+private static List<ScoredAd> getInitialSearchDocs(ResponseBuilder rb, 
+                                                   int reRankNum, 
+                                                   DocList initialSearchResult) 
+                                                   throws IOException {
+   List<ScoredAd> results = new ArrayList<>();
+   int counter = 0;
+   final SolrIndexSearcher searcher = rb.req.getSearcher();
+   for (DocIterator docIterator = initialSearchResult.iterator(); docIterator.hasNext() && 
+            counter < reRankNum; counter++) {
+       results.add(createDoc(searcher, docIterator.next(), docIterator.score()));
+   }
+   return results;
+}
+
+private static ScoredAd createDoc(SolrIndexSearcher searcher, 
+                                  int luceneDocumentId, 
+                                  float score) 
+                                  throws IOException {
+   final Document doc = searcher.doc(luceneDocumentId, Sets.newHashSet("id")); //there should be a better way to do the luceneid -> id mapping
+   String adid = doc.get("id");
+   return new ScoredAd(luceneDocumentId, adid, score);
+}
+```
+
 Next we use the recommendation api to get a personalization score for each document. This is a http-request, and is therefore also a high cost part, latency vise, of the plugin. 
 Our api takes the following parameters:
 - UserId
@@ -203,39 +231,51 @@ Our api takes the following parameters:
 
 And returns a list of adIds with recommendation score. ScoredAd now contains both the Solr- and the recommendation-score. These are further used for sorting the search results: ```total score = normalized Solr score + (normalized recommendation score * recommendation score weight)```
 
-    final Map<String, ScoredAd> recommendedItems = getRecommendedItems(userId, recommenderId, reRankNum, results);
-    
-    if (recommendedItems.size() > 0) {
-       results.forEach(result -> {
-           final float normalizedSolrScore = normalizedSolrScore(result.getScore(), initialSearchResult.maxScore());
-           final float personalizationScore = personalizationScore(personalizationScoreWeight, recommendedItems, result.getAdId());
-           result.setScore(normalizedSolrScore + personalizationScore);
-       });
-       results.sort((r1, r2) -> Float.compare(r2.getScore(), r1.getScore()));
-    }
+```java
+final Map<String, ScoredAd> recommendedItems = getRecommendedItems(userId, 
+                                                                   recommenderId, 
+                                                                   reRankNum, 
+                                                                   results);
+
+if (recommendedItems.size() > 0) {
+   results.forEach(result -> {
+       final float normalizedSolrScore = normalizedSolrScore(result.getScore(), 
+                                                             initialSearchResult.maxScore());
+       final float personalizationScore = personalizationScore(personalizationScoreWeight, 
+                                                               recommendedItems, 
+                                                               result.getAdId());
+       result.setScore(normalizedSolrScore + personalizationScore);
+   });
+   results.sort((r1, r2) -> Float.compare(r2.getScore(), r1.getScore()));
+}
+```
 
 Finally we are preparing the search response with a subset of the search results, set by offset and rows.
 
-    final List<ScoredAd> searchResult = results.stream()
-           .skip(offset)
-           .limit(rows)
-           .collect(toList());
-    try {
-       addToResponse(rb, reRankNum, searchResult, initialSearchResult);
-    } catch (IOException e) {
-       LOG.error("Could not add recommended items to search result: " + e);
-    }
-    
-    private static void addToResponse(ResponseBuilder rb, int reRankNum, List<ScoredAd> resultsToReturn, DocList docList) throws IOException {
-       DocListAndSet docListAndSet = buildDocListAndSet(reRankNum, resultsToReturn, docList);
-       rb.setResults(docListAndSet);
-    
-       BasicResultContext resultContext = new BasicResultContext(rb);
-       SolrQueryResponse rsp = rb.rsp;
-       rsp.getValues().removeAll("response");
-       rsp.addResponse(resultContext);
-    }
+```java
+final List<ScoredAd> searchResult = results.stream()
+       .skip(offset)
+       .limit(rows)
+       .collect(toList());
+try {
+   addToResponse(rb, reRankNum, searchResult, initialSearchResult);
+} catch (IOException e) {
+   LOG.error("Could not add recommended items to search result: " + e);
+}
 
+private static void addToResponse(ResponseBuilder rb, 
+                                  int reRankNum, 
+                                  List<ScoredAd> resultsToReturn, 
+                                  DocList docList) throws IOException {
+   DocListAndSet docListAndSet = buildDocListAndSet(reRankNum, resultsToReturn, docList);
+   rb.setResults(docListAndSet);
+
+   BasicResultContext resultContext = new BasicResultContext(rb);
+   SolrQueryResponse rsp = rb.rsp;
+   rsp.getValues().removeAll("response");
+   rsp.addResponse(resultContext);
+}
+```
 
 ## Response times
 We will also look at the response times:
@@ -249,7 +289,7 @@ Response times for 95th percentile. Default search is searches without any custo
 
 
 Lets also look at the 99th percentile for response time. We here removed the default search, because of too much noise, because of low traffic. 
-The personalization search’s 99th percentile is between 60 to 100 ms slower than the search to be replaced.
+The personalization search's 99th percentile is between 60 to 100 ms slower than the search to be replaced.
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/99th_percentile_latency.png" alt="alt" title="99th percentile latency" />
