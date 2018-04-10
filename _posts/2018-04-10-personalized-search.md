@@ -3,9 +3,9 @@ layout: post
 comments: true
 date: 2018-04-10 08:00:00+0200
 authors: Henrik Falch
-title: "Personalized search with a custom SOLR plugin"
+title: "Personalized search with a custom Solr plugin"
 tags:
-- solr
+- Solr
 - plugin
 - recommendations
 - search
@@ -14,54 +14,54 @@ tags:
 
 ## Background
 
-On [FINN.no](https://www.finn.no) people can search for classified ads, where the backend system is using SOLR as the search engine. Default sorting on the vertical "torget" is by relevancy, which is based on SOLR score. The SOLR score for a document is again calculated from query relevance and the ad's published date. Here is an example searching for the word chair:
+On [FINN.no](https://www.finn.no) people can search for classified ads, where the backend system is using Solr as the search engine. Default sorting on the vertical "torget" is by relevancy, which is based on Solr score. The Solr score for a document is again calculated from query relevance and the ad's published date. Here is an example searching for the word chair:
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/example_without_personalization2.png" alt="alt" title="Non-personalized search" />
     <figcaption style="text-align:center; font-style:italic;">Non-personalized search</figcaption>
 </figure>
  
-The first and third ad is bought positions, while the rest is sorted by published time and the importance of the word chair.<br>
+The first and third ad are bought positions, while the rest are sorted by published time and the importance of the word chair (Norwegian: stol).<br>
  
-In the fall of 2017, we started experimenting with ways to improve the relevancy sorting. First try was by boosting geo distance, ads close to my position would get a higher score.
-But we could not see any positive changes for our product KPIs. Then we wanted to try sort by mixing scores from both SOLR and our recommendation system.
+In the fall of 2017, we started experimenting with ways to improve the relevancy sorting. Our first try was by boosting geo distance, ads close to my position would get a higher score.
+But we could not see any positive changes for our product KPIs. Then we wanted to try sort by mixing scores from both Solr and our recommendation system.
 Our recommendation system already had an api where we could send a user id and a list of ad ids, and receive a recommendation score for each of the ads.
 
 ## A new solution
 
 We evaluated a few different solutions, mainly:
-- learning to rank in SOLR
-- custom SOLR plugin using the existing recommendations api
+- learning to rank in Solr
+- custom Solr plugin using the existing recommendations api
 
-Since we already had a system for recommendations, and awesome data scientists tuning the algorithms and so on, we chose to test this solution. 
+Since we already had a system for recommendations, and awesome data scientists tuning the algorithms and so on, we chose to test the latter. 
 A uncertainty was if we could get the response times needed for a search.
 
-### SOLR SearchComponent
-A SOLR search component contains several phases used by the search handler. As we do not use sharded indices for the search we wanted to test, these are the important phases:
+### Solr SearchComponent
+A Solr search component contains several phases used by the search handler. As we do not use sharded indices for the search we wanted to test, these are the important phases:
 - prepare - Preparing the response -> parsing request parameters
 - process - Processing the request for the current component
 
 ### Requirements
 - the personalization score should influence the order of the search result
 - we want to easily be able to change recommendation algorithm, and test a new one against the current search (with or without personalization)
-- we also wanted to tune SOLR score/recommendation score ballance
+- we also wanted to tune Solr score/recommendation score balance
 
 We therefore added these parameters:
 - personalization (Boolean) - to switch on/off the personalization search
 - recommender id (String) - to set recommendation algorithm
 - rerank pages (Integer) - number of pages with personalization per search, typically the first 5 or 10 pages will be personalized. This is to increase performance, compared to calculating personalization scores for every document in a search result.
-- personalization score weight (Double) - recommendation score weight, 1= equal weight to SOLR score
+- personalization score weight (Double) - recommendation score weight, 1= equal weight to Solr score
 - user id (String) - to be able to personalize the search
 
 The solution we chose for the plugin is:<br/>
 1) Let the search fetch all documents from the first x pages, set by the parameter rerank_pages.<br/>
 2) Fetch recommendation score for each document returned by the search from the recommendations api.<br/>
-3) Sort the documents by a combination of SOLR score and recommendation score.<br/>
+3) Sort the documents by a combination of Solr score and recommendation score.<br/>
 4) Return a subset of the search result, based on offset and rows parameters
 
-We want the search from the default QueryComponent to run before the PersonalizationComponent, since we need the ad ids (SOLR document ids) for the first x pages of the search result. Therefore we setup our component as a last-component in the solrconfig. 
+We want the search from the default QueryComponent to run before the PersonalizationComponent, since we need the ad ids (Solr document ids) for the first x pages of the search result. Therefore we setup our component as a last-component in the Solrconfig. 
 
-    <requestHandler name="dismax" class="no.finntech.search.solr.searchhandler.SearchHandler" default="true">
+    <requestHandler name="dismax" class="no.finntech.search.Solr.searchhandler.SearchHandler" default="true">
         ..
         ..
         <arr name="last-components">
@@ -70,7 +70,7 @@ We want the search from the default QueryComponent to run before the Personaliza
     </requestHandler>
 
 
-### SearchComponent.prepare:
+### SearchComponent.prepare
 
 The prepare step are evaluating and setting the search parameters count, offset and score. 
 
@@ -113,9 +113,9 @@ Setting the flag which makes the QueryComponent calculate scores:
     }
 
 
-### SearchComponent.process:
+### SearchComponent.process
 
-In the process step, the recommendation scores are fetched, and the final sorting of the search result are set based on SOLR- and recommendations scores.
+In the process step, the recommendation scores are fetched, and the final sorting of the search result are set based on Solr- and recommendations scores.
 
     @Override
     public void process(ResponseBuilder rb) throws IOException {
@@ -169,13 +169,13 @@ As in the prepare step, we start the process step by escaping non-personalizatio
        return;
     }
 
-The QueryComponent runs it’s process step before the PersonalizationComponent's process, and creates a doclist containing the search results, with lucene document ids and scores.
+The QueryComponent runs its process step before the PersonalizationComponent's process, and creates a doclist containing the search results, with lucene document ids and scores.
 
     final DocList initialSearchResult = rb.getResults().docList;
     List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult);
 
-Note that Lucene document id is not the same as SOLR document id. 
-Next, to get the SOLR document ids, which we will use for recommendation scores, we need to do a index lookup per document. ```searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
+Note that Lucene document id is not the same as Solr document id. 
+Next, to get the Solr document ids, which we will use for recommendation scores, we need to do a index lookup per document. ```searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
 In FINN.no’s case we have a relatively small index (up to 1,3 million documents / 4GB), so it should be mostly memory lookups.
 
     private static List<ScoredAd> getInitialSearchDocs(ResponseBuilder rb, int reRankNum, DocList initialSearchResult) throws IOException {
@@ -198,10 +198,10 @@ Next we use the recommendation api to get a personalization score for each docum
 Our api takes the following parameters:
 - UserId
 - RecommenderId
-- List of AdIds (SOLR document ids)
+- List of AdIds (Solr document ids)
 - MaxRows
 
-And returns a list of adIds with recommendation score. ScoredAd now contains both the SOLR- and the recommendation-score. These are further used for sorting the search results: ```total score = normalized solr score + (normalized recommendation score * recommendation score weight)```
+And returns a list of adIds with recommendation score. ScoredAd now contains both the Solr- and the recommendation-score. These are further used for sorting the search results: ```total score = normalized Solr score + (normalized recommendation score * recommendation score weight)```
 
     final Map<String, ScoredAd> recommendedItems = getRecommendedItems(userId, recommenderId, reRankNum, results);
     
@@ -284,10 +284,10 @@ After testing the personalization search for around 3-4 months, we experienced a
 ## Summary
 The personalization search makes our search slightly better for the our users in FINN.no.
 But it does indeed costs more in terms of latency. Here we hope to be able to increase the performance a bit. There are several possibilities:
-- cache recommendation matrices within the solr servers, to avoid network overhead
-- find a better way to get the SOLR document ids
+- cache recommendation matrices within the Solr servers, to avoid network overhead
+- find a better way to get the Solr document ids
 - hardware resource tuning
-- learning to rank feature in SOLR
+- learning to rank feature in Solr
 - ...and so on
 
 We will still tune our recommendations algorithms and the plugin to get our results even better. 
@@ -297,5 +297,5 @@ Code for the plugin:
 [Plugin code](/images/2018-04-10-personalized-search/PersonalizationComponent.java)
 
 #### Comments
-There are some pain points when developing a SOLR plugin -> the documentation are incomplete, so a lot of debugging the SOLR components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
-I have also been reading a lot of the SOLR source code, looking for how to solve this problem.
+There are some pain points when developing a Solr plugin -> the documentation are incomplete, so a lot of debugging the Solr components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
+I have also been reading a lot of the Solr source code, looking for how to solve this problem.
