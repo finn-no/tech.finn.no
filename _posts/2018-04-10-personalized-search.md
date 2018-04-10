@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2018-04-09 13:00:00+0100
+date: 2018-04-10 08:00:00+0200
 authors: Henrik Falch
 title: "Personalized search with a custom SOLR plugin"
 tags:
@@ -17,7 +17,7 @@ tags:
 On [FINN.no](https://www.finn.no) people can search for classified ads, where the backend system is using SOLR as the search engine. Default sorting on the vertical "torget" is by relevancy, which is based on SOLR score. The SOLR score for a document is again calculated from query relevance and the ad's published date. Here is an example searching for the word chair:
 
 <figure>
-    <img class="center-block" src="/images/2018-04-09-personalized-search/example_without_personalization2.png" alt="alt" title="Non-personalized search" />
+    <img class="center-block" src="/images/2018-04-10-personalized-search/example_without_personalization2.png" alt="alt" title="Non-personalized search" />
     <figcaption style="text-align:center; font-style:italic;">Non-personalized search</figcaption>
 </figure>
  
@@ -243,7 +243,7 @@ We will also look at the response times:
 Response times for 95th percentile. Default search is searches without any custom plugins, distribution search is the actual search we are trying to replace with personalization search. The actual timings in the 95th percentile doubles from 225ms to 450ms. While the basic search takes around 80ms.
 
 <figure>
-    <img class="center-block" src="/images/2018-04-09-personalized-search/95th_percentile_latency.png" alt="alt" title="95th percentile latency" />
+    <img class="center-block" src="/images/2018-04-10-personalized-search/95th_percentile_latency.png" alt="alt" title="95th percentile latency" />
     <figcaption style="text-align:center; font-style:italic;">95th percentile latency</figcaption>
 </figure>
 
@@ -252,7 +252,7 @@ Lets also look at the 99th percentile for response time. We here removed the def
 The personalization search’s 99th percentile is between 60 to 100 ms slower than the search to be replaced.
 
 <figure>
-    <img class="center-block" src="/images/2018-04-09-personalized-search/99th_percentile_latency.png" alt="alt" title="99th percentile latency" />
+    <img class="center-block" src="/images/2018-04-10-personalized-search/99th_percentile_latency.png" alt="alt" title="99th percentile latency" />
     <figcaption style="text-align:center; font-style:italic;">99th percentile latency</figcaption>
 </figure>
 
@@ -261,12 +261,12 @@ The personalization search’s 99th percentile is between 60 to 100 ms slower th
 Here is a couple of examples of different user doing the same search at the same time, which will result in a completely different order of the ads:
 
 <figure>
-    <img class="center-block" src="/images/2018-04-09-personalized-search/example_with_personalized1.png" alt="alt" title="example 1 personalized search" />
+    <img class="center-block" src="/images/2018-04-10-personalized-search/example_with_personalized1.png" alt="alt" title="example 1 personalized search" />
     <figcaption style="text-align:center; font-style:italic;">Personalized search with a user interested in antiques</figcaption>
 </figure>
 
 <figure>
-    <img class="center-block" src="/images/2018-04-09-personalized-search/example_with_personalized2.png" alt="alt" title="example 2 personalized search" />
+    <img class="center-block" src="/images/2018-04-10-personalized-search/example_with_personalized2.png" alt="alt" title="example 2 personalized search" />
     <figcaption style="text-align:center; font-style:italic;">Personalized search with a user interested in furnitures for children</figcaption>
 </figure>
 
@@ -294,7 +294,7 @@ We will still tune our recommendations algorithms and the plugin to get our resu
 As of April 2018, all users of the “torget” search gets the recommendation search.<br>
 
 Code for the plugin:
-[Plugin code](/images/2018-04-09-personalized-search/PersonalizationComponent.java)
+[Plugin code](/images/2018-04-10-personalized-search/PersonalizationComponent.java)
 
 #### Comments
 There are some pain points when developing a SOLR plugin -> the documentation are incomplete, so a lot of debugging the SOLR components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
