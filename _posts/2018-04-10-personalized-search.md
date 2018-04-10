@@ -194,8 +194,8 @@ List<ScoredAd> results = getInitialSearchDocs(rb, reRankNum, initialSearchResult
 ```
 
 Note that Lucene document id is not the same as Solr document id. 
-Next, to get the Solr document ids, which we will use for recommendation scores, we need to do a index lookup per document. ```java searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
-In FINN.no's case we have a relatively small index (up to 1,3 million documents / 4GB), so it should be mostly memory lookups.
+Next, to get the Solr document ids, which we will use for recommendation scores, we need to do a index/document cache lookup per document. ```java searcher.doc(luceneDocumentId, <Set of fields to obtain>)``` is one of the more costly operations in this plugin. 
+In FINN.no's case we have a relatively small index (up to 1,3 million documents / 4GB), we should be able to tune the document cache, which at te moment has a bad hit rate.
 
 ```java
 private static List<ScoredAd> getInitialSearchDocs(ResponseBuilder rb, 
@@ -335,6 +335,7 @@ To understand what kind of data is populated in each of the SearchComponent's st
 
 The personalization search makes our search better for the our users in FINN.no.
 But it does indeed costs more in terms of latency. Here we hope to be able to increase the performance a bit. There are several possibilities:
+- tune the document cache
 - cache recommendation matrices within the Solr servers, to avoid network overhead
 - find a better way to get the Solr document ids
 - hardware resource tuning
