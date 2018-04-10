@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-date: 2017-04-09 13:00:00+0100
+date: 2018-04-10 08:00:00+0100
 authors: Henrik Falch
 title: "Personalized search with a custom SOLR plugin"
 tags:
