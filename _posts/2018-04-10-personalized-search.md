@@ -18,7 +18,7 @@ On [FINN.no](https://www.finn.no) people can search for classified ads, where th
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/example_without_personalization2.png" alt="alt" title="Non-personalized search" />
-    <figcaption style="text-align:center; font-style:italic;">Non-personalized search</figcaption>
+    <figcaption style="text-align:right; font-style:italic;">Non-personalized search</figcaption>
 </figure>
  
 The first and third ad are bought positions, while the rest are sorted by published time and the importance of the word chair (Norwegian: stol).<br>
@@ -34,7 +34,7 @@ We evaluated a few different solutions, mainly:
 - custom Solr plugin using the existing recommendations api
 
 Since we already had a system for recommendations, and awesome data scientists tuning the algorithms and so on, we chose to test the latter. 
-A uncertainty was if we could get the response times needed for a search.
+An uncertainty was if we could get the response times needed for a search.
 
 ### Solr SearchComponent
 A Solr search component contains several phases used by the search handler. As we do not use sharded indices for the search we wanted to test, these are the important phases:
@@ -280,11 +280,14 @@ private static void addToResponse(ResponseBuilder rb,
 ## Response times
 We will also look at the response times:
 
-Response times for 95th percentile. Default search is searches without any custom plugins, distribution search is the actual search we are trying to replace with personalization search. The actual timings in the 95th percentile doubles from 225ms to 450ms. While the basic search takes around 80ms.
+Response times for 95th percentile. Default search is search without any custom plugins, distribution search is the actual search we are trying to replace with personalization search. 
+Distribution search is a search where every xth (typically every 4th) document is a professional seller ad, 
+this is performed by doing one search for professional sellers and one for non-professional sellers, and merge them together by adding a professional ad for every xth position.
+The actual timings in the 95th percentile doubles from 225ms to 450ms. While the basic search takes around 80ms.
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/95th_percentile_latency.png" alt="alt" title="95th percentile latency" />
-    <figcaption style="text-align:center; font-style:italic;">95th percentile latency</figcaption>
+    <figcaption style="text-align:right; font-style:italic;">95th percentile latency</figcaption>
 </figure>
 
 
@@ -293,7 +296,7 @@ The personalization search's 99th percentile is between 60 to 100 ms slower than
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/99th_percentile_latency.png" alt="alt" title="99th percentile latency" />
-    <figcaption style="text-align:center; font-style:italic;">99th percentile latency</figcaption>
+    <figcaption style="text-align:right; font-style:italic;">99th percentile latency</figcaption>
 </figure>
 
 ## Search examples
@@ -302,12 +305,12 @@ Here is a couple of examples of different user doing the same search at the same
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/example_with_personalized1.png" alt="alt" title="example 1 personalized search" />
-    <figcaption style="text-align:center; font-style:italic;">Personalized search with a user interested in antiques</figcaption>
+    <figcaption style="text-align:right; font-style:italic;">Personalized search with a user interested in antiques</figcaption>
 </figure>
 
 <figure>
     <img class="center-block" src="/images/2018-04-10-personalized-search/example_with_personalized2.png" alt="alt" title="example 2 personalized search" />
-    <figcaption style="text-align:center; font-style:italic;">Personalized search with a user interested in furnitures for children</figcaption>
+    <figcaption style="text-align:right; font-style:italic;">Personalized search with a user interested in furnitures for children</figcaption>
 </figure>
 
 We are now doing a personalization search for the 5 first pages of the search results. 
@@ -316,7 +319,7 @@ Published dates and the query relevance decides which subset of the search resul
 
 ## Product results
 After testing the personalization search for around 3-4 months, we experienced around 2% better results for the some of the most important product KPIs for search:
-- Shorter time, in term of seconds, from start of search to clicking a search result
+- Shorter time, from start of search to clicking a search result
 - More user sessions with clicking a search result
 - Overall more contacting the sellers
 
@@ -337,5 +340,5 @@ Code for the plugin:
 [Plugin code](/images/2018-04-10-personalized-search/PersonalizationComponent.java)
 
 #### Comments
-There are some pain points when developing a Solr plugin -> the documentation are incomplete, so a lot of debugging the Solr components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
+There are some pain points when developing a Solr plugin -> the documentation is incomplete, so a lot of debugging the Solr components was needed to understand what kind of data is populated in a given step by the default SearchComponents. 
 I have also been reading a lot of the Solr source code, looking for how to solve this problem.
