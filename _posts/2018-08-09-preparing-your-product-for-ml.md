@@ -31,11 +31,11 @@ but it’s easy to forget this when we have tools like Google that can find and 
 According to a Kaggle survey from 2017, [“dirty data” is the biggest problem faced by machine learning practitioners](https://www.theverge.com/2017/11/1/16589246/machine-learning-data-science-dirty-data-kaggle-survey-2017).
 This means data being unstructured in some form, either by being severely skewed in one direction or the other, being
 full of holes (only subsets of users even have a given feature), or data that has to go through processing before
-actually becoming a usable feature. So making sure that this friction is minimized is important later for the progress
+actually becoming a usable feature. Making sure that this friction is minimized is important later for the progress
 of machine learning functionality, but it also enables teams to make more use of heuristics right away if the data
 is better structured.
 
-Now, on to what's important to think about when tracking data or saving user information.
+So, what's important to keep in mind when tracking or saving user information that you plan on using to predict their behavior?
 
 ### Is the data numerical?
 Again, this cannot be understated, **computers like numbers**. So if at all possible, allow users to input data such as:
