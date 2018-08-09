@@ -131,5 +131,6 @@ I recommend checking out [Rules of ML by Google authors](https://developers.goog
 and/or [Why you need to improve your training data by Pete Warden](https://petewarden.com/2018/05/28/why-you-need-to-improve-your-training-data-and-how-to-do-it/).
 Facebook even dedicated a purely to data to it in [their new machine learning field guide](https://research.fb.com/the-facebook-field-guide-to-machine-learning-video-series/).
 
-Thanks to Thorkild Stray and Simen Eide for reviewing earlier drafts of the post, and providing feedback!
+Also, if you're interested in machine learning and programming, I usually tweet whatever interesting stuff I stumble upon at [@JoakimRi](https://twitter.com/JoakimRi).
 
+Thanks to [Thorkild Stray](https://twitter.com/thorkilds) and [Simen Eide](https://twitter.com/simeneide) for reviewing earlier drafts of the post, and providing feedback!
