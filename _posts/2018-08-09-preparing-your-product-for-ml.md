@@ -35,9 +35,7 @@ actually becoming a usable feature. So making sure that this friction is minimiz
 of machine learning functionality, but it also enables teams to make more use of heuristics right away if the data
 is better structured.
 
-
-Some things to consider when choosing what data to save in your database, or track about the user:
-## How to shape your data
+Now, on to what's important to think about when tracking data or saving user information.
 
 ### Is the data numerical?
 Again, this cannot be understated, **computers like numbers**. So if at all possible, allow users to input data such as:
