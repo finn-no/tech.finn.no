@@ -25,7 +25,7 @@ Now Docker is important, because of the cloud infrastructure in FINN; any techno
 ### Experiences
 So what are the downsides to using Haskell? Well - there is really only one. We have to have a certain amount of developers, at least in our team, know Haskell. We meet this challenge in three ways. Firstly by doing a Haskell course internally at FINN. 21 of our developers have signed up for an [Introductory Haskell Course from the University of Glasgow](https://www.futurelearn.com/courses/functional-programming-haskell/), secondly we cheated a little by simply recruiting another Haskell developer. And lastly, we will put some effort into the [Oslo Haskell Meetup group](https://www.meetup.com/Oslo-Haskell/), hopefully spawning even more Haskellers.
 
-Really? No more downsides? Well, it should be mentioned that our build-times on Travis CI are not super-awesome-great. We are currently looking at 8-9 minutes for a complete build (including integration tests). But we can live with this.
+Really? No more downsides? Well, it should be mentioned that our build-times on Travis CI (self-hosted) are not super-awesome-great. We are currently looking at 8-9 minutes for a complete build (including integration tests). The Stack build tool uses Docker for every task, and some times needs to pull a new version of an image. This hurts build times, but we can live with this as it gives us benefits in terms of isolation.
 
 As for performance, the [Warp web server](https://hackage.haskell.org/package/warp) is doing an excellent job of spawning lightweight threads and keeping CPU and memory usage low. An indication of memory and CPU usage is given below. Note that the old API still have way more traffic, so a direct comparison is very unfair!
 
