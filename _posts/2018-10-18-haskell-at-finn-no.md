@@ -10,7 +10,7 @@ tags:
 ---
 
 ### Favorites
-FINN has this feature where users can mark classified ads as a favorite, making it easy to come back to certain ads later. The feature has been a round quite a while, and the systems involved, both frontend and backend were becoming quite hard to maintain. So the AdView-team set out to redesign the whole stack. This blog post will focus on the backend API which is written in Haskell.
+FINN has this feature where users can mark classified ads as a favorite, making it easy to come back to certain ads later. The feature has been around quite a while, and the systems involved, both frontend and backend were becoming quite hard to maintain. So the AdView-team set out to redesign the whole stack. This blog post will focus on the backend API, which is written in Haskell.
 
 ### Haskell
 Haskell is a purely functional programming language, with a powerful type system. The ability to express intent using types brings correctness, and the composition of a large program as small, independent building blocks makes it easy to reason about the code.
