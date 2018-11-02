@@ -10,7 +10,7 @@ tags:
 ---
 
 ### Favorites
-FINN has this feature where users can mark classified ads as a favorite, making it easy to come back to certain ads later. The feature has been a round quite a while, and the systems involved, both frontend and backend were becoming quite hard to maintain. So the AdView-team set out to redesign the whole stack. This blog post will focus on the backend API which is written in Haskell.
+FINN has this feature where users can mark classified ads as a favorite, making it easy to come back to certain ads later. The feature has been around quite a while, and the systems involved, both frontend and backend were becoming quite hard to maintain. So the AdView-team set out to redesign the whole stack. This blog post will focus on the backend API, which is written in Haskell.
 
 ### Haskell
 Haskell is a purely functional programming language, with a powerful type system. The ability to express intent using types brings correctness, and the composition of a large program as small, independent building blocks makes it easy to reason about the code.
@@ -31,7 +31,7 @@ As for performance, the [Warp web server](https://hackage.haskell.org/package/wa
 
 <figure>
     <img class="center-block" src="/images/2018-10-18-haskell-at-finn-no/performance.png" alt="haskell performance as seen by kubernetes" title="haskell performance as seen by kubernetes" />
-    <figcaption style="text-align:right; font-style:italic;"><strong>favorite-api</strong> is the new API (Haskell).<br /><strong>classified-favorite-management-server</strong> is the old API (Java, hence the long name).<br />You can barely see the <strong>32 MB</strong> memory footprint by the new API in the graphs!</figcaption>
+    <figcaption style="text-align:right; font-style:italic;"><strong>favorite-api</strong> is the new API (Haskell).<br /><strong>classified-favorite-management-server</strong> is the old API (Java, hence the long name).<br />You can barely see the <strong>32 MB</strong> memory footprint of the new API in the graphs!</figcaption>
 </figure>
 
 ### Check it out
