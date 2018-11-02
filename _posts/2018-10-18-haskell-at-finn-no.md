@@ -31,7 +31,7 @@ As for performance, the [Warp web server](https://hackage.haskell.org/package/wa
 
 <figure>
     <img class="center-block" src="/images/2018-10-18-haskell-at-finn-no/performance.png" alt="haskell performance as seen by kubernetes" title="haskell performance as seen by kubernetes" />
-    <figcaption style="text-align:right; font-style:italic;"><strong>favorite-api</strong> is the new API (Haskell).<br /><strong>classified-favorite-management-server</strong> is the old API (Java, hence the long name).<br />You can barely see the <strong>32 MB</strong> memory footprint by the new API in the graphs!</figcaption>
+    <figcaption style="text-align:right; font-style:italic;"><strong>favorite-api</strong> is the new API (Haskell).<br /><strong>classified-favorite-management-server</strong> is the old API (Java, hence the long name).<br />You can barely see the <strong>32 MB</strong> memory footprint of the new API in the graphs!</figcaption>
 </figure>
 
 ### Check it out
