@@ -9,7 +9,7 @@ layout: page
 {% assign sorted_tags = tags | split: '|' | sort %}
 
 {% for tag in sorted_tags %}
-<h3> {{ tag }} </h3>
+<h3><a style="color: inherit; text-decoration: none;" name="{{ tag }}">{{ tag }}</a></h3>
 
 <ul>
     {% for post in site.tags[tag] %}
