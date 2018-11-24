@@ -40,7 +40,7 @@ Reinventing the wheel is generally a bad idea. With that in mind, Schibsted has 
 \- When working in FINN, it's easy to forget that you are part of a bigger company. I see that clearly now, the global perspective. It's inspiring to know that I am a part of a global company.
 
 ## Epilogue
-Øyvind spent 6 months in Barcelona and came home with lots of new knowledge, new friends and a Messi-shirt. He contributed in building global components and believes FC Barcelona will win Champions League again this season. The migration of the FINN-messaging platform went off without a hitch and we are still [looking for great developers](https://hjemmehos.finn.no/no/jobbe_her+/)!
+Øyvind spent 6 months in Barcelona and came home with lots of new knowledge, new friends and a Messi-shirt. He contributed in building global components and believes FC Barcelona will win Champions League again this season. The migration of the FINN-messaging platform went off without a hitch and we are still [looking for great developers](https://finn.no/apply-here)!
 
 
 
