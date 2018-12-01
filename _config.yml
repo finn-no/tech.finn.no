@@ -28,3 +28,4 @@ gems:
   - jemoji
   - jekyll-mentions
   - jekyll-paginate
+  - jekyll-feed
