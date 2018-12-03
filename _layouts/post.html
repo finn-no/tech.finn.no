@@ -13,7 +13,7 @@ layout: default
                     {{ content }}
                     Tags:
                     {% for tag in page.tags %}
-                    <a href="{{ site.baseurl | relative_url }}tags#{{ tag }}" data-proofer-ignore>{{ tag }}</a>
+                    <a href="{{ site.url }}/tags#{{ tag }}" data-proofer-ignore>{{ tag }}</a>
                     {% endfor %}
                 </div>
             </article>
