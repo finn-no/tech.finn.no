@@ -21,7 +21,7 @@ The plugin is published on github @ [Finn Technology's account](https://github.c
 ## Usage examples
 
 Dependencies to current maven project:
-`
+```
 mvn no.finntech:dependency-mapper-maven-plugin:read
 [INFO] Scanning for projects...
 [INFO]
@@ -48,7 +48,7 @@ mvn no.finntech:dependency-mapper-maven-plugin:read
 [INFO] Finished at: Thu Jan 31 09:50:19 CET 2013
 [INFO] Final Memory: 9M/211M
 [INFO] ------------------------------------------------------------------------
-`
+```
 
 Usage of third party framework (using neo4j's included admin interface):
 ![Noe4jshot](/images/2013-01-31-i-wish-i-knew-my-consumers-maven-reverse-dependency/neo4jshot.png)

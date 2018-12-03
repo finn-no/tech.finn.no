@@ -5,7 +5,7 @@ layout: default
     <div class="inner">
         <div class="bd">
             <article>
-                <a href="{{ page.url }}"><h1>{{ page.title }}</h1></a>
+                <a href="{{ page.url | relative_url }}"><h1>{{ page.title }}</h1></a>
 
                 <p class="neutral">{% include byline.html date=page.date authors=page.authors path=page.path %}</p>
 
@@ -13,7 +13,7 @@ layout: default
                     {{ content }}
                     Tags:
                     {% for tag in page.tags %}
-                    <a href="{{ site.baseurl }}tags/">{{ tag }}</a>
+                    <a href="{{ site.baseurl | relative_url }}tags#{{ tag }}" data-proofer-ignore>{{ tag }}</a>
                     {% endfor %}
                 </div>
             </article>
