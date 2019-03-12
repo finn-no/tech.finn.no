@@ -4,6 +4,8 @@ comments: true
 date: 2018-06-28 10:00:00+0200
 authors: Vegard Storstad
 title: "5 learnings from Hack Days in FINN"
+redirect_to:
+- https://medium.com/finn-no/5-learnings-from-hack-days-in-finn-e28e4c78273b
 tags:
 - Hack Days
 ---

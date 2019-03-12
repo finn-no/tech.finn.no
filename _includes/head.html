@@ -1,6 +1,10 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    {% if page.url == "/" %}
+    <link rel="canonical" href="https://medium.com/finn-no"/>
+    <meta http-equiv="refresh" content="0;url=https://medium.com/finn-no" />
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="fb:app_id" content="414888995331034" />
     <meta property="og:title" content="{{ page.title }}" />
