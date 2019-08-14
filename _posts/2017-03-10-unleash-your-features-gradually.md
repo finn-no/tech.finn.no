@@ -121,6 +121,9 @@ Currently [Ivar](https://github.com/ivarconr), [Sveinung](https://github.com/sve
 ### Unleash as SaaS
 Currently you have to host your own instance of the API and the UI in order to use Unleash. This includes setting up a database and running a node application in production. We believe it could greatly improve adoption if Unleash was provided as a software as a service (SaaS). It would of course require us to add some access control, but this is something we have on the roadmap anyway. This might require us to charge the users of Unleash for a monthly cost and spend that money on hosting and new development. 
 
+**Update April 2019**
+We finally did this and you can now check out our SaaS offering called Unleash-Hosted at [https://www.unleash-hosted.com](https://www.unleash-hosted.com/)!
+
 ### “AND Strategies”
 Unleash 2.0 added support for multiple strategies. This was a huge improvement! But it is implemented as a simple array where all the strategies are “OR”-ed in order to determine if a feature should be enabled. We believe we could improve this by adding support for required strategies. This would make it possible to combine strategies more freely to create new segmented roll-out groups. For example, this would make it trivial to only gradually roll out a feature toggle to our beta users. 
 
