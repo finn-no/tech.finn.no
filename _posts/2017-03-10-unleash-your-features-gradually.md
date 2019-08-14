@@ -15,6 +15,8 @@ tags:
 
 We will also present [Unleash, an open source framework](https://github.com/Unleash/unleash) we created to support feature toggles at an enterprise scale. Unleash allows us to enable features for specific users via the activation strategies concept. Unleash is already set up and in use by multiple teams within Schibsted, including FINN, SPT Payment, and Knocker. 
 
+**Unleash is now also available as a Software-as-a-Service offering, making it much easier for anyone to adopt. Check it out at [unleash-hosted.com](https://www.unleash-hosted.com/)**
+
 <img class="center-block" src="/images/2017-03-10-unleash-your-features-gradually/1-finn-releases.png" alt="alt" title="Number of production deploys in “week 50” in recent years" />
 <center><i>Number of production deploys in “week 50”</i></center>
 
