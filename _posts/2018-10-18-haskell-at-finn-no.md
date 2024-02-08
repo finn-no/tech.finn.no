@@ -2,7 +2,7 @@
 layout: post
 comments: true
 date: 2018-10-18 11:00:00+0200
-authors: Sjur Millidahl
+authors: Ahmed Alwardani
 title: "Haskell at FINN.no"
 tags:
 - Haskell
